@@ -151,6 +151,16 @@ La multiplication par \(3^N\) est bijective dans cet anneau ; pour \(N\ge1\),
 \(C_N\) est impair, donc la classe du départ est impaire. En remontant
 la correction ou en utilisant les blocs de parité et le bit terminal,
 on retrouve à chaque étape une valuation **exactement** égale à \(a_i\).
+
+Plus explicitement, pour \(i<N\),
+\(C_N=3^{N-i}C_i+3^{N-i-1}2^{S_i}+R_i\), où
+\(2^{S_i+1}\mid R_i\). La congruence finale, réduite modulo
+\(2^{S_i+1}\), et l'inversibilité de 3 donnent
+\(3^in_0+C_i\equiv-3^{-1}2^{S_i}\equiv2^{S_i}\pmod{2^{S_i+1}}\).
+Pour \(i=N\), c'est l'hypothèse elle-même. Ainsi chaque
+\(n_i=(3^in_0+C_i)/2^{S_i}\) est entier positif impair, et la récurrence
+\(2^{a_i}n_i=3n_{i-1}+1\) force la valuation exacte prescrite.
+
 La classe contient donc une infinité de départs positifs ; la condition
 de ne pas être divisible par 3 se rajoute par le théorème chinois.
 

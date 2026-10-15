@@ -222,3 +222,22 @@ token est requis. L'authentification Git HTTPS existante est utilisée pour
 la publication de la branche. La création effective d'une PR ne sera
 annoncée que si elle est confirmée ; l'ajout de domaine reste à revoir,
 enregistrer et publier dans les paramètres si nécessaire.
+
+### Livraison GitHub confirmée
+
+Le commit d'audit initial `5f9fc143479c34bd882a30293110c13ef8e1b43a`
+a été créé et poussé avec `git push -u origin audit/experience-36`.
+`git ls-remote origin refs/heads/audit/experience-36` a confirmé le même SHA.
+Le présent complément documentaire est destiné à la même branche, sans
+fusion dans `main` et sans modification du dépôt externe.
+
+La tentative effective `gh pr create --repo hsirven1/syracuse_search
+--base main --head audit/experience-36 --title … --body-file …` a échoué :
+`Post "https://api.github.com/graphql": Forbidden`. **Aucune PR créée
+n'est confirmée.** GitHub a fourni le lien manuel :
+https://github.com/hsirven1/syracuse_search/pull/new/audit/experience-36
+
+Rapport publié sur la branche :
+https://github.com/hsirven1/syracuse_search/blob/audit/experience-36/audit_collatz/RAPPORT.md
+La première livraison comporte environ 162 ko de fichiers utiles, sans
+archives, caches de dépendances ou journaux volumineux de téléchargement.
