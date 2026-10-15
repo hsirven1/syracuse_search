@@ -1,0 +1,30 @@
+test_finite_prefix_factor_floor (test_parity_complexity.ParityComplexityControls.test_finite_prefix_factor_floor) ... ok
+test_global_factors_for_resolved_controls (test_parity_complexity.ParityComplexityControls.test_global_factors_for_resolved_controls) ... ok
+test_both_lean_output_formats (test_theorem_audit.AxiomParserTests.test_both_lean_output_formats) ... ok
+test_missing_or_error_output_is_not_certified (test_theorem_audit.AxiomParserTests.test_missing_or_error_output_is_not_certified) ... ok
+test_acceptance_matches_exhaustive_attainable_sets (test_correction_decode.CorrectionDecodeControls.test_acceptance_matches_exhaustive_attainable_sets) ... ok
+test_actual_and_artificial_paradoxical_data (test_correction_decode.CorrectionDecodeControls.test_actual_and_artificial_paradoxical_data) ... ok
+test_roundtrip_all_words (test_correction_decode.CorrectionDecodeControls.test_roundtrip_all_words) ... ok
+test_all_short_suffix_envelopes (test_paradoxical_pruned.PruningControls.test_all_short_suffix_envelopes) ... ok
+test_artificial_closing_correction (test_paradoxical_pruned.PruningControls.test_artificial_closing_correction) ... ok
+test_direct_resolution_preserves_all_segments (test_paradoxical_pruned.PruningControls.test_direct_resolution_preserves_all_segments) ... ok
+test_fixed_prefix_envelopes_eventually_survive (test_paradoxical_pruned.PruningControls.test_fixed_prefix_envelopes_eventually_survive) ... ok
+test_joint_congruence_against_direct_orbits (test_paradoxical_pruned.PruningControls.test_joint_congruence_against_direct_orbits) ... ok
+test_jump_composition_matches_direct_iteration (test_paradoxical_pruned.PruningControls.test_jump_composition_matches_direct_iteration) ... ok
+test_matches_exhaustive_search (test_paradoxical_pruned.PruningControls.test_matches_exhaustive_search) ... ok
+test_maximal_count_matches_all_count_oracle (test_paradoxical_pruned.PruningControls.test_maximal_count_matches_all_count_oracle) ... ok
+test_recorded_65_matches_independent_small_scan (test_paradoxical_pruned.PruningControls.test_recorded_65_matches_independent_small_scan) ... ok
+test_work_limit_cannot_claim_completeness (test_paradoxical_pruned.PruningControls.test_work_limit_cannot_claim_completeness) ... ok
+test_coalescence_and_time_multiplicity_matter (test_orbit_packing.OrbitPackingControls.test_coalescence_and_time_multiplicity_matter) ... ok
+test_full_residue_images (test_orbit_packing.OrbitPackingControls.test_full_residue_images) ... ok
+test_geometric_shell_majorant (test_orbit_packing.OrbitPackingControls.test_geometric_shell_majorant) ... ok
+test_finite_geometric_lower_bound (test_ideal_barrier.IdealBarrierControls.test_finite_geometric_lower_bound) ... ok
+test_strict_certificate_after_first_even (test_ideal_barrier.IdealBarrierControls.test_strict_certificate_after_first_even) ... ok
+test_cap_is_not_reported_as_completion (test_nc_collision_search.NCCollisionTests.test_cap_is_not_reported_as_completion) ... ok
+test_different_counts_do_collide (test_nc_collision_search.NCCollisionTests.test_different_counts_do_collide) ... ok
+test_layers_match_direct_orbits (test_nc_collision_search.NCCollisionTests.test_layers_match_direct_orbits) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.213s
+
+OK

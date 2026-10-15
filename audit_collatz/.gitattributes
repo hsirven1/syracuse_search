@@ -1,0 +1,2 @@
+# Preserve the uploaded CSV bytes, including their original CRLF endings.
+experience36_source/*.csv -text whitespace=cr-at-eol

@@ -1,0 +1,26 @@
+{
+  "upstream_commit": "ec8174b567d5cab4960024782210b5f5db02bd3a",
+  "upstream_sources_unchanged": true,
+  "upstream_declarations_requeried": 39,
+  "local_lean_lemmas": 3,
+  "standard_foundations_only": true,
+  "inputs_sha256": {
+    "EXPERIENCE_36_RAPPORT.md": "9b0297d794aa33720520043bcff2cc0979a66e71551597640e642c2f39951c1a",
+    "README.md": "f13e337d8cbadcdfe4fd3f4bb736eacb6ec1070cb5eaa60e8befe6682e4e6a7c",
+    "critical_prefixes.csv": "2b0abe9cd646f1517da0d174135bab924766fcafa3127afdc151f8be984d041b",
+    "results.json": "f36f3d57ab91aa2fc59bd2ead9f26d300e0f9d8693a01c89b2b5c2386bf9b5e0",
+    "shadow_height.csv": "391f196001f8a023c9f9544a90887be5781aedd17be86ada90de2b5ea1242b69",
+    "shadow_height.py": "9e283e38c9f60d0061e377168cbaff73912dab12dd793eba625c917e6ad64bc3",
+    "test_oscillations.py": "0284bec54829bb6a9887ab2af9c9a1af0d7aba87a126e26ba72493d6d6e81023",
+    "verify_dual_residues.py": "1d5d63f1e20b29336cc8d94ec426aaff63fea94365f530ac2ed54eb60075ac94"
+  },
+  "zip_sha256": "864043d77c6f5ce2c19b322f7bf8c265ad7065b741c02a9c78bb7d4044e1239d",
+  "archive_scripts_replayed_exit_codes": {
+    "verify_dual_residues.py": 0,
+    "shadow_height.py": 0,
+    "test_oscillations.py": 0
+  },
+  "independent_suite_exit_code": 0,
+  "local_lean_exit_code": 0,
+  "upstream_queries_exit_code": 0
+}

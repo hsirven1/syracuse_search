@@ -1,0 +1,23 @@
+test_actual_distinct_prefix_bound (test_residue_correction.ResidueCorrectionControls.test_actual_distinct_prefix_bound) ... ok
+test_eventual_residue_avoidance (test_residue_correction.ResidueCorrectionControls.test_eventual_residue_avoidance) ... ok
+test_rank_product_exact_arithmetic (test_residue_correction.ResidueCorrectionControls.test_rank_product_exact_arithmetic) ... ok
+test_actual_eligible_prefixes (test_sibling_correction.SiblingCorrectionControls.test_actual_eligible_prefixes) ... ok
+test_all_small_pair_free_sets (test_sibling_correction.SiblingCorrectionControls.test_all_small_pair_free_sets) ... ok
+test_comparison_ranks (test_sibling_correction.SiblingCorrectionControls.test_comparison_ranks) ... ok
+test_actual_boundary_seed (test_nc_correction_envelope.EnvelopeTests.test_actual_boundary_seed) ... ok
+test_finite_certificate_and_boundary (test_nc_correction_envelope.EnvelopeTests.test_finite_certificate_and_boundary) ... ok
+test_matches_lean_data (test_nc_correction_envelope.EnvelopeTests.test_matches_lean_data) ... ok
+test_every_residue_matches_direct_iteration (test_paradoxical_cylinders.ParadoxicalControls.test_every_residue_matches_direct_iteration) ... ok
+test_intervals_match_direct_seeds_and_boundaries (test_paradoxical_cylinders.ParadoxicalControls.test_intervals_match_direct_seeds_and_boundaries) ... ok
+test_paper_example_and_no_truncated_subtraction (test_paradoxical_cylinders.ParadoxicalControls.test_paper_example_and_no_truncated_subtraction) ... ok
+test_affine_correction_matches_actual_orbits (test_research_certificates.CertificateTests.test_affine_correction_matches_actual_orbits) ... ok
+test_certificates_do_not_exclude_nonperiodic_actual_tails (test_research_certificates.CertificateTests.test_certificates_do_not_exclude_nonperiodic_actual_tails) ... ok
+test_exact_mechanical_word_and_float_rejection (test_research_certificates.CertificateTests.test_exact_mechanical_word_and_float_rejection) ... ok
+test_mahler_search_replays_known_and_new_finite_candidates (test_research_certificates.CertificateTests.test_mahler_search_replays_known_and_new_finite_candidates) ... ok
+test_survivor_intervals_match_enumeration (test_research_certificates.CertificateTests.test_survivor_intervals_match_enumeration) ... ok
+test_swap_identity (test_research_certificates.CertificateTests.test_swap_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.304s
+
+OK

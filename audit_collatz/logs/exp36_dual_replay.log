@@ -1,0 +1,12 @@
+{
+  "random_words": 390,
+  "mod_3k_checks": 28874,
+  "critical_N": [
+    10,
+    49,
+    100,
+    300,
+    1000
+  ],
+  "verdict": "PASS"
+}

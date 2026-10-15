@@ -1,0 +1,52 @@
+⚠ [7780/7817] Built Collatz.Basic (5.1s)
+warning: Collatz/Basic.lean:291:34: unused variable `hk`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Collatz/Basic.lean:386:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Collatz/Basic.lean:419:47: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [7781/7817] Built Collatz.NoGo (7.2s)
+✔ [7782/7817] Built Collatz.Density (5.5s)
+✔ [7783/7817] Built Collatz.Parity (8.3s)
+✔ [7784/7817] Built Collatz.ResidueMapAudit (9.9s)
+✔ [7785/7817] Built Collatz.Terras (6.9s)
+⚠ [7786/7817] Built Collatz.Cycles (21s)
+warning: Collatz/Cycles.lean:151:35: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [7787/7817] Built Collatz.Shadow (6.8s)
+✔ [7788/7817] Built Collatz.Critical (7.3s)
+⚠ [7789/7817] Built Collatz.Ladder (9.0s)
+warning: Collatz/Ladder.lean:93:9: `le_or_lt` has been deprecated: Use `le_or_gt` instead
+✔ [7790/7817] Built Collatz.WordAffine (9.7s)
+✔ [7791/7817] Built Collatz.Cylinder (10s)
+✔ [7792/7817] Built Collatz.PrefixPower (7.9s)
+✔ [7793/7817] Built Collatz.Ideal (9.8s)
+✔ [7794/7817] Built Collatz.Rung1 (14s)
+✔ [7795/7817] Built Collatz.EndpointCycles (12s)
+✔ [7796/7817] Built Collatz.Paradoxical (11s)
+✔ [7797/7817] Built Collatz.ParityDefects (9.3s)
+✔ [7798/7817] Built Collatz.IdealBounds (8.8s)
+✔ [7799/7817] Built Collatz.ParadoxicalPruning (10s)
+✔ [7800/7817] Built Collatz.WordCongruence (8.0s)
+✔ [7801/7817] Built Collatz.DefectHeight (9.5s)
+✔ [7802/7817] Built Collatz.Sturmian (20s)
+✔ [7803/7817] Built Collatz.Reciprocal (7.3s)
+✔ [7804/7817] Built Collatz.PruningLimit (7.6s)
+✔ [7805/7817] Built Collatz.CorrectionDecode (6.6s)
+✔ [7806/7817] Built Collatz.CorrectionGrowth (8.8s)
+✔ [7807/7817] Built Collatz.IdealBarrier (8.8s)
+✔ [7808/7817] Built Collatz.ParityComplexity (5.5s)
+✔ [7809/7817] Built Collatz.CongruenceRelaxation (14s)
+✔ [7810/7817] Built Collatz.OrbitPacking (6.9s)
+✔ [7811/7817] Built Collatz.MechanicalComplexity (6.7s)
+✔ [7812/7817] Built Collatz.OrbitSummability (5.9s)
+✔ [7813/7817] Built Collatz.MechanicalPeriod (4.8s)
+✔ [7814/7817] Built Collatz.NoncontractingTail (5.9s)
+✔ [7815/7817] Built Collatz.RationalGrid (6.2s)
+✔ [7816/7817] Built Collatz.InverseBarrier (5.3s)
+✔ [7817/7817] Built Collatz.RationalMechanical (6.2s)
+Build completed successfully (7817 jobs).
