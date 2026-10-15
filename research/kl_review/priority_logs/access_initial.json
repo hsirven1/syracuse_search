@@ -1,0 +1,17 @@
+[
+  {
+    "name": "kl2003",
+    "url": "https://scispace.com/pdf/bounds-for-the-3x-1-problem-using-difference-inequalities-56fbm0zt98.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "al1995",
+    "url": "https://community.ams.org/journals/mcom/1995-64-209/S0025-5718-1995-1270613-2/S0025-5718-1995-1270613-2.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "nr2026",
+    "url": "https://www.researchgate.net/publication/412124726_A_Certified_Density_Exponent_for_the_3x_1_Problem_and_the_Smallest_Atom_of_the_Syracuse_Random_Variable",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

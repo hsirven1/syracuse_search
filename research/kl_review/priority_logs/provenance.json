@@ -1,0 +1,33 @@
+{
+  "source_pr": 7,
+  "source_commit": "191ce7e2476143f80962db5aaad15607ba036092",
+  "review_branch": "review/kl-priority-decision",
+  "decision": "ABANDONNER comme projet de nouveauté",
+  "decision_is_not_a_certification_of_the_1995_proof": true,
+  "provided_excerpt_file": "priority_logs/PROVIDED_EXCERPTS.md",
+  "pdf_text_independently_obtained": false,
+  "complete_1995_footnote_obtained": false,
+  "errata_absence_established": false,
+  "NR2026_full_text_read": false,
+  "new_numeric_experiments": 0,
+  "new_lean_compilations": 0,
+  "massive_calculations": 0,
+  "prior_files_unchanged": true,
+  "source_sha256": {
+    "research/kl_review/PRIMARY_SOURCE_PRIORITY.md": "781a9b62c005d6edfd05fa13f73c64f45ee5f309ab22e64435c29c627a1950ae",
+    "research/kl_review/REPORT.md": "5c3396ce4e0bf0dd842099dd8a0f5746d0aa88fe7dfcc01cd980f1a3f5e5550f",
+    "research/kl_review/KLAlgebra.lean": "61575652b5815fc75779c41c9194bbf018a730822756b030ae5742ed60c9ff4c",
+    "research/KL_STRICT_MONOTONICITY_CANDIDATE.md": "fadfd3a8d7a41375d35b47bdcff3303ed3977f2a3a847ae04f6066a9bad6362b"
+  },
+  "pr7_html": {
+    "http_access_succeeded": true,
+    "sha256": "ad6b1e9c4b3659111fb8677b82e1da1b31b2e7755e9957471eddfc35046d9a47",
+    "bytes": 315580
+  },
+  "next_action": "Soumettre la comparaison 1995/2003, passages primaires intégraux joints, à un spécialiste indépendant.",
+  "publication": {
+    "branch_push": "succeeded",
+    "pull_request_creation": "failed: GitHub GraphQL Forbidden",
+    "merged": false
+  }
+}

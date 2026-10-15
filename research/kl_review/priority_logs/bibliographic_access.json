@@ -1,0 +1,27 @@
+[
+  {
+    "label": "AL1995 metadata/relations",
+    "url": "https://api.crossref.org/works/10.1090/S0025-5718-1995-1270613-2",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "label": "KL2003 metadata/relations",
+    "url": "https://api.crossref.org/works/10.4064/aa109-3-4",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "label": "Errata/citations bibliographic query",
+    "url": "https://api.crossref.org/works?query.bibliographic=Applegate%20Lagarias%20Krasikov%20inequalities%20erratum%20correction&rows=5",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "label": "AMS published AL1995",
+    "url": "https://www.ams.org/journals/mcom/1995-64-209/S0025-5718-1995-1270613-2/S0025-5718-1995-1270613-2.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "label": "NR2026 SSRN",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7239062",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]
