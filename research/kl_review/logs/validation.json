@@ -1,0 +1,155 @@
+{
+  "candidate_commit": "0f28b4d5415e041ac738e0714dc7377756a16526",
+  "source_pr": 6,
+  "source_branch": "research/kl-strict-monotonicity-candidate",
+  "verdict": "CONDITIONNEL",
+  "original_KL_paper_checked": false,
+  "Nikpour_Rabbani_2026_checked": false,
+  "candidate_files_unchanged": true,
+  "command_exit_codes": {
+    "candidate_script": 0,
+    "independent_tests": 0,
+    "lean_final": 0
+  },
+  "independent_tests": {
+    "tests_run": 6,
+    "failures": 0,
+    "errors": 0,
+    "counts": {
+      "auxiliary_and_normalization_cases": 1040,
+      "nonempty_proper_eigen_supports_excluded": 516,
+      "branch_index_checks_k2_to_k7": 728,
+      "lift_projection_coefficient_cases": 59370,
+      "feasible_strict_seeds_propagated": 222
+    },
+    "witnesses": {
+      "B_literal_free_c_false": {
+        "k": 2,
+        "lambda": 1,
+        "c": [
+          1,
+          2,
+          1
+        ],
+        "F_c": [
+          "2",
+          "1",
+          "3"
+        ]
+      },
+      "P_requires_upper_level_at_least_3": {
+        "upper_level": 2,
+        "coefficients": [
+          1,
+          1,
+          1
+        ],
+        "minimum_high": 1,
+        "naive_level1": 2
+      },
+      "E_without_cyclic_coupling_false": {
+        "map": "(2*x0,x1)",
+        "v": [
+          1,
+          1
+        ],
+        "iterates": "(2^t,1)"
+      },
+      "one_step_not_strict_everywhere": {
+        "k": 2,
+        "v": [
+          1,
+          1,
+          1
+        ],
+        "first_slack": [
+          "1",
+          "0",
+          "1"
+        ]
+      }
+    },
+    "scope": "finite exact checks of candidate operator; no primary-source equivalence certified"
+  },
+  "lean_axioms": {
+    "KLReview.projection_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.lift_ge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.lift_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.nonconstant_fiber": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.difference_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.strict_after_cycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.summed_strictification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.auxiliary_elimination": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.min3_superadditive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "KLReview.row_propagation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_declaration_lines": {
+    "KLReview.projection_affine": 16,
+    "KLReview.lift_ge": 24,
+    "KLReview.lift_strict": 29,
+    "KLReview.nonconstant_fiber": 34,
+    "KLReview.difference_lower": 101,
+    "KLReview.strict_after_cycle": 117,
+    "KLReview.summed_strictification": 159,
+    "KLReview.auxiliary_elimination": 61,
+    "KLReview.min3_superadditive": 45,
+    "KLReview.row_propagation": 53
+  },
+  "sha256": {
+    "research/KL_STRICT_MONOTONICITY_CANDIDATE.md": "fadfd3a8d7a41375d35b47bdcff3303ed3977f2a3a847ae04f6066a9bad6362b",
+    "research/kl_strict_monotonicity_audit.py": "63d68a33f0627f634d05d5924fab2fa806871e2bffc4a296a8692eb92e0b885f",
+    "research/kl_review/KLAlgebra.lean": "61575652b5815fc75779c41c9194bbf018a730822756b030ae5742ed60c9ff4c",
+    "research/kl_review/independent_checks.py": "49c81169969f4e140c6d6b3ccfe5d958310e2ce6397a0882f144c1d870bf13b5"
+  },
+  "toolchain": "leanprover/lean4:v4.27.0-rc1",
+  "mathlib_commit": "359769ac56adab9784ed43b8809a3ede33c202a9",
+  "massive_build_started": false,
+  "delivery": {
+    "branch": "review/kl-strict-monotonicity",
+    "target_branch": "research/kl-strict-monotonicity-candidate",
+    "push_confirmed": true,
+    "pull_request_created": false,
+    "pull_request_error": "Post https://api.github.com/graphql: Forbidden",
+    "merged": false
+  }
+}

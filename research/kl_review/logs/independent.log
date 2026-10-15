@@ -1,0 +1,11 @@
+test_auxiliary_elimination_and_normalization (__main__.ExactCandidateAudit.test_auxiliary_elimination_and_normalization) ... ok
+test_eigenvector_boundary_supports (__main__.ExactCandidateAudit.test_eigenvector_boundary_supports) ... ok
+test_essential_hypotheses_and_literal_quantifier (__main__.ExactCandidateAudit.test_essential_hypotheses_and_literal_quantifier) ... ok
+test_index_maps_and_cycles (__main__.ExactCandidateAudit.test_index_maps_and_cycles) ... ok
+test_projection_lift_and_endpoint_sum (__main__.ExactCandidateAudit.test_projection_lift_and_endpoint_sum) ... ok
+test_propagation_and_strictification (__main__.ExactCandidateAudit.test_propagation_and_strictification) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 9.167s
+
+OK
