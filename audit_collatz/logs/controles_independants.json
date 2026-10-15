@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "counts": {
+    "affine": 8191,
+    "cylinder_shadow": 32764,
+    "cocycle": 16281,
+    "bijection_mod2": 13,
+    "inverse_obstruction": 1767,
+    "mersenne": 5150,
+    "word_divisibility": 33215,
+    "compression": 13
+  },
+  "scope": "finite exact arithmetic only"
+}

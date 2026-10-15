@@ -1,0 +1,216 @@
+{
+  "commit": "ec8174b567d5cab4960024782210b5f5db02bd3a",
+  "modules": [
+    "Collatz.NoGo",
+    "Collatz.Critical",
+    "Collatz.Shadow",
+    "Collatz.Terras",
+    "Collatz.ParityComplexity",
+    "Collatz.MechanicalComplexity",
+    "Collatz.RationalMechanical",
+    "Collatz.InverseBarrier",
+    "Collatz.NoncontractingTail",
+    "Collatz.PruningLimit",
+    "Collatz.CongruenceRelaxation",
+    "Collatz.WordCongruence",
+    "Collatz.CorrectionDecode",
+    "Collatz.ResidueMapAudit",
+    "Collatz.IdealBarrier",
+    "Collatz.Cylinder"
+  ],
+  "theorem_count": 39,
+  "build_exit_code": 0,
+  "axiom_query_exit_code": 0,
+  "axioms": {
+    "Collatz.no_uniform_descent_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.no_finite_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.no_finite_state_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.critical_line_sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.terras_exact_form": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Collatz.shadow_modEq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.dcoef_add": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Collatz.density_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.shadow_compression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.surviving_shadow_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.no_descent_window_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.ParityComplexity.unbounded_factor_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.ParityComplexity.bounded_of_linear_complexity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.ParityComplexity.no_sturmian_complexity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.mechanical_complexity_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.bounded_of_mechanical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.no_irrational_mechanical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.no_eventual_irrational_mechanical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.mechanical_classification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.eventual_mechanical_reaches_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.noncontracting_endpoint_not_one_mod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.bounded_odd_inverse_obstruction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.arbitrarily_large_inverse_obstructions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.unbounded_iff_noncontracting_tail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.all_orbits_bounded_iff_all_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.completion_envelope_survives": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.finite_envelopes_eventually_survive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.relaxed_closing_correction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.realizes_iff_dvd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.realizes_paradoxical_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.correctionAttainable_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.WordAffine.correction_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.ResidueMapAudit.no_gap_map_mod32": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Collatz.ResidueMapAudit.gap_precision_witness": [],
+    "Collatz.one_lt_idealLimit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.uniformSupercritical_bound_gt_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.Cylinder.transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.Cylinder.mem_parameters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Collatz.Cylinder.quotient_zero_of_height": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "missing": [],
+  "standard_foundations_only": true
+}

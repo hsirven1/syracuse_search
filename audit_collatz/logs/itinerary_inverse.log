@@ -1,0 +1,16 @@
+== cross-check: periodic words recover the rational cycle spectrum ==
+  word (1,) -> x = -1  verified mod 2^512: True
+  word (1, 1, 0) -> x = -5  verified mod 2^512: True
+  word (1, 1, 1, 0) -> x = -19/11  verified mod 2^512: True
+  word (1, 1, 1, 1, 0) -> x = -65/49  verified mod 2^512: True
+
+== candidate divergent itineraries: is the realization an integer? ==
+(positive integer <=> digits eventually all 0; negative <=> all 1)
+itinerary                              density  tail ones  end-run  max-run
+Sturmian, slope log2/log3 (critical)    0.6309    225/448        1       12
+Sturmian, slope 0.64                    0.6387    245/448        1        9
+Sturmian, slope 2/3                     0.6660    448/448      448      448
+Sturmian, slope 0.75                    0.7500    225/448        1        3
+blocks 1^7 0^4, perturbed               0.6953    234/448        2       10
+
+(random-digit expectation: tail ones ~ 224, max-run ~ 9; an integer needs end-run = 448)

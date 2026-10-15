@@ -1,0 +1,13 @@
+test_all_suffixes_and_exact_indices (__main__.Experience36Audit.test_all_suffixes_and_exact_indices) ... ok
+test_critical_word_translation_to_shortcut_parities (__main__.Experience36Audit.test_critical_word_translation_to_shortcut_parities) ... ok
+test_distinct_control_generators (__main__.Experience36Audit.test_distinct_control_generators) ... ok
+test_height_and_global_redundancy (__main__.Experience36Audit.test_height_and_global_redundancy) ... ok
+test_mutations_are_detected (__main__.Experience36Audit.test_mutations_are_detected) ... ok
+test_narrow_candidate_at_first_24_jump_times (__main__.Experience36Audit.test_narrow_candidate_at_first_24_jump_times) ... ok
+test_replay_is_identical_to_supplied_results (__main__.Experience36Audit.test_replay_is_identical_to_supplied_results) ... ok
+test_terminal_bit_is_essential (__main__.Experience36Audit.test_terminal_bit_is_essential) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.646s
+
+OK

@@ -1,0 +1,221 @@
+{
+  "tests_run": 8,
+  "failures": 0,
+  "errors": 0,
+  "counts": {
+    "suffix_checks_two_realizers": 208744,
+    "critical_shortcut_translation_checks": 177,
+    "generator_first_difference": 14,
+    "height_checks_two_realizers": 22450,
+    "candidate_jump_times_checked": 24,
+    "reproduced_artifacts": 3
+  },
+  "witnesses": {
+    "distinct_generators": {
+      "first_difference": 14,
+      "direct_a": 1,
+      "replay_a": 2,
+      "direct_seed_bits": 1562,
+      "replay_seed_bits": 1566
+    },
+    "reversed_suffix": {
+      "n0": 3,
+      "a": [
+        1,
+        4
+      ],
+      "t": 2,
+      "k": 2,
+      "correct": 1,
+      "reversed": 2,
+      "shifted_power": 3
+    },
+    "valuation_parities_insufficient_mod9": {
+      "words": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "residues": [
+        8,
+        2
+      ]
+    },
+    "k_greater_than_t": {
+      "t": 1,
+      "k": 2,
+      "same_valuations": [
+        1
+      ],
+      "seeds": [
+        3,
+        7
+      ],
+      "endpoints_mod9": [
+        5,
+        2
+      ]
+    },
+    "candidate_finite_search": [
+      {
+        "j": 1,
+        "J_j": 2,
+        "canonical_bits": 3,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 2,
+        "J_j": 4,
+        "canonical_bits": 5,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 3,
+        "J_j": 6,
+        "canonical_bits": 7,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 4,
+        "J_j": 7,
+        "canonical_bits": 8,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 5,
+        "J_j": 9,
+        "canonical_bits": 10,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 6,
+        "J_j": 11,
+        "canonical_bits": 12,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 7,
+        "J_j": 12,
+        "canonical_bits": 13,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 8,
+        "J_j": 16,
+        "canonical_bits": 17,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 9,
+        "J_j": 23,
+        "canonical_bits": 25,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 10,
+        "J_j": 33,
+        "canonical_bits": 42,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 11,
+        "J_j": 45,
+        "canonical_bits": 61,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 12,
+        "J_j": 64,
+        "canonical_bits": 90,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 13,
+        "J_j": 91,
+        "canonical_bits": 132,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 14,
+        "J_j": 129,
+        "canonical_bits": 191,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 15,
+        "J_j": 182,
+        "canonical_bits": 273,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 16,
+        "J_j": 257,
+        "canonical_bits": 392,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 17,
+        "J_j": 363,
+        "canonical_bits": 557,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 18,
+        "J_j": 512,
+        "canonical_bits": 794,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 19,
+        "J_j": 724,
+        "canonical_bits": 1127,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 20,
+        "J_j": 1024,
+        "canonical_bits": 1604,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 21,
+        "J_j": 1448,
+        "canonical_bits": 2275,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 22,
+        "J_j": 2048,
+        "canonical_bits": 3225,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 23,
+        "J_j": 2896,
+        "canonical_bits": 4567,
+        "conjectured_lower_bound_holds": true
+      },
+      {
+        "j": 24,
+        "J_j": 4096,
+        "canonical_bits": 6469,
+        "conjectured_lower_bound_holds": true
+      }
+    ],
+    "missing_terminal_bit": {
+      "n0": 1,
+      "prescribed_a": [
+        1
+      ],
+      "actual_a": [
+        2
+      ]
+    }
+  },
+  "zip_sha256": "864043d77c6f5ce2c19b322f7bf8c265ad7065b741c02a9c78bb7d4044e1239d"
+}

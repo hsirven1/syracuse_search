@@ -1,0 +1,142 @@
+Collatz.no_uniform_descent_bound (B N₀ : ℕ) : ∃ n, N₀ ≤ n ∧ ∀ t ≤ B, n ≤ Collatz.terras_iter t n
+'Collatz.no_uniform_descent_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.no_finite_certificate (W : ℕ → ℚ) (lo hi : ℚ) (hlo : 0 < lo) (hW : ∀ (n : ℕ), lo ≤ W n ∧ W n ≤ hi) (B N₀ : ℕ)
+  (ρ : ℚ) (hρ₀ : 0 ≤ ρ) (hρ : ρ < 1)
+  (hcert :
+    ∀ (n : ℕ), N₀ ≤ n → ∃ t, 1 ≤ t ∧ t ≤ B ∧ ↑(Collatz.terras_iter t n) * W (Collatz.terras_iter t n) ≤ ↑n * W n * ρ) :
+  False
+'Collatz.no_finite_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.no_finite_state_certificate (Q : Type) [Fintype Q] (S : ℕ → Q) (w : Q → ℚ) (hw : ∀ (q : Q), 0 < w q) (B N₀ : ℕ)
+  (ρ : ℚ) (hρ₀ : 0 ≤ ρ) (hρ : ρ < 1)
+  (hcert :
+    ∀ (n : ℕ),
+      N₀ ≤ n → ∃ t, 1 ≤ t ∧ t ≤ B ∧ ↑(Collatz.terras_iter t n) * w (S (Collatz.terras_iter t n)) ≤ ↑n * w (S n) * ρ) :
+  False
+'Collatz.no_finite_state_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.critical_line_sharp (B N₀ : ℕ) :
+  ∃ n,
+    N₀ ≤ n ∧
+      (∀ t ≤ B, n ≤ Collatz.terras_iter t n) ∧ 2 ^ B ≤ 3 ^ Collatz.oddSteps B n ∧ 3 ^ Collatz.oddSteps B n ≤ 3 * 2 ^ B
+'Collatz.critical_line_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.terras_exact_form (T n : ℕ) : 2 ^ T * Collatz.terras_iter T n = 3 ^ Collatz.oddSteps T n * n + Collatz.dcoef T n
+'Collatz.terras_exact_form' depends on axioms: [propext, Quot.sound]
+Collatz.shadow_modEq {T n m : ℕ} (h : n ≡ m [MOD 2 ^ T]) :
+  Collatz.terras_iter T n ≡ Collatz.terras_iter T m [MOD 3 ^ Collatz.oddSteps T n]
+'Collatz.shadow_modEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.dcoef_add (S T n : ℕ) :
+  Collatz.dcoef (S + T) n =
+    3 ^ Collatz.oddSteps T (Collatz.terras_iter S n) * Collatz.dcoef S n +
+      2 ^ S * Collatz.dcoef T (Collatz.terras_iter S n)
+'Collatz.dcoef_add' depends on axioms: [propext, Quot.sound]
+Collatz.density_floor {T n N : ℕ} (hN : 1 ≤ N) (hbig : ∀ t < T, N ≤ Collatz.terras_iter t n)
+  (hsurv : n ≤ Collatz.terras_iter T n) : 2 ^ T * N ^ Collatz.oddSteps T n ≤ (3 * N + 1) ^ Collatz.oddSteps T n
+'Collatz.density_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.shadow_compression (T : ℕ) : 2 ^ (17 * (T - 1) / 27) * (Collatz.shadowSet T).card ≤ 3 ^ T
+'Collatz.shadow_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.surviving_shadow_mem {T n : ℕ} (hlo : 2 ^ T ≤ n) (hsurv : ∀ t ≤ T, n ≤ Collatz.terras_iter t n) :
+  Collatz.shadowPair T n ∈ Collatz.shadowSet T ∧ 2 ^ T < 2 * 3 ^ Collatz.oddSteps T n
+'Collatz.surviving_shadow_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.no_descent_window_bound (k : ℕ) :
+  2 ^ (17 * (k - 1) / 27) * {n ∈ Finset.Ico (2 ^ k) (2 ^ (k + 1)) | ∀ t ≤ k, n ≤ Collatz.terras_iter t n}.card ≤ 3 ^ k
+'Collatz.no_descent_window_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.ParityComplexity.unbounded_factor_floor {N K : ℕ} (hN : N + 1 ≤ 2 ^ K)
+  (h : ∀ (B : ℕ), ∃ t, B < Collatz.terras_iter t N) (q : ℕ) :
+  5 * q + 1 ≤ Collatz.ParityComplexity.complexity N (3 * q + K)
+'Collatz.ParityComplexity.unbounded_factor_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.ParityComplexity.bounded_of_linear_complexity {N A B C : ℕ} (hab : 3 * B < 5 * A)
+  (hc : ∀ (L : ℕ), A * Collatz.ParityComplexity.complexity N L ≤ B * L + C) :
+  ∃ H, ∀ (t : ℕ), Collatz.terras_iter t N ≤ H
+'Collatz.ParityComplexity.bounded_of_linear_complexity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.ParityComplexity.no_sturmian_complexity (N : ℕ) : ¬∀ (L : ℕ), Collatz.ParityComplexity.complexity N L = L + 1
+'Collatz.ParityComplexity.no_sturmian_complexity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.mechanical_complexity_le {α ρ : ℝ} {N : ℕ} (hit : Collatz.HasItin α ρ N) (L : ℕ) :
+  Collatz.ParityComplexity.complexity N L ≤ L + 1
+'Collatz.mechanical_complexity_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.bounded_of_mechanical {α ρ : ℝ} {N : ℕ} (h : Collatz.HasItin α ρ N) :
+  ∃ B, ∀ (t : ℕ), Collatz.terras_iter t N ≤ B
+'Collatz.bounded_of_mechanical' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.no_irrational_mechanical {α : ℝ} (hα : Irrational α) (ρ : ℝ) (N : ℕ) : ¬Collatz.HasItin α ρ N
+'Collatz.no_irrational_mechanical' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.no_eventual_irrational_mechanical {α : ℝ} (hα : Irrational α) (ρ : ℝ) (N s : ℕ) :
+  ¬Collatz.HasItin α ρ (Collatz.terras_iter s N)
+'Collatz.no_eventual_irrational_mechanical' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.mechanical_classification {α ρ : ℝ} {N : ℕ} (hN : 0 < N) (hit : Collatz.HasItin α ρ N) :
+  α = 1 / 2 ∧ (N = 1 ∨ N = 2)
+'Collatz.mechanical_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.eventual_mechanical_reaches_one {α ρ : ℝ} {N s : ℕ} (hN : 0 < N)
+  (h : Collatz.HasItin α ρ (Collatz.terras_iter s N)) : ∃ t, Collatz.terras_iter t N = 1
+'Collatz.eventual_mechanical_reaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.noncontracting_endpoint_not_one_mod {t n : ℕ} (ht : 0 < t) (hc : 2 ^ t ≤ 3 ^ Collatz.oddSteps t n) :
+  ¬Collatz.terras_iter t n ≡ 1 [MOD 3 ^ Collatz.oddSteps t n]
+'Collatz.noncontracting_endpoint_not_one_mod' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.bounded_odd_inverse_obstruction {K t n y : ℕ} (hy : y ≡ 1 [MOD 3 ^ K]) (ht : 0 < t)
+  (hj : Collatz.oddSteps t n ≤ K) (he : Collatz.terras_iter t n = y) : 3 ^ Collatz.oddSteps t n < 2 ^ t
+'Collatz.bounded_odd_inverse_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.arbitrarily_large_inverse_obstructions (K B : ℕ) :
+  ∃ y,
+    B < y ∧
+      y % 3 = 1 ∧
+        ∀ (n t : ℕ), 0 < t → Collatz.oddSteps t n ≤ K → Collatz.terras_iter t n = y → ¬Collatz.NeverContracts n
+'Collatz.arbitrarily_large_inverse_obstructions' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.unbounded_iff_noncontracting_tail {N : ℕ} (hN : 0 < N) :
+  (∀ (B : ℕ), ∃ t, B < Collatz.terras_iter t N) ↔ ∃ s, Collatz.NeverContracts (Collatz.terras_iter s N)
+'Collatz.unbounded_iff_noncontracting_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.all_orbits_bounded_iff_all_contract :
+  (∀ (N : ℕ), 0 < N → ∃ B, ∀ (t : ℕ), Collatz.terras_iter t N ≤ B) ↔
+    ∀ (N : ℕ), 0 < N → ∃ t, 3 ^ Collatz.oddSteps t N < 2 ^ t
+'Collatz.all_orbits_bounded_iff_all_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.completion_envelope_survives (s a D m L : ℕ) (hL : s + 2 * (a + 2 * m) + 1 ≤ L) :
+  ∃ k ≤ L - s, 3 ^ (a + k) < 2 ^ L ∧ (2 ^ L - 3 ^ (a + k)) * m ≤ 3 ^ k * D + 2 ^ (L - k) * (3 ^ k - 2 ^ k)
+'Collatz.WordAffine.completion_envelope_survives' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.finite_envelopes_eventually_survive.{u_1} {ι : Type u_1} (S : Finset ι) (s a D m : ι → ℕ) :
+  ∃ L₀,
+    ∀ i ∈ S,
+      ∀ (L : ℕ),
+        L₀ ≤ L →
+          ∃ k ≤ L - s i,
+            3 ^ (a i + k) < 2 ^ L ∧ (2 ^ L - 3 ^ (a i + k)) * m i ≤ 3 ^ k * D i + 2 ^ (L - k) * (3 ^ k - 2 ^ k)
+'Collatz.WordAffine.finite_envelopes_eventually_survive' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.relaxed_closing_correction (s a D n v L : ℕ) (hn : 0 < n) (hp : 2 ^ s * v = 3 ^ a * n + D)
+  (hL : s + 2 * (a + 2 * n) + v + 1 ≤ L) :
+  ∃ k d,
+    k ≤ L - s ∧
+      3 ^ (a + k) < 2 ^ L ∧
+        d ≤ 2 ^ (L - s - k) * (3 ^ k - 2 ^ k) ∧ 3 ^ (a + k) * n + (3 ^ k * D + 2 ^ s * d) = 2 ^ L * n
+'Collatz.WordAffine.relaxed_closing_correction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.realizes_iff_dvd (n : ℕ) (w : List Bool) :
+  Collatz.WordAffine.Realizes n w ↔ 2 ^ w.length ∣ 3 ^ Collatz.WordAffine.ones w * n + Collatz.WordAffine.correction w
+'Collatz.WordAffine.realizes_iff_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.realizes_paradoxical_iff (n : ℕ) (w : List Bool) :
+  Collatz.WordAffine.Realizes n w ∧ Collatz.IsParadoxical w.length n ↔
+    0 < n ∧
+      3 ^ Collatz.WordAffine.ones w < 2 ^ w.length ∧
+        2 ^ w.length ∣ 3 ^ Collatz.WordAffine.ones w * n + Collatz.WordAffine.correction w ∧
+          (2 ^ w.length - 3 ^ Collatz.WordAffine.ones w) * n ≤ Collatz.WordAffine.correction w
+'Collatz.WordAffine.realizes_paradoxical_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.correctionAttainable_iff (h k D : ℕ) :
+  Collatz.WordAffine.CorrectionAttainable h k D ↔
+    ∃ w, w.length = h ∧ Collatz.WordAffine.ones w = k ∧ Collatz.WordAffine.correction w = D
+'Collatz.WordAffine.correctionAttainable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.WordAffine.correction_injective {u v : List Bool} (hl : u.length = v.length)
+  (hk : Collatz.WordAffine.ones u = Collatz.WordAffine.ones v)
+  (hd : Collatz.WordAffine.correction u = Collatz.WordAffine.correction v) : u = v
+'Collatz.WordAffine.correction_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.ResidueMapAudit.no_gap_map_mod32 : ¬∃ f, ∀ (n : ℕ), n % 4 = 3 → Collatz.terras n % 32 = f (n % 32)
+'Collatz.ResidueMapAudit.no_gap_map_mod32' depends on axioms: [propext, Quot.sound]
+Collatz.ResidueMapAudit.gap_precision_witness :
+  3 % 32 = 35 % 32 ∧ 3 % 4 = 3 ∧ 35 % 4 = 3 ∧ Collatz.terras 3 % 32 = 5 ∧ Collatz.terras 35 % 32 = 21
+'Collatz.ResidueMapAudit.gap_precision_witness' does not depend on any axioms
+Collatz.one_lt_idealLimit {n : ℕ} (hn : 0 < n) (h : Collatz.Supercritical n) : 1 < Collatz.idealLimit n
+'Collatz.one_lt_idealLimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.uniformSupercritical_bound_gt_two {n : ℕ} {B : ℝ} (hn : 0 < n) (h : Collatz.UniformSupercritical n B) : 2 < B
+'Collatz.uniformSupercritical_bound_gt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.Cylinder.transport (k r q : ℕ) :
+  Collatz.terras_iter k (r + 2 ^ k * q) = Collatz.terras_iter k r + 3 ^ Collatz.oddSteps k r * q
+'Collatz.Cylinder.transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.Cylinder.mem_parameters (k r H q : ℕ) :
+  q ∈ Collatz.Cylinder.parameters k r H ↔
+    1 ≤ r + 2 ^ k * q ∧ r + 2 ^ k * q ≤ H ∧ Collatz.Cylinder.Survives k (r + 2 ^ k * q)
+'Collatz.Cylinder.mem_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+Collatz.Cylinder.quotient_zero_of_height {k r H q : ℕ} (hH : H < 2 ^ k) (hq : q ∈ Collatz.Cylinder.parameters k r H) :
+  q = 0
+'Collatz.Cylinder.quotient_zero_of_height' depends on axioms: [propext, Classical.choice, Quot.sound]

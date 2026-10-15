@@ -1,0 +1,56 @@
+{
+  "random_valuation_words": 390,
+  "tests_across_3adic_digits": 28874,
+  "tested_3adic_moduli": [
+    3,
+    9,
+    27,
+    81,
+    243,
+    729
+  ],
+  "critical_prefixes": [
+    {
+      "N": 10,
+      "minimum_positive_residue_bits": 15,
+      "modulus_bits": 16,
+      "seed_bits": 17,
+      "all_prefix_states_above_seed": true,
+      "first_valuations": "1212122121"
+    },
+    {
+      "N": 49,
+      "minimum_positive_residue_bits": 78,
+      "modulus_bits": 78,
+      "seed_bits": 79,
+      "all_prefix_states_above_seed": true,
+      "first_valuations": "121212212122121212212122121212"
+    },
+    {
+      "N": 100,
+      "minimum_positive_residue_bits": 159,
+      "modulus_bits": 159,
+      "seed_bits": 160,
+      "all_prefix_states_above_seed": true,
+      "first_valuations": "121212212122121212212122121212"
+    },
+    {
+      "N": 300,
+      "minimum_positive_residue_bits": 476,
+      "modulus_bits": 476,
+      "seed_bits": 477,
+      "all_prefix_states_above_seed": true,
+      "first_valuations": "121212212122121212212122121212"
+    },
+    {
+      "N": 1000,
+      "minimum_positive_residue_bits": 1584,
+      "modulus_bits": 1585,
+      "seed_bits": 1586,
+      "all_prefix_states_above_seed": true,
+      "first_valuations": "121212212122121212212122121212"
+    }
+  ],
+  "oscillating_prefix_length": 1000,
+  "verdict": "all assertions passed"
+}

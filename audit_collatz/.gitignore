@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+# Ancienne préparation de l'environnement : journaux verbeux conservés localement.
+logs/mathlib_cache*.log
+logs/lean_build_source_interrupted.log
+logs/lean_result_source_interrupted.json
+logs/lean_runner.log

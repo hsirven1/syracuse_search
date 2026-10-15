@@ -1,0 +1,18 @@
+== (1) true shadow entropy vs the binomial bound ==
+   T    j   words C(T,j)  distinct shadows  log2/T words  log2/T shadows
+  12    8            495               325        0.7459          0.6954
+  15   10           3003              1915        0.7701          0.7269
+  18   12          18564             11522        0.7878          0.7496
+  21   14         116280             70489        0.8013          0.7669
+(ambient rate = j*log2(3)/T ≈ 1.0; bound rate = H(j/T) ≈ 0.95)
+
+== (2) cross-scale: prefix shadow vs full shadow ==
+  2T=18, j=12: words=18564, prefix shadows=226, full shadows=11522
+  joint (prefix, full) pairs: 12522 vs product bound 2603972 (ratio 0.005)
+  (a ratio well below 1 = scales are correlated: consistency is
+   an active constraint, not a formality)
+
+== (3) structured words: Sturmian vs random supercritical ==
+  T=40, 400 words each: Sturmian -> 167 distinct shadows; random -> 400 distinct
+  (fewer distinct Sturmian shadows = structured words cluster
+   in the 3-adic world; parity = no extra structure)

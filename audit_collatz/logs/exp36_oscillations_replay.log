@@ -1,0 +1,3 @@
+{'N': 100, 'start_bits': 145, 'modulus_bits': 145, 'b_min': 0, 'b_max': 14, 'b_final': 14, 'changes': 78, 'change_fraction': 0.78, 'baseline_jumps': 13, 'exact_valid': True}
+{'N': 300, 'start_bits': 457, 'modulus_bits': 459, 'b_min': 0, 'b_max': 17, 'b_final': 17, 'changes': 245, 'change_fraction': 0.8167, 'baseline_jumps': 16, 'exact_valid': True}
+{'N': 1000, 'start_bits': 1562, 'modulus_bits': 1566, 'b_min': 0, 'b_max': 20, 'b_final': 19, 'changes': 827, 'change_fraction': 0.827, 'baseline_jumps': 19, 'exact_valid': True}
