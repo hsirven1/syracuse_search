@@ -1,57 +1,67 @@
-# Exact first descent times: negative control
+# Exact first descent times: a negative control for our research
 
-**Status:** elementary classical parity-cylinder consequence, not a new Collatz result. Time counts **odd-accelerated** steps, not ordinary or shortened steps.
+**Status:** classical parity-cylinder consequence, not a new result on Syracuse. Time counts **odd-accelerated** steps, not ordinary/shortened Collatz steps.
 
-Let (U(n)=(3n+1)/2^{v_2(3n+1)}) on positive odd integers and (	au_U(n)=min\{t\ge1: U^t(n)<n\}).
+Let \(U(n)=(3n+1)/2^{v_2(3n+1)}\) for positive odd integers, and let \(\tau_U(n)=\min\{t\ge1:U^t(n)<n\}\).
 
 ## Proposition
 
-For **each** (m\ge1), infinitely many odd positive integers (n) have **exact** first descent time (	au_U(n)=m).
+For every integer \(m\ge1\), infinitely many positive odd integers have **exactly** \(\tau_U(n)=m\).
 
 ### Constructive proof
 
-Fix (m\ge1). Choose the unique odd residue (q_m\pmod{2^{m+1}}) satisfying
+Fix \(m\ge1\). Let \(q_m\pmod{2^{m+1}}\) be the unique odd residue such that
 
-[
+\[
 3^m q_m\equiv 1+2^m\pmod{2^{m+1}}.
-]
+\]
 
-This exists since (3) is invertible modulo (2^{m+1}). For any sufficiently large positive integer (q\equiv q_m\pmod{2^{m+1}}) with
+It exists because \(3^m\) is invertible modulo \(2^{m+1}\). Choose any sufficiently large positive integer \(q\equiv q_m\pmod{2^{m+1}}\) satisfying
 
-[
+\[
 (4^m-3^m)q>2^m-1,
-]
+\]
 
-set (n=2^m q-1). The congruence ensures (v_2(3^m q-1)=m).
+and set \(n=2^m q-1\). The congruence ensures \(v_2(3^m q-1)=m\).
 
-For each (0\le t\le m-1), induction using valuation 1 gives
+For \(0\le t\le m-1\), induction using valuation 1 yields
 
-[
-U^t(n)=3^t2^{m-t}q-1.
-]
+\[
+U^t(n)=3^t\,2^{m-t}q-1.
+\]
 
-For (1\le t\le m-1), this exceeds (n), since (3^t>2^t). At step (m), (3U^{m-1}(n)+1=2(3^m q-1)), whose valuation is (m+1), hence
+For every \(1\le t\le m-1\), this exceeds \(n\), because \(3^t>2^t\).
 
-[
-U^m(n)=\frac{3^m q-1}{2^m}<2^m q-1=n,
-]
+At the final step,
 
-the last inequality being exactly the chosen bound on (q).
+\[
+3U^{m-1}(n)+1=2(3^m q-1)
+\]
 
-Thus (	au_U(n)=m). All sufficiently large terms of the arithmetic progression of starting values modulo (2^{2m+1}) work. QED.
+has valuation \(m+1\), and hence
 
-For (m=1,2,3,4,5), example seeds are (9,19,87,15,863) respectively. They first descend after (1,2,3,4,5) odd-accelerated steps. The proof is **not** based on simulations.
+\[
+U^m(n)=\frac{3^m q-1}{2^m}<2^m q-1=n.
+\]
 
-## Consequence for issue #3
+The strict inequality is **equivalent** to the chosen bound on \(q\). Thus \(\tau_U(n)=m\). Every sufficiently large term of the corresponding arithmetic progression modulo \(2^{2m+1}\) works. QED.
 
-An infinite family with a proven adaptive descent horizon is too weak a success criterion: finite parity/valuation cylinders can **manufacture** one for *any* stopping time. Such a result does not rule out a single divergent orbit outside the family.
+Examples for \(m=1,2,3,4,5\): \(n=9,19,87,15,863\), respectively. The proof is algebraic; these examples are not its basis.
 
-The meaningful next target must go **beyond a prearranged finite contractive cylinder**. Possibilities: a rigorously proved cross-scale coverage theorem or a structurally defined family whose descent is not selected by prescribing its finite word. Neither has been obtained here. This construction is **already known in essence** through Terras/Everett parity coding and later convergence-class work.
+## Research implication
 
-Do not swap quantifiers: (orall m,exists n,	au_U(n)=m) does not imply (orall n,exists m,	au_U(n)=m), which is the Syracuse conjecture for odd (n>1).
+This explicitly generates an infinite family for **every** desired first stopping time, but it excludes no hypothetical divergent integer **outside** the chosen congruence cylinder. Therefore our earlier goal, “prove adaptive descent for some infinite family,” is too weak to establish meaningful progress.
 
-## Reproduction
+**Stronger success criterion:** prove a result beyond a prearranged, finitely contractive parity/valuation cylinder. Possible targets include a proved cross-scale coverage estimate or a structurally defined family not selected by prescribing a finite descent word. We have **not** achieved either here.
 
-Run `python3 research/cylinder_baseline.py`. It checks the exact formulas and (	au_U(n)=m) for every (1\le m\le150); this is a regression test, not a universal proof.
+Do not swap quantifiers: \(\forall m\,\exists n:\tau_U(n)=m\) says nothing about \(\forall n>1\,\exists m:\tau_U(n)=m\), which is equivalent to Syracuse for odd starting numbers.
 
-References: Terras (1976), Everett (1977), Lagarias surveys; *The convergence classes of Collatz function*, Theor. Comput. Sci. 412 (2011), https://doi.org/10.1016/j.tcs.2011.05.056.
+## Reproducibility
+
+Run: python3 research/cylinder_baseline.py
+
+The program verifies the exact formulas and first descent time for every \(1\le m\le150\). It is a finite regression test, **not** the universal proof.
+
+## Literature
+
+The construction is a straightforward use of classical parity coding due to Terras (1976) and Everett (1977), discussed in Lagarias's surveys. For finite convergence classes, see *The convergence classes of Collatz function*, Theoretical Computer Science 412 (2011), https://doi.org/10.1016/j.tcs.2011.05.056. No novelty is claimed.
