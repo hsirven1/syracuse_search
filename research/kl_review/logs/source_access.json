@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://websites.umich.edu/~lagarias/doc/krasikov.pdf",
+    "status": "blocked",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://arxiv.org/pdf/math/0205002",
+    "status": "blocked",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://export.arxiv.org/pdf/math/0205002",
+    "status": "blocked",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7239062",
+    "status": "blocked",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]
