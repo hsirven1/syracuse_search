@@ -143,5 +143,13 @@
   },
   "toolchain": "leanprover/lean4:v4.27.0-rc1",
   "mathlib_commit": "359769ac56adab9784ed43b8809a3ede33c202a9",
-  "massive_build_started": false
+  "massive_build_started": false,
+  "delivery": {
+    "branch": "review/kl-strict-monotonicity",
+    "target_branch": "research/kl-strict-monotonicity-candidate",
+    "push_confirmed": true,
+    "pull_request_created": false,
+    "pull_request_error": "Post https://api.github.com/graphql: Forbidden",
+    "merged": false
+  }
 }

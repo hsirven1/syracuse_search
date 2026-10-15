@@ -423,3 +423,26 @@ sources primaires, vérifier H ligne par ligne, contrôler la version et les
 résultats exacts de Nikpour–Rabbani, faire relire la démonstration réparée et,
 pour une certification intégrale, instancier les indices et formaliser les
 étapes analytiques. Aucun résultat scientifique nouveau n'est revendiqué.
+
+## 10. Livraison et actions bloquées
+
+Les neuf fichiers de cette revue ont été committés puis poussés sur
+`review/kl-strict-monotonicity`, branche issue du commit exact de la PR #6.
+Les deux fichiers candidats restent inchangés. Aucun merge n'a été effectué.
+
+La tentative réelle d'ouverture d'une PR de revue en brouillon, avec base
+`research/kl-strict-monotonicity-candidate` et head
+`review/kl-strict-monotonicity`, a échoué avant l'API GitHub :
+`Post "https://api.github.com/graphql": Forbidden`.
+**Aucune nouvelle PR n'est confirmée.** Le lien manuel visant la bonne base est :
+
+https://github.com/hsirven1/syracuse_search/compare/research/kl-strict-monotonicity-candidate...review/kl-strict-monotonicity?expand=1
+
+Pour terminer les points bloqués, il faut rendre accessibles les sources
+primaires (`websites.umich.edu`, ou `arxiv.org`/`export.arxiv.org`, et
+`papers.ssrn.com`) et l'API GitHub (`api.github.com`). Les domaines de sources
+ont été ajoutés au brouillon réseau en préservant les règles connues ;
+l'outil demande revue/enregistrement puis publication dans les paramètres.
+Cette sauvegarde n'a pas établi un accès opérationnel. Aucun token n'a
+été demandé : les échecs observés sont des refus de tunnel, pas une preuve
+d'absence de l'authentification Git HTTPS, qui a fonctionné pour le push.
