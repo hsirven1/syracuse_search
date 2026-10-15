@@ -324,6 +324,23 @@ recompilation Lean et aucun calcul massif n'ont été lancés.** Les six tests
 et dix interrogations Lean des rapports précédents sont des résultats
 antérieurs réexaminés, pas présentés comme réexécutés.
 
+## Publication
+
+Le rapport a été commité et poussé sur `review/kl-priority-decision`.
+La commande suivante a réellement été tentée :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search \
+  --base review/kl-strict-monotonicity \
+  --head review/kl-priority-decision --draft \
+  --title 'Décision KL : abandon du projet de nouveauté et limites de priorité' \
+  --body-file /tmp/kl-priority-pr-body.md
+```
+
+Résultat : `Post "https://api.github.com/graphql": Forbidden`.
+La branche est publiée ; aucune nouvelle PR n'a pu être créée par cet accès,
+et aucune fusion n'a été effectuée.
+
 ## Conclusion de décision
 
 Ne pas poursuivre la revendication de nouveau théorème, ni créer une

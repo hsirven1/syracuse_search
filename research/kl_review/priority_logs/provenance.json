@@ -24,5 +24,10 @@
     "sha256": "ad6b1e9c4b3659111fb8677b82e1da1b31b2e7755e9957471eddfc35046d9a47",
     "bytes": 315580
   },
-  "next_action": "Soumettre la comparaison 1995/2003, passages primaires intégraux joints, à un spécialiste indépendant."
+  "next_action": "Soumettre la comparaison 1995/2003, passages primaires intégraux joints, à un spécialiste indépendant.",
+  "publication": {
+    "branch_push": "succeeded",
+    "pull_request_creation": "failed: GitHub GraphQL Forbidden",
+    "merged": false
+  }
 }
