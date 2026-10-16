@@ -239,6 +239,25 @@ Le dossier mérite une conservation claire de ses résultats négatifs et des
 hypothèses de ses preuves. Il ne justifie pas une revendication de nouveauté
 ou une nouvelle campagne de recherche directe dans les mêmes familles.
 
+## Publication
+
+Le seul fichier ajouté est ce mémo, sur `strategy/issue15-research-pause`.
+La branche a été poussée sur GitHub. Tentative réelle de PR brouillon :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search --base main \
+  --head strategy/issue15-research-pause --draft \
+  --title 'Décision stratégique : STOP et pause de recherche directe après études 31–39' \
+  --body-file /tmp/issue15-pr-body.md
+```
+
+Résultat : `Post "https://api.github.com/graphql": Forbidden`.
+**Aucune PR créée par cet accès ; aucune fusion.**
+[Comparateur GitHub](https://github.com/hsirven1/syracuse_search/compare/main...strategy/issue15-research-pause?expand=1).
+`git diff --check` et le contrôle du diff indexé passent. Les rapports et tests
+antérieurs ne sont pas modifiés ; la vérification des six références Git a
+retourné `PASS: 6 références Git vérifiées`.
+
 ## 6. Verdict et unique action recommandée
 
 **STOP — PAUSE DE RECHERCHE DIRECTE.** Cette décision d'allocation n'affirme
