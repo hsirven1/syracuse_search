@@ -214,6 +214,27 @@ La classification est finie en j ; **elle ne prouve aucune finitude globale**.
 Aucun calcul massif, aucune nouvelle expérience 39, aucune compilation Lean.
 Les tests des études antérieures ne sont pas présentés comme réexécutés.
 
+## Publication et commandes de livraison
+
+Rapport, script et résultats compacts poussés sur
+`research/etude38-correction-residue`. Vérifications de livraison :
+`git diff --check`, `git diff --cached --check`, puis `git push -u origin
+research/etude38-correction-residue` (succès).
+
+La création d'une PR de revue a réellement été tentée avec :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search --base main \
+  --head research/etude38-correction-residue --draft \
+  --title 'Étude 38 : couplage correction–résidu, contrôles exacts et verdict arrêt' \
+  --body-file /tmp/etude38-pr.md
+```
+
+Échec : `Post "https://api.github.com/graphql": Forbidden`.
+**La branche est publiée ; aucune PR n'a pu être créée par cet accès.**
+Aucune fusion effectuée. Les modifications sont limitées à ce rapport et
+au répertoire `research/etude38/`.
+
 ## 6. Décision et limite du résultat
 
 **Zéro lemme candidat nouveau est retenu**, donc pas de formalisation Lean.

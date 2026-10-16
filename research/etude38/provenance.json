@@ -12,5 +12,11 @@
   "studies_31_35_full_reports_available": false,
   "new_lemma_retained": false,
   "new_lean_compilations": 0,
-  "exact_test_command": "python3 research/etude38/exact_checks.py"
+  "exact_test_command": "python3 research/etude38/exact_checks.py",
+  "publication": {
+    "branch": "research/etude38-correction-residue",
+    "push": "succeeded",
+    "pull_request": "creation failed: GitHub GraphQL Forbidden",
+    "merged": false
+  }
 }
