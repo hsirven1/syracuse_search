@@ -145,6 +145,26 @@ Aucun correctif ni test de régression de production n'est ajouté puisqu'aucune
 faille n'est reproduite. Les seuls ajouts sont ce rapport et les deux fichiers
 de l'oracle/campagne dans `tools/finite_descent/audit/`.
 
+## Publication
+
+Les trois fichiers de cette revue ont été committés et poussés sur
+`review/issue19-verifier-audit`. Les contrôles de diff indexé et depuis la
+base passent. La commande suivante a réellement été tentée :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search \
+  --base tooling/issue17-finite-descent --head review/issue19-verifier-audit \
+  --draft \
+  --title 'Audit contradictoire PR #18 : oracle indépendant et recherche de faux VALID' \
+  --body-file /tmp/issue19-pr-body.md
+```
+
+Résultat : `Post "https://api.github.com/graphql": Forbidden`.
+**Aucune PR créée par cet accès ; aucune fusion.**
+[Comparateur GitHub](https://github.com/hsirven1/syracuse_search/compare/tooling/issue17-finite-descent...review/issue19-verifier-audit?expand=1).
+Le corps tenté résumait le verdict, les 23 tests relancés et la campagne de
+7 913 comparaisons décrits dans ce rapport.
+
 ## 5. Décision
 
 **GO POUR REVUE HUMAINE**, sans fusion automatique. Ce verdict porte sur la
