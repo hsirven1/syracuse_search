@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "cyclic_lists": 1092,
+  "growth_window_checks": 6015,
+  "same_block_suffix_checks": 19956,
+  "one_block_residue_checks": 12192,
+  "one_block_accepted": 127,
+  "transplant_counterexample": {
+    "full_cycle_log_variables": [
+      9,
+      4,
+      6
+    ],
+    "selected_block": [
+      9,
+      4
+    ],
+    "B": 13,
+    "actual_S": "526/2555",
+    "certified_upper_for_closed_model": "474/3937",
+    "integer_Collatz_cycle": false
+  },
+  "Hercher_original_retrieved": false,
+  "Wang_original_retrieved": false,
+  "Wang_original_filters_tested": false,
+  "S5_certificate_replayed": false,
+  "new_lean_compilations": 0
+}
