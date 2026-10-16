@@ -1,0 +1,16 @@
+{
+  "base_commit": "f0e1ede43d94ab4d4756223cdccef51e3aa30c7d",
+  "hercher_mirror_commit": "2f9d1a2633cdc0c7f9238c0fc81eca054fd6afec",
+  "source_sha256": {
+    "Hercher2023.pdf": "fe86c84a776dc7b9362e94c55c0f99914507b0909aa5f0a91fe07cf33da628f4",
+    "SUMMARY.md": "64c8dee561a3f413cfdb6cb4e47e7b0c8ff345634566a65423577cfcfa55500c",
+    "Collatz/Thm21.lean": "3a163e92f12ec4c9be648a940daaf0256ab3f1da2671fcce8a5f9464dc912558",
+    "Collatz/MainTheorem.lean": "9ea0f592724a7af5274719774c1f7f01511f2256542ab8aeaad2ddb108c1aa78"
+  },
+  "Wang_fulltext_available": false,
+  "corrigendum_available": false,
+  "verification_to_2_pow_71_reproduced": false,
+  "new_lemma_retained": false,
+  "new_lean_compilations": 0,
+  "verdict": "ARRÊT; audit du lemme exact Wang incomplet"
+}

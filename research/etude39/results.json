@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "cyclic_sequences": 1092,
+  "averaged_window_checks": 6015,
+  "arbitrary_global_anchor_counterexample": [
+    3,
+    1
+  ],
+  "rational_relaxation": {
+    "ks": [
+      3,
+      1
+    ],
+    "ls": [
+      1,
+      2
+    ],
+    "minima": [
+      "73/47",
+      "179/47"
+    ],
+    "integer_collatz_cycle": false
+  },
+  "delta_enclosure": {
+    "lower": "35707342340308065113915286035872398288454916608343253004534583276597632491/22528824703462235805680946478821833159451209992118033654628714704015458304",
+    "upper": "17853671170154032556975714290511036679217162203022960637262316437902093823/11264412351731117902840473239410861969913310658133426016836830726237192192"
+  },
+  "reciprocal_inference_counterexample": {
+    "x": "4",
+    "U": "8",
+    "R": "1/2"
+  },
+  "wang_lemma_tested": false,
+  "wang_fulltext_available": false,
+  "hercher_corrigendum_tested": false,
+  "massive_computation": false,
+  "lean_compilations": 0
+}
