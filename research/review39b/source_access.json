@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/corrigendum.tex",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/corrigendum.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://www.researchgate.net/publication/408180567_NON-EXISTENCE_OF_COLLATZ_m-CYCLES_FOR_m_95",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://zenodo.org/api/records/21017296",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://zenodo.org/records/21017296",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://pcbarina.fit.vutbr.cz/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]
