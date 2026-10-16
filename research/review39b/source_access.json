@@ -22,5 +22,10 @@
   {
     "url": "https://pcbarina.fit.vutbr.cz/",
     "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://github.com/search?q=%2221017296%22&type=repositories",
+    "status": 200,
+    "purpose": "Recherche de miroir des artefacts par identifiant Zenodo; aucun artefact original identifié"
   }
 ]

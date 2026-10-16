@@ -276,6 +276,26 @@ Pas de nouveau calcul massif, pas de compilation Lean, pas de parcours de
 S₅, pas de vérification des filtres Wang originaux. Les anciennes suites de
 tests n'ont pas été présentées comme réexécutées.
 
+## Publication et validation de livraison
+
+La branche `review/issue13-hercher-wang` a été committée et poussée.
+La tentative de création de PR a réellement utilisé :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search \
+  --base research/etude39-cycle-audit --head review/issue13-hercher-wang \
+  --draft \
+  --title 'Revue 39B : corrigendum convexe, suffix-balanced et certificat S5 non vérifiable' \
+  --body-file research/review39b/PR_BODY.md
+```
+
+Échec : `Post "https://api.github.com/graphql": Forbidden`.
+Aucune PR n'a été créée par cet accès et aucune fusion n'a été faite.
+[Comparateur GitHub](https://github.com/hsirven1/syracuse_search/compare/research/etude39-cycle-audit...review/issue13-hercher-wang?expand=1).
+Le corps de PR est conservé pour la création par l'assistant GitHub connecté.
+`git diff --check` et `git diff --cached --check` passent ; les anciennes
+sources suivies par le manifeste sont identiques à la base de la PR #12.
+
 ## 6. Verdict par étape
 
 | Étape | Verdict |

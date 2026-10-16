@@ -13,5 +13,12 @@
   "independent_X_2pow71_coverage_verified": false,
   "verdict": "NON VÉRIFIABLE pour m≤95; ARRÊT",
   "test_command": "python3 research/review39b/exact_checks.py",
-  "lean_compilations": 0
+  "lean_compilations": 0,
+  "old_sources_unchanged": true,
+  "publication": {
+    "branch": "review/issue13-hercher-wang",
+    "push": "succeeded",
+    "draft_PR_creation": "failed: GitHub GraphQL Forbidden",
+    "merged": false
+  }
 }
