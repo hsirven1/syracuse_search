@@ -225,6 +225,29 @@ PhilNorfleet, `pdftotext -layout` de son PDF, lectures ciblées des pages et des
 sources Lean, requêtes HTTP consignées, lecture HTML du dépôt auteur Barina.
 Aucun calcul massif, aucune compilation Lean, aucun certificat jusqu'à 2^71.
 
+## Publication et contrôles de livraison
+
+La branche `research/etude39-cycle-audit` est poussée sur GitHub.
+Commande de PR réellement tentée :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search --base main \
+  --head research/etude39-cycle-audit --draft \
+  --title 'Étude 39 : audit des cycles, défaut Hercher v3 et certificat Wang non vérifié' \
+  --body-file research/etude39/PR_BODY.md
+```
+
+Résultat : `Post "https://api.github.com/graphql": Forbidden`.
+**Aucune PR créée par cet accès ; aucune fusion.**
+[Comparateur GitHub](https://github.com/hsirven1/syracuse_search/compare/main...research/etude39-cycle-audit?expand=1).
+Le [corps de PR](etude39/PR_BODY.md) est conservé pour une création automatique
+par l'assistant GitHub connecté, conformément au repli prévu dans l'issue.
+
+Le premier `git diff --cached --check` a signalé un blanc final dans l'extrait
+PDF ; l'extrait a été nettoyé des blancs finaux et du saut de page. Le contrôle
+final de toutes les modifications depuis la base passe. Les empreintes
+concernent les sources originales, pas cet extrait normalisé.
+
 ## 6. Conclusion de recherche
 
 **ARRÊT : zéro lemme nouveau retenu.** La faute de 2023 est déjà signalée

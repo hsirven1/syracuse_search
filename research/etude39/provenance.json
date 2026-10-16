@@ -12,5 +12,11 @@
   "verification_to_2_pow_71_reproduced": false,
   "new_lemma_retained": false,
   "new_lean_compilations": 0,
-  "verdict": "ARRÊT; audit du lemme exact Wang incomplet"
+  "verdict": "ARRÊT; audit du lemme exact Wang incomplet",
+  "publication": {
+    "branch_push": "succeeded",
+    "draft_PR_creation": "failed: GitHub GraphQL Forbidden",
+    "compare_url": "https://github.com/hsirven1/syracuse_search/compare/main...research/etude39-cycle-audit?expand=1",
+    "merged": false
+  }
 }

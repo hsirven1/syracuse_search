@@ -26,4 +26,3 @@ Pm−m2proves the general statement for 1 ≤ m2 ≤ m. For         m2 = m − 1
 m2 = m, this first sum is empty and therefore zero.
 
                                                         14
-    
