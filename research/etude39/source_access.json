@@ -1,0 +1,68 @@
+[
+  {
+    "key": "hercher_html",
+    "url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/hercher5.html",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "hercher_pdf",
+    "url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/hercher5.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "corrigendum",
+    "url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/corrigendum.pdf",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "wang_zenodo",
+    "url": "https://zenodo.org/records/20603589",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "wang_api",
+    "url": "https://zenodo.org/api/records/20603589",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "wang_rg",
+    "url": "https://www.researchgate.net/publication/406466331_A_Corrected_Suffix-Balanced_Global-Minimum_Certificate_for_Excluding_Collatz_m-Cycles_for_m_94",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "key": "simons",
+    "url": "https://doi.org/10.4064/aa117-1-3",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://zenodo.org/api/records/20603589",
+    "method": "curl outside sandbox",
+    "error": "HTTP 403"
+  },
+  {
+    "url": "https://deweger.net/papers/[35a]SidW-3n+1-v1.44[2010].pdf",
+    "error": "HTTP 403"
+  },
+  {
+    "url": "https://arxiv.org/pdf/2201.00406",
+    "error": "HTTP 403"
+  },
+  {
+    "url": "https://github.com/search?q=%22Suffix-Balanced%22&type=repositories",
+    "status": 200,
+    "repository_results": 0
+  },
+  {
+    "url": "https://github.com/xbarin02/collatz",
+    "status": 200
+  },
+  {
+    "url": "https://pcbarina.fit.vutbr.cz/",
+    "error": "HTTP 403"
+  },
+  {
+    "url": "https://github.com/PhilNorfleet/Hercher2023_lean.git",
+    "method": "git clone --depth 1",
+    "status": "success"
+  }
+]
