@@ -59,3 +59,24 @@ Aucune recherche d'arbre ou de nouveau certificat, aucun calcul massif et
 aucune compilation Lean. Les anciennes suites du dépôt n'ont pas été relancées.
 Les exemples négatifs sont des mutations du contrôle fourni ou des entrées
 malformées, pas des découvertes sur les orbites.
+
+## Publication
+
+Code, exemples, documentation et tests poussés sur
+`tooling/issue17-finite-descent`, créée depuis `main` à la base indiquée.
+`git diff --check` et `git diff --cached --check` passent.
+
+Création de PR brouillon réellement tentée :
+
+```sh
+gh pr create --repo hsirven1/syracuse_search --base main \
+  --head tooling/issue17-finite-descent --draft \
+  --title 'Vérificateur exact de certificats finis de descente et tests adverses' \
+  --body-file /tmp/issue17-pr-body.md
+```
+
+Résultat : `Post "https://api.github.com/graphql": Forbidden`.
+**Aucune PR créée par cet accès ; aucune fusion.**
+[Comparateur GitHub](https://github.com/hsirven1/syracuse_search/compare/main...tooling/issue17-finite-descent?expand=1).
+Le corps tenté résumait le format, les trois statuts, les 23 tests, les
+9 906 contrôles directs et la portée strictement finie décrits ci-dessus.
