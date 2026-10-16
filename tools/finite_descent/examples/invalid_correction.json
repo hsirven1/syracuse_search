@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "interval": [
+    3,
+    4
+  ],
+  "tree": {
+    "kind": "split",
+    "children": {
+      "0": {
+        "kind": "descent",
+        "word": "0",
+        "claims": {
+          "q": 0,
+          "A": 1,
+          "D": 1,
+          "modulus": 2,
+          "residue": 0
+        }
+      },
+      "1": {
+        "kind": "split",
+        "children": {
+          "1": {
+            "kind": "split",
+            "children": {
+              "0": {
+                "kind": "split",
+                "children": {
+                  "0": {
+                    "kind": "descent",
+                    "word": "1100",
+                    "claims": {
+                      "q": 2,
+                      "A": 9,
+                      "D": 5,
+                      "modulus": 16,
+                      "residue": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
