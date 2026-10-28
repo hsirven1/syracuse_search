@@ -35,7 +35,7 @@ Yu donne explicitement, **en conséquence du théorème 1**, une constante \(A=A
 \]
 Son premier paragraphe fournit même un **facteur numérique explicite** en ces invariants (dont \(19\), la puissance \(2(n+1)\) et \(p^{f_{\mathfrak p}}/(f_{\mathfrak p}\log p)^2\)). Seule la dépendance de la constante est nécessaire ici, et ses paramètres restent tous fixés.
 
-L'expression \`h_j=max(h_0(alpha_j),log p)\` figure textuellement dans cette conséquence p. 337. **Il faut utiliser cette version**, et non remplacer sans justification les hauteurs par \(\log a\), qui devient zéro pour \(a=1\). Le théorème 1 proprement dit utilise les hauteurs **modifiées** \(h_0\) de la formule (1.5), qui sont également minorées par une constante positive ; il ne demande **pas** que \(\alpha_1,\alpha_2\) soient multiplicativement indépendants. La réduction à ce cas intervient dans la **preuve** (§14), pas dans son énoncé.
+L'expression \`h_j=max(h_0(alpha_j),log p)\` figure textuellement dans cette conséquence p. 337. **Il faut utiliser cette version**, et non remplacer sans justification les hauteurs par \(\log a\), qui devient zéro pour \(a=1\). Le théorème 1 proprement dit utilise les hauteurs **modifiées** \(h'_j=\max\{h_0(\alpha_j),f_{\mathfrak p}\log p/d\}\) de la formule (1.5), où \(h_0\) est la hauteur absolue de Weil. Dans notre champ \(f_{\mathfrak p}/d=2/2=1\), donc \(h'_j=\max\{h_0(\alpha_j),\log 2\}\), exactement les hauteurs \(h_j\) figurant dans la conséquence (Y) ; il ne demande **pas** que \(\alpha_1,\alpha_2\) soient multiplicativement indépendants. La réduction à ce cas intervient dans la **preuve** (§14), pas dans son énoncé.
 
 ## 2. Specialisation UNIFORME en a
 
@@ -46,7 +46,7 @@ K=\mathbb Q(\zeta_3)=\mathbb Q(\sqrt{-3}),\quad
 \]
 Le polynôme \(X^2+X+1\) est irréductible modulo 2, donc \(2\) est **inerte et non ramifié** dans \(K\). Il y a une unique place \(\mathfrak p\mid2\), avec \(d=2\), \(e_{\mathfrak p}=1\), \(f_{\mathfrak p}=2\). La condition (1.2) est satisfaite par construction.
 
-Pour tout \(r\ge1\) et tout impair \(a\ge1\), prendre **toujours deux bases**
+Pour tout \(r\ge1\) et tout impair \(a\ge1\), prendre **toujours deux bases, mais la seconde dépend de a**
 \[
 n=2,\quad \alpha_1=3,\quad \alpha_2=-a,\quad
 (b_1,b_2)=(r,1),\quad B=\max(3,r).
@@ -55,7 +55,7 @@ Alors
 \[
 \Xi=3^r(-a)^1-1=-(3^r a+1)\ne0.
 \]
-Les bases sont toutes deux des unités \(\mathfrak p\)-adiques puisque \(3\) et \(a\) sont impairs : \(\operatorname{ord}_{\mathfrak p}\alpha_j=0\). Et pour un entier rationnel, \(\operatorname{ord}_{\mathfrak p}(\Xi)=v_2(\Xi)\), puisque \(e_{\mathfrak p}=1\).
+Ces bases (dont \(\alpha_2=-a\) varie avec \(a\)) sont toutes deux des unités \(\mathfrak p\)-adiques puisque \(3\) et \(a\) sont impairs : \(\operatorname{ord}_{\mathfrak p}\alpha_j=0\). Et pour un entier rationnel, \(\operatorname{ord}_{\mathfrak p}(\Xi)=v_2(\Xi)\), puisque \(e_{\mathfrak p}=1\).
 
 Leurs hauteurs absolues de Weil sont
 \[
@@ -84,6 +84,21 @@ v_2(3^r a+1)\le C(1+\log_2a)\log_2(2+r).}\tag{V}
 La même constante marche pour **tous** les impairs \(a\), y compris \(a=1\) et les puissances de 3. Aucun groupe complet de \(S\)-unités variable n'est introduit ; les **deux bases et le champ restent fixes**. Les hypothèses d'indépendance multiplicative ne sont **pas** requises dans (Y).
 
 **Ce qui est publié et ce qui est prouvé ici :** le majorant (Y) est le résultat antérieur de Yu. La substitution des paramètres, le contrôle de la place au-dessus de 2 et la transformation des hauteurs en (V) sont démontrés dans cette note. Aucun argument du cas divergent de Syracuse n'entre dans la preuve de (V).
+
+## 2 bis. Contrôle contradictoire reçu et clarification des hypothèses
+
+Le relecteur indépendant conclut **CONDITIONNEL**, sans trouver d'erreur arithmétique ni d'erreur dans la preuve à deux runs, parce qu'il n'a pas eu accès au PDF original. Une relecture effectuée ensuite a identifié la **transcription de l'article original** [Yu 1999, pp. 337–339](https://paperzz.com/doc/7955773/p-adic-logarithmic-forms-and-group-varieties-ii), ainsi que le **texte indexé du PDF original** [IM PAN / ICM](https://matwbn.icm.edu.pl/ksiazki/aa/aa89/aa8944.pdf). Les passages effectivement lisibles confirment expressément :
+- le corollaire en tête de la p. 337, sous la forme (Y) avec \(h_j=\max(h_0(\alpha_j),\log p)\), où \(h_0\) est la hauteur de Weil ; pour notre champ, ces hauteurs sont les mêmes que les hauteurs modifiées (1.5) ;
+- (1.2) : \(\zeta_3\in K\) si \(p=2\) ; (1.8) : \(B\ge\max(3,|b_1|,\ldots,|b_n|)\) ; (1.9) : \(\mathrm{ord}_{\mathfrak p}\alpha_j=0\) ;
+- l'indépendance multiplicative **n'est pas imposée** dans cet énoncé ; la condition supplémentaire (1.11) ne donne qu'une **amélioration facultative** de la constante.
+
+La formule précise (Y) et ces conditions sont donc corroborées directement par le **texte original transcrit**, et non seulement par un programme secondaire. **Limite documentaire restante : les fac-similés PDF ne s'ouvrent pas** dans les outils actuels ; la typographie exacte des constantes n'a pas été inspectée en image. Le verdict éditorial indépendant reste **CONDITIONNEL** jusqu'à cette ultime comparaison ; ce n'est pas une réfutation.
+
+**Cas de dépendance multiplicative, éliminé même sans (1.11).** Si \(a\) n'est pas une puissance de \(3\), \((3,-a)\) sont multiplicativement indépendants, par valuation en un premier distinct de \(3\) divisant \(a\). Si \(a=3^k\), \(k\ge0\), alors \(3^r a+1=3^{r+k}+1\), et \(v_2(3^{r+k}+1)\le2\). On peut donc choisir \(C\ge2\) et éviter toute dépendance sur une condition éventuelle d'indépendance.
+
+**Normalisation de la valuation :** le nombre \(3^r a+1\) est rationnel ; la place au-dessus de \(2\) est non ramifiée dans \(\mathbb Q(\zeta_3)\), donc \(\mathrm{ord}_{\mathfrak p}(3^ra+1)=v_2(3^ra+1)\), sans facteur \(f_{\mathfrak p}\) supplémentaire.
+
+**Aucun changement de portée :** l'uniformité de la constante \(C\) sous (Y) est établie ; la conséquence log-log sur les orbites reste conditionnelle à une hypothétique orbite non bornée, et n'améliore ni la pente principale ni la conjecture de Syracuse.
 
 ## 3. Conséquence sur la complexité : retirer une hypothèse du rapport précédent
 
