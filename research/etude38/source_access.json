@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://arxiv.org/html/2502.00948v4",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://export.arxiv.org/abs/2502.00948",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://arxiv.org/pdf/2502.00948",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://www.sciencedirect.com/science/article/pii/S0012365X26000819",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://arxiv.org/abs/2605.13886",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://arxiv.org/abs/2502.00948",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://arxiv.org/html/2502.00948v3",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://www.alphaxiv.org/abs/2502.00948v3",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://doi.org/10.1016/j.disc.2026.115167",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

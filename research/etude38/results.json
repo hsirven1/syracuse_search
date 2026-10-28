@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "max_length": 12,
+  "counts": {
+    "words": 8190,
+    "lifted_seeds": 24570,
+    "harmonic_checks": 24534
+  },
+  "all_seed_paradoxical_pairs_above_two": [
+    {
+      "j": 8,
+      "q": 5,
+      "n": 7,
+      "D": 347,
+      "r": 7,
+      "endpoint": 8
+    },
+    {
+      "j": 8,
+      "q": 5,
+      "n": 9,
+      "D": 373,
+      "r": 9,
+      "endpoint": 10
+    },
+    {
+      "j": 8,
+      "q": 5,
+      "n": 18,
+      "D": 746,
+      "r": 18,
+      "endpoint": 20
+    },
+    {
+      "j": 8,
+      "q": 5,
+      "n": 19,
+      "D": 503,
+      "r": 19,
+      "endpoint": 20
+    },
+    {
+      "j": 8,
+      "q": 5,
+      "n": 25,
+      "D": 581,
+      "r": 25,
+      "endpoint": 26
+    }
+  ],
+  "correction_residue_order_reversals": [
+    {
+      "j": 3,
+      "q": 1,
+      "lower_D": [
+        1,
+        5,
+        "100"
+      ],
+      "higher_D": [
+        2,
+        2,
+        "010"
+      ]
+    },
+    {
+      "j": 3,
+      "q": 2,
+      "lower_D": [
+        5,
+        3,
+        "110"
+      ],
+      "higher_D": [
+        7,
+        1,
+        "101"
+      ]
+    },
+    {
+      "j": 4,
+      "q": 1,
+      "lower_D": [
+        2,
+        10,
+        "0100"
+      ],
+      "higher_D": [
+        4,
+        4,
+        "0010"
+      ]
+    }
+  ],
+  "artificial_return": {
+    "j": 16,
+    "q": 6,
+    "D": 194421,
+    "attainable": false
+  },
+  "rows": [
+    {
+      "j": 1,
+      "words": 2
+    },
+    {
+      "j": 2,
+      "words": 4
+    },
+    {
+      "j": 3,
+      "words": 8
+    },
+    {
+      "j": 4,
+      "words": 16
+    },
+    {
+      "j": 5,
+      "words": 32
+    },
+    {
+      "j": 6,
+      "words": 64
+    },
+    {
+      "j": 7,
+      "words": 128
+    },
+    {
+      "j": 8,
+      "words": 256
+    },
+    {
+      "j": 9,
+      "words": 512
+    },
+    {
+      "j": 10,
+      "words": 1024
+    },
+    {
+      "j": 11,
+      "words": 2048
+    },
+    {
+      "j": 12,
+      "words": 4096
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "base_commit": "f0e1ede43d94ab4d4756223cdccef51e3aa30c7d",
+  "external_commit": "ec8174b567d5cab4960024782210b5f5db02bd3a",
+  "source_sha256": {
+    "lean/Collatz/WordCongruence.lean": "e9ddff253d5001d4ec6915804fff772958e96eaf00b54187d5b241c3db307a19",
+    "lean/Collatz/CorrectionDecode.lean": "ed8d3682ef5c665d1d063b576aee4249f4bb99c678f11672ef6296a8e3fd48f9",
+    "lean/Collatz/Paradoxical.lean": "98fef19667c65b0bb50b59f6be8819a9f7405e0216843dfce8f0be92e233df6c",
+    "paper/paradoxical_cylinders.tex": "e4fb6837bb6c669d495abb871d6b9e59f99f1146b5edbaea7d8ce59267e8d75b",
+    "analysis/SEED_DEPENDENT_ROUTE_REVIEW.md": "bdcece66b3b678d90cd026da26583530e81f8539943a1c71360989f1770a4a8c"
+  },
+  "primary_RT_fulltext_read": false,
+  "studies_31_35_full_reports_available": false,
+  "new_lemma_retained": false,
+  "new_lean_compilations": 0,
+  "exact_test_command": "python3 research/etude38/exact_checks.py",
+  "publication": {
+    "branch": "research/etude38-correction-residue",
+    "push": "succeeded",
+    "pull_request": "creation failed: GitHub GraphQL Forbidden",
+    "merged": false
+  }
+}
