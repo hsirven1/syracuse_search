@@ -1,6 +1,6 @@
 # Yu (1999) clôt la borne uniforme (V) : gain log-log conditionnel seulement à la divergence
 
-**28 octobre 2026 — Résultat démontré par spécialisation d'un théorème publié, non original.**
+**28 octobre 2026 — Résultat démontré par spécialisation d'un théorème publié, non original. Source primaire PDF inspectée et certification ajoutée le 28 octobre 2026 : [YU1999_PRIMARY_PDF_CERTIFICATION.md](YU1999_PRIMARY_PDF_CERTIFICATION.md).**
 
 Cette note complète [PADIC_SUCCESSIVE_RUNS.md](PADIC_SUCCESSIVE_RUNS.md), commit \`e28978447a0ddc1c8c404515cea505fe56ff6b21\`. Le rapport précédent traitait comme hypothèse non certifiée :
 
@@ -17,7 +17,7 @@ Kunrui Yu, *p-adic logarithmic forms and group varieties II*, \`Acta Arithmetica
 
 - [Notice officielle de l'éditeur IMPAN](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/89/4/110761/p-adic-logarithmic-forms-and-group-varieties-ii).
 - [Transcription HTML intégrale de l'article](https://paperzz.com/doc/7955773/p-adic-logarithmic-forms-and-group-varieties-ii), pages imprimées **337–339** pour l'énoncé.
-- [PDF historique indexé par la Biblioteka Nauki](https://bibliotekanauki.pl/articles/1390501.pdf), [autre copie PDF indexée](https://matwbn.icm.edu.pl/ksiazki/aa/aa89/aa8944.pdf). **Limite de source :** les serveurs de ces PDF ont rejeté leur ouverture via le navigateur de recherche ; les formules ci-dessous ont été vérifiées à partir de la transcription HTML de l'article et de son extrait PDF indexé, non sur un fac-similé de page inspectable. Une vérification typographique du PDF reste utile, mais ce n'est pas un résultat supposé seulement à partir d'un résumé.
+- [PDF historique indexé par la Biblioteka Nauki](https://bibliotekanauki.pl/articles/1390501.pdf), [fac-similé PDF original](https://matwbn.icm.edu.pl/ksiazki/aa/aa89/aa8944.pdf). **Certification primaire effectuée le 28 octobre 2026 :** l'utilisateur a fourni `aa8944.pdf` (SHA-256 `5caa9d90742661045332e15ac4b38f03eeff82c41b341f6b01ea5f90648c068d`). Les pages imprimées 337–339 et 377 ont été rendues et relues visuellement ; leurs équations et conditions correspondent à l'application. [Rapport de certification primaire](YU1999_PRIMARY_PDF_CERTIFICATION.md). Le PDF n'est pas redistribué dans le dépôt.
 
 ### Conséquence énoncée au début de l'article, p. 337
 
@@ -137,12 +137,12 @@ Le contre-exemple exact du rapport précédent reste valide : pour \(a=5\), la v
 ## 5. Statuts de preuve, limites et reproductibilité
 
 - **THÉORÈME PUBLIÉ UTILISÉ :** conséquence initiale du théorème 1, Yu 1999, p.337, avec conditions explicites (1.2), (1.8), (1.9).
-- **DÉMONSTRATION DE SPÉCIALISATION :** (V), en changeant seulement les deux bases \((3,-a)\), avec corps et constante **fixes**.
+- **DÉMONSTRATION DE SPÉCIALISATION :** (V), pour deux bases \((3,-a)\) **dont la seconde varie avec a**, mais avec **nombre de bases, corps et constante fixes**.
 - **THÉORÈME CONDITIONNEL SUR LES ORBITES :** (P), dorénavant sans la précédente condition non vérifiée (V), mais toujours sous l'hypothèse d'orbite non bornée.
 - **NON ÉTABLI :** \(\liminf E(t)/t>0\), une amélioration de la pente \(1/\beta\), un résultat inédit au sens de priorité scientifique, une preuve de Syracuse.
-- **RÉSERVE DOCUMENTAIRE :** le résultat de 1999 a été lu dans une transcription HTML du texte original, confirmée par les extraits indexés du PDF, **sans visualisation directe des équations sur les pages PDF** (accès web refusé). Une relecture du fac-similé serait souhaitable pour une certification éditoriale. La dépendance au résultat publié de Yu est explicite, pas une preuve autonome de sa théorie.
+- **SOURCE PRIMAIRE CERTIFIÉE :** PDF original de Yu (1999) effectivement fourni, rendu et lu sur les pages 337–339 et 377. Vérification directe des formules (Y), (1.2), (1.5), (1.8), (1.9), de la nature facultative de (1.11), et du lemme 14.1 sur la dépendance multiplicative. [Détail et empreinte du PDF](YU1999_PRIMARY_PDF_CERTIFICATION.md). La preuve du théorème de Yu reste externe, non formalisée ici.
 - **VALIDATION NUMÉRIQUE :** aucune nouvelle recherche ni simulation n'est nécessaire pour cette implication universelle. Les scripts de la branche parente ne prouvent pas (V) ; aucune compilation Lean n'est revendiquée.
 
-**Verdict : GO pour audit mathématique indépendant de la spécialisation publiée ; maintien du gel de toute revendication de nouveauté.**
+**Verdict final après réception du PDF : PROUVÉ PAR THÉORÈME PUBLIÉ pour (V), et THÉORÈME CONDITIONNEL À UNE ORBITE NON BORNÉE pour (P). Aucune nouveauté scientifique ni preuve de Syracuse revendiquée.**
 
-**Prochaine action unique :** demander à un second relecteur mathématicien de contrôler sur le fac-similé de Yu 1999 la formule explicite p.337 et les trois conditions (1.2), (1.8), (1.9), puis les deux cas de la récurrence à deux runs dans §5 du rapport parental. Aucun nouveau calcul de préfixes ni nouvelle étude de densité n'est nécessaire avant cette vérification.
+**Prochaine action unique :** tenter un lemme de dissipation arithmétique sur des **blocs de runs de longueur variable**, avec recherche de contre-exemples, susceptible d'exclure les préfixes de densité de pas pairs arbitrairement faible. Ne pas relancer des audits documentaires ou des prolongements numériques de préfixes. Aucun gain de pente n'est encore prouvé.
