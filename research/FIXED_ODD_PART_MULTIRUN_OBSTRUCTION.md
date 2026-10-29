@@ -139,6 +139,19 @@ La structure globale du codage fini est classique : R. Terras (1976), C. J. Ever
 \sum_{j=0}^{k-1}r_{i+j}\ \le\ A k+B\log_2(M_i+1)
 \quad(\forall N>0,\ i\ge0,\ k\ge1),
 \]
-avec des constantes universelles \(A,B\), et \(M_i=n_{s_i}\) au début du \(i\)-ième run. **(H) n'est pas un théorème, ni une hypothèse à accepter ; c'est une cible contradictoire précise.** Une preuve de (H) sur les trajectoires entières impliquerait pour chaque départ fixe une moyenne asymptotiquement bornée des runs, donc la densité inférieure positive de pas pairs. Les exemples finis présents n'invalident pas (H), car les grandes valeurs de \(r_0\) entrent précisément dans sa correction de hauteur. Toute nouvelle recherche doit commencer par chercher un contre-exemple analytique à (H), et non augmenter \(D\) dans les simulations.
+avec des constantes universelles \(A,B\), et \(M_i=n_{s_i}\) au début du \(i\)-ième run. **(H) n'est pas un théorème, ni une hypothèse à accepter ; c'est une cible contradictoire précise.** Une preuve de (H) sur les trajectoires entières impliquerait pour chaque départ fixe une moyenne asymptotiquement bornée des runs, donc la densité inférieure positive de pas pairs. Les exemples finis présents n'invalident pas (H), car les grandes valeurs de \(r_0\) entrent précisément dans sa correction de hauteur.
+
+**Implication exacte de (H), si elle était démontrée.** Prendre \(i=0\) et poser
+\(S_k=\sum_{j=0}^{k-1}r_j\), \(c_N=B\log_2(N+1)\). Alors (H) donnerait
+\[
+S_k\le Ak+c_N,\qquad s_k=S_k+k\le(A+1)k+c_N.
+\]
+Pour \(s_k\le t<s_{k+1}\), le nombre de pas pairs est exactement \(E(t)=k\). Or
+\(t<s_{k+1}\le(A+1)(k+1)+c_N\), et donc
+\[
+\liminf_{t\to\infty}\frac{E(t)}{t}\ge\frac1{A+1}>0.
+\]
+Ainsi (H) est **strictement plus ambitieuse** qu'une simple optimisation du terme log-log. Le présent résultat de surjectivité *ne* prouve ni *ne* réfute (H).
+ Toute nouvelle recherche doit commencer par chercher un contre-exemple analytique à (H), et non augmenter \(D\) dans les simulations.
 
 Ne pas fusionner la branche ; aucun fichier de données volumineux n'est nécessaire.
