@@ -9,37 +9,37 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [B] Seuil de Fibonacci pour le critère de Liouville — PROCHAINE QUESTION (cycle 004)
-Mot $w=\prod_{k\ge1}(0\,1^{F_{k+2}})$, $F_1=F_2=1$, donc runs $2,3,5,8,\ldots$.
-Alors $S_{k-1}=F_{k+3}-3$ et $R_k/S_{k-1}\to1/\varphi\approx0{,}618>\beta$.
-Lemme réfutable : $Q_k\to+\infty$ (B7 s'applique) ou, au contraire, $2^{o_k+r_k+1}<3^{o_k}+P_k$
-pour tout $k$ assez grand. Preuve visée : récurrence sur $F_k$, sans calculer $3^{F_n}$
-très loin. Si $Q_k$ reste bornée, le critère s'arrête avant $\varphi$ et l'on passe à H5.
-Dépend : B7. Une seule de ces deux issues ; pas de balayage.
+## 1. [A] Horizon minimal d'un certificat à poids borné — PROCHAINE QUESTION (cycle 005)
+Hypothèse : $0<\ell\le W\le h$, $\rho<1$, et pour tout $n\ge N_0$ il existe $t\le B(n)$ avec
+$T^t(n)\,W(T^t n)\le\rho\, n\, W(n)$. Lemme réfutable : une constante explicite $C$ vérifie
+$B(2^L-1)\ge\delta L-C$ pour tout $L$ assez grand — la chaîne traverse la montée de Mersenne
+(A2), atteint l'ordre de $3^L$, puis redescend — ou bien un triplet $(\ell,h,\rho)$ et une
+fonction $B(n)=o(\log n)$ qui contractent tous les Mersenne. Comparer $C$ à la borne
+$\ge6{,}14\log n$ d'Applegate–Lagarias 2003, sans refaire leur programme linéaire.
+Garde-fou : Conway / Kurtz–Simon. Dépend : A2, A5. Une seule preuve ou un contre-exemple explicite.
 
 ## 2. [B] Frontière de la méthode de Tschakaloff (H5)
 Quelles familles de mots se ramènent à des valeurs $f_q(\alpha)$ ? Runs $cj+d+p_j$ ($p$ périodique) ⇒ $l\ge2$,
 hors de portée de VW ($\Gamma(2,0)<\gamma$). Rechercher des mesures p-adiques plus fortes (Bézivin, Bundschuh,
 Amou–Väänänen…) **avant** toute tentative de preuve. Dépend : B2.
 
-## 3. [A] Certificats à poids bornés et horizon $B(n)$ (H6)
-Rédiger la borne $B(n)\ge\delta\log_2n-O(1)$, la comparer à Applegate–Lagarias 2003 ; puis caractériser
-une classe de certificats qui échappe aux no-go (poids non bornés structurés, horizons dépendant de $v_2(n+1)$).
-Garde-fou : Conway/Kurtz–Simon ⇒ la méthode doit utiliser la structure propre de $3x+1$. Dépend : A2, A5.
-
-## 4. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles
+## 3. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles
 Lire Berg–Meinardus, Wirsching (LNM 1681), Mori 2024 ; extraire **un** énoncé réfutable (par ex. une
 prédiction d'un tronqué fini) avant tout calcul. Documentaire d'abord. Aucune dépendance.
 
-## 5. [B, long terme] (C) densité orbitale positive (H1)
+## 4. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
 (H) ⇒ (C) uniforme, désormais prouvé (B6), avec $\eta_N\ge1/(A+1)$. (H) elle-même est la
 conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 
-## 6. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
+## 5. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 004 (26 nov. 2026) : runs de Fibonacci, $Q_k>k$ pour tout $k$ (B9). Le réalisateur
+  est irrationnel via B7. La branche « $Q$ bornée avant $\varphi$ » est fermée.
+  Prochaine question : axe A, horizon d'un certificat à poids borné.
+  [cycle-004](cycles/cycle-004.md)
 - Revue `6081009622` (26 nov. 2026, SHA `aeb693b`) : certificat X19 et forme entière
   de $Q_m$ confirmés, revérifiés. Aucune correction. Prochaine question inchangée.
   Détail : [reviews.md](reviews.md).

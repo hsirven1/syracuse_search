@@ -22,3 +22,4 @@ Ne pas relancer une piste sans **nouvelle hypothèse** explicite qui contourne l
 | Campagnes numériques de préfixes, d'ombres ou de complexités sans énoncé réfutable | Aucune valeur de preuve | Politique du dépôt |
 | (H) comme petit lemme de pente $B\le1$, ou comme ajustement de constante en dessous du seuil de densité | $B\le1$ réfuté pour tout $A$ (B4, X16) ; $A<1/\beta$ exclut les orbites non bornées (B6). (H) est la conjecture majeure H2 | cycle 002 |
 | Retrouver B2 (runs linéaires, mot triangulaire) par le critère de Liouville B7 | $Q_m\to-\infty$ sur le mot triangulaire (X18). Il faut un autre outil, déjà VW pour la progression arithmétique | cycle 003 |
+| Branche « $Q_k$ reste bornée au seuil de Fibonacci, le critère s'arrête avant $\varphi$ » | Réfutée : $Q_k>k$ pour tout $k$ (B9). $1/\varphi>\beta$. Ne pas relancer ce mot. Les runs quasi linéaires sont un autre énoncé (H5) | cycle 004 |

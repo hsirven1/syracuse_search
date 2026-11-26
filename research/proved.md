@@ -69,6 +69,17 @@ satisfait $Q_k>k$. Donc son réalisateur 2-adique est irrationnel. Preuve élém
 ce n'est pas un corollaire de Monks–Yazinski 2004, thm 2.7(b). Ne retrouve pas les runs
 linéaires (X18).
 
+**B9 — Runs de Fibonacci** (PROUVÉ, cycle 004 §4). Le mot $\prod_{k\ge1}(0\,1^{F_{k+2}})$,
+$F_1=F_2=1$, satisfait $Q_k>k$ pour tout $k\ge1$. Donc $\xi_w\notin\mathbb Q$.
+Preuve élémentaire : $2^{F_{n+1}}\ge3^{F_n}+2^{n-2}$ pour $n\ge4$ (bases $32\ge31$,
+$256\ge251$, puis produit), et cette marge fait passer la comparaison entière de
+$D_k=2^{o_k+r_k+1}$ à $D_{k+1}$. Cas directs $k=1$ ($8>3$) et $k=2$ ($64>43$).
+Le rapport des runs tend vers $1/\varphi>\beta$, car $\varphi>8/5>\log_23$
+($125>121$ et $256>243$). Un entier $N>0$ dont les $k$ premiers runs impairs sont
+$F_3,\ldots,F_{k+2}$ vérifie $N\ge2^{k-1}$. Densité des $1$ égale à $1$ : pas un
+corollaire de Monks–Yazinski. Dépend de B7 pour l'irrationalité et pour la borne
+entière ; l'inégalité $Q_k>k$ n'en dépend pas. Ne traite pas les runs quasi linéaires.
+
 Revue indépendante `6080964566` (PR #27, SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`) :
 les preuves écrites de B7, B8 et X18 ont été confirmées, puis revérifiées dans ce
 dépôt (télescopage de $y_t=T^t(\xi)+1$, comparaisons entières, relance du script).
