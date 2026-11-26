@@ -40,6 +40,9 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6081009622` (26 nov. 2026, SHA `aeb693b`) : certificat X19 et forme entière
+  de $Q_m$ confirmés, revérifiés. Aucune correction. Prochaine question inchangée.
+  Détail : [reviews.md](reviews.md).
 - Revue `6080964566` (26 nov. 2026, SHA `0c90981`) : B7, B8 et X18 confirmés. La couverture
   du balayage borné (cycle 003 §5) est réfutée (X19) et le texte corrigé. Prochaine
   question inchangée. Détail : [reviews.md](reviews.md).

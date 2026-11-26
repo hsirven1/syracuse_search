@@ -76,6 +76,12 @@ Ce n'est pas une seconde preuve. La phrase expérimentale qui attribuait au bala
 borné la couverture des cycles de $3x+b$ a été réfutée (X19) et corrigée ; elle ne
 faisait pas partie de B7.
 
+Revue indépendante `6081009622` (PR #27, SHA `aeb693b5286fcb308484c91cdbeefcbe8ac576c2`) :
+le certificat X19 et la forme entière de $Q_m$ pour $L\in\mathbb Z$ sont confirmés,
+puis revérifiés (huit transitions bornées, $339\,789$ états et les états de sortie,
+$118\,882$ valuations exactes, membre de droite $\ge6$). Aucun changement au texte
+de B7. Ce n'est pas une seconde preuve.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

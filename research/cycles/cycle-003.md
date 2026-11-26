@@ -204,3 +204,34 @@ pas une seconde preuve : les identités ont été revérifiées ici.
 
 B7, B8 et X18 restent **PROUVÉS** par le texte des §§2–4. La prochaine question
 de l'agenda n'est pas abordée dans cette correction.
+
+## 11. Revue `6081009622`
+
+Revue indépendante sur le SHA `aeb693b5286fcb308484c91cdbeefcbe8ac576c2`
+(26 novembre 2026). Elle confirme le certificat de X19 et la comparaison entière
+de §2. Ce n'est pas une seconde preuve. Revérification locale, d'abord hors du
+script, puis par relance du script. Aucun texte des §§1–9 n'est modifié.
+
+- Huit transitions, avec arrêt imposé au huitième pas :
+  $227\to347\to527\to797\to1202\to601\to908\to454\to227$. Chaque numérateur est
+  premier à $13$. Le mot est $11110100$. L'orbite de $T$ sur $n/13$ et la formule
+  du point fixe redonnent $227/13$. La correspondance avec la branche
+  $n\mapsto n/2$ ou $(3n+13)/2$ se vérifie par substitution ; elle ne dépend pas
+  d'une relecture de Bernstein–Lagarias.
+- Balayage des $7712$ départs : $339\,789$ états examinés, plus les $7712$ états
+  atteints juste après $18$ zéros ou $250$ pas. Aucune visite de $\{n/13\}$.
+  Les $118\,882$ fenêtres de §5 satisfont $v_2(A_m)=m+1+o_{m+1}$, et le quotient
+  $A_m/2^{m+1+o_{m+1}}$ est impair.
+- Forme entière : $Q_m-L=\log_2\bigl(2^E/(3^{o_m}+P_m)\bigr)$ avec
+  $E=m+1+o_{m+1}-L$. Pour $L\in\mathbb Z$ et $E<0$, multiplier par $2^{-E}>0$
+  donne $1>(3^{o_m}+P_m)\,2^{-E}$. Le terme $j=1$ donne $P_m\ge2$, et
+  $2^{-E}\ge2$, donc le membre de droite est un entier $\ge6$. Ainsi $Q_m>L$
+  est faux. Le cas $m=1$, $o_1=0$, $E=-1$ atteint $6$. L'argument de B7 passe
+  par $\log_2$ et n'utilise pas cette réduction.
+- La revue note qu'une boucle non bornée dans le script ne tomberait pas si la
+  transition cessait de ramener $227$. Le certificat ci-dessus est borné à huit
+  pas, et l'assertion du script fixe déjà la liste des huit numérateurs. Le
+  script n'est pas modifié.
+
+X19 et la précision de §2 sont **confirmés** sur ce SHA. B7, B8 et X18 sont
+inchangés. La prochaine question de l'agenda n'est pas abordée.
