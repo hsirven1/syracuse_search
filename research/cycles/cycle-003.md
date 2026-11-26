@@ -58,8 +58,12 @@ En prenant $\log_2$ et en écrivant $o_{m+1}=o_m+r_m$,
 $$Q_m\le\log_2\max(|a|,b).$$
 Le supremum est fini. ∎
 
-La forme entière, équivalente, est celle qu'on teste :
-$Q_m>L$ si et seulement si $2^{o_m+r_m+m+1-L}>3^{o_m}+P_m$.
+La forme entière qu'on teste suppose $L\in\mathbb Z$. Posons
+$E=o_m+r_m+m+1-L$. Alors $Q_m>L$ si et seulement si $2^E>3^{o_m}+P_m$.
+Si $E\ge0$, les deux membres sont entiers. Si $E<0$, on chasse le dénominateur :
+l'inégalité équivaut à $1>(3^{o_m}+P_m)\,2^{-E}$. Or $P_m\ge2$ et $-E\ge1$, donc
+le membre de droite est un entier $\ge6$, et $Q_m>L$ est faux. La preuve ci-dessus
+n'utilise pas cette forme : elle passe par $\log_2$.
 
 ## 3. Théorème B8
 
@@ -113,8 +117,13 @@ en entiers exacts :
 - les préfixes de longueur $\le4$ devant un cycle de longueur $\le6$ ($3720$
   réalisations, toutes dans $\mathbb Z_{(2)}$, $56\,420$ fenêtres) ;
 - les départs $a/b$ avec $b$ impair $\le63$ et $|a|\le120$ ($7712$ orbites,
-  $118\,882$ fenêtres), ce qui couvre les cycles de $3x+b$ pour ces dénominateurs,
-  transitoire compris ;
+  $118\,882$ fenêtres). Seules les fenêtres atteintes depuis ces départs, dans la
+  limite de $250$ pas ou $18$ zéros, sont testées. Ce balayage ne couvre pas les
+  cycles de $3x+b$ : pour le paramètre $13$,
+  $227\to347\to527\to797\to1202\to601\to908\to454\to227$ est un cycle exact.
+  Les points $n/13$ forment un cycle de $T$ de dénominateur réduit $13$, et aucun
+  n'est visité (X19). Le mot $(11110100)^\infty$, de longueur $8$, est déjà dans
+  le contrôle des mots périodiques de longueur $\le12$ ;
 - les témoins $\xi=0$, $\xi=1$, $\xi=-5$, et l'identité $A_m=-2^{2m+2}$ pour
   l'itinéraire de $1$.
 
@@ -127,8 +136,10 @@ n'en a pas produit.
 - **Lagarias (1985)** et **Bernstein–Lagarias (1996)** : la conjecture de périodicité
   est exactement « $\xi_w$ rationnel $\Rightarrow$ $w$ ultimement périodique ».
   B8 en est un cas, pour un mot de densité de $1$ égale à $1$. L'article de 1996
-  n'a pas été relu. La formule du point fixe périodique utilisée pour les tests est
-  élémentaire et vérifiée par l'orbite.
+  n'a pas été relu dans ce dépôt. La revue `6080964566` indique que son §1,
+  (1.5)–(1.6), confirme la convention de conjugaison et l'énoncé de la conjecture
+  de périodicité : ce passage reste **non relu** ici. La formule du point fixe
+  périodique utilisée pour les tests est élémentaire et vérifiée par l'orbite.
 - **Monks–Yazinski (2004)**, *Discrete Math.* 275, théorème 2.7(b), lu sur le PDF
   d'auteur (`monks.scranton.edu`, fichier `AutoConjV13.pdf`) : une orbite rationnelle
   divergente a une densité inférieure de $1$ au moins $\ln2/\ln3$. La densité $1$
@@ -137,8 +148,9 @@ n'en a pas produit.
   que cette densité inférieure vaut exactement $\ln2/\ln3$. Le dernier pas invoque
   (15) et (16) pour passer de l'irrationalité de la somme réelle $\Phi_{\mathbb R}$ à
   l'apériodicité de la somme 2-adique. Ces deux limites d'une même suite de
-  rationnels ne sont pas le même objet (même distinction que X14). Le théorème 1
-  n'est pas utilisé.
+  rationnels ne sont pas le même objet (même distinction que X14). Témoin local,
+  vérifié directement : $2^n/(1+2^n)$ tend vers $1$ dans $\mathbb R$ et vers $0$
+  dans $\mathbb Q_2$. L'énoncé général de López–Stoll reste non utilisé.
 - **De Jesús (2026)**, note de dérive, DOI `10.5281/zenodo.23108509` : seul le
   résumé a été lu. L'obstruction y est la complexité des facteurs face à une dérive
   normalisée. B7 compare la valuation 2-adique du reste à la taille de la somme
@@ -155,7 +167,7 @@ orbite d'entier positif : B8 parle du réalisateur 2-adique du mot, pas de Syrac
 ## 8. Mises à jour
 
 - `proved.md` : B7, B8.
-- `counterexamples.md` : X18.
+- `counterexamples.md` : X18. Correction ultérieure : X19 (revue `6080964566`).
 - `hypotheses.md` : H4 prouvée ; H3 gagne le cas B8.
 - `abandoned.md` : le critère de Liouville ne remplace pas VW sur les runs linéaires.
 - `prior_art.md` : lectures de ce cycle.
@@ -168,5 +180,27 @@ python3 research/checks/cycle003_liouville.py
 ```
 
 Sortie attendue : six lignes `PASS` (8178 cycles purs ; témoins ; 3720 mots
-ultimement périodiques ; 7712 orbites $a/b$ ; silence triangulaire ; famille
-$2^k$ jusqu'à $k=8$).
+ultimement périodiques ; 7712 orbites $a/b$, avec `cycle13_visite: 0` ; silence
+triangulaire dès $m=6$ ; famille $2^k$ jusqu'à $k=8$).
+
+## 10. Revue `6080964566`
+
+Revue indépendante sur le SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`
+(26 novembre 2026). Elle confirme les preuves écrites de B7, B8 et X18. Ce n'est
+pas une seconde preuve : les identités ont été revérifiées ici.
+
+- La variante $y_t=T^t(\xi_w)+1$ redonne les mêmes relations : $2y_{t+1}=3y_t$ sur
+  un bit $1$, $2y_{t+1}=y_t+1$ sur un bit $0$, puis
+  $2^s y_s/3^{h_s}=y_0+\sum_{e_j<s}2^{e_j}/3^{o_j}$ avec $e_j=j+o_j-1$. La valuation
+  du reste reste $m+1+o_{m+1}$. Rien à modifier dans §2, hors la précision sur $L$
+  entier.
+- Les comparaisons de B8 ($128/9>4507/729$, $32/81<1/2$, cas $k=1$) et la limite
+  $Q_m\to-\infty$ de X18 sont inchangées. Dans le script, le commentaire disait
+  « dès $m\ge4$ » ; l'assertion, et §4, disent que l'inégalité stricte commence à
+  $m=6$. Le commentaire a été aligné.
+- La troisième puce de §5 attribuait à tort au balayage borné la couverture des
+  cycles de $3x+b$. C'est X19. Le script a été relancé : les six comptes annoncés
+  sont inchangés, et le cycle de paramètre $13$ a $0$ visite.
+
+B7, B8 et X18 restent **PROUVÉS** par le texte des §§2–4. La prochaine question
+de l'agenda n'est pas abordée dans cette correction.

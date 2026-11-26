@@ -1,5 +1,7 @@
 # Agenda de recherche (priorisé)
 
+Revues déjà traitées : [reviews.md](reviews.md). Ne pas reprendre un identifiant qui y figure.
+
 La **première entrée** est la prochaine question à traiter. Un cycle = une expérience ciblée :
 énoncé réfutable → contre-exemple (symbolique d'abord, calcul exact borné ensuite) → preuve ou
 réfutation → comparaison à la littérature → `cycles/cycle-NNN.md`. Axes : **A** fonctions de descente,
@@ -38,6 +40,9 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6080964566` (26 nov. 2026, SHA `0c90981`) : B7, B8 et X18 confirmés. La couverture
+  du balayage borné (cycle 003 §5) est réfutée (X19) et le texte corrigé. Prochaine
+  question inchangée. Détail : [reviews.md](reviews.md).
 - Cycle 003 (26 nov. 2026) : critère de Liouville prouvé (B7). Le mot de runs $2^k$ est
   irrationnel (B8). Le mot triangulaire échappe au critère (X18). [cycle-003](cycles/cycle-003.md)
 - Cycle 002 (26 nov. 2026) : (H) reclassée conjecture majeure. $B\le1$ réfuté pour tout $A$ (B4) ;

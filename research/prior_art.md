@@ -59,6 +59,7 @@ par un rédacteur précédent (voir la PR citée) · **[S]** secondaire ou de m�
 - **De Jesús** (2026), manuscrit non expertisé sur les points rationnels de l'application de conjugaison. [S] Pertinent pour H4.
 - **Cycle 003, lectures ciblées.**
   - **Monks–Yazinski** (2004), *Discrete Math.* 275, 219–236, thm 2.7(b). **[P]** Énoncé lu sur le PDF d'auteur `https://monks.scranton.edu/files/pubs/AutoConjV13.pdf` : orbite rationnelle divergente $\Rightarrow$ $\liminf \kappa_n/n\ge\ln2/\ln3$. Ne couvre pas B8 (densité des $1$ égale à $1$).
-  - **López–Stoll**, arXiv:2101.12747, thm 1 et §6. **[P]** pour cette preuve. Ils annoncent l'égalité de cette densité avec $\ln2/\ln3$. Le pas final, via (15)–(16), identifie la somme réelle et la somme 2-adique. Non utilisé (même distinction que X14).
-  - **De Jesús**, *A drift-sensitive complexity bound…*, DOI `10.5281/zenodo.23108509`. **[S]** Résumé seul : complexité des facteurs contre dérive normalisée. Mécanisme différent de B7. Preuve non lue.
+  - **López–Stoll**, arXiv:2101.12747, thm 1 et §6. **[P]** pour cette preuve. Ils annoncent l'égalité de cette densité avec $\ln2/\ln3$. Le pas final, via (15)–(16), identifie la somme réelle et la somme 2-adique. Non utilisé (même distinction que X14). Témoin local : $2^n/(1+2^n)\to1$ dans $\mathbb R$ et $\to0$ dans $\mathbb Q_2$. L'énoncé général reste non vérifié au-delà de ce pas.
+  - **De Jesús**, *A drift-sensitive complexity bound…*, DOI `10.5281/zenodo.23108509`. **[S]** Résumé seul : complexité des facteurs contre dérive normalisée. Mécanisme différent de B7. Preuve non lue. La revue `6080964566` laisse aussi ce manuscrit non vérifié.
+  - **Bernstein–Lagarias (1996)** : non relu dans ce dépôt. La même revue affirme que §1, (1.5)–(1.6), confirme la conjugaison et la conjecture de périodicité. Statut inchangé : non relu.
 - **Fernández–Ibáñez** (2026), arXiv 2607.24844 (mots de Christoffel) ; **Nikpour–Rabbani** (2026) (KL, Perron–Frobenius). [S]

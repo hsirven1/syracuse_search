@@ -69,6 +69,13 @@ satisfait $Q_k>k$. Donc son réalisateur 2-adique est irrationnel. Preuve élém
 ce n'est pas un corollaire de Monks–Yazinski 2004, thm 2.7(b). Ne retrouve pas les runs
 linéaires (X18).
 
+Revue indépendante `6080964566` (PR #27, SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`) :
+les preuves écrites de B7, B8 et X18 ont été confirmées, puis revérifiées dans ce
+dépôt (télescopage de $y_t=T^t(\xi)+1$, comparaisons entières, relance du script).
+Ce n'est pas une seconde preuve. La phrase expérimentale qui attribuait au balayage
+borné la couverture des cycles de $3x+b$ a été réfutée (X19) et corrigée ; elle ne
+faisait pas partie de B7.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

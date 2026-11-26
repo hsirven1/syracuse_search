@@ -186,10 +186,33 @@ for L in range(1, 7):
                 n_ev += 1
 counts["ultimement_periodiques"] = {"testes": n_ev, "hors_Z2": n_skip, "fenetres": n_rows}
 
-# 3. Orbites de a/b, b impair <= 63, |a| <= 120, y compris les transitoires des cycles 3x+b.
-#    On ne décide pas la divergence : seule la fenêtre atteinte est testée, et elle doit
-#    obéir à l'identité puisque le départ est rationnel.
-n_orb = n_rows = 0
+# 3. Orbites de a/b, b impair <= 63, |a| <= 120.
+#    Seules les fenêtres atteintes depuis ces départs sont testées (250 pas ou 18 zéros).
+#    Ce n'est pas un recensement des cycles de 3x+b. Le cycle de paramètre 13
+#    227 → 347 → 527 → 797 → 1202 → 601 → 908 → 454 → 227 est absent de ce balayage ;
+#    son mot, de longueur 8, est déjà dans le contrôle périodique ci-dessus.
+def accelerated(n, bparam):
+    return n // 2 if n % 2 == 0 else (3 * n + bparam) // 2
+
+cyc13 = [227]
+while True:
+    nxt = accelerated(cyc13[-1], 13)
+    if nxt == cyc13[0]:
+        break
+    cyc13.append(nxt)
+assert cyc13 == [227, 347, 527, 797, 1202, 601, 908, 454]
+pts13 = {Fraction(n, 13) for n in cyc13}
+assert all(p.denominator == 13 for p in pts13)
+word13 = [n & 1 for n in cyc13]
+assert word13 == [1, 1, 1, 1, 0, 1, 0, 0]
+assert cycle_point(word13) == Fraction(227, 13)
+x13 = Fraction(227, 13)
+for n in cyc13:
+    assert x13 == Fraction(n, 13)
+    x13 = T(x13)
+assert x13 == Fraction(227, 13)
+
+n_orb = n_rows = hits13 = 0
 for bden in range(1, 64, 2):
     for anum in range(-120, 121):
         xi = Fraction(anum, bden)
@@ -198,6 +221,8 @@ for bden in range(1, 64, 2):
         x = xi
         nzeros = 0
         for _ in range(250):
+            if x in pts13:
+                hits13 += 1
             if x.denominator % 2 == 0:
                 raise AssertionError(xi)
             bit = x.numerator & 1
@@ -208,10 +233,12 @@ for bden in range(1, 64, 2):
                 break
         n_rows += check_pair(a, b, runs_of(bits, 16, 40))
         n_orb += 1
-counts["orbites_a_sur_b"] = {"orbites": n_orb, "fenetres": n_rows}
+assert hits13 == 0
+counts["orbites_a_sur_b"] = {"orbites": n_orb, "fenetres": n_rows, "cycle13_visite": hits13}
 
-# 4. Le mot triangulaire (1^j 0)_{j>=1} ne déclenche pas le critère : dès m>=4,
-#    2^{m+1+o_{m+1}} < 3^{o_m}+P_m. (Irrationnel par B2, invisible pour B7.)
+# 4. Le mot triangulaire (1^j 0)_{j>=1} ne déclenche pas le critère. Dans la plage
+#    testée, 2^{m+1+o_{m+1}} < 3^{o_m}+P_m à partir de m=6 (l'inégalité stricte échoue
+#    pour m=1..5). Irrationnel par B2, invisible pour B7.
 tri = []
 for j in range(1, 16):
     tri += [1] * j + [0]

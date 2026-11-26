@@ -38,6 +38,8 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
 - La valuation est exacte : $v_2(A_m)=m+1+o_{m+1}$, pas seulement $\ge$.
 - La correction $G_m$ est nécessaire (X12). La somme commence à $j=1$.
 - Cas non vide : B8. Cas aveugle : le mot triangulaire, $Q_m\to-\infty$ (X18).
+- Les contrôles du cycle 003 testent les fenêtres atteintes depuis les départs
+  choisis. Ils ne recensent pas les cycles de $3x+b$ (X19).
 - Portée : rien de neuf pour (C). Une orbite entière non bornée a déjà
   $r_m\le\beta o_m-m+O_N(1)$ par l'identité de hauteur.
 
