@@ -9,7 +9,9 @@ Donc $Q_k\to+\infty$ et B7 s'applique : le réalisateur 2-adique est irrationnel
 Si l'itinéraire d'un entier positif commence par le préfixe exact, alors
 $N\ge2^{k-1}$. Les seules longueurs de ces runs ne donnent pas ce préfixe (X20).
 Un préfixe fini devant un mot à un zéro par bloc et de taux $\lambda>\log_2 3$
-ne restaure pas la rationalité (§8).
+ne restaure pas la rationalité (§8). Au seuil $\lambda=\log_2 3$, les deux signes
+de $r_k-\beta o_k$ sont réalisés par des familles explicites : l'une donne
+$Q_k\to+\infty$, l'autre $Q_k\to-\infty$.
 L'alternative de l'agenda ($2^{o_k+r_k+1}<3^{o_k}+P_k$ pour tout $k$ grand) est fausse
 pour chaque $k$. Ni (C), ni Syracuse. La preuve est une récurrence sur $F_n$ ;
 elle ne calcule aucune puissance $3^{F_n}$ au-delà de $3^5$.
@@ -294,13 +296,100 @@ Puisque $\lambda>1$, $r_k$ croît géométriquement à partir d'un rang, et $o_k
 aussi. Donc $Q_k\to-\infty$. B7 ne s'applique pas. L'irrationalité de ces
 mots reste ouverte par ce critère.
 
-Si $\lambda=\log_2 3$, le rapport $r_k/o_k$ tend vers $\beta$. Le signe de
-$r_k-\beta o_k$ dépend de la vitesse de convergence. Il n'y a pas de
-conclusion uniforme.
+Si $\lambda=\log_2 3$, la même récurrence donne seulement $r_k/o_k\to\beta$.
+Cette limite ne fixe pas le signe de $r_k-\beta o_k$. Les deux familles
+suivantes montrent que les deux signes se produisent, avec la même limite
+des rapports de runs.
+
+**Proposition.** Pour $\varepsilon\in\{+1,-1\}$, soit $r_1=64$ et, pour
+$k\ge2$,
+$$r_k=\lfloor\beta o_k\rfloor+\varepsilon\lfloor\sqrt{o_k}\rfloor,$$
+où $o_1=0$ et $o_{k+1}=o_k+r_k$. Alors $r_k\ge1$ pour tout $k$,
+$r_k/o_k\to\beta$ et $r_{k+1}/r_k\to\log_2 3$. Pour $\varepsilon=+1$,
+$Q_k\to+\infty$ : le réalisateur 2-adique est irrationnel, par B7. Pour
+$\varepsilon=-1$, $Q_k\to-\infty$ : B7 ne s'applique pas. L'irrationalité
+de cette seconde famille reste ouverte par ce critère.
+
+**Preuve.** D'abord $\beta>1/2$, car $(3/2)^2=9/4>2$. Pour tout entier
+$o\ge64$,
+$$\sqrt o+1\le\frac9{64}o.$$
+Les deux membres de $\sqrt o\le(9o-64)/64$ sont positifs ou nuls. Élever au
+carré est donc une équivalence, et l'inégalité équivaut à
+$h(o)\ge0$, où $h(o)=(9o-64)^2-4096\,o$. En $o=64$,
+$(9\cdot64-64)^2=512^2=262144$ et $4096\cdot64=262144$, donc $h(64)=0$.
+Avec $a(o)=9o-64$, on a $a(o+1)=a(o)+9$ et
+$$h(o+1)-h(o)=18a(o)+81-4096=18(9o-64)+81-4096=162o-5167.$$
+Pour $o\ge64$, ce pas vaut au moins $162\cdot64-5167=5201>0$. Donc $h$
+croît strictement sur les entiers $\ge64$, et $h(o)\ge0$. De plus
+$9/64<\beta/2$ : $\beta/2>1/4=16/64$. Ainsi, pour tout entier $o\ge64$,
+$$\sqrt o+1\le\frac9{64}o<\frac\beta2\,o.$$
+
+Ici $o_2=r_1=64$. Pour $k\ge2$, les deux signes vérifient
+\begin{align*}
+r_k
+&\ge\lfloor\beta o_k\rfloor-\lfloor\sqrt{o_k}\rfloor
+>\beta o_k-1-\sqrt{o_k}
+=\beta o_k-(\sqrt{o_k}+1)\\
+&\ge\beta o_k-\frac9{64}o_k
+>\frac\beta2\,o_k.
+\end{align*}
+La comparaison stricte avec $\beta o_k-1$ vient de $\lfloor y\rfloor>y-1$,
+et $\lfloor\sqrt{o_k}\rfloor\le\sqrt{o_k}$. Comme $\beta/2>1/4$, on a
+$r_k>o_k/4$, donc $r_k\ge1$ et $o_{k+1}>5o_k/4$. Par récurrence
+$o_k\ge64$ pour tout $k\ge2$, et $o_k>64\cdot(5/4)^{k-2}$ pour $k\ge3$.
+En particulier $o_k\to+\infty$.
+
+Le second ordre est encadré. Comme $-1<\lfloor\beta o\rfloor-\beta o\le0$,
+$$\lfloor\sqrt o\rfloor-1<r-\beta o\le\lfloor\sqrt o\rfloor$$
+si $\varepsilon=+1$, et
+$$-\lfloor\sqrt o\rfloor-1<r-\beta o\le-\lfloor\sqrt o\rfloor$$
+si $\varepsilon=-1$. Dans les deux cas
+$|r_k-\beta o_k|\le\lfloor\sqrt{o_k}\rfloor+1\le\sqrt{o_k}+1$, donc
+$(r_k-\beta o_k)/o_k\to0$ et $r_k/o_k\to\beta$. Alors
+$o_{k+1}/o_k=1+r_k/o_k\to1+\beta=\log_2 3$. Comme $r_k/o_k\to\beta>0$,
+$$\frac{r_{k+1}}{r_k}
+=\frac{r_{k+1}}{o_{k+1}}\cdot\frac{o_{k+1}}{o_k}\cdot\frac{o_k}{r_k}
+\to\beta\cdot(1+\beta)\cdot\frac1\beta=1+\beta=\log_2 3.$$
+
+La somme $G$ reste bornée. On a $t_1=2$ et, pour $r\ge2$,
+$t_{j+1}/t_j=2(2/3)^r\le8/9$. Or $r_1=64$ et, pour $k\ge2$,
+$r_k>(\beta/2)o_k>(\beta/2)\cdot64>16$. Tous les rapports sont donc
+$\le8/9$, et
+$$G_k\le\sum_{i=0}^{k-1}2\cdot\Bigl(\frac89\Bigr)^i<18.$$
+Ainsi $1+G_k<19<32=2^5$, et $\log_2(1+G_k)<5$.
+
+Signe plus. L'encadrement donne
+$Q_k>\lfloor\sqrt{o_k}\rfloor-1+k+1-5=\lfloor\sqrt{o_k}\rfloor+k-5$.
+Pour $k\ge3$, $\sqrt{o_k}>8\cdot(5/4)^{(k-2)/2}$. Posons $m=k-2$ et
+$w_m=(5/4)^m/m^2$. Pour $m\ge2$, $k=m+2\le2m$, donc
+$\sqrt{o_k}/k>4\sqrt{w_m}$. Pour $m\ge16$, $m/(m+1)\ge16/17$ et
+$$\frac{w_{m+1}}{w_m}
+=\frac54\Bigl(\frac{m}{m+1}\Bigr)^2
+\ge\frac54\cdot\frac{256}{289}
+=\frac{320}{289}.$$
+Or $320/289>11/10$, car $3200>3179=11\cdot289$. Pour $t\ge0$,
+$w_{16+t}>w_{16}\cdot(11/10)^t$. L'inégalité $(1+1/10)^t\ge1+t/10$ vaut
+en $t=0$. Si elle vaut en $t$, multiplier par $11/10$ donne
+$(1+1/10)^{t+1}\ge(1+t/10)(11/10)=1+(t+1)/10+t/100\ge1+(t+1)/10$.
+Comme $w_{16}>0$,
+$w_m\to+\infty$, puis $\sqrt{o_k}/k\to+\infty$ et
+$\lfloor\sqrt{o_k}\rfloor/k\to+\infty$. Ainsi $Q_k\to+\infty$. Le mot
+contient un zéro par bloc, donc une infinité de zéros. B7 donne
+l'irrationalité.
+
+Signe moins. Comme $\log_2(1+G_k)\ge0$,
+$Q_k\le-\lfloor\sqrt{o_k}\rfloor+k+1$. La même limite
+$\lfloor\sqrt{o_k}\rfloor/k\to+\infty$ donne $Q_k\to-\infty$. B7 ne
+s'applique pas. ∎
+
+Cette proposition justifie l'absence de conclusion uniforme au seuil. Le
+signe plus est un cas d'irrationalité au rapport limite $\log_2 3$. Le
+signe moins reste hors de portée de B7. Aucune des deux familles n'est une
+orbite d'entier positif prescrite : chacune est un mot infini.
 
 **Préfixe fini.** Un premier bloc de $1$ ne laisse pas un cas ouvert. Si le
 mot commence par $1^a$ et que la queue à partir du premier $0$ est un mot du
-cas $\lambda>\log_2 3$, chaque pas impair vérifie
+cas $\lambda>\log_2 3$, ou la famille de signe plus, chaque pas impair vérifie
 $$T(\xi)+1=\frac{3\xi+1}{2}+1=\frac32(\xi+1),$$
 donc $T^a(\xi)+1=(3/2)^a(\xi+1)$. Ainsi $\xi\in\mathbb Q$ si et seulement si
 $T^a(\xi)\in\mathbb Q$. La queue est le réalisateur du mot réduit, déjà
@@ -309,8 +398,10 @@ irrationnel, donc $\xi\notin\mathbb Q$.
 Le même passage vaut pour un préfixe fini quelconque. La branche $0$ a pour
 inverse $x=2T(x)$, la branche $1$ a pour inverse $x=(2T(x)-1)/3$. Les deux
 sont des bijections de $\mathbb Q$. Si $u$ a longueur $L$ et si la queue est
-un mot du cas $\lambda>\log_2 3$, alors $\xi$ est rationnel si et seulement si
-$T^L(\xi)$ l'est. Supprimer $u$ ne change pas la rationalité.
+un mot du cas $\lambda>\log_2 3$, ou la famille de signe plus, alors $\xi$
+est rationnel si et seulement si $T^L(\xi)$ l'est. Supprimer $u$ ne change
+pas la rationalité. La famille de signe moins n'entre pas dans ce lemme :
+sa queue n'a pas été montrée irrationnelle.
 
 La question ouverte sur les zéros se limite aux placements qui ne deviennent
 pas un mot à un zéro par bloc de taux $\lambda>\log_2 3$ après suppression
@@ -320,11 +411,14 @@ positif, avec la borne du §5 dans le cas de Fibonacci. Les runs quasi
 linéaires, $r_m/o_m\to0$, restent H5.
 
 L'extension et le lemme de préfixe n'utilisent que B7, la récurrence de
-$s_k$ et la comparaison de $\lambda-1$ à $\beta$. Le script contrôle
-l'identité $(3/2)^a$ sur les impairs positifs jusqu'à $200$, le point fixe
-$T(-1)=-1$, le retour par les branches inverses, le témoin $422$ et la
-famille décalée $r_k=F_{k+2}+1$ jusqu'à $k=12$. Ces contrôles ne remplacent
-pas la preuve.
+$s_k$ et la comparaison de $\lambda-1$ à $\beta$. La proposition du seuil
+ajoute la borne entière sur $\sqrt o+1$, la croissance $5/4$ et le rapport
+des $w_m$. Le script contrôle l'identité $(3/2)^a$ sur les impairs positifs
+jusqu'à $200$, le point fixe $T(-1)=-1$, le retour par les branches
+inverses, le témoin $422$, la famille décalée $r_k=F_{k+2}+1$ jusqu'à
+$k=12$, et les deux familles critiques pour $2\le k\le16$. Ces contrôles
+ne remplacent pas la preuve. La proposition ne calcule aucune puissance
+$3^{o_k}$.
 
 ## 9. Mises à jour
 
@@ -338,6 +432,9 @@ pas la preuve.
   Détail en §11.
 - Revue `6081458173` : portée du §5 et du §8. Le cas d'un premier bloc de $1$
   est fermé. La prochaine question de l'agenda n'est pas entamée. Détail en §12.
+- Revue `6081531962` : les seuils stricts et le préfixe fini sont confirmés.
+  Le signe au seuil $\lambda=\log_2 3$ est désormais la proposition du §8.
+  La prochaine question de l'agenda n'est pas entamée. Détail en §13.
 
 ## 10. Reproduire
 
@@ -345,12 +442,15 @@ pas la preuve.
 python3 research/checks/cycle004_fibonacci.py
 ```
 
-Sortie attendue : onze lignes `PASS`. Les puissances testées s'arrêtent à
-$F_{21}$, aux préfixes $k\le8$ et à la famille décalée $k\le12$. Elles
-contrôlent le lemme, la récurrence de $P$, les témoins de X20 (dont $422$),
-l'identité $(3/2)^a$, le point fixe $-1$, le retour par les branches inverses
-et l'absence de petit contre-exemple au préfixe exact. La preuve de B9 est le
-§4. La preuve du corollaire, de son extension et du préfixe fini est le §8.
+Sortie attendue : douze lignes `PASS`. Les puissances de Fibonacci testées
+s'arrêtent à $F_{21}$, aux préfixes $k\le8$ et à la famille décalée $k\le12$.
+Les familles critiques sont contrôlées pour $2\le k\le16$. Elles vérifient
+le lemme, la récurrence de $P$, les témoins de X20 (dont $422$), l'identité
+$(3/2)^a$, le point fixe $-1$, le retour par les branches inverses,
+l'absence de petit contre-exemple au préfixe exact, et les comparaisons
+entières $Q_k>k$ (signe plus) et $Q_k<0$ (signe moins) sur ce segment. La
+preuve de B9 est le §4. La preuve du corollaire, de son extension, du
+préfixe fini et des deux familles du seuil est le §8.
 
 ## 11. Revue `6081410834`
 
@@ -410,9 +510,9 @@ une seconde preuve.
   se ramènent pas à un mot de taux $\lambda>\log_2 3$ en supprimant un
   préfixe fini.
 - La même récurrence donne $Q_k\to+\infty$ pour tout $\lambda>\log_2 3$, et
-  $Q_k\to-\infty$ pour $1<\lambda<\log_2 3$. Au seuil $\lambda=\log_2 3$, le
-  signe de $r_k-\beta o_k$ n'est pas uniforme. Ces trois cas sont prouvés
-  dans le §8 corrigé. Ils ne sont pas un nouveau cycle.
+  $Q_k\to-\infty$ pour $1<\lambda<\log_2 3$. Ces deux cas sont prouvés dans
+  le §8. Au seuil $\lambda=\log_2 3$, le texte annonçait l'absence de signe
+  uniforme. Cette annonce est complétée au §13. Ce n'est pas un nouveau cycle.
 - Dans `prior_art.md`, « de ce mot » suivait la mention du mot sturmien.
   La phrase désigne désormais le mot de B9. Le décompte des $1$ dans $0110$
   et $1111$ est direct. La revue cite Lothaire, *Algebraic Combinatorics on
@@ -423,4 +523,37 @@ une seconde preuve.
 B9, le corollaire, son extension aux taux $\lambda>\log_2 3$ et le lemme de
 préfixe fini sont **PROUVÉS** par les §§4 et 8, le passage à l'irrationalité
 restant celui de B7. X20 n'est pas modifié dans son énoncé. La prochaine
-question de l'agenda n'est pas abordée.
+question de l'agenda n'est pas abordée. La phrase du §8 qui annonçait, au
+seuil $\lambda=\log_2 3$, l'absence de signe uniforme n'était pas justifiée
+par la seule limite $r_k/o_k\to\beta$. Le §13 la remplace par deux familles.
+
+## 13. Revue `6081531962`
+
+Revue indépendante sur le SHA `33c22a38802bdaf810304c02ad9df895883ec445`
+(26 novembre 2026). Marqueur `SYRACUSE_INDEPENDENT_REVIEW`. Elle confirme les
+seuils stricts de l'extension, l'invariance par préfixe fini et X20. Ce n'est
+pas une seconde preuve. Elle demande de justifier le seuil, ou de retirer
+l'annonce qui dépassait l'argument de premier ordre.
+
+- Les cas $\lambda>\log_2 3$ et $1<\lambda<\log_2 3$ restent ceux du §8 :
+  $Q_k/o_k$ a pour limite $\lambda-\log_2 3$, strictement positive ou
+  strictement négative. Le script ne les recalcule pas. La borne
+  $N\ge2^{k-1}$, le témoin $422$ et $T(-1)=-1$ sont inchangés.
+- L'argument $r_k/o_k\to\beta$ ne décide pas du signe de $r_k-\beta o_k$.
+  La proposition du §8 ajoute les deux familles $r_1=64$ et, pour $k\ge2$,
+  $r_k=\lfloor\beta o_k\rfloor\pm\lfloor\sqrt{o_k}\rfloor$. Les deux ont
+  $r_{k+1}/r_k\to\log_2 3$. Le signe plus donne $Q_k\to+\infty$, donc
+  l'irrationalité par B7. Le signe moins donne $Q_k\to-\infty$ : B7 ne
+  s'applique pas, et l'irrationalité de cette famille reste ouverte.
+- Le script vérifie, pour $2\le k\le16$, les comparaisons entières $Q_k>k$
+  du signe plus et $Q_k<0$ du signe moins, ainsi que
+  $\lfloor\beta o\rfloor=\lfloor\log_2(3^o)\rfloor-o$ et la borne
+  $h(o)\ge0$. Ce segment ne remplace pas la preuve.
+- Aucune source supplémentaire n'a été lue pour ces familles. L'argument
+  est élémentaire et interne à B7. Il ne revendique pas d'antériorité, et
+  il ne dit rien de (C) ni de Syracuse.
+
+La proposition du seuil est **PROUVÉE** par le §8. Le signe plus est un cas
+particulier d'irrationalité. Le signe moins est une limite où le critère est
+aveugle, pas une rationalité. X20 n'est pas modifié. La prochaine question
+de l'agenda n'est pas abordée.

@@ -89,9 +89,14 @@ l'inégalité $Q_k>k$ n'en dépend pas. Toute orbite d'entier positif a une
 infinité de pas pairs : un pas impair positif fait chuter $v_2(n+1)$ de $1$.
 Le point $n=-1$ est fixe et reste hors de cette phrase. Pour
 $1<\lambda<\log_2 3$, $Q_k\to-\infty$ et B7 ne s'applique pas. À
-$\lambda=\log_2 3$, pas de signe uniforme pour $r_k-\beta o_k$. Les placements
-de zéros qui ne se ramènent pas au mot précédent en supprimant un préfixe fini
-restent ouverts, ainsi que les runs quasi linéaires.
+$\lambda=\log_2 3$, la seule limite $r_k/o_k\to\beta$ ne fixe pas le signe.
+Les deux familles $r_1=64$ et $r_k=\lfloor\beta o_k\rfloor\pm\lfloor\sqrt{o_k}\rfloor$
+pour $k\ge2$ ont le même rapport limite $\log_2 3$ (cycle 004 §8). Le signe
+plus donne $Q_k\to+\infty$, donc un réalisateur irrationnel. Le signe moins
+donne $Q_k\to-\infty$ : B7 ne s'applique pas, et l'irrationalité reste ouverte.
+Les placements de zéros qui ne se ramènent pas au mot de taux
+$\lambda>\log_2 3$ en supprimant un préfixe fini restent ouverts, ainsi que
+les runs quasi linéaires.
 
 Revue indépendante `6080964566` (PR #27, SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`) :
 les preuves écrites de B7, B8 et X18 ont été confirmées, puis revérifiées dans ce
@@ -121,6 +126,13 @@ Les deux prémisses de B7 sont séparées. L'extension à tout $\lambda>\log_2 3
 la chute $Q_k\to-\infty$ pour $1<\lambda<\log_2 3$, et l'invariance par préfixe
 fini sont prouvées dans le §8 corrigé. Ce n'est pas une seconde preuve de B9,
 ni le cycle suivant.
+
+Revue indépendante `6081531962` (PR #27, SHA `33c22a38802bdaf810304c02ad9df895883ec445`) :
+les seuils stricts, le préfixe fini et X20 sont confirmés. L'annonce d'un
+signe non uniforme au seuil $\lambda=\log_2 3$ dépassait la limite
+$r_k/o_k\to\beta$. Les deux familles du cycle 004 §8 sont prouvées dans ce
+cycle : $Q_k\to+\infty$ pour le signe plus, $Q_k\to-\infty$ pour le signe
+moins. Ce n'est pas une seconde preuve de B9, ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

@@ -31,7 +31,8 @@ Tout $\xi\in\mathbb Q\cap\mathbb Z_2$ a un itinéraire ultimement périodique (l
 Pour les entiers positifs, elle équivaut à la non-divergence. Cas prouvés : runs ultimement
 en progression arithmétique de raison $\ge1$ (B2, via VW 1989) ; runs $2^k$ (B8, élémentaire) ;
 runs $F_{k+2}$ (B9, élémentaire, via B7) ; plus généralement, un zéro par bloc et
-$r_{k+1}/r_k\to\lambda>\log_2 3$, y compris après un préfixe fini (cycle 004 §8, via B7).
+$r_{k+1}/r_k\to\lambda>\log_2 3$, y compris après un préfixe fini (cycle 004 §8, via B7) ;
+au seuil $\lambda=\log_2 3$, la seule famille de signe plus du même paragraphe.
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
 Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,
@@ -44,8 +45,11 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
   $r_{k+1}/r_k\to\lambda>\log_2 3$, y compris après un préfixe fini
   (cycle 004 §8 : $o_k/r_k\to1/(\lambda-1)$, $Q_k\to+\infty$). Cas aveugle : le mot
   triangulaire, $Q_m\to-\infty$ (X18) ; et, par le même critère,
-  $1<\lambda<\log_2 3$ donne $Q_k\to-\infty$. À $\lambda=\log_2 3$, pas de signe
-  uniforme. Les placements de zéros non réductibles par un préfixe fini restent
+  $1<\lambda<\log_2 3$ donne $Q_k\to-\infty$. À $\lambda=\log_2 3$, les deux
+  familles $r_1=64$, $r_k=\lfloor\beta o_k\rfloor\pm\lfloor\sqrt{o_k}\rfloor$
+  ($k\ge2$) ont le même rapport limite : $Q_k\to+\infty$ pour le signe plus,
+  $Q_k\to-\infty$ pour le signe moins. L'irrationalité du signe moins reste
+  ouverte. Les placements de zéros non réductibles par un préfixe fini restent
   ouverts. Les runs quasi linéaires restent H5.
 - Les contrôles du cycle 003 testent les fenêtres atteintes depuis les départs
   choisis. Ils ne recensent pas les cycles de $3x+b$ (X19).

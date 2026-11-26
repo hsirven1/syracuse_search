@@ -2,11 +2,13 @@
 """Contrôles exacts du cycle 004 : runs de Fibonacci et critère de Liouville.
 
 La preuve est dans research/cycles/cycle-004.md. Elle ne calcule aucune
-puissance 3^{F_n} au-delà de 3^5. Ce script ne la remplace pas : il vérifie
-les bases, le pas entier du lemme, la récurrence de P, l'inégalité D_k > 3^{o_k}+P_k
-sur un segment fini, les témoins de X20 (dont 422), l'identité (3/2)^a,
-le point fixe T(-1)=-1, le retour par les branches inverses, et l'absence
-de contre-exemple entier pour les préfixes exacts k≤8.
+puissance 3^{F_n} au-delà de 3^5, ni aucune puissance 3^{o_k} pour les
+familles du seuil. Ce script ne la remplace pas : il vérifie les bases, le
+pas entier du lemme, la récurrence de P, l'inégalité D_k > 3^{o_k}+P_k sur
+un segment fini, les témoins de X20 (dont 422), l'identité (3/2)^a, le
+point fixe T(-1)=-1, le retour par les branches inverses, l'absence de
+contre-exemple entier pour les préfixes exacts k≤8, et les comparaisons
+entières des deux familles critiques pour 2≤k≤16.
 
 Usage : python3 research/checks/cycle004_fibonacci.py
 """
@@ -221,6 +223,59 @@ def refuted_prefix_implication():
             raise AssertionError(("retour", n, y))
 
 
+def isqrt(n):
+    lo, hi = 0, n
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if mid * mid <= n:
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
+
+
+def floor_beta_times(o):
+    """floor(o log2(3/2)) = floor(log2(3^o)) - o."""
+    m = (3 ** o).bit_length() - 1
+    if 2 ** m > 3 ** o or 3 ** o >= 2 ** (m + 1):
+        raise AssertionError(("log2", o))
+    return m - o
+
+
+def critical_families(limit=16):
+    """Deux signes au seuil r_{k+1}/r_k → log2(3). Segment fini, pas la preuve."""
+    if not (9 > 8 and (9 * 64 - 64) ** 2 == 4096 * 64):
+        raise AssertionError("h(64)")
+    if 162 * 64 - 5167 != 5201 or 3200 <= 11 * 289:
+        raise AssertionError("pas de h, ou 320/289")
+    for sign in (1, -1):
+        o = 0
+        p = 2
+        for k in range(1, limit + 1):
+            if k == 1:
+                r = 64
+            else:
+                if o < 64 or (9 * o - 64) ** 2 < 4096 * o:
+                    raise AssertionError(("borne racine", sign, k, o))
+                root = isqrt(o)
+                if root * root > o or (root + 1) * (root + 1) <= o:
+                    raise AssertionError(("isqrt", o))
+                r = floor_beta_times(o) + sign * root
+                if r < 1 or 2 ** (2 * r + o) <= 3 ** o:
+                    raise AssertionError(("demi-beta", sign, k))
+            exponent = o + r + k + 1
+            rhs = 3 ** o + p
+            if sign == 1 and k >= 2 and 2 ** exponent <= rhs:
+                raise AssertionError(("Q plus", k))
+            if sign == -1 and k >= 2 and 2 ** exponent >= rhs:
+                raise AssertionError(("Q moins", k))
+            o_next = o + r
+            if k >= 2 and 4 * o_next <= 5 * o:
+                raise AssertionError(("croissance", sign, k))
+            p = 3 ** r * p + 2 ** ((k + 1) + o_next)
+            o = o_next
+
+
 def shifted_ratio_family(limit=12):
     """Famille r_k = F_{k+2}+1, un zéro par bloc. Segment fini, pas la preuve."""
     o = 0
@@ -275,6 +330,8 @@ def main():
     print("PASS v_2 pour n impair positif <=200, identite (3/2)^a, T(-1)=-1, retour des branches")
     shifted_ratio_family()
     print("PASS famille r_k=F_{k+2}+1 : 2^{o_k+r_k}>3^{o_k} pour 2<=k<=12")
+    critical_families()
+    print("PASS familles critiques : Q_k>k (signe plus) et Q_k<0 (signe moins), 2<=k<=16")
     # Bases écrites dans le cycle, reprises ici telles quelles.
     if (32, 31, 256, 251, 8, 3, 64, 43) != (
         2 ** 5,
