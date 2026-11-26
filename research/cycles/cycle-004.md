@@ -360,6 +360,10 @@ Ainsi $1+G_k<19<32=2^5$, et $\log_2(1+G_k)<5$.
 
 Signe plus. L'encadrement donne
 $Q_k>\lfloor\sqrt{o_k}\rfloor-1+k+1-5=\lfloor\sqrt{o_k}\rfloor+k-5$.
+Pour $k\ge2$, $o_k\ge64$, donc $\lfloor\sqrt{o_k}\rfloor\ge8$ : $8^2=64$
+et $o_k$ croît. Ainsi
+$Q_k>\lfloor\sqrt{o_k}\rfloor+k-5\ge k+3$. L'inégalité de gauche est
+stricte, donc $Q_k>k+3$, et en particulier $Q_k>k$.
 Pour $k\ge3$, $\sqrt{o_k}>8\cdot(5/4)^{(k-2)/2}$. Posons $m=k-2$ et
 $w_m=(5/4)^m/m^2$. Pour $m\ge2$, $k=m+2\le2m$, donc
 $\sqrt{o_k}/k>4\sqrt{w_m}$. Pour $m\ge16$, $m/(m+1)\ge16/17$ et
@@ -368,7 +372,8 @@ $$\frac{w_{m+1}}{w_m}
 \ge\frac54\cdot\frac{256}{289}
 =\frac{320}{289}.$$
 Or $320/289>11/10$, car $3200>3179=11\cdot289$. Pour $t\ge0$,
-$w_{16+t}>w_{16}\cdot(11/10)^t$. L'inégalité $(1+1/10)^t\ge1+t/10$ vaut
+$w_{16+t}\ge w_{16}\cdot(11/10)^t$, avec égalité en $t=0$.
+L'inégalité $(1+1/10)^t\ge1+t/10$ vaut
 en $t=0$. Si elle vaut en $t$, multiplier par $11/10$ donne
 $(1+1/10)^{t+1}\ge(1+t/10)(11/10)=1+(t+1)/10+t/100\ge1+(t+1)/10$.
 Comme $w_{16}>0$,
@@ -383,9 +388,13 @@ $\lfloor\sqrt{o_k}\rfloor/k\to+\infty$ donne $Q_k\to-\infty$. B7 ne
 s'applique pas. ∎
 
 Cette proposition justifie l'absence de conclusion uniforme au seuil. Le
-signe plus est un cas d'irrationalité au rapport limite $\log_2 3$. Le
-signe moins reste hors de portée de B7. Aucune des deux familles n'est une
-orbite d'entier positif prescrite : chacune est un mot infini.
+signe plus est un cas d'irrationalité au rapport limite $\log_2 3$ : B7
+exclut tout réalisateur rationnel, donc tout entier positif. Le signe
+moins vérifie $Q_k\to-\infty$. Ce critère n'exclut alors aucune classe de
+réalisateurs. Un mot infini peut être l'itinéraire d'un entier positif.
+L'équivalence de rationalité sous suppression d'un préfixe fini vaut pour
+les deux signes, par les inverses affines des branches. Seule
+l'irrationalité du signe moins reste ouverte.
 
 **Préfixe fini.** Un premier bloc de $1$ ne laisse pas un cas ouvert. Si le
 mot commence par $1^a$ et que la queue à partir du premier $0$ est un mot du
@@ -397,11 +406,14 @@ irrationnel, donc $\xi\notin\mathbb Q$.
 
 Le même passage vaut pour un préfixe fini quelconque. La branche $0$ a pour
 inverse $x=2T(x)$, la branche $1$ a pour inverse $x=(2T(x)-1)/3$. Les deux
-sont des bijections de $\mathbb Q$. Si $u$ a longueur $L$ et si la queue est
-un mot du cas $\lambda>\log_2 3$, ou la famille de signe plus, alors $\xi$
-est rationnel si et seulement si $T^L(\xi)$ l'est. Supprimer $u$ ne change
-pas la rationalité. La famille de signe moins n'entre pas dans ce lemme :
-sa queue n'a pas été montrée irrationnelle.
+sont des bijections de $\mathbb Q$. Si $u$ a longueur $L$, $\xi$ est
+rationnel si et seulement si $T^L(\xi)$ l'est. Supprimer $u$ ne change pas
+la rationalité. Cette équivalence vaut pour les deux familles du seuil,
+et pour tout mot. Si la queue est un mot
+du cas $\lambda>\log_2 3$, ou la famille de signe plus, elle est
+irrationnelle, donc $\xi$ aussi. La famille de signe moins a la même
+équivalence ; sa queue n'a pas été montrée irrationnelle, donc la
+conclusion d'irrationalité reste ouverte pour elle.
 
 La question ouverte sur les zéros se limite aux placements qui ne deviennent
 pas un mot à un zéro par bloc de taux $\lambda>\log_2 3$ après suppression
@@ -416,7 +428,10 @@ ajoute la borne entière sur $\sqrt o+1$, la croissance $5/4$ et le rapport
 des $w_m$. Le script contrôle l'identité $(3/2)^a$ sur les impairs positifs
 jusqu'à $200$, le point fixe $T(-1)=-1$, le retour par les branches
 inverses, le témoin $422$, la famille décalée $r_k=F_{k+2}+1$ jusqu'à
-$k=12$, et les deux familles critiques pour $2\le k\le16$. Ces contrôles
+$k=12$, et les deux familles critiques pour $2\le k\le16$. Pour le signe
+plus, la comparaison est $2^{o_k+r_k+1}>3^{o_k}+P_k$, soit $Q_k>k$.
+L'exposant $o_k+r_k+k+1$ ne teste que $Q_k>0$. Pour le signe moins, elle
+reste $2^{o_k+r_k+k+1}<3^{o_k}+P_k$, soit $Q_k<0$. Ces contrôles
 ne remplacent pas la preuve. La proposition ne calcule aucune puissance
 $3^{o_k}$.
 
@@ -435,6 +450,11 @@ $3^{o_k}$.
 - Revue `6081531962` : les seuils stricts et le préfixe fini sont confirmés.
   Le signe au seuil $\lambda=\log_2 3$ est désormais la proposition du §8.
   La prochaine question de l'agenda n'est pas entamée. Détail en §13.
+- Revue `6081622758` : la proposition du seuil est confirmée. Le test du
+  signe plus comparait $Q_k>0$ ; il compare désormais $Q_k>k$. L'inégalité
+  sur $w_{16+t}$ est large, avec égalité en $t=0$. La phrase sur les
+  orbites est reformulée : le signe moins n'exclut aucun réalisateur.
+  La prochaine question de l'agenda n'est pas entamée. Détail en §14.
 
 ## 10. Reproduire
 
@@ -448,7 +468,8 @@ Les familles critiques sont contrôlées pour $2\le k\le16$. Elles vérifient
 le lemme, la récurrence de $P$, les témoins de X20 (dont $422$), l'identité
 $(3/2)^a$, le point fixe $-1$, le retour par les branches inverses,
 l'absence de petit contre-exemple au préfixe exact, et les comparaisons
-entières $Q_k>k$ (signe plus) et $Q_k<0$ (signe moins) sur ce segment. La
+entières $2^{o_k+r_k+1}>3^{o_k}+P_k$ (signe plus, soit $Q_k>k$) et
+$2^{o_k+r_k+k+1}<3^{o_k}+P_k$ (signe moins, soit $Q_k<0$) sur ce segment. La
 preuve de B9 est le §4. La preuve du corollaire, de son extension, du
 préfixe fini et des deux familles du seuil est le §8.
 
@@ -545,10 +566,13 @@ l'annonce qui dépassait l'argument de premier ordre.
   $r_{k+1}/r_k\to\log_2 3$. Le signe plus donne $Q_k\to+\infty$, donc
   l'irrationalité par B7. Le signe moins donne $Q_k\to-\infty$ : B7 ne
   s'applique pas, et l'irrationalité de cette famille reste ouverte.
-- Le script vérifie, pour $2\le k\le16$, les comparaisons entières $Q_k>k$
-  du signe plus et $Q_k<0$ du signe moins, ainsi que
-  $\lfloor\beta o\rfloor=\lfloor\log_2(3^o)\rfloor-o$ et la borne
-  $h(o)\ge0$. Ce segment ne remplace pas la preuve.
+- Le texte annonçait que le script vérifie, pour $2\le k\le16$, $Q_k>k$ au
+  signe plus et $Q_k<0$ au signe moins. La comparaison du signe moins était
+  bien $2^{o_k+r_k+k+1}<3^{o_k}+P_k$. Celle du signe plus utilisait
+  l'exposant $o_k+r_k+k+1$, donc $Q_k>0$. Le §14 aligne le signe plus sur
+  $Q_k>k$. Le segment ne remplace pas la preuve. La borne
+  $\lfloor\beta o\rfloor=\lfloor\log_2(3^o)\rfloor-o$ et $h(o)\ge0$ restent
+  celles du script.
 - Aucune source supplémentaire n'a été lue pour ces familles. L'argument
   est élémentaire et interne à B7. Il ne revendique pas d'antériorité, et
   il ne dit rien de (C) ni de Syracuse.
@@ -556,4 +580,49 @@ l'annonce qui dépassait l'argument de premier ordre.
 La proposition du seuil est **PROUVÉE** par le §8. Le signe plus est un cas
 particulier d'irrationalité. Le signe moins est une limite où le critère est
 aveugle, pas une rationalité. X20 n'est pas modifié. La prochaine question
-de l'agenda n'est pas abordée.
+de l'agenda n'est pas abordée. La comparaison annoncée du script et la
+phrase sur les orbites sont reprises au §14.
+
+## 14. Revue `6081622758`
+
+Revue indépendante sur le SHA `3bdc5daa042aef655c84e4ea36d16c55774f5a6c`
+(26 novembre 2026). Marqueur `SYRACUSE_INDEPENDENT_REVIEW`. Elle confirme la
+proposition du seuil. Ce n'est pas une seconde preuve. Elle signale trois
+écarts de portée : l'inégalité stricte sur $w_{16+t}$, ce que le test du
+signe plus vérifie, et la phrase qui refusait aux deux familles le statut
+d'itinéraire entier.
+
+- Dans la preuve, $w_{16+t}>w_{16}\cdot(11/10)^t$ pour $t\ge0$ est faux en
+  $t=0$ : les deux membres sont égaux. Le rapport
+  $w_{m+1}/w_m\ge320/289>11/10$ pour $m\ge16$ reste vrai
+  ($3200>3179=11\cdot289$). L'inégalité écrite est désormais
+  $w_{16+t}\ge w_{16}\cdot(11/10)^t$, avec égalité en $t=0$. La limite
+  $w_m\to+\infty$ est inchangée. Pour $k\ge2$, la borne déjà écrite
+  $Q_k>\lfloor\sqrt{o_k}\rfloor+k-5$ et $\lfloor\sqrt{o_k}\rfloor\ge8$
+  donnent $Q_k>k+3$. C'est une conséquence du §8, pas un contrôle fini.
+- Le test du signe plus comparait $2^{o_k+r_k+k+1}$ à $3^{o_k}+P_k$. D'après
+  la forme entière du cycle 003, avec $E=o_k+r_k+k+1-L$, c'est $Q_k>0$, pas
+  $Q_k>k$. Les deux exposants diffèrent de $k$. Hors famille, $o=0$, $r=1$,
+  $k=3$ et $P=4$ donnent $2^5>5$ et $2^2<5$. Le script compare désormais
+  $2^{o_k+r_k+1}$ à $3^{o_k}+P_k$ pour le signe plus, et conserve
+  $2^{o_k+r_k+k+1}$ pour le signe moins. Les §§10 et 13 décrivent ces
+  exposants. Le segment $2\le k\le16$ ne remplace pas la preuve.
+- La phrase « aucune des deux familles n'est une orbite d'entier positif »
+  ne suit pas de ce qu'elles sont des mots infinis : l'itinéraire d'un
+  entier positif est un mot infini. Le signe plus est exclu par B7, parce
+  que son réalisateur est irrationnel. Le signe moins a $Q_k\to-\infty$ :
+  cette preuve n'exclut aucune classe de réalisateurs. Les inverses
+  $x=2T(x)$ et $x=(2T(x)-1)/3$ restent des bijections de $\mathbb Q$ pour
+  les deux signes. Seule l'irrationalité du signe moins reste ouverte.
+  Bernstein–Lagarias 1996, §1, (1.5)–(1.6), est cité par la revue pour le
+  sens de la correspondance mot/réalisateur. Ce passage n'a pas été relu
+  ici et n'est pas une prémisse : l'exclusion des entiers positifs au signe
+  plus utilise seulement B7 et la rationalité de ces entiers.
+
+Contrôle indépendant, distinct du script, pour $2\le k\le18$ : $P_k$ par sa
+somme directe coïncide avec la récurrence, $2^{o_k+r_k+1}>3^{o_k}+P_k$ et
+$2^{o_k+r_k-2}>3^{o_k}+P_k$ au signe plus, et
+$2^{o_k+r_k+k+1}<3^{o_k}+P_k$ au signe moins. Ce segment n'est pas la preuve.
+Le script du dépôt s'arrête à $k=16$, comme annoncé. Aucune source
+supplémentaire n'a été lue. Ce n'est pas un nouveau cycle. La prochaine
+question de l'agenda n'est pas abordée.

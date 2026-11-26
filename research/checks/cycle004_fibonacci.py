@@ -8,7 +8,9 @@ pas entier du lemme, la récurrence de P, l'inégalité D_k > 3^{o_k}+P_k sur
 un segment fini, les témoins de X20 (dont 422), l'identité (3/2)^a, le
 point fixe T(-1)=-1, le retour par les branches inverses, l'absence de
 contre-exemple entier pour les préfixes exacts k≤8, et les comparaisons
-entières des deux familles critiques pour 2≤k≤16.
+entières des deux familles critiques pour 2≤k≤16. Signe plus :
+2^{o+r+1} > 3^o+P, soit Q_k>k. Signe moins : 2^{o+r+k+1} < 3^o+P,
+soit Q_k<0. L'exposant o+r+k+1 sur le signe plus ne teste que Q_k>0.
 
 Usage : python3 research/checks/cycle004_fibonacci.py
 """
@@ -243,11 +245,18 @@ def floor_beta_times(o):
 
 
 def critical_families(limit=16):
-    """Deux signes au seuil r_{k+1}/r_k → log2(3). Segment fini, pas la preuve."""
+    """Deux signes au seuil r_{k+1}/r_k → log2(3). Segment fini, pas la preuve.
+
+    Signe plus : 2^{o+r+1} > 3^o+P, forme entière de Q_k > k.
+    Signe moins : 2^{o+r+k+1} < 3^o+P, forme entière de Q_k < 0.
+    """
     if not (9 > 8 and (9 * 64 - 64) ** 2 == 4096 * 64):
         raise AssertionError("h(64)")
     if 162 * 64 - 5167 != 5201 or 3200 <= 11 * 289:
         raise AssertionError("pas de h, ou 320/289")
+    # Q_k>0 et Q_k>k diffèrent de k dans l'exposant. Témoin hors famille.
+    if 2 ** (0 + 1 + 3 + 1) <= 3 ** 0 + 4 or 2 ** (0 + 1 + 1) > 3 ** 0 + 4:
+        raise AssertionError("exposants non équivalents")
     for sign in (1, -1):
         o = 0
         p = 2
@@ -263,11 +272,11 @@ def critical_families(limit=16):
                 r = floor_beta_times(o) + sign * root
                 if r < 1 or 2 ** (2 * r + o) <= 3 ** o:
                     raise AssertionError(("demi-beta", sign, k))
-            exponent = o + r + k + 1
             rhs = 3 ** o + p
-            if sign == 1 and k >= 2 and 2 ** exponent <= rhs:
+            # Q_k > k ⇔ 2^{o+r+1} > 3^o+P. L'exposant o+r+k+1 est Q_k > 0.
+            if sign == 1 and k >= 2 and 2 ** (o + r + 1) <= rhs:
                 raise AssertionError(("Q plus", k))
-            if sign == -1 and k >= 2 and 2 ** exponent >= rhs:
+            if sign == -1 and k >= 2 and 2 ** (o + r + k + 1) >= rhs:
                 raise AssertionError(("Q moins", k))
             o_next = o + r
             if k >= 2 and 4 * o_next <= 5 * o:
@@ -331,7 +340,7 @@ def main():
     shifted_ratio_family()
     print("PASS famille r_k=F_{k+2}+1 : 2^{o_k+r_k}>3^{o_k} pour 2<=k<=12")
     critical_families()
-    print("PASS familles critiques : Q_k>k (signe plus) et Q_k<0 (signe moins), 2<=k<=16")
+    print("PASS familles critiques : 2^{o+r+1}>3^o+P (signe plus, Q_k>k) et 2^{o+r+k+1}<3^o+P (signe moins, Q_k<0), 2<=k<=16")
     # Bases écrites dans le cycle, reprises ici telles quelles.
     if (32, 31, 256, 251, 8, 3, 64, 43) != (
         2 ** 5,

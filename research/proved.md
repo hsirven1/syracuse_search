@@ -134,6 +134,13 @@ $r_k/o_k\to\beta$. Les deux familles du cycle 004 §8 sont prouvées dans ce
 cycle : $Q_k\to+\infty$ pour le signe plus, $Q_k\to-\infty$ pour le signe
 moins. Ce n'est pas une seconde preuve de B9, ni le cycle suivant.
 
+Revue indépendante `6081622758` (PR #27, SHA `3bdc5daa042aef655c84e4ea36d16c55774f5a6c`) :
+la proposition du seuil est confirmée. Le test du signe plus vérifie désormais
+$Q_k>k$, pas seulement $Q_k>0$. Pour $k\ge2$, le §8 donne déjà $Q_k>k+3$.
+L'inégalité sur $w_{16+t}$ est large. Le signe moins n'est pas exclu comme
+itinéraire d'un entier : seule son irrationalité reste ouverte. Ce n'est pas
+une seconde preuve de B9, ni le cycle suivant.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.
