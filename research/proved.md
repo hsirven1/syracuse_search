@@ -56,6 +56,19 @@ indépendante de $N$ : (H) implique (C) uniforme. Si $A<1/\beta$, les deux borne
 contredisent : aucune orbite positive non bornée. Toute paire compatible avec une telle
 orbite vérifie $A\ge1/\beta$ et $B>1$.
 
+**B7 — Critère de Liouville** (PROUVÉ, cycle 003 §2). Mot $w$ avec une infinité de $0$,
+$o_j$ et $\sigma=-2(\xi_w+1)$ comme en B1, $r_m=o_{m+1}-o_m$,
+$G_m=\sum_{j=1}^m 2^{j+o_j}/3^{o_j}$ et
+$Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$. Si $\sup_m Q_m=+\infty$, alors $\xi_w\notin\mathbb Q$.
+Mécanisme : $A_m=a\,3^{o_m}-b P_m$ vérifie $v_2(A_m)=m+1+o_{m+1}$ et
+$|A_m|\le|a|3^{o_m}+b P_m$, donc $Q_m\le\log_2\max(|a|,b)$.
+
+**B8 — Runs de longueur $2^k$** (PROUVÉ, cycle 003 §3). Le mot $\prod_{k\ge1}(0\,1^{2^k})$
+satisfait $Q_k>k$. Donc son réalisateur 2-adique est irrationnel. Preuve élémentaire
+(majoration $G<3778/729$ et comparaison $128/9>4507/729$). Densité des $1$ égale à $1$ :
+ce n'est pas un corollaire de Monks–Yazinski 2004, thm 2.7(b). Ne retrouve pas les runs
+linéaires (X18).
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

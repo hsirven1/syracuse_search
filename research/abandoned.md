@@ -21,3 +21,4 @@ Ne pas relancer une piste sans **nouvelle hypothèse** explicite qui contourne l
 | Bornes locales sur $k$ runs indépendantes de $r_0$ ou de la hauteur | Réfutées (X8, X9) | PR #25, #26 |
 | Campagnes numériques de préfixes, d'ombres ou de complexités sans énoncé réfutable | Aucune valeur de preuve | Politique du dépôt |
 | (H) comme petit lemme de pente $B\le1$, ou comme ajustement de constante en dessous du seuil de densité | $B\le1$ réfuté pour tout $A$ (B4, X16) ; $A<1/\beta$ exclut les orbites non bornées (B6). (H) est la conjecture majeure H2 | cycle 002 |
+| Retrouver B2 (runs linéaires, mot triangulaire) par le critère de Liouville B7 | $Q_m\to-\infty$ sur le mot triangulaire (X18). Il faut un autre outil, déjà VW pour la progression arithmétique | cycle 003 |

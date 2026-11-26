@@ -1,0 +1,172 @@
+# Cycle 003 — Critère de Liouville pour les réalisations rationnelles
+
+Date : 26 novembre 2026. Axe **B**.
+Branche : `research/memory`. Script : [`../checks/cycle003_liouville.py`](../checks/cycle003_liouville.py).
+
+**Verdict : PROUVÉ.** Si la quantité $Q_m$ définie ci-dessous n'est pas bornée, la
+réalisation 2-adique n'est pas rationnelle (B7). Le mot dont les runs impairs ont
+longueurs $2,4,8,16,\ldots$ vérifie $Q_k>k$ (B8) : son réalisateur est irrationnel,
+par un argument élémentaire. Le mot triangulaire donne $Q_m\to-\infty$ (X18) : B7
+ne retrouve pas B2. Ni (C), ni Syracuse.
+
+## 0. Question traitée
+
+Première entrée de l'agenda : rédiger le critère H4, le confronter aux cycles
+rationnels ($3x+b$, $b$ impair petit, et plus généralement tout mot périodique court),
+et le situer par rapport à Lagarias, Bernstein–Lagarias, Monks–Yazinski,
+López–Stoll et au manuscrit de De Jesús.
+
+## 1. Définitions
+
+$T$ est l'application raccourcie. Un mot $w\in\{0,1\}^{\mathbb N}$ est l'itinéraire
+d'un unique $\xi_w\in\mathbb Z_2$, avec $w_t=1$ si et seulement si $T^t(\xi_w)$ est
+impair. On suppose $w$ a une infinité de $0$. Le $j$-ième $0$ est en position $e_j$
+(positions à partir de $0$) et $o_j$ est le nombre de $1$ strictement avant $e_j$,
+donc $o_j=e_j-(j-1)$. On pose $r_m=o_{m+1}-o_m$.
+
+La formule B1 s'écrit $\xi_w+1=-\frac12\sum_{j\ge1}2^j(2/3)^{o_j}$. On pose
+$$\sigma=-2(\xi_w+1)=\sum_{j\ge1}\frac{2^{j+o_j}}{3^{o_j}}\in\mathbb Z_2,$$
+$G_m=\sum_{j=1}^m 2^{j+o_j}/3^{o_j}$ (somme partielle, rationnel positif) et
+$P_m=3^{o_m}G_m=\sum_{j=1}^m 2^{j+o_j}3^{o_m-o_j}\in\mathbb N$. Enfin $\beta=\log_2(3/2)$,
+$\delta=\log_23$ et
+$$Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m).$$
+La somme qui définit $G_m$ commence à $j=1$ : c'est la somme partielle de B1, sans
+terme d'indice $0$.
+
+## 2. Théorème B7
+
+Si $\sup_m Q_m=+\infty$, alors $\xi_w\notin\mathbb Q$.
+
+**Preuve.** Supposons $\sigma=a/b$ irréductible, $b>0$. Chaque terme de la série a
+une valuation $j+o_j\ge1$, donc $\sigma\in\mathbb Z_2$ et $b$ est impair.
+$A_m=a\,3^{o_m}-b P_m$ est un entier. Il est non nul : le reste
+$\sigma-G_m=\sum_{j\ge m+1}2^{j+o_j}/3^{o_j}$ n'est pas nul dans $\mathbb Q_2$, puisqu'il
+existe un $(m+1)$-ième $0$.
+
+La valuation est exacte. Dans $\mathbb Q_2$,
+$$3^{o_{m+1}}(\sigma-G_m)=\sum_{j\ge m+1}2^{j+o_j}3^{o_{m+1}-o_j}.$$
+Le terme $j=m+1$ vaut $2^{m+1+o_{m+1}}$. Pour $j\ge m+2$,
+$j+o_j\ge m+2+o_{m+2}\ge m+2+o_{m+1}$. Pas d'annulation, donc le membre de gauche a
+pour valuation $m+1+o_{m+1}$. Or ce membre vaut $3^{r_m}A_m/b$, et $b$ comme $3$ est
+impair, d'où $v_2(A_m)=m+1+o_{m+1}$. En particulier
+$|A_m|\ge2^{m+1+o_{m+1}}$.
+
+Côté archimédien, les termes sont positifs, donc $G_m$ est la valeur réelle de la
+somme partielle et $|a-b G_m|\le|a|+b G_m$. Ainsi
+$$|A_m|\le|a|\,3^{o_m}+b P_m\le\max(|a|,b)\,(3^{o_m}+P_m)=\max(|a|,b)\,3^{o_m}(1+G_m).$$
+En prenant $\log_2$ et en écrivant $o_{m+1}=o_m+r_m$,
+$$Q_m\le\log_2\max(|a|,b).$$
+Le supremum est fini. ∎
+
+La forme entière, équivalente, est celle qu'on teste :
+$Q_m>L$ si et seulement si $2^{o_m+r_m+m+1-L}>3^{o_m}+P_m$.
+
+## 3. Théorème B8
+
+Soit $w=\prod_{k\ge1}(0\,1^{2^k})$. Alors $o_k=2^k-2$, $r_k=2^k$ et $Q_k>k$ pour
+tout $k\ge1$. Donc $\xi_w\notin\mathbb Q$.
+
+La densité des $1$ vaut $1$ : après $K$ blocs, il y a $2^{K+1}-2$ symboles $1$ et
+$K$ symboles $0$.
+
+**Preuve.** $Q_k>k$ équivaut à $2^{o_k+r_k+1}>3^{o_k}+P_k$. L'exposant vaut
+$2^{k+1}-1$.
+
+Pour $k=1$ : $o_1=0$, $P_1=2$ et $2^3=8>3$.
+
+Pour $k\ge2$, on majore la somme réelle $t_j=2^{j+o_j}/3^{o_j}$. On a $t_1=2$,
+$t_2=16/9$, $t_3=512/729$, et pour $j\ge2$
+$$t_{j+1}/t_j=2\,(2/3)^{2^j}\le2\,(2/3)^4=32/81<1/2,$$
+puisque $64<81$. Donc $\sum_{j\ge3}t_j<2 t_3=1024/729$ et
+$$G_k<2+\frac{16}{9}+\frac{1024}{729}=\frac{3778}{729},\qquad 1+G_k<\frac{4507}{729}.$$
+Par ailleurs
+$$\frac{2^{2^{k+1}-1}}{3^{2^k-2}}=8\Bigl(\frac43\Bigr)^{2^k-2}.$$
+Pour $k\ge2$ l'exposant $2^k-2$ est au moins $2$, donc ce rapport est au moins
+$8\cdot(4/3)^2=128/9$. Et $128/9>4507/729$, car $128\cdot729=93312>40563=9\cdot4507$.
+Ainsi $2^{2^{k+1}-1}>3^{o_k}(1+G_k)$. ∎
+
+## 4. Ce que B7 ne voit pas (X18)
+
+Sur le mot triangulaire $(1^j0)_{j\ge1}$, on a $o_m=m(m+1)/2$ et $r_m=m+1$. Le
+premier terme de $P_m$ est $s_1=4\cdot3^{o_m-1}$. Posons
+$E(m)=3^{o_m-1}/2^{o_m+2m}$. Alors
+$$Q_m=\log_2\Bigl(\frac{2^{m+1+o_{m+1}}}{3^{o_m}(1+G_m)}\Bigr)\le\log_2\Bigl(\frac{2^{o_m+2m+2}}{s_1}\Bigr)=-\log_2 E(m),$$
+dès que $E(m)>0$, ce qui est toujours vrai. Le rapport des $E$ est
+$E(m+1)/E(m)=3^{m+1}/2^{m+3}$. Pour $m=8$, $3^{35}>2^{52}$, donc $E(8)>1$, et
+$3^9>2^{11}$. Si $3^{m+1}>2^{m+3}$, alors $3^{m+2}>2^{m+4}$ parce que $3>2$. Donc
+pour tout $m\ge8$,
+$$E(m+1)/E(m)\ge(3^9/2^{11})\,(3/2)^{m-8}>9,$$
+et $E(m)>9^{m-8}\to+\infty$. Ainsi $Q_m\to-\infty$. Le supremum est fini : B7 ne
+s'applique pas. L'irrationalité de ce mot reste celle de B2, qui dépend de
+Väänänen–Wallisser. Le script constate en outre que l'inégalité stricte
+$2^{m+1+o_{m+1}}<3^{o_m}+P_m$ est déjà vraie pour $6\le m\le14$.
+
+## 5. Contrôles sur les rationnels
+
+La direction facile du théorème de périodicité est élémentaire : le mot périodique
+$w$ de longueur $s$, avec $q$ symboles $1$ et terme constant $B$ de la branche affine,
+est réalisé par $B/(2^s-3^q)$. Le dénominateur $2^s-3^q$ est impair. On a vérifié,
+en entiers exacts :
+
+- les $8178$ mots de longueur $1$ à $12$ qui contiennent au moins un $0$ ($187\,885$
+  fenêtres) : $v_2(A_m)=m+1+o_{m+1}$ et la borne triangulaire ;
+- les préfixes de longueur $\le4$ devant un cycle de longueur $\le6$ ($3720$
+  réalisations, toutes dans $\mathbb Z_{(2)}$, $56\,420$ fenêtres) ;
+- les départs $a/b$ avec $b$ impair $\le63$ et $|a|\le120$ ($7712$ orbites,
+  $118\,882$ fenêtres), ce qui couvre les cycles de $3x+b$ pour ces dénominateurs,
+  transitoire compris ;
+- les témoins $\xi=0$, $\xi=1$, $\xi=-5$, et l'identité $A_m=-2^{2m+2}$ pour
+  l'itinéraire de $1$.
+
+Aucun rationnel testé ne viole $Q_m\le\log_2\max(|a|,b)$. Ce n'est pas une preuve
+de plus : c'est la recherche de contre-exemple demandée avant d'accepter B7. Elle
+n'en a pas produit.
+
+## 6. Littérature
+
+- **Lagarias (1985)** et **Bernstein–Lagarias (1996)** : la conjecture de périodicité
+  est exactement « $\xi_w$ rationnel $\Rightarrow$ $w$ ultimement périodique ».
+  B8 en est un cas, pour un mot de densité de $1$ égale à $1$. L'article de 1996
+  n'a pas été relu. La formule du point fixe périodique utilisée pour les tests est
+  élémentaire et vérifiée par l'orbite.
+- **Monks–Yazinski (2004)**, *Discrete Math.* 275, théorème 2.7(b), lu sur le PDF
+  d'auteur (`monks.scranton.edu`, fichier `AutoConjV13.pdf`) : une orbite rationnelle
+  divergente a une densité inférieure de $1$ au moins $\ln2/\ln3$. La densité $1$
+  de B8 satisfait cette borne. B8 n'en est pas un corollaire.
+- **López–Stoll**, arXiv:2101.12747, théorème 1, preuve du §6 lue : ils affirment
+  que cette densité inférieure vaut exactement $\ln2/\ln3$. Le dernier pas invoque
+  (15) et (16) pour passer de l'irrationalité de la somme réelle $\Phi_{\mathbb R}$ à
+  l'apériodicité de la somme 2-adique. Ces deux limites d'une même suite de
+  rationnels ne sont pas le même objet (même distinction que X14). Le théorème 1
+  n'est pas utilisé.
+- **De Jesús (2026)**, note de dérive, DOI `10.5281/zenodo.23108509` : seul le
+  résumé a été lu. L'obstruction y est la complexité des facteurs face à une dérive
+  normalisée. B7 compare la valuation 2-adique du reste à la taille de la somme
+  partielle. Rien ici ne prétend être indépendant de ce préprint au-delà de la
+  preuve écrite ; la preuve n'en dépend pas.
+- **Bernstein (1994)** : la série de B1, déjà enregistrée. Pas de relecture du texte.
+
+## 7. Ce que ce cycle ne montre pas
+
+Aucune paire $(A,B)$ pour (H). Rien sur (C). Rien sur les runs de croissance
+géométrique de raison $\le\log_23$, ni sur Fibonacci. Le mot de B8 n'est pas une
+orbite d'entier positif : B8 parle du réalisateur 2-adique du mot, pas de Syracuse.
+
+## 8. Mises à jour
+
+- `proved.md` : B7, B8.
+- `counterexamples.md` : X18.
+- `hypotheses.md` : H4 prouvée ; H3 gagne le cas B8.
+- `abandoned.md` : le critère de Liouville ne remplace pas VW sur les runs linéaires.
+- `prior_art.md` : lectures de ce cycle.
+- `agenda.md` : prochaine question, le seuil de croissance entre $\varphi$ et $\log_23$.
+
+## 9. Reproduire
+
+```sh
+python3 research/checks/cycle003_liouville.py
+```
+
+Sortie attendue : six lignes `PASS` (8178 cycles purs ; témoins ; 3720 mots
+ultimement périodiques ; 7712 orbites $a/b$ ; silence triangulaire ; famille
+$2^k$ jusqu'à $k=8$).

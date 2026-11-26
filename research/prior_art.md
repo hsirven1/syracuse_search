@@ -57,4 +57,8 @@ par un rédacteur précédent (voir la PR citée) · **[S]** secondaire ou de m�
 - `muaijaz/not-an-ai-collatz-proof@535044be` : VW 1989 appliqué à $q=9/4,\ \alpha=9/2$ (soit $c=2,d=-2$ dans B2), « échelle $J_m/K_m$ ». [P pour le dépôt]
 - **Rozier–Terracol**, arXiv 2502.00948 v5 (*Discrete Math.* 2026) : correction extrémale, bornes harmoniques. [P-dép, PR #10]
 - **De Jesús** (2026), manuscrit non expertisé sur les points rationnels de l'application de conjugaison. [S] Pertinent pour H4.
+- **Cycle 003, lectures ciblées.**
+  - **Monks–Yazinski** (2004), *Discrete Math.* 275, 219–236, thm 2.7(b). **[P]** Énoncé lu sur le PDF d'auteur `https://monks.scranton.edu/files/pubs/AutoConjV13.pdf` : orbite rationnelle divergente $\Rightarrow$ $\liminf \kappa_n/n\ge\ln2/\ln3$. Ne couvre pas B8 (densité des $1$ égale à $1$).
+  - **López–Stoll**, arXiv:2101.12747, thm 1 et §6. **[P]** pour cette preuve. Ils annoncent l'égalité de cette densité avec $\ln2/\ln3$. Le pas final, via (15)–(16), identifie la somme réelle et la somme 2-adique. Non utilisé (même distinction que X14).
+  - **De Jesús**, *A drift-sensitive complexity bound…*, DOI `10.5281/zenodo.23108509`. **[S]** Résumé seul : complexité des facteurs contre dérive normalisée. Mécanisme différent de B7. Preuve non lue.
 - **Fernández–Ibáñez** (2026), arXiv 2607.24844 (mots de Christoffel) ; **Nikpour–Rabbani** (2026) (KL, Perron–Frobenius). [S]

@@ -28,17 +28,18 @@ Consigne du cycle 002 (B4–B6), plus une esquisse :
 
 ## H3 — Conjecture de périodicité (Lagarias 1985) — OUVERT ; CAS PARTICULIER PROUVÉ
 Tout $\xi\in\mathbb Q\cap\mathbb Z_2$ a un itinéraire ultimement périodique (la réciproque est un théorème).
-Pour les entiers positifs, elle équivaut à la non-divergence. Cas prouvé : runs ultimement
-en progression arithmétique de raison $\ge1$ (B2, via VW 1989).
+Pour les entiers positifs, elle équivaut à la non-divergence. Cas prouvés : runs ultimement
+en progression arithmétique de raison $\ge1$ (B2, via VW 1989) ; runs $2^k$ (B8, élémentaire).
 
-## H4 — Critère de type Liouville pour les réalisations rationnelles — CANDIDAT
-Mot $w$ avec une infinité de 0, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$, $G_m=\sum_{j\le m}2^j(2/3)^{o_j}$.
-Si $\sup_m\,[\,r_m+m+1-\beta o_m-\log_2(1+G_m)\,]=+\infty$, alors $\xi_w\notin\mathbb Q$.
-- Esquisse : $\sigma=-2(\xi+1)=a/b$ ; $A_m=b\,3^{o_m}(\sigma-\sigma_m)\in\mathbb Z\setminus\{0\}$,
-  $v_2(A_m)\ge m+1+o_{m+1}$, $|A_m|\le3^{o_m}(|a|+bG_m)$.
-- La correction $G_m$ est nécessaire (X12 : itinéraire de 1).
-- Portée limitée : pour une orbite entière non bornée, l'identité de hauteur donne déjà
-  $r_m\le\beta o_m-m+O_N(1)$ ; H4 n'apporte rien de neuf pour (C), seulement pour les rationnels.
+## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
+Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,
+$G_m=\sum_{j=1}^m 2^j(2/3)^{o_j}$. Si $\sup_m Q_m=+\infty$ avec
+$Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
+- La valuation est exacte : $v_2(A_m)=m+1+o_{m+1}$, pas seulement $\ge$.
+- La correction $G_m$ est nécessaire (X12). La somme commence à $j=1$.
+- Cas non vide : B8. Cas aveugle : le mot triangulaire, $Q_m\to-\infty$ (X18).
+- Portée : rien de neuf pour (C). Une orbite entière non bornée a déjà
+  $r_m\le\beta o_m-m+O_N(1)$ par l'identité de hauteur.
 
 ## H5 — Au-delà de VW : runs quasi linéaires — OUVERT
 Exemples : $r_j=cj+d+p_j$ avec $p$ périodique non constant, $r_j=\lfloor j/P\rfloor$.

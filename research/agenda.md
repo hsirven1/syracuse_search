@@ -7,10 +7,13 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [B] Critère de Liouville pour les réalisations rationnelles (H4) — PROCHAINE QUESTION (cycle 003)
-Rédiger et vérifier la preuve ; tester sur les cycles rationnels connus ($3x+b$, $b$ petit) ;
-situer par rapport à Lagarias 1985/1990, Bernstein–Lagarias 1996 et au manuscrit De Jesús 2026.
-Intérêt : côté conjecture de périodicité, pas (C). Dépend : B1.
+## 1. [B] Seuil de Fibonacci pour le critère de Liouville — PROCHAINE QUESTION (cycle 004)
+Mot $w=\prod_{k\ge1}(0\,1^{F_{k+2}})$, $F_1=F_2=1$, donc runs $2,3,5,8,\ldots$.
+Alors $S_{k-1}=F_{k+3}-3$ et $R_k/S_{k-1}\to1/\varphi\approx0{,}618>\beta$.
+Lemme réfutable : $Q_k\to+\infty$ (B7 s'applique) ou, au contraire, $2^{o_k+r_k+1}<3^{o_k}+P_k$
+pour tout $k$ assez grand. Preuve visée : récurrence sur $F_k$, sans calculer $3^{F_n}$
+très loin. Si $Q_k$ reste bornée, le critère s'arrête avant $\varphi$ et l'on passe à H5.
+Dépend : B7. Une seule de ces deux issues ; pas de balayage.
 
 ## 2. [B] Frontière de la méthode de Tschakaloff (H5)
 Quelles familles de mots se ramènent à des valeurs $f_q(\alpha)$ ? Runs $cj+d+p_j$ ($p$ périodique) ⇒ $l\ge2$,
@@ -35,6 +38,8 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 003 (26 nov. 2026) : critère de Liouville prouvé (B7). Le mot de runs $2^k$ est
+  irrationnel (B8). Le mot triangulaire échappe au critère (X18). [cycle-003](cycles/cycle-003.md)
 - Cycle 002 (26 nov. 2026) : (H) reclassée conjecture majeure. $B\le1$ réfuté pour tout $A$ (B4) ;
   fenêtres de longueur $\le K$ majorées (B5) ; (H) ⇒ (C) uniforme, et $A<1/\beta$ exclut les
   orbites non bornées (B6). Obstacle pour $1<B\le1+\delta$ consigné. [cycle-002](cycles/cycle-002.md)
