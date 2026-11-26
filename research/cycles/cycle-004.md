@@ -8,6 +8,8 @@ $F_3,F_4,F_5,\ldots=2,3,5,8,\ldots$, on a $Q_k>k$ pour tout $k\ge1$ (B9).
 Donc $Q_k\to+\infty$ et B7 s'applique : le réalisateur 2-adique est irrationnel.
 Si l'itinéraire d'un entier positif commence par le préfixe exact, alors
 $N\ge2^{k-1}$. Les seules longueurs de ces runs ne donnent pas ce préfixe (X20).
+Un préfixe fini devant un mot à un zéro par bloc et de taux $\lambda>\log_2 3$
+ne restaure pas la rationalité (§8).
 L'alternative de l'agenda ($2^{o_k+r_k+1}<3^{o_k}+P_k$ pour tout $k$ grand) est fausse
 pour chaque $k$. Ni (C), ni Syracuse. La preuve est une récurrence sur $F_n$ ;
 elle ne calcule aucune puissance $3^{F_n}$ au-delà de $3^5$.
@@ -140,15 +142,19 @@ Elles ne fixent ni la parité initiale ni le nombre de zéros intercalés (X20).
 Le départ $3$ a un premier run de longueur $2$ et commence par $110$. Le départ
 $12$ commence par $00110$. Le départ $91$ a pour deux premiers runs $2,3$ et
 commence par $1101110$. Le préfixe exact de $k=2$ est $01101110$, réalisé par
-$182$.
+$182$. Le départ $422$ commence par $011001110$ : un seul zéro initial, puis
+les runs $2$ et $3$, séparés par deux zéros.
 
-**Runs impairs finis.** Pour $n$ impair, $n+1=2^v m$ avec $v\ge1$ et $m$ impair,
-donc $T(n)+1=3(n+1)/2$ et $v_2(T(n)+1)=v-1$. Le run impair issu de $n$ a
-longueur $v_2(n+1)$. Un entier positif a une valuation $v_2(N)$ finie : l'orbite
-atteint un impair, puis un run impair fini, puis un pair, et ceci se répète.
-L'itinéraire contient une infinité de zéros. L'hypothèse de B7 est donc
-satisfaite par toute orbite d'entier positif. Elle ne fixe pas les longueurs
-des zéros entre les runs.
+**Runs impairs finis.** Pour $n$ impair positif, $n+1=2^v m$ avec $v\ge1$ et
+$m$ impair, donc $T(n)+1=3(n+1)/2$ et $v_2(T(n)+1)=v-1$. Le run impair issu de
+$n$ a longueur $v_2(n+1)$. Cette phrase ne vaut pas pour tout impair : $n=-1$
+est fixe, $T(-1)=-1$, et $n+1=0$ n'a pas de valuation finie. Un entier positif
+a une valuation $v_2(N)$ finie : l'orbite atteint un impair positif, puis un
+run impair fini, puis un pair, et ceci se répète. L'itinéraire contient une
+infinité de zéros. C'est l'une des deux prémisses de B7. L'autre,
+$\sup_m Q_m=+\infty$, dépend du mot : c'est elle qui donne l'irrationalité.
+La seule infinité des zéros ne la fournit pas, et elle ne fixe pas les
+longueurs des zéros entre les runs.
 
 Cette borne est grosse. Elle dit seulement qu'un entier trop petit ne peut pas
 suivre le préfixe exact. Le script calcule, pour $k\le8$, le plus petit entier
@@ -246,19 +252,79 @@ Comme $r_j\to+\infty$, pour tout entier $A$ on a $r_j>2A$ à partir d'un rang,
 et la moyenne $(1/M)\sum_{j=1}^{M}r_j$ dépasse $A$ pour $M$ grand. La densité
 des $1$ vaut $1$. ∎
 
-Ce corollaire ferme la lecture où un entier suivrait une autre suite infinie
-de runs de rapport $\varphi$, avec un seul zéro par bloc. Il reste deux
-lectures ouvertes. Un préfixe fini est réalisable, avec la borne du §5 dans
-le cas de Fibonacci. Un placement différent des zéros — plusieurs zéros entre
-les runs, ou un mot qui commence par $1$ — n'entre pas dans l'énoncé. Il n'y
-a pas de conclusion uniforme lorsque $r_{k+1}/r_k\to\lambda$ avec
-$\lambda-1\le\beta$. Les runs quasi linéaires, ceux pour lesquels
-$r_m/o_m\to0$, restent H5.
+Ce corollaire ferme le mot à un seul zéro par bloc dont le rapport des runs
+tend vers $\varphi$. La même récurrence couvre tout taux strictement
+supérieur à $\log_2 3$.
 
-Le corollaire n'utilise que B7, l'identité $s_{k+1}=(s_k+1)/q_k$ et la
-comparaison $\varphi-1>\beta$ du §2. Il ne repose pas sur un théorème
-supplémentaire. Le script contrôle une famille décalée $r_k=F_{k+2}+1$
-jusqu'à $k=12$ ; ce segment ne remplace pas la preuve.
+**Extension.** Soit $(r_k)_{k\ge1}$ une suite d'entiers $\ge1$ telle que
+$q_k=r_{k+1}/r_k\to\lambda$ avec $\lambda>1$. Le mot
+$\prod_{k\ge1}(0\,1^{r_k})$ vérifie $s_k=o_k/r_k\to1/(\lambda-1)$.
+
+Le point fixe de $s\mapsto(s+1)/\lambda$ est $\sigma=1/(\lambda-1)$, car
+$\sigma+1=\sigma\lambda$. Avec $e_k=s_k-\sigma$,
+$$s_{k+1}-\sigma=\frac{s_k+1-\sigma q_k}{q_k}
+=\frac{e_k-\sigma(q_k-\lambda)}{q_k}.$$
+Choisissons $\rho$ tel que $1/\lambda<\rho<1$. À partir d'un rang $K$,
+$q_k\ge1/\rho$, donc
+$$|e_{k+1}|\le\rho\,|e_k|+\delta_k,
+\qquad\delta_k=\frac{\sigma}{q_k}|q_k-\lambda|,$$
+et $\delta_k\to0$. En itérant,
+$$|e_{K+n}|\le\rho^n|e_K|
++\sum_{j=0}^{n-1}\rho^{n-1-j}\delta_{K+j}.$$
+Soit $\varepsilon>0$. Pour $j$ assez grand,
+$\delta_{K+j}<\varepsilon(1-\rho)/2$. La partie correspondante de la somme est
+au plus $(\varepsilon(1-\rho)/2)\sum_{i\ge0}\rho^i=\varepsilon/2$. Le terme
+$\rho^n|e_K|$ et la partie finie tendent vers $0$. Donc $e_k\to0$.
+
+Comme $\beta=\log_2 3-1$, on a $\lambda-1>\beta$ si et seulement si
+$\lambda>\log_2 3$. Si $\lambda>\log_2 3$, alors
+$r_k/o_k\to\lambda-1>\beta$. L'écart $r_k/o_k-\beta$ est ultimement minoré
+par $(\lambda-1-\beta)/2$, et $o_k\to+\infty$, donc
+$r_k-\beta o_k\to+\infty$. De plus $r_k\to+\infty$ : à partir d'un rang,
+$r_{k+1}\ge\mu r_k$ pour un $\mu$ avec $1<\mu<\lambda$. Donc $r_k\ge2$ à
+partir d'un rang, le rapport des termes de $G$ est au plus $8/9$, et $G$
+reste bornée comme au §6. Ainsi $Q_k\to+\infty$. Le mot a une infinité de
+zéros. B7 donne l'irrationalité. Le cas $\varphi$ est celui du corollaire :
+$\varphi>\log_2 3$ est le §2.
+
+Si $1<\lambda<\log_2 3$, alors $r_k/o_k\to\lambda-1<\beta$. Pour un $c>0$,
+$r_k-\beta o_k\le -c\,o_k$ à partir d'un rang. Comme $G_k\ge0$,
+$$Q_k\le r_k+k+1-\beta o_k\le -c\,o_k+k+1.$$
+Puisque $\lambda>1$, $r_k$ croît géométriquement à partir d'un rang, et $o_k$
+aussi. Donc $Q_k\to-\infty$. B7 ne s'applique pas. L'irrationalité de ces
+mots reste ouverte par ce critère.
+
+Si $\lambda=\log_2 3$, le rapport $r_k/o_k$ tend vers $\beta$. Le signe de
+$r_k-\beta o_k$ dépend de la vitesse de convergence. Il n'y a pas de
+conclusion uniforme.
+
+**Préfixe fini.** Un premier bloc de $1$ ne laisse pas un cas ouvert. Si le
+mot commence par $1^a$ et que la queue à partir du premier $0$ est un mot du
+cas $\lambda>\log_2 3$, chaque pas impair vérifie
+$$T(\xi)+1=\frac{3\xi+1}{2}+1=\frac32(\xi+1),$$
+donc $T^a(\xi)+1=(3/2)^a(\xi+1)$. Ainsi $\xi\in\mathbb Q$ si et seulement si
+$T^a(\xi)\in\mathbb Q$. La queue est le réalisateur du mot réduit, déjà
+irrationnel, donc $\xi\notin\mathbb Q$.
+
+Le même passage vaut pour un préfixe fini quelconque. La branche $0$ a pour
+inverse $x=2T(x)$, la branche $1$ a pour inverse $x=(2T(x)-1)/3$. Les deux
+sont des bijections de $\mathbb Q$. Si $u$ a longueur $L$ et si la queue est
+un mot du cas $\lambda>\log_2 3$, alors $\xi$ est rationnel si et seulement si
+$T^L(\xi)$ l'est. Supprimer $u$ ne change pas la rationalité.
+
+La question ouverte sur les zéros se limite aux placements qui ne deviennent
+pas un mot à un zéro par bloc de taux $\lambda>\log_2 3$ après suppression
+d'un préfixe fini. Plusieurs zéros entre les runs, répétés infiniment souvent,
+en font partie. Un préfixe fini du mot infini reste réalisable par un entier
+positif, avec la borne du §5 dans le cas de Fibonacci. Les runs quasi
+linéaires, $r_m/o_m\to0$, restent H5.
+
+L'extension et le lemme de préfixe n'utilisent que B7, la récurrence de
+$s_k$ et la comparaison de $\lambda-1$ à $\beta$. Le script contrôle
+l'identité $(3/2)^a$ sur les impairs positifs jusqu'à $200$, le point fixe
+$T(-1)=-1$, le retour par les branches inverses, le témoin $422$ et la
+famille décalée $r_k=F_{k+2}+1$ jusqu'à $k=12$. Ces contrôles ne remplacent
+pas la preuve.
 
 ## 9. Mises à jour
 
@@ -269,7 +335,9 @@ jusqu'à $k=12$ ; ce segment ne remplace pas la preuve.
 - `agenda.md` : prochaine question sur l'axe A (H6). Quatre cycles consécutifs
   ont porté sur l'axe B.
 - Revue `6081410834` : X20, indice $S_{k-1}$, et le corollaire du §8.
-  La prochaine question de l'agenda n'est pas entamée. Détail en §11.
+  Détail en §11.
+- Revue `6081458173` : portée du §5 et du §8. Le cas d'un premier bloc de $1$
+  est fermé. La prochaine question de l'agenda n'est pas entamée. Détail en §12.
 
 ## 10. Reproduire
 
@@ -279,9 +347,10 @@ python3 research/checks/cycle004_fibonacci.py
 
 Sortie attendue : onze lignes `PASS`. Les puissances testées s'arrêtent à
 $F_{21}$, aux préfixes $k\le8$ et à la famille décalée $k\le12$. Elles
-contrôlent le lemme, la récurrence de $P$, les témoins de X20 et l'absence de
-petit contre-exemple au préfixe exact. La preuve de B9 est le §4. La preuve
-du corollaire est le §8.
+contrôlent le lemme, la récurrence de $P$, les témoins de X20 (dont $422$),
+l'identité $(3/2)^a$, le point fixe $-1$, le retour par les branches inverses
+et l'absence de petit contre-exemple au préfixe exact. La preuve de B9 est le
+§4. La preuve du corollaire, de son extension et du préfixe fini est le §8.
 
 ## 11. Revue `6081410834`
 
@@ -316,4 +385,42 @@ $D_k>3^{o_k}+P_k$ et les résidus des préfixes ont été revérifiés par le sc
 B9 reste **PROUVÉ** par le §4. Le corollaire du §8 est **PROUVÉ** par le texte
 de ce paragraphe, conditionnellement à B7 pour le passage à l'irrationalité.
 X20 est une réfutation de l'implication sur les préfixes, pas de B9. La
-prochaine question de l'agenda n'est pas abordée.
+prochaine question de l'agenda n'est pas abordée dans cette revue. Le §12
+reprend ensuite la portée : un préfixe fini ne reste pas un cas ouvert, et
+le taux $\lambda$ est séparé de part et d'autre de $\log_2 3$.
+
+## 12. Revue `6081458173`
+
+Revue indépendante sur le SHA `4696589434762ecf662475990fe6bbdfc0818726`
+(26 novembre 2026). Marqueur `SYRACUSE_INDEPENDENT_REVIEW`. Elle confirme X20,
+la borne du préfixe exact et le corollaire du §8 pour $\varphi$. Ce n'est pas
+une seconde preuve.
+
+- La phrase de §5 sur les runs finis est restreinte aux impairs positifs.
+  $T(-1)=-1$ : l'énoncé lu sur tous les impairs admettait cette exception.
+  Les deux prémisses de B7 sont séparées. L'infinité des zéros vaut pour toute
+  orbite d'entier positif. L'irrationalité demande $\sup Q_m=+\infty$.
+- Le témoin $422$, d'itinéraire initial $011001110$, isole deux zéros entre
+  les runs $2$ et $3$. Il ne réalise pas $01101110$.
+- L'ancienne portée laissait ouvert un mot qui commence par $1$. Si la queue
+  à partir du premier zéro est un mot du corollaire, l'identité
+  $T^a(\xi)+1=(3/2)^a(\xi+1)$ transporte la rationalité. Le lemme vaut pour
+  tout préfixe fini, parce que chaque branche est une bijection de
+  $\mathbb Q$. La question ouverte se limite aux placements de zéros qui ne
+  se ramènent pas à un mot de taux $\lambda>\log_2 3$ en supprimant un
+  préfixe fini.
+- La même récurrence donne $Q_k\to+\infty$ pour tout $\lambda>\log_2 3$, et
+  $Q_k\to-\infty$ pour $1<\lambda<\log_2 3$. Au seuil $\lambda=\log_2 3$, le
+  signe de $r_k-\beta o_k$ n'est pas uniforme. Ces trois cas sont prouvés
+  dans le §8 corrigé. Ils ne sont pas un nouveau cycle.
+- Dans `prior_art.md`, « de ce mot » suivait la mention du mot sturmien.
+  La phrase désigne désormais le mot de B9. Le décompte des $1$ dans $0110$
+  et $1111$ est direct. La revue cite Lothaire, *Algebraic Combinatorics on
+  Words*, §2.1, théorème 2.1.13 ; ce texte n'a pas été relu ici et n'est pas
+  une prémisse. Monks–Yazinski, théorème 2.7(b), reste compatible avec une
+  densité $1$ et n'est pas une prémisse du corollaire.
+
+B9, le corollaire, son extension aux taux $\lambda>\log_2 3$ et le lemme de
+préfixe fini sont **PROUVÉS** par les §§4 et 8, le passage à l'irrationalité
+restant celui de B7. X20 n'est pas modifié dans son énoncé. La prochaine
+question de l'agenda n'est pas abordée.

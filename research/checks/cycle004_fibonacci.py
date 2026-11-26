@@ -4,8 +4,9 @@
 La preuve est dans research/cycles/cycle-004.md. Elle ne calcule aucune
 puissance 3^{F_n} au-delà de 3^5. Ce script ne la remplace pas : il vérifie
 les bases, le pas entier du lemme, la récurrence de P, l'inégalité D_k > 3^{o_k}+P_k
-sur un segment fini, les témoins de X20, et l'absence de contre-exemple entier
-pour les préfixes exacts k≤8.
+sur un segment fini, les témoins de X20 (dont 422), l'identité (3/2)^a,
+le point fixe T(-1)=-1, le retour par les branches inverses, et l'absence
+de contre-exemple entier pour les préfixes exacts k≤8.
 
 Usage : python3 research/checks/cycle004_fibonacci.py
 """
@@ -176,15 +177,48 @@ def refuted_prefix_implication():
     exact_k2 = [0, 1, 1, 0, 1, 1, 1, 0]
     if orbit_bits(91, 8) == exact_k2:
         raise AssertionError("91 réalise le préfixe exact")
+    # 422 : un zéro initial, runs 2 puis 3, mais deux zéros intercalés.
+    if orbit_bits(422, 9) != [0, 1, 1, 0, 0, 1, 1, 1, 0]:
+        raise AssertionError("422")
+    if odd_run_lengths(422, 2) != [2, 3] or orbit_bits(422, 8) == exact_k2:
+        raise AssertionError("422 hors préfixe")
     n2, word2 = smallest_exact_prefix([2, 3])
     if n2 != 182 or word2 != exact_k2:
         raise AssertionError((n2, word2))
+    # n = -1 est fixe : la formule de valuation n'est énoncée que pour n > 0.
+    if (3 * (-1) + 1) // 2 != -1:
+        raise AssertionError("T(-1)")
     for n in range(1, 201, 2):
         tn = (3 * n + 1) >> 1
         if v2(tn + 1) != v2(n + 1) - 1:
             raise AssertionError(("v2", n))
         if odd_run_lengths(n, 1)[0] != v2(n + 1):
             raise AssertionError(("run", n))
+        a = v2(n + 1)
+        x = n
+        for _ in range(a):
+            if x % 2 == 0:
+                raise AssertionError(("pas impair", n))
+            x = (3 * x + 1) >> 1
+        if (x + 1) * (2 ** a) != (3 ** a) * (n + 1):
+            raise AssertionError(("identite", n, a))
+    for n in range(1, 81):
+        x = n
+        bits = []
+        for _ in range(12):
+            bits.append(x & 1)
+            x = (3 * x + 1) >> 1 if x & 1 else x >> 1
+        y = x
+        for bit in reversed(bits):
+            if bit == 0:
+                y = 2 * y
+            else:
+                q, r = divmod(2 * y - 1, 3)
+                if r != 0:
+                    raise AssertionError(("inverse", n, bit))
+                y = q
+        if y != n:
+            raise AssertionError(("retour", n, y))
 
 
 def shifted_ratio_family(limit=12):
@@ -237,8 +271,8 @@ def main():
     integer_prefixes()
     print("PASS prefixes entiers k<=8 : runs exacts et N >= 2^{k-1}")
     refuted_prefix_implication()
-    print("PASS X20 : 3 commence par 110, 12 par 00110, 91 a les runs 2,3 hors prefixe")
-    print("PASS v_2(T(n)+1)=v_2(n+1)-1 pour n impair <=200, run = v_2(n+1)")
+    print("PASS X20 : 3 commence par 110, 12 par 00110, 91 et 422 ont les runs 2,3 hors prefixe")
+    print("PASS v_2 pour n impair positif <=200, identite (3/2)^a, T(-1)=-1, retour des branches")
     shifted_ratio_family()
     print("PASS famille r_k=F_{k+2}+1 : 2^{o_k+r_k}>3^{o_k} pour 2<=k<=12")
     # Bases écrites dans le cycle, reprises ici telles quelles.

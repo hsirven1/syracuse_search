@@ -78,14 +78,20 @@ Le rapport des runs tend vers $1/\varphi>\beta$, car $\varphi>8/5>\log_23$
 ($125>121$ et $256>243$). Si l'itinéraire d'un entier $N>0$ commence par le
 préfixe exact $\prod_{j=1}^{k}(0\,1^{F_{j+2}})\,0$, alors $N\ge2^{k-1}$. Les
 seules longueurs de ces runs ne déterminent pas le préfixe (X20). Tout mot à
-un zéro par bloc avec $r_{k+1}/r_k\to\varphi$ vérifie $o_k/r_k\to\varphi$ et
-$Q_k\to+\infty$ (cycle 004 §8), donc son réalisateur est irrationnel par B7.
-Densité des $1$ égale à $1$ : pas un corollaire de Monks–Yazinski. Dépend de
-B7 pour l'irrationalité et pour la borne entière ; l'inégalité $Q_k>k$ n'en
-dépend pas. Toute orbite d'entier positif a une infinité de pas pairs : un pas
-impair fait chuter $v_2(n+1)$ de $1$. Pas de conclusion uniforme si le taux
-limite $\lambda$ vérifie $\lambda-1\le\beta$, ni pour un autre placement des
-zéros. Ne traite pas les runs quasi linéaires.
+un zéro par bloc avec $r_{k+1}/r_k\to\lambda$ pour un $\lambda>\log_2 3$
+vérifie $o_k/r_k\to1/(\lambda-1)$ et $Q_k\to+\infty$ (cycle 004 §8), donc son
+réalisateur est irrationnel par B7. Le cas $\varphi$ en fait partie. Un préfixe
+fini quelconque, y compris un premier bloc de $1$, ne restaure pas la
+rationalité : chaque branche de $T$ est une bijection de $\mathbb Q$. Densité
+des $1$ égale à $1$ : pas un corollaire de Monks–Yazinski, et ce théorème n'est
+pas une prémisse. Dépend de B7 pour l'irrationalité et pour la borne entière ;
+l'inégalité $Q_k>k$ n'en dépend pas. Toute orbite d'entier positif a une
+infinité de pas pairs : un pas impair positif fait chuter $v_2(n+1)$ de $1$.
+Le point $n=-1$ est fixe et reste hors de cette phrase. Pour
+$1<\lambda<\log_2 3$, $Q_k\to-\infty$ et B7 ne s'applique pas. À
+$\lambda=\log_2 3$, pas de signe uniforme pour $r_k-\beta o_k$. Les placements
+de zéros qui ne se ramènent pas au mot précédent en supprimant un préfixe fini
+restent ouverts, ainsi que les runs quasi linéaires.
 
 Revue indépendante `6080964566` (PR #27, SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`) :
 les preuves écrites de B7, B8 et X18 ont été confirmées, puis revérifiées dans ce
@@ -107,6 +113,14 @@ réfutée (X20) et retirée de l'énoncé. L'indice $S_{k-1}$ de l'ancien agenda
 désignait $o_k$, et $o_k+r_k=S_k$. Le corollaire du §8, pour un zéro par bloc et
 $r_{k+1}/r_k\to\varphi$, est prouvé dans le cycle. Ce n'est pas une seconde
 preuve de B9.
+
+Revue indépendante `6081458173` (PR #27, SHA `4696589434762ecf662475990fe6bbdfc0818726`) :
+X20, la borne du préfixe exact et le corollaire en $\varphi$ sont confirmés.
+La phrase sur les runs finis est restreinte aux impairs positifs ($T(-1)=-1$).
+Les deux prémisses de B7 sont séparées. L'extension à tout $\lambda>\log_2 3$,
+la chute $Q_k\to-\infty$ pour $1<\lambda<\log_2 3$, et l'invariance par préfixe
+fini sont prouvées dans le §8 corrigé. Ce n'est pas une seconde preuve de B9,
+ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
