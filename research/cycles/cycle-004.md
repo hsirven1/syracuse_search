@@ -6,6 +6,8 @@ Branche : `research/memory`. Script : [`../checks/cycle004_fibonacci.py`](../che
 **Verdict : PROUVÉ.** Pour le mot dont les runs impairs ont longueurs
 $F_3,F_4,F_5,\ldots=2,3,5,8,\ldots$, on a $Q_k>k$ pour tout $k\ge1$ (B9).
 Donc $Q_k\to+\infty$ et B7 s'applique : le réalisateur 2-adique est irrationnel.
+Si l'itinéraire d'un entier positif commence par le préfixe exact, alors
+$N\ge2^{k-1}$. Les seules longueurs de ces runs ne donnent pas ce préfixe (X20).
 L'alternative de l'agenda ($2^{o_k+r_k+1}<3^{o_k}+P_k$ pour tout $k$ grand) est fausse
 pour chaque $k$. Ni (C), ni Syracuse. La preuve est une récurrence sur $F_n$ ;
 elle ne calcule aucune puissance $3^{F_n}$ au-delà de $3^5$.
@@ -24,7 +26,8 @@ Le $k$-ième run impair a longueur $r_k=F_{k+2}$. Le mot commence par $0$, donc
 $o_1=0$ et $o_k=\sum_{j=1}^{k-1}r_j$ pour $k\ge2$. L'identité
 $\sum_{i=1}^{n}F_i=F_{n+2}-1$ donne
 $$o_k=\sum_{i=3}^{k+1}F_i=F_{k+3}-3.$$
-En particulier $o_k+r_k=F_{k+4}-3$. C'est la quantité $S_{k-1}$ de l'agenda.
+En particulier $o_k+r_k=F_{k+4}-3=o_{k+1}$. L'agenda antérieur à ce cycle
+notait $S_{k-1}=F_{k+3}-3$, c'est-à-dire $o_k$. La somme $o_k+r_k$ est $S_k$.
 Le rapport $r_k/o_k=F_{k+2}/(F_{k+3}-3)$ n'est défini que pour $k\ge2$.
 
 ## 2. Le rapport tend vers $1/\varphi$, et $1/\varphi>\beta$
@@ -124,24 +127,43 @@ cycle 003, donne $\xi_w\notin\mathbb Q$.
 
 ## 5. Deux conséquences
 
-**Préfixe entier.** Si un entier $N>0$ a ses $k$ premiers runs impairs égaux à
-$F_3,\ldots,F_{k+2}$, son itinéraire commence par
-$\prod_{j=1}^{k}(0\,1^{F_{j+2}})\,0$. Les quantités $o_j$, $r_k$ et $P_k$
-coïncident avec celles de $w$, donc $Q_k>k$. Pour $\xi=N$,
-$\sigma=-2(N+1)$ en forme réduite de dénominateur $1$, et B7 donne
-$Q_k\le\log_2\bigl(2(N+1)\bigr)$. Donc $k<\log_2\bigl(2(N+1)\bigr)$, soit
-$2^{k-1}<N+1$. Comme $N+1$ est entier, $N\ge2^{k-1}$.
+**Préfixe exact.** Si l'itinéraire d'un entier $N>0$ commence par
+$$\prod_{j=1}^{k}(0\,1^{F_{j+2}})\,0,$$
+les quantités $o_j$, $r_k$ et $P_k$ coïncident avec celles de $w$ sur cette
+fenêtre, donc $Q_k>k$. Pour $\xi=N$, $\sigma=-2(N+1)$ en forme réduite de
+dénominateur $1$, et B7 donne $Q_k\le\log_2\bigl(2(N+1)\bigr)$. Donc
+$k<\log_2\bigl(2(N+1)\bigr)$, soit $2^{k-1}<N+1$. Comme $N+1$ est entier,
+$N\ge2^{k-1}$.
+
+Les longueurs des $k$ premiers runs impairs ne déterminent pas ce préfixe.
+Elles ne fixent ni la parité initiale ni le nombre de zéros intercalés (X20).
+Le départ $3$ a un premier run de longueur $2$ et commence par $110$. Le départ
+$12$ commence par $00110$. Le départ $91$ a pour deux premiers runs $2,3$ et
+commence par $1101110$. Le préfixe exact de $k=2$ est $01101110$, réalisé par
+$182$.
+
+**Runs impairs finis.** Pour $n$ impair, $n+1=2^v m$ avec $v\ge1$ et $m$ impair,
+donc $T(n)+1=3(n+1)/2$ et $v_2(T(n)+1)=v-1$. Le run impair issu de $n$ a
+longueur $v_2(n+1)$. Un entier positif a une valuation $v_2(N)$ finie : l'orbite
+atteint un impair, puis un run impair fini, puis un pair, et ceci se répète.
+L'itinéraire contient une infinité de zéros. L'hypothèse de B7 est donc
+satisfaite par toute orbite d'entier positif. Elle ne fixe pas les longueurs
+des zéros entre les runs.
 
 Cette borne est grosse. Elle dit seulement qu'un entier trop petit ne peut pas
-suivre le préfixe. Le script calcule, pour $k\le8$, le plus petit entier
-positif du préfixe : il satisfait la borne, et il est bien plus grand
+suivre le préfixe exact. Le script calcule, pour $k\le8$, le plus petit entier
+positif de ce préfixe : il satisfait la borne, et il est bien plus grand
 ($k=8$ : un entier de $148$ bits, contre la borne $2^{7}$). Ce calcul borne
-cherche un contre-exemple ; il ne renforce pas la constante.
+cherche un contre-exemple au préfixe exact ; il ne renforce pas la constante.
 
-**Densité.** Après $K$ blocs il y a $K$ zéros et $F_{K+4}-3$ uns. La densité
-des $1$ vaut $1$. Comme pour B8, ce n'est pas un corollaire de
-Monks–Yazinski 2004, théorème 2.7(b), qui borne inférieurement la densité des
-$1$ d'une orbite rationnelle divergente.
+**Densité.** Le préfixe qui s'arrête sur le $k$-ième zéro contient $k$ zéros et
+$o_k$ uns, soit une proportion de zéros $k/(k+o_k)$. Jusqu'au zéro suivant on
+n'ajoute que des uns, donc un préfixe qui se termine dans cet intervalle a une
+proportion de zéros au plus $k/(k+o_k)$. Comme $o_k=F_{k+3}-3$ croît plus vite
+que $k$, cette proportion tend vers $0$. Après $K$ blocs il y a $K$ zéros et
+$F_{K+4}-3$ uns : la densité des $1$ vaut $1$. Comme pour B8, ce n'est pas un
+corollaire de Monks–Yazinski 2004, théorème 2.7(b), qui borne inférieurement la
+densité des $1$ d'une orbite rationnelle divergente.
 
 ## 6. Pourquoi la somme partielle ne compense pas
 
@@ -163,7 +185,8 @@ Elle n'utilise pas Väänänen–Wallisser.
 
 - Le mot de Fibonacci sturmien (point fixe de $0\mapsto01$, $1\mapsto0$) a des
   runs bornés. Ce n'est pas $w$ : ici les runs de $1$ sont non bornés, donc $w$
-  n'est pas sturmien.
+  n'est pas sturmien. Les facteurs $0110$ et $1111$ contiennent deux et quatre
+  symboles $1$. Leur écart vaut $2$, donc $w$ n'est pas équilibré.
 - **Monks–Yazinski** (2004), thm 2.7(b), déjà lu au cycle 003 : densité
   inférieure des $1$ pour une orbite rationnelle divergente. Ne donne pas
   l'irrationalité d'un mot prescrit.
@@ -175,14 +198,67 @@ Elle n'utilise pas Väänänen–Wallisser.
   étiquettes de l'arbre inverse) portent sur d'autres objets. Ils ne sont pas
   utilisés. Aucune de ces sources n'a été prise comme prémisse.
 
-## 8. Ce que ce cycle ne montre pas
+## 8. Portée
 
-Rien sur (C), rien sur (H), rien sur une orbite entière infinie. B9 dit que
-le mot infini n'est l'itinéraire d'aucun rationnel, et que ses préfixes exacts
-exigent $N\ge2^{k-1}$. Un entier peut suivre d'autres suites de runs croissant
-comme $\varphi$. Les runs quasi linéaires, ceux pour lesquels $r_m/o_m\to0$ et
-$Q_m$ peut tendre vers $-\infty$, restent H5. Le critère ne s'arrête pas avant
-$\varphi$ : c'est l'autre branche de l'agenda qui est fermée.
+Rien sur (C), rien sur (H), rien sur la conjecture de Syracuse. B9 dit que
+le mot infini n'est l'itinéraire d'aucun rationnel. Ses préfixes exacts
+exigent $N\ge2^{k-1}$. Tout mot fini de longueur $L$ est l'itinéraire initial
+d'une seule classe modulo $2^L$ (cycle 003 §1), donc d'un entier positif. Le
+script calcule ce résidu pour les préfixes de Fibonacci, $k\le8$. X20 empêche
+de passer des longueurs de runs à ce résidu.
+
+**Corollaire.** Soit $(r_k)_{k\ge1}$ une suite d'entiers $\ge1$ telle que
+$r_{k+1}/r_k\to\varphi$. Le mot $\prod_{k\ge1}(0\,1^{r_k})$, à exactement un
+zéro par bloc, vérifie $o_k/r_k\to\varphi$ et $Q_k\to+\infty$. Son réalisateur
+2-adique est irrationnel, par B7.
+
+**Preuve.** Ici $o_1=0$ et $o_{k+1}=o_k+r_k$. La suite $s_k=o_k/r_k$ satisfait
+$$s_{k+1}=\frac{s_k+1}{q_k},\qquad q_k=\frac{r_{k+1}}{r_k}.$$
+Le §2 donne $\varphi>8/5$, et $8/5>3/2$ car $16>15$. Il existe donc $K$ tel que
+$q_k\ge3/2$ pour tout $k\ge K$. Le point fixe de $s\mapsto(s+1)/\varphi$ est $\varphi$ :
+$\varphi=1+1/\varphi$, donc $1/(\varphi-1)=\varphi$. Posons $e_k=s_k-\varphi$.
+Comme $\varphi^2=\varphi+1$,
+$$s_{k+1}-\varphi=\frac{s_k+1-\varphi q_k}{q_k}
+=\frac{e_k-\varphi(q_k-\varphi)}{q_k}.$$
+Pour $k\ge K$,
+$$|e_{k+1}|\le\frac23|e_k|+\delta_k,
+\qquad\delta_k=\frac{2\varphi}3\,|q_k-\varphi|.$$
+Donc $\delta_k\to0$. En itérant,
+$$|e_{K+n}|\le\Bigl(\frac23\Bigr)^n|e_K|
++\sum_{j=0}^{n-1}\Bigl(\frac23\Bigr)^{n-1-j}\delta_{K+j}.$$
+Soit $\varepsilon>0$. Pour $j$ assez grand, $\delta_{K+j}<\varepsilon/6$. La
+partie correspondante de la somme est au plus
+$(\varepsilon/6)\sum_{i\ge0}(2/3)^i=\varepsilon/2$. Le terme $(2/3)^n|e_K|$ et
+la partie finie de la somme tendent vers $0$. Ainsi $e_k\to0$, et
+$s_k\to\varphi$. Pour $k\ge2$, $r_k/o_k\to1/\varphi=\varphi-1$. Le §2 donne
+$\varphi-1>\beta$, donc $r_k-\beta o_k\to+\infty$ : l'écart
+$r_k/o_k-\beta$ est ultimement minoré par le nombre positif $(\varphi-1-\beta)/2$,
+et $o_k\ge k-1$.
+
+Comme $q_k\to\varphi>8/5>1$, la suite $(r_k)$ est ultimement strictement
+croissante, donc $r_k\ge2$ à partir d'un rang $J$. Pour $r\ge2$,
+$t_{j+1}/t_j=2(2/3)^{r_j}\le8/9$. La queue de $G$ à partir de $J$ est majorée
+par $t_J\sum_{i\ge0}(8/9)^i=9t_J$, et $\sum_{j<J}t_j$ est finie. Ainsi $G_k$
+reste bornée, $\log_2(1+G_k)$ aussi, et
+$$Q_k=r_k+k+1-\beta o_k-\log_2(1+G_k)\to+\infty.$$
+B7 donne l'irrationalité. Après $M$ blocs il y a $M$ zéros et $o_{M+1}$ uns.
+Comme $r_j\to+\infty$, pour tout entier $A$ on a $r_j>2A$ à partir d'un rang,
+et la moyenne $(1/M)\sum_{j=1}^{M}r_j$ dépasse $A$ pour $M$ grand. La densité
+des $1$ vaut $1$. ∎
+
+Ce corollaire ferme la lecture où un entier suivrait une autre suite infinie
+de runs de rapport $\varphi$, avec un seul zéro par bloc. Il reste deux
+lectures ouvertes. Un préfixe fini est réalisable, avec la borne du §5 dans
+le cas de Fibonacci. Un placement différent des zéros — plusieurs zéros entre
+les runs, ou un mot qui commence par $1$ — n'entre pas dans l'énoncé. Il n'y
+a pas de conclusion uniforme lorsque $r_{k+1}/r_k\to\lambda$ avec
+$\lambda-1\le\beta$. Les runs quasi linéaires, ceux pour lesquels
+$r_m/o_m\to0$, restent H5.
+
+Le corollaire n'utilise que B7, l'identité $s_{k+1}=(s_k+1)/q_k$ et la
+comparaison $\varphi-1>\beta$ du §2. Il ne repose pas sur un théorème
+supplémentaire. Le script contrôle une famille décalée $r_k=F_{k+2}+1$
+jusqu'à $k=12$ ; ce segment ne remplace pas la preuve.
 
 ## 9. Mises à jour
 
@@ -192,6 +268,8 @@ $\varphi$ : c'est l'autre branche de l'agenda qui est fermée.
 - `prior_art.md` : lectures de ce cycle, marquées [S] quand le texte n'a pas été lu.
 - `agenda.md` : prochaine question sur l'axe A (H6). Quatre cycles consécutifs
   ont porté sur l'axe B.
+- Revue `6081410834` : X20, indice $S_{k-1}$, et le corollaire du §8.
+  La prochaine question de l'agenda n'est pas entamée. Détail en §11.
 
 ## 10. Reproduire
 
@@ -199,6 +277,43 @@ $\varphi$ : c'est l'autre branche de l'agenda qui est fermée.
 python3 research/checks/cycle004_fibonacci.py
 ```
 
-Sortie attendue : huit lignes `PASS`. Les puissances testées s'arrêtent à
-$F_{21}$ et aux préfixes $k\le8$. Elles contrôlent le lemme, la récurrence de
-$P$ et l'absence de petit contre-exemple entier. La preuve est le §4.
+Sortie attendue : onze lignes `PASS`. Les puissances testées s'arrêtent à
+$F_{21}$, aux préfixes $k\le8$ et à la famille décalée $k\le12$. Elles
+contrôlent le lemme, la récurrence de $P$, les témoins de X20 et l'absence de
+petit contre-exemple au préfixe exact. La preuve de B9 est le §4. La preuve
+du corollaire est le §8.
+
+## 11. Revue `6081410834`
+
+Revue indépendante sur le SHA `8bc44f73615fd5fcf0b59797f59ec74cf8cece10`
+(26 novembre 2026). Marqueur `SYRACUSE_INDEPENDENT_REVIEW`. Elle confirme les
+preuves écrites de B9 (§§2–4) et la borne $N\ge2^{k-1}$ sous l'hypothèse du
+préfixe exact. Ce n'est pas une seconde preuve. Les bases du lemme, la marge
+$D_k>3^{o_k}+P_k$ et les résidus des préfixes ont été revérifiés par le script.
+
+- L'ancienne phrase de §1 identifiait $o_k+r_k=F_{k+4}-3$ à $S_{k-1}$. L'agenda
+  antérieur posait $S_{k-1}=F_{k+3}-3$, qui est $o_k$. La somme $o_k+r_k$ est
+  $S_k$. Les §§2–4 n'utilisent pas ce symbole : leurs identités
+  $o_k=F_{k+3}-3$ et $o_k+r_k=F_{k+4}-3$ sont inchangées.
+- L'ancienne phrase de §5 déduisait le préfixe exact des seules longueurs de
+  runs. C'est X20. Les témoins $3$ ($110$), $12$ ($00110$) et $91$
+  ($1101110$, runs $2,3$) ont été rejoués. La borne entière est conservée, avec
+  l'hypothèse « l'itinéraire commence par le préfixe exact ». Pour $k\le8$ le
+  script retrouve le résidu minimal de ce préfixe, dont celui de $148$ bits à
+  $k=8$, et vérifie $N\ge2^{k-1}$.
+- La chute $v_2(T(n)+1)=v_2(n+1)-1$ est vérifiée pour chaque impair
+  $1\le n\le200$. La longueur du run égale à $v_2(n+1)$ l'est aussi. D'où
+  l'infinité de zéros sur une orbite d'entier positif.
+- La phrase de l'ancien §8, sur d'autres suites de runs croissant comme
+  $\varphi$, est précisée. Le corollaire ci-dessus exclut le mot infini à un
+  zéro par bloc dès que $r_{k+1}/r_k\to\varphi$. Les préfixes finis et les
+  autres placements de zéros restent hors de cet énoncé. Aucune conclusion
+  uniforme n'est ajoutée pour un taux $\lambda$ avec $\lambda-1\le\beta$.
+- Les facteurs $0110$ et $1111$ sont dans $w$. Le résumé SSRN de De Jesús et
+  le théorème 2.7(b) de Monks–Yazinski ne fournissent pas B9 ; leurs statuts
+  de lecture restent ceux du §7.
+
+B9 reste **PROUVÉ** par le §4. Le corollaire du §8 est **PROUVÉ** par le texte
+de ce paragraphe, conditionnellement à B7 pour le passage à l'irrationalité.
+X20 est une réfutation de l'implication sur les préfixes, pas de B9. La
+prochaine question de l'agenda n'est pas abordée.

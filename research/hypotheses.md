@@ -30,7 +30,8 @@ Consigne du cycle 002 (B4–B6), plus une esquisse :
 Tout $\xi\in\mathbb Q\cap\mathbb Z_2$ a un itinéraire ultimement périodique (la réciproque est un théorème).
 Pour les entiers positifs, elle équivaut à la non-divergence. Cas prouvés : runs ultimement
 en progression arithmétique de raison $\ge1$ (B2, via VW 1989) ; runs $2^k$ (B8, élémentaire) ;
-runs $F_{k+2}$ (B9, élémentaire, via B7).
+runs $F_{k+2}$ (B9, élémentaire, via B7) ; plus généralement, un zéro par bloc et
+$r_{k+1}/r_k\to\varphi$ (cycle 004 §8, via B7).
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
 Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,
@@ -38,9 +39,11 @@ $G_m=\sum_{j=1}^m 2^j(2/3)^{o_j}$. Si $\sup_m Q_m=+\infty$ avec
 $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
 - La valuation est exacte : $v_2(A_m)=m+1+o_{m+1}$, pas seulement $\ge$.
 - La correction $G_m$ est nécessaire (X12). La somme commence à $j=1$.
-- Cas non vide : B8 (runs $2^k$) et B9 (runs de Fibonacci, $Q_k>k$, rapport limite
-  $1/\varphi>\beta$). Cas aveugle : le mot triangulaire, $Q_m\to-\infty$ (X18).
-  Le critère ne s'arrête pas avant $\varphi$. Les runs quasi linéaires restent H5.
+- Cas non vide : B8 (runs $2^k$), B9 (runs de Fibonacci, $Q_k>k$, rapport limite
+  $1/\varphi>\beta$), et tout mot à un zéro par bloc avec $r_{k+1}/r_k\to\varphi$
+  (cycle 004 §8 : $o_k/r_k\to\varphi$, $Q_k\to+\infty$). Cas aveugle : le mot
+  triangulaire, $Q_m\to-\infty$ (X18). Pas de conclusion uniforme pour un taux
+  $\lambda$ avec $\lambda-1\le\beta$. Les runs quasi linéaires restent H5.
 - Les contrôles du cycle 003 testent les fenêtres atteintes depuis les départs
   choisis. Ils ne recensent pas les cycles de $3x+b$ (X19).
 - Portée : rien de neuf pour (C). Une orbite entière non bornée a déjà

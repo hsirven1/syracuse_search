@@ -36,6 +36,10 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6081410834` (26 nov. 2026, SHA `8bc44f7`) : B9 et la borne du préfixe
+  exact confirmés. L'implication « longueurs des runs ⇒ préfixe exact » est
+  réfutée (X20) et le texte corrigé. $S_{k-1}$ désignait $o_k$. Prochaine
+  question non entamée. Détail : [reviews.md](reviews.md).
 - Cycle 004 (26 nov. 2026) : runs de Fibonacci, $Q_k>k$ pour tout $k$ (B9). Le réalisateur
   est irrationnel via B7. La branche « $Q$ bornée avant $\varphi$ » est fermée.
   Prochaine question : axe A, horizon d'un certificat à poids borné.

@@ -75,10 +75,17 @@ Preuve élémentaire : $2^{F_{n+1}}\ge3^{F_n}+2^{n-2}$ pour $n\ge4$ (bases $32\g
 $256\ge251$, puis produit), et cette marge fait passer la comparaison entière de
 $D_k=2^{o_k+r_k+1}$ à $D_{k+1}$. Cas directs $k=1$ ($8>3$) et $k=2$ ($64>43$).
 Le rapport des runs tend vers $1/\varphi>\beta$, car $\varphi>8/5>\log_23$
-($125>121$ et $256>243$). Un entier $N>0$ dont les $k$ premiers runs impairs sont
-$F_3,\ldots,F_{k+2}$ vérifie $N\ge2^{k-1}$. Densité des $1$ égale à $1$ : pas un
-corollaire de Monks–Yazinski. Dépend de B7 pour l'irrationalité et pour la borne
-entière ; l'inégalité $Q_k>k$ n'en dépend pas. Ne traite pas les runs quasi linéaires.
+($125>121$ et $256>243$). Si l'itinéraire d'un entier $N>0$ commence par le
+préfixe exact $\prod_{j=1}^{k}(0\,1^{F_{j+2}})\,0$, alors $N\ge2^{k-1}$. Les
+seules longueurs de ces runs ne déterminent pas le préfixe (X20). Tout mot à
+un zéro par bloc avec $r_{k+1}/r_k\to\varphi$ vérifie $o_k/r_k\to\varphi$ et
+$Q_k\to+\infty$ (cycle 004 §8), donc son réalisateur est irrationnel par B7.
+Densité des $1$ égale à $1$ : pas un corollaire de Monks–Yazinski. Dépend de
+B7 pour l'irrationalité et pour la borne entière ; l'inégalité $Q_k>k$ n'en
+dépend pas. Toute orbite d'entier positif a une infinité de pas pairs : un pas
+impair fait chuter $v_2(n+1)$ de $1$. Pas de conclusion uniforme si le taux
+limite $\lambda$ vérifie $\lambda-1\le\beta$, ni pour un autre placement des
+zéros. Ne traite pas les runs quasi linéaires.
 
 Revue indépendante `6080964566` (PR #27, SHA `0c90981ae61e15d4aa8505d1158ddb79039a22fd`) :
 les preuves écrites de B7, B8 et X18 ont été confirmées, puis revérifiées dans ce
@@ -92,6 +99,14 @@ le certificat X19 et la forme entière de $Q_m$ pour $L\in\mathbb Z$ sont confir
 puis revérifiés (huit transitions bornées, $339\,789$ états et les états de sortie,
 $118\,882$ valuations exactes, membre de droite $\ge6$). Aucun changement au texte
 de B7. Ce n'est pas une seconde preuve.
+
+Revue indépendante `6081410834` (PR #27, SHA `8bc44f73615fd5fcf0b59797f59ec74cf8cece10`) :
+B9 (§§2–4) et la borne du préfixe exact sont confirmés, puis revérifiés par le
+script du cycle 004. L'implication « longueurs des runs ⇒ préfixe exact » est
+réfutée (X20) et retirée de l'énoncé. L'indice $S_{k-1}$ de l'ancien agenda
+désignait $o_k$, et $o_k+r_k=S_k$. Le corollaire du §8, pour un zéro par bloc et
+$r_{k+1}/r_k\to\varphi$, est prouvé dans le cycle. Ce n'est pas une seconde
+preuve de B9.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

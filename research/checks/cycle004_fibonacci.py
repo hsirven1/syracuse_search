@@ -4,7 +4,8 @@
 La preuve est dans research/cycles/cycle-004.md. Elle ne calcule aucune
 puissance 3^{F_n} au-delà de 3^5. Ce script ne la remplace pas : il vérifie
 les bases, le pas entier du lemme, la récurrence de P, l'inégalité D_k > 3^{o_k}+P_k
-sur un segment fini, et l'absence de contre-exemple entier pour les préfixes k≤8.
+sur un segment fini, les témoins de X20, et l'absence de contre-exemple entier
+pour les préfixes exacts k≤8.
 
 Usage : python3 research/checks/cycle004_fibonacci.py
 """
@@ -133,6 +134,73 @@ def replay_runs(n, count):
     return runs
 
 
+def orbit_bits(n, steps):
+    bits = []
+    x = n
+    for _ in range(steps):
+        bits.append(x & 1)
+        x = (3 * x + 1) >> 1 if x & 1 else x >> 1
+    return bits
+
+
+def odd_run_lengths(n, count):
+    runs = []
+    x = n
+    while len(runs) < count:
+        while x % 2 == 0:
+            x >>= 1
+        c = 0
+        while x & 1:
+            x = (3 * x + 1) >> 1
+            c += 1
+        runs.append(c)
+    return runs
+
+
+def v2(n):
+    c = 0
+    while n % 2 == 0:
+        n //= 2
+        c += 1
+    return c
+
+
+def refuted_prefix_implication():
+    """X20 : les longueurs de runs ne fixent pas le préfixe exact."""
+    if orbit_bits(3, 3) != [1, 1, 0] or odd_run_lengths(3, 1) != [2]:
+        raise AssertionError("3")
+    if orbit_bits(12, 5) != [0, 0, 1, 1, 0] or odd_run_lengths(12, 1) != [2]:
+        raise AssertionError("12")
+    if orbit_bits(91, 7) != [1, 1, 0, 1, 1, 1, 0] or odd_run_lengths(91, 2) != [2, 3]:
+        raise AssertionError("91")
+    exact_k2 = [0, 1, 1, 0, 1, 1, 1, 0]
+    if orbit_bits(91, 8) == exact_k2:
+        raise AssertionError("91 réalise le préfixe exact")
+    n2, word2 = smallest_exact_prefix([2, 3])
+    if n2 != 182 or word2 != exact_k2:
+        raise AssertionError((n2, word2))
+    for n in range(1, 201, 2):
+        tn = (3 * n + 1) >> 1
+        if v2(tn + 1) != v2(n + 1) - 1:
+            raise AssertionError(("v2", n))
+        if odd_run_lengths(n, 1)[0] != v2(n + 1):
+            raise AssertionError(("run", n))
+
+
+def shifted_ratio_family(limit=12):
+    """Famille r_k = F_{k+2}+1, un zéro par bloc. Segment fini, pas la preuve."""
+    o = 0
+    previous = None
+    for k in range(1, limit + 1):
+        r = fib(k + 2) + 1
+        if k >= 2 and 2 ** (o + r) <= 3 ** o:
+            raise AssertionError(("marge", k))
+        if previous is not None and k >= 3 and 2 * r < 3 * previous:
+            raise AssertionError(("rapport", k, previous, r))
+        previous = r
+        o += r
+
+
 def integer_prefixes(limit=8):
     for k in range(1, limit + 1):
         runs = [fib(j + 2) for j in range(1, k + 1)]
@@ -168,6 +236,11 @@ def main():
     print("PASS rapport des termes <=8/9, strict des que r_j>2")
     integer_prefixes()
     print("PASS prefixes entiers k<=8 : runs exacts et N >= 2^{k-1}")
+    refuted_prefix_implication()
+    print("PASS X20 : 3 commence par 110, 12 par 00110, 91 a les runs 2,3 hors prefixe")
+    print("PASS v_2(T(n)+1)=v_2(n+1)-1 pour n impair <=200, run = v_2(n+1)")
+    shifted_ratio_family()
+    print("PASS famille r_k=F_{k+2}+1 : 2^{o_k+r_k}>3^{o_k} pour 2<=k<=12")
     # Bases écrites dans le cycle, reprises ici telles quelles.
     if (32, 31, 256, 251, 8, 3, 64, 43) != (
         2 ** 5,
