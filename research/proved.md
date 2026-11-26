@@ -37,6 +37,25 @@ la preuve publiée de VW 1989.
 mot de B2 ($u$ vide) que pendant au plus $(1+\theta+\varepsilon)\log_2(2|N|+1)+C_{c,d,\varepsilon}$
 pas, $\theta\approx47{,}93$.
 
+**B4 — (H) force $B>1$** (PROUVÉ, cycle 002 §2). Pour tout réel $A$ et tout $B\le1$, la paire
+$(A,B)$ échoue. Les Mersenne $M=2^h-1$ donnent $B\ge1$ ($k=1$). Pour $B\le1$, l'ordre de 3
+modulo $2^m$ ($m\ge3$) fournit $r$ avec $v_2(5\cdot3^r+1)\ge m$ ; la fenêtre $M=5\cdot2^r-1$
+a deux runs de somme $\ge r+m-1$, tandis que $x(M)<r+3$. Choisir $m>2A+4$. Témoin :
+$r=757$, $v_2(5\cdot3^{757}+1)=16$, somme 772, et $5^3<2^7$ tue aussi $A\le6$ à pente 1.
+Preuve autonome (n'invoque pas C8).
+
+**B5 — Fenêtres de longueur $\le K$** (PROUVÉ, cycle 002 §3). $x(M_{j+1})\le\delta\,x(M_j)$ et
+$r\le x$, donc $\sum_{j<k}r(M_j)\le x(M)(\delta^k-1)/\beta$. Constante $A=0$,
+$B_K=(\delta^K-1)/\beta$ (donc $B_1=1$, $B_2=\log_26$). Exponentielle en $K$, pas universelle.
+
+**B6 — (H) et les orbites non bornées** (PROUVÉ, cycle 002 §4). Identité
+$\log_2(n_t+1)=\log_2(N+1)+\beta t-\delta E(t)+R(t)$. Sur une orbite non bornée les
+états pairs sont distincts, donc $R=O(\log E)$, d'où $\limsup E(t)/t\le\beta/\delta$.
+Sous (H), $\liminf E(t)/t\ge1/(A+1)$, constante
+indépendante de $N$ : (H) implique (C) uniforme. Si $A<1/\beta$, les deux bornes se
+contredisent : aucune orbite positive non bornée. Toute paire compatible avec une telle
+orbite vérifie $A\ge1/\beta$ et $B>1$.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

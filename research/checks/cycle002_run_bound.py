@@ -1,6 +1,6 @@
 """Exact checks for the height-sensitive run bound.
 
-The proofs are in HEIGHT_SENSITIVE_RUN_BOUND.md. These checks do not replace them.
+The proofs are in research/cycles/cycle-002.md. These checks do not replace them.
 """
 
 from __future__ import annotations

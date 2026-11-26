@@ -8,19 +8,23 @@ Conventions de `proved.md`. Orbite « non bornée » = orbite positive de $T$ no
 $\forall N>0$ : orbite non bornée ⇒ $\eta_N:=\liminf_tE(t)/t>0$.
 - Équivaut à $\limsup_tH(t)/t<\beta$ (C3, non validé : $\limsup H/t=\beta-\delta\eta_N$).
 - Améliorer la pente $1/\beta$ de la complexité conditionnelle ⇔ (C) (même source).
-- Toujours $\eta_N\le\beta/\delta$ pour une orbite non bornée (élémentaire : $H\ge0$ et $R=o(E)$).
+- Toujours $\eta_N\le\beta/\delta$ pour une orbite non bornée (B6 : $H\ge0$ et $R=o(E)$).
 - Obstacle : les bornes archimédiennes seules ne suffisent pas (X15) ; il faut l'intégralité.
 - Non attaqué directement tant qu'aucun mécanisme nouveau n'est identifié.
 
-## H2 — (H) Cible de la PR #26 — OUVERT ; régime $B\le1$ réfuté (esquisse, à consigner au cycle 2)
+## H2 — (H) Cible de la PR #26 — OUVERT, conjecture majeure (cycle 002)
 $\exists A,B\ \forall N>0,i\ge0,k\ge1$ : $\sum_{j=0}^{k-1}r_{i+j}\le Ak+B\log_2(M_i+1)$.
-Observations de préparation (non encore consignées comme résultats) :
-1. $B<1$ : faux (Mersenne, $k=1$, $r_0=h=\log_2(N+1)$).
-2. $B=1$, tout $A$ : faux. $N=5\cdot2^{r_0}-1$ avec $5\cdot3^{r_0}\equiv-1\pmod{2^m}$ (X8) :
-   $k=2$, $r_0+r_1\ge r_0+m-1$ contre $2A+r_0+\log_25$.
-3. (H) avec $A<1/\beta$ ⇒ aucune orbite non bornée (car $\eta_N\ge1/(A+1)>\beta/\delta$).
-   Avec $A\ge1/\beta$ : ⇒ (C) uniforme. **(H) n'est donc dans aucun régime un « petit lemme ».**
-4. HEURISTIQUE (modèle aléatoire des parités) : (H) plausible pour $A>1$ et $B>B_0(A)$.
+Consigne du cycle 002 (B4–B6), plus une esquisse :
+1. $B\le1$, tout $A$ : **RÉFUTÉ** (B4, X16). Les Mersenne donnent seulement $B\ge1$.
+2. $A<1/\beta$ : incompatible avec une orbite positive non bornée (B6). Avec $A\ge1/\beta$,
+   (H) implique (C) uniforme, $\eta_N\ge1/(A+1)$.
+3. Fenêtres de longueur $\le K$ : prouvées (B5), constante géométrique en $K$.
+4. Aucun $B>1$ n'est prouvé ni réfuté. La famille $a=5$ ne peut pas réfuter $B>1+\delta$
+   (minoration $r>(m-\log_25-1)/\delta$) ; pour $1<B\le1+\delta$ le plus petit $r$ calculé
+   jusqu'à $m=40$ reste exponentiel en $m$. Obstacle : cycle 002 §5.
+5. HEURISTIQUE (modèle aléatoire des parités) : (H) plausible pour $A>1$ et $B>B_0(A)$.
+   La diagonale $A=B=9/5$ est fausse (X17, graine 27) ; $A=B=2$ survit aux contrôles finis
+   du cycle 002. Ne pas reprendre (H) comme prochain petit lemme.
 
 ## H3 — Conjecture de périodicité (Lagarias 1985) — OUVERT ; CAS PARTICULIER PROUVÉ
 Tout $\xi\in\mathbb Q\cap\mathbb Z_2$ a un itinéraire ultimement périodique (la réciproque est un théorème).
