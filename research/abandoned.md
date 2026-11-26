@@ -1,0 +1,22 @@
+# Pistes abandonnées
+
+Ne pas relancer une piste sans **nouvelle hypothèse** explicite qui contourne la raison d'abandon.
+
+| Piste | Raison précise | Source |
+|---|---|---|
+| Horizons de descente uniformes, certificats à fenêtre fixe et poids rationnels bornés | Théorèmes no-go (montées de Mersenne) ; le poids réel ne change rien à l'argument | `main` : audit Lean `NoGo.lean` ; X3 |
+| « Prouver une descente adaptative pour une famille infinie » | Trop faible : toute famille prescrite par un cylindre fini descend trivialement (A3) ; n'exclut rien hors du cylindre | `main` : `EXACT_STOPPING_TIME_BASELINE.md` |
+| Couvertures conditionnelles uniformes par préfixe (type C37) | Réfuté (X1) ; la frontière $\theta_c$ est classique | `main` : étude 37 |
+| Filtres 2-/3-adiques et critère de hauteur de l'expérience 36 | Congruences déjà dans le codage ; hauteur redondante (X6) ; complexité 35 non reproductible | `main` : `audit_collatz/` |
+| Stricte croissance des seuils de Krasikov–Lagarias comme nouveauté | Antériorité Applegate–Lagarias 1995 §4 | PR #6–#8 (non fusionnées) |
+| Couplage correction–résidu, trajectoires « paradoxales » (étude 38) | Déjà dans Rozier–Terracol (arXiv 2502.00948 v5, thm 2.4, 4.2) | PR #10 |
+| Record d'exclusion de cycles $m\ge96$ | Repose sur Wang $m\le95$ et un corrigendum Hercher non vérifiables | PR #12, #14 |
+| Améliorer la pente $1/\beta$ par l'enveloppe de hauteur seule | Pente déjà publiée (Dubickas 2009) ; la famille de Mersenne atteint l'enveloppe ; dépasser $1/\beta$ ⇔ (C) | PR #21–#22, H1 |
+| Gains en $\log$ / $\log\log$ supplémentaires sur la complexité conditionnelle | Ne touchent pas la pente ; rendement décroissant | PR #22, #25 |
+| Exposant 11 (sibling correction) | Réfuté (X13) | PR #16 |
+| Irrationalité réelle ⇒ irrationalité 2-adique ; signe réel ⇒ entier 2-adique | Sophismes (X14) | PR #24, branche `even-density` |
+| Mot triangulaire par troncatures, taille archimédienne ou équation fonctionnelle seule | Méthodes insuffisantes (rapport $1/\log_23<1$) ; **résolu autrement** par VW 1989 (B2) | PR #24 §3 |
+| Audits documentaires de Yu 1999 et VW 1989 | Faits (PDF primaires lus) ; ne pas refaire | PR #25 ; cycle 001 |
+| Densité naturelle de Tao pour toute $f\to\infty$ comme « petit lemme » | Cible majeure sans mécanisme nouveau | PR #16 |
+| Bornes locales sur $k$ runs indépendantes de $r_0$ ou de la hauteur | Réfutées (X8, X9) | PR #25, #26 |
+| Campagnes numériques de préfixes, d'ombres ou de complexités sans énoncé réfutable | Aucune valeur de preuve | Politique du dépôt |
