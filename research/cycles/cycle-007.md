@@ -257,6 +257,13 @@ Ne pas relancer B10, ni X21, ni le mot du cycle 006, ni la lecture sans
 barres réfutée au §10. Conway 2000 et Kadison 1957 n'ont pas été lus.
 Cette question n'est pas entamée dans le présent correctif.
 
+Note postérieure (revue `6082099628`, cycle 008). La prémisse écrite
+ci-dessus est $T^t(n)\le\rho n$, sans le poids. C'est le cas $K=\rho<1$
+de l'estimation du cycle 005 §5, et $\rho\cdot2^t>3^L$ en découle. Ce
+n'est pas l'énoncé initial de H6. La forme pondérée
+$T^t(n)\,W(T^t(n))\le\rho\,n\,W(n)$, pour tout $K=\rho h/\ell$, est
+prouvée au cycle 008.
+
 ## 9. Reproduire
 
 ```sh

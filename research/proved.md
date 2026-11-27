@@ -215,6 +215,25 @@ n'est pas une preuve de la conjecture. L'objection de fermeture sur la
 définition 3.4.4 est réfutée (X23). Les théorèmes 4.2.7 et 4.3.10 du
 même article ne sont pas des prémisses (cycle 007 §5).
 
+Revue indépendante `6082099628` (PR #27, SHA `eeaeb41ff7f030cd5b0c59715e2614e56f1243ed`) :
+X23 et $P(m)\ge n$ sont confirmés. La phrase sur le premier point de
+$\Sigma$ est conservée. La prémisse non pondérée n'est pas rouverte :
+c'est le cas $K=\rho$ du cycle 005. Ce n'est pas une seconde preuve de
+B12. Le cycle 008 vient après.
+
+**B13 — Horizon global d'un certificat pondéré** (PROUVÉ, cycle 008 §5).
+Si $0<\ell\le W\le h$, $0<\rho<1$, $K=\rho h/\ell$, et si tout entier
+$n\ge N_0$ admet un temps $t\le B(n)$ avec
+$T^t(n)\,W(T^t(n))\le\rho\,n\,W(n)$, alors
+$B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$. La constante
+$C=\log_2(2K)+J(\log_2 3)^2$ est celle du cycle 008 §4 : $J=(m_*-1)\,t_*$.
+Aucun horizon $o(\log n)$ ne convient. Pour $K\le3/2$, B10 reste plus
+serré sur les Mersenne. La forme sans poids $T^t(n)\le\rho n$ donne
+$\rho\cdot2^t>3^L$ (cycle 008 §1) ; ce n'est pas un énoncé nouveau.
+X21 reste local. Antériorité du mécanisme : la montée A2 et l'horizon
+fixe de `no_finite_certificate` (A5). Pas une preuve de la conjecture,
+ni une construction de certificat.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

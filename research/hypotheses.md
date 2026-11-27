@@ -74,19 +74,19 @@ $Q_m\to-\infty$ (X22). L'irrationalité de cette famille reste ouverte.
 Ne pas la relancer sans un énoncé p-adique dont l'hypothèse est satisfaite
 par $q=81/16$. Ce n'est pas la prochaine question.
 
-## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — LOCAL SANS SEUIL RÉFUTÉ ; $K\le3/2$ PROUVÉ ; GLOBAL OUVERT
-L'énoncé initial : si $0<\ell\le W\le h$, $0<\rho<1$, et si tout $n\ge N_0$ admet
-un temps de contraction $t\le B(n)$, alors $B(n)\ge\delta\log_2 n-O(1)$ pour une
-infinité de $n$. Cette implication reste ouverte. X21 ne la réfute pas : $\ell=1$,
+## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — PROUVÉ (B13)
+L'énoncé initial est prouvé : si $0<\ell\le W\le h$, $0<\rho<1$, et si tout
+$n\ge N_0$ admet un temps de contraction $t\le B(n)$ de $\Phi(n)=n\,W(n)$, alors
+$B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$. La constante $C$ ne
+dépend que de $K=\rho h/\ell$ et de $\rho$ (cycle 008 §4–§5). Aucun poids borné
+ne rend la prémisse vraie avec $B(n)=o(\log n)$. X21 ne la réfute pas : $\ell=1$,
 $h=2$, $\rho=5/6$ certifie les Mersenne seulement, en un pas. Il réfute l'obstruction
-locale sans seuil et l'esquisse « toute chaîne franchit le sommet $3^L$ ». Si
-$K=\rho h/\ell\le3/2$, B10 donne $3\cdot2^t>2\cdot3^L$, donc
-$B(2^L-1)\ge\delta L-\log_2(3/2)$ pour tout $L\ge2$. La forme $5\cdot2^t>2\cdot3^L$
-en découle. Si $\rho\le0$, aucune contraction n'existe. Le coefficient de tête reste
-sous Applegate–Lagarias 2003, (4) et théorème 1.1 ; après le sommet, le nombre de
-pas est au moins $\log_2(3^L-1)$. L'existence d'un certificat valable pour tout entier
-impliquerait l'entrée dans un segment fini : non construite ici. Ne pas relancer la
-borne $\delta L$ sur les Mersenne sans l'hypothèse $K\le3/2$.
+locale sans seuil. Si $K\le3/2$, B10 reste plus serré sur les Mersenne :
+$3\cdot2^t>2\cdot3^L$, donc $B(2^L-1)\ge\delta L-\log_2(3/2)$. La forme sans poids
+$T^t(n)\le\rho n$ est le cas $K=\rho$ de la même estimation :
+$\rho\cdot2^t>3^L$ (cycle 008 §1). Si $\rho\le0$, aucune contraction n'existe.
+Le coefficient de tête reste sous Applegate–Lagarias 2003, (4) et théorème 1.1.
+L'existence d'un certificat n'est pas montrée. Ne pas relancer B13, ni B10, ni X21.
 
 ## H7 — Potentiels cohomologues $V(n)=\log_2(n+1)+c\,v_2(n+1)$ (axe A) — OBSERVATION
 Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutralise Mersenne),
@@ -101,5 +101,6 @@ v2 met une barre des deux côtés. Les théorèmes 4.2.7 et 4.3.10 ne sont pas
 adoptés. Leur nécessité cite Conway 2000, chapitre 2, proposition 13.3,
 non lu. L'esquisse d'orbite déjà fermée par Kadison 1957, signalée par la
 revue `6082060844`, n'est pas reproduite et n'est pas une prémisse. Ne pas
-relancer la lecture sans barres. La question suivante est l'implication
-globale de H6, pas un nouveau lemme sur $\{e_{2^k}\}$.
+relancer la lecture sans barres. L'implication globale de H6 est B13.
+La question suivante est la rationalité du signe moins au seuil
+$\log_2 3$, pas un nouveau lemme sur $\{e_{2^k}\}$.

@@ -9,15 +9,16 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [A] Implication globale de H6 — PROCHAINE QUESTION (cycle 008)
-Soient $0<\ell\le W\le h$ et $0<\rho<1$. Si une fonction $B$ vérifie :
-tout entier $n\ge N_0$ admet un temps $t\le B(n)$ avec $T^t(n)\le\rho n$,
-alors $B(n)\ge\delta\log_2 n-O(1)$ pour une infinité de $n$. Sinon,
-exhiber un poids et une fonction $B(n)=o(\log n)$ qui rendent la
-prémisse vraie. Ne pas relancer B10, ni X21, ni le mot du cycle 006, ni
-la lecture sans barres de Mori (X23). Conway 2000 et Kadison 1957 n'ont
-pas été lus. Cette question n'est pas entamée : le correctif de la
-revue `6082060844` s'arrête avant.
+## 1. [B] Rationalité du signe moins au seuil $\log_2 3$ — PROCHAINE QUESTION (cycle 009)
+Mot du cycle 004 §8 : un zéro par bloc, $r_1=64$ et, pour $k\ge2$,
+$r_k=\lfloor\beta o_k\rfloor-\lfloor\sqrt{o_k}\rfloor$. On a $Q_k\to-\infty$,
+donc B7 ne s'applique pas. L'irrationalité 2-adique reste ouverte.
+Question : la série de réalisation est-elle rationnelle ? Chercher d'abord
+si une queue périodique est compatible avec ces longueurs. Si elle ne
+l'est pas, écrire la série et dire si elle se ramène à une valeur de
+Tschakaloff dont un théorème déjà lu dans ce dépôt exclut $\mathbb Q$.
+Ne pas réutiliser B7, ne pas rouvrir le mot du cycle 006, ne pas relancer
+B10, B13 ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -28,6 +29,16 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082099628` (27 nov. 2026, SHA `eeaeb41`) : X23 et
+  l'inégalité $P(m)\ge n$ confirmés. La phrase « premier point de
+  $\Sigma$ » est vraie sous l'hypothèse de collision ; elle est conservée.
+  La prémisse non pondérée est le cas $K=\rho$ du cycle 005. Cycle 008
+  ensuite : B13, horizon global pondéré. Détail : [reviews.md](reviews.md).
+- Cycle 008 (27 nov. 2026) : si un poids borné certifie une contraction
+  $\Phi(T^t(n))\le\rho\Phi(n)$ pour tout $n\ge N_0$, alors
+  $B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$ (B13). La
+  constante ne dépend que de $K$ et de $\rho$. Pour $K\le3/2$, B10 reste
+  plus serré sur les Mersenne. [cycle-008](cycles/cycle-008.md)
 - Revue `6082060844` (27 nov. 2026, SHA `a60a1a6`) : B12 confirmée.
   L'objection de fermeture est réfutée (X23). L'inégalité $P(m)\ge n$
   est justifiée. Les théorèmes 4.2.7 et 4.3.10 restent non adoptés.
