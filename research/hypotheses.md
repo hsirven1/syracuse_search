@@ -178,7 +178,11 @@ corollaire du codage, pas une seconde preuve. Aucune orbite n'est
 exclue. Ne pas relancer ce certificat, ni une union finie de vecteurs
 de longueur bornée sur une seule classe. La revue `6093792860`
 confirme B21. Le rang \(0\) reste dans la classe ; l'évitement
-commence au rang \(1\).
+commence au rang \(1\). La revue `6093856144` confirme le même
+énoncé. Le retour est strictement plus bas. Pour \(m=2\), \(U(n)\)
+est impair, donc la classe est rejointe au premier pas, et
+\(U(3)=5\) n'est pas une descente. Le cas \(4\nmid m\) retarde la
+descente. Le cas \(4\mid m\) retarde tout retour positif.
 
 ## H11 — Runs impairs de longueur au plus 1 — FERMÉ (élémentaire, X38)
 Pour \(T\), aucun \(R\ge 1\) ne fait passer toute orbite positive de
@@ -188,5 +192,9 @@ runs impairs bornés par \(R\) strictement sous son départ : l'orbite
 \(1\), l'orbite atteint \(1\). La suite des longueurs de runs de
 \(5\) est périodique et \(5\) ne l'est pas (X39). Une suite de
 parités périodique dès le départ est un cycle. Ne pas relancer
-\(R=1\). La question ouverte commence à \(R\ge 2\), après Steiner
-(1977), non lu.
+\(R=1\). La formule close vaut jusqu'au premier pair inclus ; pour
+\(n=1\), \(T^2(1)=1\) (revue `6093856144`). Soit \(P(R)\) l'atteinte
+de \(1\) pour toute orbite dont chaque run impair a longueur au
+plus \(R\). L'existence d'un \(R\ge 2\) tel que \(P(R)\) équivaut à
+\(P(2)\). La lecture pour tout \(R\ge 2\) est plus forte et n'est
+pas ouverte. Steiner (1977) n'est pas lu.

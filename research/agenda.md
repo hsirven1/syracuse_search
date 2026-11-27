@@ -10,34 +10,44 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6093792860` confirme B21 et demande deux corrections,
-écrites au cycle 015 §10. L'évitement de la classe commence au rang
-\(1\). Les formulations littérales de la question suivante sont
-fermées (X38, X39), et le cas \(R=1\) est élémentaire. Ce correctif
-n'est pas encore relu. Ne pas ouvrir le cycle 016 avant cette
-relecture, ni avant le 27 novembre 2026 à 23:17 UTC. Le plus ancien
-cycle de la fenêtre reste le cycle 004 : le commit `8bc44f7` est du
-26 novembre 2026 à 23:16:52 UTC.
+La revue `6093856144` confirme B21, X38, X39 et le cas \(R=1\).
+Deux formulations locales étaient fausses. La formule close du
+cycle 015 §10 vaut jusqu'au premier pair inclus, pas sur l'orbite
+entière : \(T^2(1)=1\). Le retour de B21 est le premier retour
+strictement plus bas. Pour \(m=2\), la classe est rejointe au
+premier pas, et \(U(3)=5\) n'est pas une descente. La montée de
+\(2911\) est stricte pour \(1\le t<5\). La question suivante est
+\(P(2)\), pas une lecture universelle sur tout \(R\ge 2\). Ce
+correctif n'est pas encore relu. Ne pas ouvrir le cycle 016 avant
+cette relecture, ni avant le 27 novembre 2026 à 23:17 UTC. Le plus
+ancien cycle de la fenêtre reste le cycle 004 : le commit
+`8bc44f7` est du 26 novembre 2026 à 23:16:52 UTC.
 
-## 1. [B] Runs impairs de longueur au moins 2 — PROCHAINE QUESTION (cycle 016), non entamée
+## 1. [B] Runs impairs de longueur au plus 2 — PROCHAINE QUESTION (cycle 016), non entamée
 Ne pas rouvrir B21, Tao, les potentiels, le signe moins, le mot du
 cycle 006, \(5\cdot 2^k-1\), ni le cas \(R=1\). L'orbite
 \(1\to 2\to 1\) ne descend pas sous \(1\) (X38). Pour \(R=1\), tout
 départ \(n>1\) dont le premier run impair a longueur au plus \(1\)
 descend en au plus deux pas, et une orbite dont tous les runs
-impairs ont longueur au plus \(1\) atteint \(1\). Le mot constant des
-longueurs de runs de \(5\) n'est pas un cycle (X39). Une suite de
-parités périodique dès le départ est un cycle, par le codage modulo
-\(2^k\).
+impairs ont longueur au plus \(1\) atteint \(1\). La formule close
+s'arrête au premier pair. Le mot constant des longueurs de runs de
+\(5\) n'est pas un cycle (X39). Une suite de parités périodique dès
+le départ est un cycle, par le codage modulo \(2^k\).
+
+Soit \(P(R)\) l'énoncé : toute orbite positive de \(T\) dont chaque
+run impair a une longueur au plus \(R\) atteint \(1\). Les familles
+sont emboîtées, donc l'existence d'un \(R\ge 2\) tel que \(P(R)\)
+équivaut à \(P(2)\). La lecture « pour tout \(R\ge 2\) » est plus
+forte et n'est pas la question.
 
 Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
-\(1\)-cycle non trivial. Pour un entier \(R\ge 2\), toute orbite
-positive de \(T\) dont chaque run impair a une longueur au plus \(R\)
-atteint-elle \(1\) ? Si le texte lu exclut déjà toute orbite, et pas
-seulement les cycles, ne pas le redémontrer. Ne pas chercher une
-suite de parités périodique par force brute, et ne pas redémontrer
-les bornes de Simons–de Weger si le texte lu les contient déjà. Ne
-pas ouvrir ce cycle avant la fin du blocage ci-dessus.
+\(1\)-cycle non trivial. Si ce texte exclut déjà toute orbite de
+runs de longueur au plus \(2\), et pas seulement les cycles, ne pas
+le redémontrer. Ne pas chercher une suite de parités périodique par
+force brute. Simons–de Weger n'est pas lu : ne pas identifier leur
+entier \(m\) avec \(R\), et ne pas redémontrer leurs bornes si le
+texte lu les contient déjà. Ne pas ouvrir ce cycle avant la fin du
+blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -48,6 +58,14 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093856144` (27 nov. 2026, SHA `3679167`) : B21, X38, X39
+  et le cas \(R=1\) confirmés. La formule close ne vaut pas au-delà
+  du premier pair (X38 reste vrai). Le retour de B21 est strictement
+  plus bas ; pour \(m=2\), il a lieu au premier pas sans être une
+  descente. La montée de \(2911\) est écrite pour \(1\le t<5\). La
+  question suivante est \(P(2)\). Steiner et Simons–de Weger ne sont
+  pas ouverts. Le cycle 016 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6093792860` (27 nov. 2026, SHA `c6737c04`) : B21 confirmé.
   Le rang \(0\) du pont reste dans la classe ; l'évitement commence
   au rang \(1\), avec \(s\ge\max(2,T-j+2)\). X38 : l'orbite

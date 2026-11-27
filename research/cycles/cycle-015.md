@@ -256,18 +256,31 @@ sont fermées au §10. Ne pas les rouvrir. Ne pas rouvrir B21, ni Tao,
 ni les potentiels, ni le signe moins, ni le mot du cycle 006, ni
 \(5\cdot 2^k-1\), ni le cas \(R=1\).
 
-Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
-\(1\)-cycle non trivial. Pour un entier \(R\ge 2\), toute orbite
-positive de \(T\) dont chaque run impair a une longueur au plus \(R\)
-atteint-elle \(1\) ? Si le texte lu exclut déjà toute orbite, et pas
-seulement les cycles, ne pas le redémontrer. Une suite de parités
-périodique dès le départ est déjà un cycle (§10) : ne pas la chercher
-par force brute, et ne pas redémontrer les bornes de Simons–de Weger
-si le texte lu les contient déjà.
+Soit \(P(R)\) l'énoncé : toute orbite positive de \(T\) dont chaque
+run impair a une longueur au plus \(R\) atteint \(1\). Si
+\(R\le R'\), toute orbite admissible pour \(R\) l'est pour \(R'\),
+donc \(P(R')\) implique \(P(R)\). L'existence d'un entier \(R\ge 2\)
+tel que \(P(R)\) équivaut à \(P(2)\). En effet, \(P(2)\) est un cas
+de cette existence. Inversement, si \(P(R)\) vaut pour un \(R\ge 2\),
+l'emboîtement donne \(P(2)\). Si \(P(2)\) est fausse, la même orbite
+appartient à chaque famille \(R\ge 2\). La lecture
+universelle, « pour tout \(R\ge 2\), \(P(R)\) », est plus forte.
+Une orbite qui contient un run de longueur \(3\) est hors de la
+famille \(R=2\). Cette lecture n'est pas la question.
+
+La question du cycle 016 est \(P(2)\). Lire d'abord l'énoncé
+primaire de Steiner (1977) sur l'absence de \(1\)-cycle non trivial.
+S'il exclut déjà toute orbite de runs de longueur au plus \(2\), et
+pas seulement les cycles, ne pas le redémontrer. Une suite de
+parités périodique dès le départ est déjà un cycle (§10) : ne pas
+la chercher par force brute. Simons–de Weger n'est pas ouvert dans
+ce correctif : ne pas identifier leur entier \(m\) avec la borne
+\(R\), et ne pas redémontrer leurs bornes si le texte lu les
+contient déjà.
 
 Le cycle 015 est le douzième de la fenêtre dont le plus ancien est
 le cycle 004. Le premier commit de ce cycle est `8bc44f7`, du
-26 novembre 2026 à 23:16:52 UTC. Le §10 est un correctif, pas le
+26 novembre 2026 à 23:16:52 UTC. Le §11 est un correctif, pas le
 cycle 016. Ne pas ouvrir le cycle 016 avant une relecture
 indépendante de ce correctif, ni avant le 27 novembre 2026 à
 23:17 UTC.
@@ -288,10 +301,14 @@ montée. La troisième construit le pont pour huit modules divisibles
 par \(4\) et vérifie que les rangs \(1,\ldots,j+s-2\) sortent de la
 classe. Deux lignes ensuite contrôlent le rang \(0\), le pont
 \(s=2\), l'orbite de \(1\), le mot de runs de \(5\), et la descente
-du cas \(R=1\). La ligne d'exemples contient `4:3497` et `6` n'y
-figure pas : le cylindre direct \(2911\) pour \(m=6\), \(s=5\), est
-contrôlé par la deuxième ligne, pas imprimé. Ces contrôles ne
-remplacent pas les quantificateurs des §§3, 4 et 10.
+du cas \(R=1\). Cette dernière ligne contrôle aussi la formule
+close jusqu'au premier pair, le terme impair \(T^2(1)\), le retour
+immédiat dans la classe \(1\pmod 2\), et la montée stricte de
+\(2911\) pour \(1\le t<5\). La ligne d'exemples contient `4:3497`
+et `6` n'y figure pas : le cylindre direct \(2911\) pour \(m=6\),
+\(s=5\), est contrôlé par la deuxième ligne, pas imprimé. Ces
+contrôles ne remplacent pas les quantificateurs des §§3, 4, 10
+et 11.
 
 ## 10. Revue `6093792860`
 
@@ -344,16 +361,34 @@ et si son premier run a longueur au plus \(1\), alors
 question ouverte.
 
 Si tous les runs impairs de l'orbite ont longueur au plus \(1\),
-l'orbite atteint \(1\). En effet, pour \(n\) impair,
-\(n_i+1=3^i(n+1)/2^i\), donc \(n_i\) est impair exactement pour
-\(0\le i<v_2(n+1)\). La longueur du run est \(v_2(n+1)\). Elle vaut
-\(1\) pour chaque impair de l'orbite, donc chacun est congru à \(1\)
-modulo \(4\). Le impair suivant est
-\(U(n)=(3n+1)/2^{v_2(3n+1)}\le(3n+1)/4\). Pour \(n>1\), cette valeur
-est strictement plus petite que \(n\). La suite des impairs décroît
-jusqu'à \(1\). Ce fait est le codage d'un run de longueur \(1\), déjà
-la définition \(r(M)=v_2(M+1)\) du cycle 002. Ce n'est pas un
-résultat nouveau, et il ne dit rien pour \(R\ge 2\).
+l'orbite atteint \(1\). Soit \(n\) impair et \(r=v_2(n+1)\). Alors
+\(r\ge 1\). La récurrence du pas impair donne
+\[
+T^i(n)+1=\frac{3^i(n+1)}{2^i}
+\]
+pour \(0\le i\le r\), c'est-à-dire jusqu'au premier terme pair,
+inclus. En effet, la formule au rang \(0\) est \(n+1\). Si elle
+vaut au rang \(i<r\), le membre de droite a la valuation \(r-i\ge 1\),
+donc \(T^i(n)\) est impair, et le pas impair produit la formule au
+rang \(i+1\). La formule vaut donc jusqu'au rang \(r\). À ce rang,
+la valuation est nulle, donc \(T^r(n)\) est pair. Les rangs
+\(0,\ldots,r-1\) du bloc initial sont impairs, et le rang \(r\) est
+pair. La longueur du run initial est donc \(r\).
+
+Cette formule ne décrit pas l'orbite au-delà du rang \(r\). Pour
+\(n=1\), on a \(r=1\) et \(T(1)=2\), mais \(T^2(1)=1\) est impair.
+On n'écrit pas que \(T^i(n)\) est impair exactement pour
+\(0\le i<r\) sur l'orbite entière.
+
+Si chaque run impair a longueur au plus \(1\), alors, pour chaque
+terme impair \(m\) de l'orbite, le run qui en part a longueur
+\(v_2(m+1)=1\), donc \(m\equiv 1\pmod 4\) et \(v_2(3m+1)\ge 2\). Le
+terme impair suivant est \(U(m)\le(3m+1)/4\). Pour \(m>1\),
+\((3m+1)/4<m\), donc \(U(m)<m\). La suite des impairs positifs décroît
+jusqu'à \(1\). Ce fait est le codage d'un run de longueur \(1\),
+déjà la définition \(r(M)=v_2(M+1)\) du cycle 002. Ce n'est pas un
+résultat nouveau, et il ne dit rien pour \(R\ge 2\). X38 et cette
+conclusion restent vrais.
 
 **X39.** La phrase « un mot périodique de runs bornés est un cycle »
 est fausse si le mot est la suite des longueurs de runs impairs.
@@ -392,3 +427,43 @@ recopiée. L'empreinte et le statut de lecture sont dans
 `prior_art.md`. Everett (1977) n'est pas rouvert. Steiner (1977)
 n'est pas ouvert : il reste la première lecture du cycle 016, qui
 n'est pas commencé.
+
+## 11. Revue `6093856144`
+
+Revue indépendante sur le SHA
+`3679167ba7d201b1239b3eee80d4e5a8eea58025` (PR #27), soumise le
+27 novembre 2026 à 22:15 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 016 n'est pas ouvert.
+
+B21, X38, X39 et le cas \(R=1\) sont confirmés. Les deux
+formulations locales ci-dessous étaient fausses. Les énoncés
+corrigés sont revérifiés. Steiner (1977) et Simons–de Weger ne
+sont pas ouverts : leur entier \(m\) n'est pas identifié à \(R\).
+
+**Formule du run.** La phrase du §10 qui disait que \(T^i(n)\) est
+impair exactement pour \(0\le i<v_2(n+1)\) ne vaut pas sur l'orbite
+entière. Le témoin est \(n=1\) : \(v_2(2)=1\), et \(T^2(1)=1\) est
+impair. La formule \(T^i(n)+1=3^i(n+1)/2^i\) vaut pour
+\(0\le i\le r\), avec \(r=v_2(n+1)\), jusqu'au premier pair inclus.
+Les rangs \(0,\ldots,r-1\) sont impairs et le rang \(r\) est pair.
+Cette récurrence suffit pour la longueur du run initial. X38 et
+l'atteinte de \(1\) lorsque tous les runs valent au plus \(1\)
+restent vrais : ils n'utilisent la formule que sur ce bloc.
+
+**Retour strictement plus bas.** Dans `abandoned.md`, le mot
+« retour » de B21 est le premier retour strictement plus bas dans
+la classe. Pour \(m=2\), tout entier \(n\ge 1\) a \(U(n)\) impair :
+si \(n\) est pair, \(3n+1\) est impair ; si \(n\) est impair, \(U\)
+retire tous les facteurs \(2\). Tout départ de la classe
+\(1\pmod 2\) y revient donc au premier pas. Ce retour n'est pas une
+descente : \(U(3)=5>3\). Le cas \(4\nmid m\) de la preuve retarde
+la descente, par \(U^t(y)>y\) pour \(1\le t<s\). Il ne dit pas que
+ces itérés quittent la classe. Le cas \(4\mid m\) retarde tout
+retour positif : aucun rang \(1\le t\le j+s-2\) n'est dans la
+classe. Dans X37, la montée de \(2911\) est stricte pour
+\(1\le t<5\). Au rang \(0\), \(U^0(2911)=2911\). Les cinq valeurs
+suivantes sont \(4367\), \(6551\), \(9827\), \(14741\) et \(691\).
+
+**Quantificateur de la question suivante.** Il est écrit au §8.
+\(P(2)\) est la question. L'existence d'un \(R\ge 2\) qui convient
+lui équivaut. La lecture pour tout \(R\ge 2\) n'est pas ouverte.

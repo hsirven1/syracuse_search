@@ -195,9 +195,40 @@ def check_formulations() -> None:
             assert n % 4 == 1
             assert T(T(n)) == (3 * n + 1) // 4 < n
 
+    # La formule close vaut jusqu'au premier pair inclus, pas au-delà.
+    # Pour n=1, T^2(1)=1 est impair alors que v_2(2)=1.
+    assert T(T(1)) == 1 and v2(1 + 1) == 1
+    for n in range(1, 20000, 2):
+        r = v2(n + 1)
+        x = n
+        for i in range(r + 1):
+            assert x + 1 == 3**i * (n + 1) // 2**i
+            if i < r:
+                assert x % 2 == 1
+            else:
+                assert x % 2 == 0
+            x = T(x)
+        assert odd_run_length(n) == r
+
+    # Pour m=2, U renvoie un impair : le retour dans la classe n'est pas une descente.
+    assert U(3) == 5 > 3 and U(3) % 2 == 1
+    for n in range(1, 4001):
+        assert U(n) % 2 == 1
+
+    # Montée stricte de 2911 pour 1 ≤ t < 5. Le rang 0 est égal au départ.
+    y = 2911
+    assert y == 2**5 * 91 - 1
+    climb = [y]
+    x = y
+    for _ in range(5):
+        x = U(x)
+        climb.append(x)
+    assert climb == [2911, 4367, 6551, 9827, 14741, 691]
+    assert all(climb[t] > y for t in range(1, 5))
+    assert climb[5] < y
+
     # Si tous les runs impairs valent au plus 1, les impairs décroissent jusqu'à 1.
     for n in range(1, 4001, 2):
-        assert odd_run_length(n) == v2(n + 1)
         if n % 4 == 1 and n > 1:
             nxt = U(n)
             assert nxt % 2 == 1 and nxt < n

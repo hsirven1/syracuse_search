@@ -550,6 +550,20 @@ suite de parités périodique de période \(p\) dès le rang \(0\) force
 \(n=T^p(n)\). Terras (1976), théorème 1.2, lu, est la même
 congruence. Le cycle 016 n'est pas ouvert.
 
+Revue indépendante `6093856144` (PR #27, SHA
+`3679167ba7d201b1239b3eee80d4e5a8eea58025`) : B21, X38, X39 et le
+cas \(R=1\) sont confirmés. La formule close vaut pour
+\(0\le i\le v_2(n+1)\), jusqu'au premier pair inclus. Pour \(n=1\),
+\(T^2(1)=1\) est impair, donc cette formule ne décrit pas l'orbite
+entière. Le retour de B21 est le premier retour strictement plus
+bas. Pour \(m=2\), \(U(n)\) est impair et \(U(3)=5\) n'est pas une
+descente. La montée de \(2911\) est stricte pour \(1\le t<5\). La
+question suivante est \(P(2)\). L'existence d'un \(R\ge 2\) qui
+convient lui équivaut. La lecture pour tout \(R\ge 2\) n'est pas
+ouverte. Steiner (1977) et Simons–de Weger ne sont pas ouverts.
+Aucune orbite divergente n'est exclue. Le cycle 016 n'est pas
+ouvert.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.
