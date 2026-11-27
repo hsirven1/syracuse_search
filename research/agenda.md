@@ -13,6 +13,8 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 Lire Berg–Meinardus, Wirsching (LNM 1681) ou Mori 2024, et en extraire **un** énoncé
 réfutable (par exemple une prédiction sur un tronqué fini) avant tout calcul.
 Documentaire d'abord. Aucune dépendance. Ne pas rouvrir le mot du cycle 006.
+Ne pas l'ouvrir tant que le correctif X22 (revue `6081961103`, cycle 006 §11)
+n'a pas été relu.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -23,6 +25,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6081961103` (27 nov. 2026, SHA `fcd6a00`) : B11 confirmée. La
+  comparaison $Q_m<0$ dès $m\ge4$ est réfutée (X22). Avec $r_{m+1}$ et
+  $\beta=\log_2(3/2)$, $\sup Q_m=Q_2=\log_2(2048/217)$ et $Q_m\to-\infty$.
+  B7 n'exclut pas la rationalité. Prochaine question non entamée.
+  Détail : [reviews.md](reviews.md).
 - Cycle 006 (27 nov. 2026) : le mot $r_j=j+[j\text{ impair}]$ a pour réalisation
   $4\xi+1+2f_{81/16}(4)+f_{81/16}(9)=0$ dans $\mathbb Q_2$ (B11). VW 1989 ne
   s'applique pas ($\gamma>\Gamma(2,0)$). Les Satz 1 et 2 de Bundschuh 1974,

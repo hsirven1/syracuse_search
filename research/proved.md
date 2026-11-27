@@ -180,7 +180,15 @@ Donc $\xi_w\in\mathbb Q$ si et seulement si $2f_q(4)+f_q(9)\in\mathbb Q$.
 Ce n'est pas une exclusion : $\gamma>\Gamma(2,0)$ pour ce $q$ (cycle 006 §4),
 les Satz 1 et 2 de Bundschuh 1974 ne s'appliquent pas (§5), et les énoncés
 lus de Bézivin 1988 et d'Amou–Väänänen 2005 ne portent pas sur cette valeur
-2-adique (§6). B7 est aveugle, $Q_m\to-\infty$. L'irrationalité reste ouverte.
+2-adique (§6). Sur ce mot, $\sup_m Q_m=Q_2=\log_2(2048/217)$ (cycle 006 §2) :
+tout $\sigma=a/b$ rationnel vérifie $\max(|a|,b)\ge10$, mais $Q_m\to-\infty$,
+donc B7 ne donne pas l'irrationalité. Elle reste ouverte.
+
+Revue indépendante `6081961103` (PR #27, SHA `fcd6a008ed0aad5ee2033ee3b9123ba6cacd0237`) :
+B11 est confirmée. La comparaison $Q_m<0$ dès $m\ge4$ est réfutée (X22) et
+corrigée. Le test du script omettait $o_m$ et prenait $r_m$ au lieu de
+$r_{m+1}$. Le supremum $Q_2$ et la chute $Q_m\to-\infty$ sont prouvés dans
+le cycle. Ce n'est pas une seconde preuve de l'identité, ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

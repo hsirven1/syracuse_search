@@ -51,7 +51,9 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
   $Q_k\to-\infty$ pour le signe moins. L'irrationalité du signe moins reste
   ouverte. Les placements de zéros non réductibles par un préfixe fini restent
   ouverts. Les runs quasi linéaires restent H5 : la famille appariée est
-  l'identité B11, et son irrationalité reste ouverte.
+  l'identité B11. Sur ce mot $\sup Q_m=Q_2=\log_2(2048/217)$, donc
+  $\max(|a|,b)\ge10$, puis $Q_m\to-\infty$ : B7 ne tranche pas, et
+  l'irrationalité reste ouverte.
 - Les contrôles du cycle 003 testent les fenêtres atteintes depuis les départs
   choisis. Ils ne recensent pas les cycles de $3x+b$ (X19).
 - Portée : rien de neuf pour (C). Une orbite entière non bornée a déjà
@@ -66,8 +68,9 @@ $4\xi+1+2f_{81/16}(4)+f_{81/16}(9)=0$ dans $\mathbb Q_2$. Sur ce $q$,
 $\gamma>\Gamma(2,0)$ est prouvé par $8<9$ et $121<153$. Les Satz 1 et 2 de
 Bundschuh 1974 sont archimédiens et leur hypothèse échoue ($256>243$,
 $80>49$). Les originaux de Bézivin 1988 et d'Amou–Väänänen 2005 n'ont pas
-été lus ; les énoncés cités ne donnent pas l'exclusion 2-adique. B7 est
-aveugle ($Q_m\to-\infty$). L'irrationalité de cette famille reste ouverte.
+été lus ; les énoncés cités ne donnent pas l'exclusion 2-adique. B7 donne
+seulement $\max(|a|,b)\ge10$, car $\sup Q_m=Q_2=\log_2(2048/217)$, puis
+$Q_m\to-\infty$ (X22). L'irrationalité de cette famille reste ouverte.
 Ne pas la relancer sans un énoncé p-adique dont l'hypothèse est satisfaite
 par $q=81/16$. Ce n'est pas la prochaine question.
 

@@ -4,7 +4,7 @@
 La preuve est dans research/cycles/cycle-006.md. Ce script ne la remplace pas.
 Il vérifie, en entiers : les sommes de runs, l'identité terme à terme avec
 q = 81/16, l'absence des rapports q^n, les comparaisons qui séparent γ de
-Γ(2,0) et le seuil de Bundschuh, et Q_m < 0 pour 4 ≤ m ≤ 16.
+Γ(2,0) et le seuil de Bundschuh, le signe de Q_m et le supremum Q_2.
 
 Usage : python3 research/checks/cycle006_paired_runs.py
 """
@@ -68,18 +68,60 @@ def thresholds():
         raise AssertionError("conjugate")
 
 
-def liouville_blind():
-    # Q_m < 0 ssi 2^{r_m+m+1} < 3^{o_m} + P_m, avec
-    # P_m = Σ_{j=1}^m 2^{j+o_j} 3^{o_m-o_j}.
-    for m in range(4, 17):
+def partial_numerator(m):
+    height = odd_count(m)
+    numerator = 0
+    for j in range(1, m + 1):
+        numerator += 2 ** (j + odd_count(j)) * 3 ** (height - odd_count(j))
+    return numerator
+
+
+def liouville_sign():
+    # Q_m = log2(2^{o_m+r_{m+1}+m+1} / (3^{o_m}+P_m)).
+    # Le run de B7 est r_{m+1}. P_m = 3^{r_m} P_{m-1} + 2^{m+o_m}.
+    previous = 0
+    for m in range(1, 41):
         height = odd_count(m)
-        numerator = 0
-        for j in range(1, m + 1):
-            numerator += 2 ** (j + odd_count(j)) * 3 ** (height - odd_count(j))
-        if 2 ** (run_length(m) + m + 1) >= 3**height + numerator:
-            raise AssertionError(m)
-    for m in range(4, 21):
-        if 3 * m * m - 5 * m - 8 <= 0:
+        direct = partial_numerator(m)
+        if m == 1:
+            recurrent = 2 ** (1 + height)
+        else:
+            recurrent = 3 ** run_length(m) * previous + 2 ** (m + height)
+        if direct != recurrent:
+            raise AssertionError(("recurrence", m))
+        previous = direct
+        if run_length(m + 1) > m + 2 or height < m * (m + 1) // 2:
+            raise AssertionError(("shape", m))
+        lhs = 2 ** (height + run_length(m + 1) + m + 1)
+        rhs = 3**height + direct
+        if m <= 4:
+            if lhs <= rhs:
+                raise AssertionError(("positive", m))
+        elif lhs >= rhs:
+            raise AssertionError(("negative", m))
+    witnessed = {
+        2: (2048, 217),
+        4: (8388608, 1655161),
+        5: (2**30, 1215000977),
+        6: (2**39, 886809454057),
+        7: (2**48, 5818906583881865),
+        8: (2**59, 38178127571825626921),
+    }
+    for m, pair in witnessed.items():
+        lhs = 2 ** (odd_count(m) + run_length(m + 1) + m + 1)
+        rhs = 3 ** odd_count(m) + partial_numerator(m)
+        if (lhs, rhs) != pair:
+            raise AssertionError((m, lhs, rhs))
+    left2, right2 = witnessed[2]
+    for m in (1, 3, 4):
+        left = 2 ** (odd_count(m) + run_length(m + 1) + m + 1)
+        right = 3 ** odd_count(m) + partial_numerator(m)
+        if left2 * right <= left * right2:
+            raise AssertionError(("sup", m))
+    if not (9 * 217 < 2048 < 10 * 217):
+        raise AssertionError("height")
+    for m in range(9, 21):
+        if 12 + 7 * m - m * m >= 0:
             raise AssertionError(("bound", m))
 
 
@@ -92,8 +134,8 @@ def main():
     print("PASS 4/9 and 9/4 are not powers (81/16)^n for |n|<=8")
     thresholds()
     print("PASS 8<9, 121<153, 256>243, 80>49")
-    liouville_blind()
-    print("PASS Q_m<0 for 4<=m<=16")
+    liouville_sign()
+    print("PASS Q_4>0, sup Q_m = Q_2, Q_m<0 for 5<=m<=40")
 
 
 if __name__ == "__main__":

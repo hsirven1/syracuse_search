@@ -13,6 +13,12 @@ valeur. Les originaux de Bézivin 1988 et d'Amou–Väänänen 2005 n'ont pas é
 obtenus ; les énoncés cités par ailleurs ne portent pas sur la valeur
 2-adique de ce $q$. Ni (C), ni Syracuse.
 
+La comparaison de Liouville du premier jet est corrigée au §2 et au §11
+(X22). Avec le run $r_{m+1}$ et $\beta=\log_2(3/2)$, on a encore
+$Q_m\to-\infty$, donc B7 ne donne pas l'irrationalité. Le supremum vaut
+$Q_2=\log_2(2048/217)$ : tout $\sigma=a/b$ rationnel vérifie
+$\max(|a|,b)\ge10$.
+
 ## 0. Question traitée
 
 Première entrée de l'agenda, après la revue `6081884788` sur le SHA
@@ -41,27 +47,57 @@ En effet $o_{2m}=o_{2m-1}+2m$ et $o_{2m+1}=o_{2m}+2(m+1)$.
 
 ## 2. Recherche de contre-exemples, avant l'identité
 
-1. **B7 est aveugle.** Comme $G_m\ge0$,
-   $Q_m\le r_m+m+1-\beta o_m$. Ici $r_j\ge j$, donc $o_m\ge m(m+1)/2$, et
-   $r_m\le m+1$. Ainsi
-   $$Q_m\le 2m+2-\beta\,m(m+1)/2.$$
-   De $9>8$ on tire $\beta=\log_2 3>3/2$, donc
-   $$Q_m<2m+2-\tfrac34 m(m+1)=\frac{8+5m-3m^2}{4}.$$
-   Pour $m\ge4$, $3m^2-5m-8\ge20>0$, et $Q_m<0$. Le membre de droite tend
-   vers $-\infty$, donc $Q_m\to-\infty$. L'hypothèse $\sup Q_m=+\infty$ de
-   B7 est fausse. Le contrôle entier $2^{r_m+m+1}<3^{o_m}+P_m$ pour
-   $4\le m\le16$ ne remplace pas cette comparaison.
+Dans B7, $\beta=\log_2(3/2)$ et $\delta=\log_2 3$. Le run qui entre dans
+$Q_m$ est $o_{m+1}-o_m$. Sur ce mot, le $m$-ième zéro clôt le run $r_m$,
+donc ce run est $r_{m+1}$, pas $r_m$. Le premier terme de $G_m$ vaut
+$8/9>0$, d'où
+$$Q_m=r_{m+1}+m+1-\beta o_m-\log_2(1+G_m)
+=\log_2\Bigl(\frac{2^{o_m+r_{m+1}+m+1}}{3^{o_m}+P_m}\Bigr).$$
+Le premier jet posait $\beta=\log_2 3$ et testait
+$2^{r_m+m+1}<3^{o_m}+P_m$. L'exposant omet $o_m$ et le run est le mauvais.
+Les deux phrases « $Q_m<0$ dès $m\ge4$ » et « aucun rationnel de petite
+hauteur n'est exclu » sont fausses (X22). De $9>8$ on tire $\beta>1/2$,
+car $\log_2(3/2)>1/2$ équivaut à $9/4>2$, et, séparément, $\delta>3/2$.
 
-2. **Aucun rationnel de petite hauteur n'est exclu par B7.** Dès que
-   $Q_m<0$, l'inégalité $Q_m\le\log_2\max(|a|,b)$ est vraie pour tout
-   rationnel $a/b$ de dénominateur impair. Chercher un contre-exemple parmi
-   les petits $a/b$ ne peut pas réfuter l'irrationalité, ni la prouver.
+1. **$Q_4>0$.** Ici $o_4=12$ et $r_5=6$, donc l'exposant vaut $23$.
+   La récurrence $P_1=2^{1+o_1}$ et $P_m=3^{r_m}P_{m-1}+2^{m+o_m}$ donne
+   $P_1=8$, $P_2=136$, $P_3=13\,064$ et $P_4=1\,123\,720$. Ainsi
+   $3^{12}+P_4=1\,655\,161$ et $2^{23}=8\,388\,608>1\,655\,161$.
 
-3. **Le mot n'est pas ultimement périodique.** Les runs sont non bornés.
+2. **Le supremum est $Q_2$, et il exclut la hauteur $\le9$.**
+   On a $o_2=4$, $r_3=4$ et $3^4+P_2=217$, donc $2^{Q_2}=2048/217$.
+   Comme $9\cdot217=1953<2048<2170=10\cdot217$, on a
+   $9<2^{Q_2}<10$. Les produits
+   $2048\cdot17>64\cdot217$, $2048\cdot19\,625>65\,536\cdot217$ et
+   $2048\cdot1\,655\,161>8\,388\,608\cdot217$ donnent
+   $Q_2>Q_1,Q_3,Q_4$. Le point 3 donne $Q_m<0<Q_2$ pour tout $m\ge5$.
+   Donc $\sup_m Q_m=Q_2$. Si $\sigma=a/b$ est irréductible et $b>0$,
+   B7 impose $\max(|a|,b)\ge10$. La hauteur $9$ est exclue ; la hauteur
+   $10$ ne l'est pas par cette seule comparaison. Pour un entier $\xi$,
+   $\sigma=-2(\xi+1)$ a dénominateur $1$, donc $|\xi+1|\le4$ est exclu.
+
+3. **Malgré cela, $Q_m\to-\infty$.** On a $r_j\le j+1$, donc
+   $r_{m+1}\le m+2$, et $o_m\ge m(m+1)/2$. Puisque
+   $\log_2(1+G_m)>0$ et $\beta>1/2$,
+   $$Q_m<2m+3-\beta\,m(m+1)/2<2m+3-\frac{m(m+1)}{4}
+   =\frac{12+7m-m^2}{4}.$$
+   Le trinôme $m^2-7m-12$ vaut $6$ en $m=9$, et sa dérivée $2m-7$ est
+   positive pour $m\ge4$. Il reste donc positif, et le majorant est
+   négatif pour tout $m\ge9$. Ce majorant tend vers $-\infty$, donc
+   $Q_m<0$ pour $m\ge9$ et $Q_m\to-\infty$. Pour $5\le m\le8$,
+   l'inégalité entière $2^{o_m+r_{m+1}+m+1}<3^{o_m}+P_m$ se lit
+   $$2^{30}<1\,215\,000\,977,\quad
+   2^{39}<886\,809\,454\,057,$$
+   $$2^{48}<5\,818\,906\,583\,881\,865,\quad
+   2^{59}<38\,178\,127\,571\,825\,626\,921.$$
+   L'hypothèse $\sup_m Q_m=+\infty$ de B7 est fausse. B7 n'exclut pas
+   $\xi_w$ de $\mathbb Q$.
+
+4. **Le mot n'est pas ultimement périodique.** Les runs sont non bornés.
    Cela n'interdit pas un rationnel : la réciproque du théorème de Lagarias
    est la conjecture H3.
 
-4. **Les rapports $\alpha_i/\alpha_j$ ne sont pas des puissances de $q$.**
+5. **Les rapports $\alpha_i/\alpha_j$ ne sont pas des puissances de $q$.**
    Voir le §4. Ce n'est pas l'obstruction.
 
 Aucun contre-exemple à l'identité du §3. Aucun des énoncés lus ne fournit
@@ -228,17 +264,19 @@ suivante.
 - `proved.md` : B11, l'identité seulement. Pas une exclusion.
 - `hypotheses.md` : H5, cette famille réduite ; irrationalité ouverte.
 - `prior_art.md` : lectures du cycle.
-- `abandoned.md` : ne pas relancer B7, ni VW avec $l=2$, ni les Satz 1–2
-  de Bundschuh 1974, sur ce mot.
-- `agenda.md` : question retirée. Prochaine question : axe C.
-- `reviews.md` : revue `6081884788`.
+- `abandoned.md` : ne pas relancer B7 pour prouver l'irrationalité, ni VW
+  avec $l=2$, ni les Satz 1–2 de Bundschuh 1974, sur ce mot. Le correctif
+  X22 ne change pas cet abandon : $Q_m\to-\infty$.
+- `agenda.md` : question retirée. Prochaine question : axe C, non entamée.
+- `reviews.md` : revues `6081884788` et `6081961103`.
 
 ## 9. Prochaine question
 
 Axe **C**. Lire Berg–Meinardus, Wirsching (LNM 1681) ou Mori 2024, et en
 extraire un seul énoncé réfutable, par exemple une prédiction sur un
 tronqué fini, avant tout calcul. Documentaire d'abord. Ne pas rouvrir le
-mot de ce cycle.
+mot de ce cycle. Cette question n'est pas entamée : le correctif du §11
+doit être revu d'abord.
 
 ## 10. Reproduire
 
@@ -247,7 +285,33 @@ python3 research/checks/cycle006_paired_runs.py
 ```
 Sortie attendue : cinq lignes `PASS`. Elles couvrent les sommes jusqu'à
 $m=40$, l'identité des termes pour $1\le m\le12$, les rapports pour
-$|n|\le8$, les quatre comparaisons d'entiers, et $Q_m<0$ pour
-$4\le m\le16$. L'identité des termes est prouvée au §3 pour tout $m$ ; le
-script n'en vérifie qu'un segment. De même, l'exclusion de toutes les
-puissances $q^n$ est au §4, pas dans la boucle $|n|\le8$.
+$|n|\le8$, les quatre comparaisons d'entiers, $Q_m>0$ pour $1\le m\le4$,
+$Q_m<0$ pour $5\le m\le40$, le supremum $Q_2$ et la hauteur $9<2048/217<10$.
+L'identité des termes est prouvée au §3 pour tout $m$ ; le script n'en
+vérifie qu'un segment. De même, l'exclusion de toutes les puissances
+$q^n$ est au §4, pas dans la boucle $|n|\le8$. La chute $Q_m\to-\infty$
+pour $m\ge9$ est le majorant du §2 ; le script ne contrôle le signe du
+trinôme que pour $9\le m\le20$.
+
+## 11. Revue `6081961103`
+
+Revue indépendante sur le SHA
+`fcd6a008ed0aad5ee2033ee3b9123ba6cacd0237` (PR #27). L'identité B11,
+§§1 et 3, est confirmée par cette revue. Elle n'a pas été réécrite.
+L'objection sur le §2 a été reproduite en entiers : $2^{23}>1\,655\,161$
+et $2048>9\cdot217$. Le test du script comparait $2^{r_m+m+1}$ à
+$3^{o_m}+P_m$. Il passait, et il ne calculait pas $Q_m$. Le §2 et le
+script sont corrigés. La conclusion rectifiée est prouvée ici :
+$Q_m\to-\infty$, donc B7 ne donne pas l'irrationalité, tandis que
+$\sup_m Q_m=Q_2$ exclut $\max(|a|,b)\le9$.
+
+Les §§4–6 restent inchangés. La revue n'a pas relu les scans de VW 1989
+ni de Bundschuh 1974 ; ce dépôt les avait déjà lus, et ce correctif ne
+les rouvre pas. Elle signale que le corollaire 5.2
+d'Amou–Matala-aho–Väänänen, Acta Arith. 127 (2007), échoue pour la
+spécialisation $s=1$, $a(z)=1$, deux arguments, base $16/81$, parce que
+$|\lambda|=\log_2 3>3/2$ et que (5.4) échoue pour $m=2$. Ce PDF n'a pas
+été lu ici. L'article reste hors des prémisses, comme au §6. Cette
+remarque ne prouve pas, ni ne réfute, l'irrationalité de $\xi_w$.
+
+La question du §9 n'est pas entamée.
