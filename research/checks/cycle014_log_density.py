@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
-"""Contrôles exacts du cycle 014.
+"""Contrôles du cycle 014.
 
-La discussion est dans research/cycles/cycle-014.md. Ce script ne remplace
-pas la preuve. Il vérifie le sandwich harmonique d'une classe de congruence
-et le témoin X34 : blocs de factorielles, somme des inverses < e, et
-rencontre de chaque résidu.
+Le sandwich harmonique et la somme flottante du témoin X34 comparent
+des flottants avec une tolérance : ce sont des contrôles numériques.
+Les identités de fibres, la somme des densités et les blocs de
+factorielles sont des égalités exactes, en fractions ou en entiers.
+
+La discussion est dans research/cycles/cycle-014.md. Ce script ne
+remplace pas la preuve.
 
 Usage : python3 research/checks/cycle014_log_density.py
 """
 
+from fractions import Fraction
 from math import factorial, log
 
 
@@ -50,11 +54,102 @@ def x34_hits(q, repeats):
     return False
 
 
+def odd_reciprocal_sum(y):
+    total = Fraction(0)
+    m = 1
+    while m <= y:
+        total += Fraction(1, m)
+        m += 2
+    return total
+
+
+def fiber_reciprocal_sum(x, a):
+    """Somme des inverses de la fibre v_2(N)=a, N≤x.
+
+    Ces N sont exactement les N ≡ 2^a (mod 2^{a+1}).
+    """
+    total = Fraction(0)
+    step = 1 << a
+    modulus = step << 1
+    n = step
+    while n <= x:
+        if n % modulus != step:
+            raise AssertionError((n, a))
+        total += Fraction(1, n)
+        n += modulus
+    return total
+
+
+def check_fibers():
+    xs = (1, 2, 31, 256, 1024, 4096)
+    count = 0
+    for x in xs:
+        for a in range(13):
+            left = fiber_reciprocal_sum(x, a)
+            right = odd_reciprocal_sum(x >> a) / (1 << a)
+            if left != right:
+                raise AssertionError((x, a, left, right))
+            count += 1
+    if count != 78:
+        raise AssertionError(count)
+    for upper in range(13):
+        printed = sum((Fraction(1, 1 << a) for a in range(upper + 1)), Fraction(0))
+        correct = sum(
+            (Fraction(1, 1 << (a + 1)) for a in range(upper + 1)),
+            Fraction(0),
+        )
+        if printed != 2 - Fraction(1, 1 << upper):
+            raise AssertionError((upper, printed))
+        if correct != 1 - Fraction(1, 1 << (upper + 1)):
+            raise AssertionError((upper, correct))
+        # A=0 gives the printed mass 1; A≥1 exceeds 1.
+        if (printed > 1) != (upper >= 1):
+            raise AssertionError((upper, printed))
+    return count
+
+
+def check_x34_exact():
+    previous_end = 0
+    recip = Fraction(0)
+    bound = Fraction(0)
+    for m in range(1, 41):
+        base = factorial(m)
+        if base < (1 << (m - 1)):
+            raise AssertionError(m)
+        if base + 1 <= previous_end:
+            raise AssertionError(m)
+        previous_end = base + m
+        for r in range(1, m + 1):
+            recip += Fraction(1, base + r)
+            bound += Fraction(1, base)
+    if not recip < bound:
+        raise AssertionError((recip, bound))
+    partial = sum((Fraction(m, factorial(m)) for m in range(1, 41)), Fraction(0))
+    series = sum((Fraction(1, factorial(j)) for j in range(41)), Fraction(0))
+    if partial != series - Fraction(1, factorial(40)):
+        raise AssertionError((partial, series))
+    for q in range(1, 31):
+        for m in (q, q + 1, q + 2):
+            base = factorial(m)
+            residues = {(base + r) % q for r in range(1, q + 1)}
+            if residues != set(range(q)):
+                raise AssertionError((q, m))
+    for x in (1, 2, 10, 100, 1000, factorial(10)):
+        count = 0
+        m = 1
+        while factorial(m) + 1 <= x:
+            count += min(m, x - factorial(m))
+            m += 1
+        cap = x.bit_length() * (x.bit_length() + 1) // 2
+        if count > cap:
+            raise AssertionError((x, count, cap))
+
+
 def main():
     x = 20000
     for m in (1, 2, 3, 8, 24):
         check_sandwich(x, m)
-    print("PASS sandwich harmonique x=20000 modules 1,2,3,8,24")
+    print("PASS sandwich numérique x=20000 modules 1,2,3,8,24")
 
     # Somme des inverses du témoin, tronquée là où m/m! est encore visible.
     recip = 0.0
@@ -73,12 +168,21 @@ def main():
     e_partial = sum(1.0 / factorial(j) for j in range(20))
     if not (recip < bound <= e_partial + 1e-12):
         raise AssertionError((recip, bound, e_partial))
-    print("PASS somme des inverses du témoin < e")
+    print("PASS somme numérique des inverses du témoin < e")
 
     for q in range(1, 9):
         if not x34_hits(q, 2):
             raise AssertionError(q)
     print("PASS chaque résidu modulo q≤8 est atteint au moins deux fois")
+
+    count = check_fibers()
+    print(
+        "PASS fibres exactes :",
+        count,
+        "identités, sommes 2-2^{-A} et 1-2^{-(A+1)}",
+    )
+    check_x34_exact()
+    print("PASS blocs exacts, résidus q≤30, et borne de comptage")
 
 
 if __name__ == "__main__":

@@ -114,12 +114,16 @@ densité logarithmique inférieure \(1-O(\log^{-c} N_0)\). Ce n'est
 toujours pas une classe de congruence.
 
 L'identité (1.2) et le théorème 1.6 transportent l'énoncé à
-l'application de Syracuse sur les impairs. Pour chaque
-\(a\in\mathbb N\), l'ensemble des \(N\) de valuation
-\(v_2(N)=a\) dont le minimum passe sous \(f\) a densité logarithmique
-\(2^{-a}\). Cette fibre est la classe \(N\equiv 2^a\pmod{2^{a+1}}\),
-qui a elle-même cette densité. Le théorème dit donc que presque toute
-cette classe est bonne, pas que la classe entière l'est.
+l'application de Syracuse sur les impairs. Pour chaque entier
+\(a\ge 0\), la fibre \(v_2(N)=a\) est la classe
+\(N\equiv 2^a\pmod{2^{a+1}}\). Le lemme du §2 lui donne la densité
+logarithmique \(2^{-(a+1)}\). La partie de cette fibre dont le
+minimum passe sous \(f\) a la même densité : le théorème 1.3 en
+retire un poids \(o(\log x)\). Presque tout élément de cette classe
+est donc bon. La classe entière ne l'est pas. Le paragraphe imprimé
+après le théorème 1.6 écrit \(2^{-a}\) et une somme partielle
+\(1-2^{-a_0}\). Ces deux valeurs sont fausses (X35, §9). La somme
+des densités de \(a=0\) à \(A\) vaut \(1-2^{-(A+1)}\).
 
 ## 2. Densité d'une classe
 
@@ -197,8 +201,14 @@ Si \(b\ne 0\), les entiers \(m!+b\) avec \(m\ge\max(q,b)\) sont dans
 avec \(m\ge q\) sont dans \(E\) et valent \(0\) modulo \(q\).
 
 Ainsi un ensemble de densité logarithmique nulle peut couper toutes
-les classes de congruence. Le théorème 1.3, dont la conclusion est
-seulement cette nullité, ne fournit aucun couple \((a,m)\) tel que
+les classes de congruence. Le même ensemble a une densité naturelle
+nulle. Pour \(m\ge 1\), \(m!\ge 2^{m-1}\) : c'est vrai pour \(m=1\),
+et \((m+1)!\ge 2\cdot 2^{m-1}\). Si \(m!+1\le x\), alors
+\(2^{m-1}\le x\), donc \(m\le 1+\log_2 x\). Le nombre de points de
+\(E\) jusqu'à \(x\) est au plus
+\(\sum_{m\le 1+\log_2 x}m=O((\log x)^2)\), et le rapport à \(x\) tend
+vers \(0\). Le théorème 1.3, dont la conclusion est seulement la
+nullité logarithmique, ne fournit aucun couple \((a,m)\) tel que
 chaque entier de la classe passe sous \(f\). \(E\) n'est pas proposé
 comme ensemble d'exceptions de Collatz.
 
@@ -207,9 +217,9 @@ comme ensemble d'exceptions de Collatz.
 Le théorème 1.3 n'exclut aucune classe de congruence. Il exclut un
 ensemble de densité logarithmique nulle. Le corollaire du §2 est
 l'énoncé le plus fort que cette nullité donne sur les classes :
-presque toute classe, au sens relatif, passe sous \(f\), et aucune
-classe n'est entièrement exceptionnelle. Les deux phrases laissent
-une infinité d'exceptions possible dans chaque classe.
+presque tout élément de chaque classe fixée passe sous \(f\), et
+aucune classe n'est entièrement exceptionnelle. Les deux phrases
+laissent une infinité d'exceptions possible dans chaque classe.
 
 C'est B20. La partie de densité est le théorème publié. La partie sur
 les classes est élémentaire. Rien ici n'est une découverte, ni une
@@ -241,13 +251,16 @@ Seul le théorème 1.3 du HTML v7 a été confronté au PDF de 2022.
 - `prior_art.md` : Tao 2022, théorèmes lus.
 - `abandoned.md` : ne pas utiliser ce théorème pour exclure une classe.
 - `agenda.md` : prochaine question hors de cette densité.
-- `reviews.md` : revue `6093045943`.
+- `reviews.md` : revue `6093045943`, puis `6093468477` au §9.
 
 ## 7. Prochaine question
 
 Les cycles 010 à 014 n'ont pas exclu d'orbite divergente. Tao règle
-presque toute classe et aucune classe. Ne pas raffiner cette densité,
-ni relire le théorème 1.3 pour en tirer une borne constante.
+presque tout élément de chaque classe fixée, et aucune classe
+entière. Ne pas raffiner cette densité, ni relire le théorème 1.3
+pour en tirer une borne constante. La correction de la revue
+`6093468477` est au §9. Le cycle 015 n'est pas ouvert : il attend
+la relecture de ce correctif, puis la fenêtre datée ci-dessous.
 
 Axe **A**, après le budget ci-dessous. Existe-t-il un module \(m\ge 2\),
 un résidu \(a\) et une borne \(T\) tels que tout entier \(n>1\)
@@ -277,9 +290,82 @@ Le premier commit de ce cycle est `0c90981`, du 26 novembre 2026 à
 python3 research/checks/cycle014_log_density.py
 ```
 
-Sortie attendue : trois lignes `PASS`. La première vérifie le sandwich
-du §2 jusqu'à \(x=20000\), pour les modules \(1,2,3,8,24\). La
-deuxième borne la somme des inverses du témoin par \(\sum m/m!\). La
-troisième trouve, pour chaque module \(q\le 8\), au moins deux points
-de \(E\) dans chaque résidu. Ces contrôles ne sont pas la preuve de
-la limite, ni celle de l'infinité des rencontres.
+Sortie attendue : cinq lignes `PASS`. Les deux premières sont
+numériques : le sandwich du §2 jusqu'à \(x=20000\), pour les modules
+\(1,2,3,8,24\), et la somme des inverses du témoin comparée à
+\(\sum m/m!\), toutes deux en flottants. La troisième trouve, pour
+chaque module \(q\le 8\), au moins deux points de \(E\) dans chaque
+résidu. La quatrième vérifie en fractions les \(78\) identités de
+fibres et les deux sommes de densités. La cinquième vérifie en
+entiers les blocs, les résidus pour \(q\le 30\), et la borne de
+comptage. Ces contrôles ne sont pas la preuve de la limite, ni celle
+de l'infinité des rencontres.
+
+## 9. Revue `6093468477`
+
+Revue indépendante sur le SHA
+`be519ce67c3acf569e11384f3626bc758011d9e2` (PR #27), c'est-à-dire sur
+B20 et X34. La définition 1.2, l'inégalité stricte du théorème 1.3,
+l'hypothèse \(f(N)\to+\infty\), la forme du théorème 3.1 et X34 sont
+confirmés. Une densité du §1 est corrigée. Ce n'est pas un nouveau
+cycle. Le cycle 015 n'est pas ouvert.
+
+La fibre est exacte : \(N=2^a(2k+1)=2^{a+1}k+2^a\), donc
+\(N\equiv 2^a\pmod{2^{a+1}}\), et la réciproque dit que \(2^a\)
+divise \(N\) sans que \(2^{a+1}\) le divise. Le §2 donne la densité
+\(2^{-(a+1)}\). Pour \(a=0\), ce sont les impairs, de densité \(1/2\).
+La valeur imprimée \(2^{-a}\) vaudrait \(1\) dans ce cas.
+
+La partie bonne a la même densité. L'ensemble
+\(\{N:\mathrm{Col}_{\min}(N)\ge f(N)\}\) a, par le théorème 1.3, une
+somme d'inverses \(o(\log x)\). La retirer à la fibre ne change pas
+la densité. On peut aussi passer par le théorème 1.6. L'identité
+(1.2) se vérifie directement : si \(N=2^am\) avec \(m\) impair, les
+termes de \(N\) à \(2m\) sont au moins \(m\), et chaque terme pair
+ultérieur est un multiple strict d'un impair ultérieur. Le minimum
+de l'orbite est donc \(\mathrm{Syr}_{\min}(m)\). La fonction
+\(m\mapsto f(2^am)\) tend vers \(+\infty\). Le théorème 1.6 dit que
+les impairs qui satisfont l'inégalité ont une densité absolue \(1/2\).
+La dilatation \(N=2^am\) multiplie chaque inverse par \(2^{-a}\), donc
+la densité absolue de la fibre bonne est \(2^{-(a+1)}\).
+
+La somme de \(a=0\) à \(A\) des densités correctes est
+\(1-2^{-(A+1)}\). Le complémentaire est la classe des multiples de
+\(2^{A+1}\), de densité \(2^{-(A+1)}\). La somme des coefficients
+imprimés \(2^{-a}\) vaut \(2-2^{-A}\). Elle vaut \(1\) pour \(A=0\),
+et elle dépasse \(1\) pour \(A\ge 1\). La somme
+imprimée \(1-2^{-a_0}\) est la densité des \(v_2<a_0\), pas celle des
+\(v_2\le a_0\). Les deux valeurs du paragraphe sont donc fausses, et
+elles ne s'accordent pas entre elles. La limite \(A\to\infty\) couvre
+encore une densité \(1\), des deux façons. Les théorèmes 1.3 et 1.6,
+eux, restent : ce paragraphe n'est pas leur preuve.
+
+Ce paragraphe est celui de la page 4 du PDF de *Forum Math. Pi*,
+empreinte SHA-256
+`55c817c73498f940ed1e70f10208105922f1f7c89e378dcb629040c534151a2b`,
+relu pour ce correctif. Le HTML ar5iv porte la même phrase. Elle
+n'est pas recopiée. X35 est cette réfutation. Elle ne retire aucune
+orbite.
+
+Le §4 et le résumé de B20 disent désormais : presque tout élément de
+chaque classe fixée. Le §2 le démontrait déjà pour une classe
+arbitraire. La phrase « presque toute classe » laissait le
+quantificateur ambigu.
+
+X34 est inchangé sur la densité logarithmique. La borne de comptage
+ci-dessus donne aussi la densité naturelle nulle. Pour \(m\ge q\),
+les \(q\) premiers points du bloc \(m!+r\) couvrent tous les résidus
+modulo \(q\), puisque \(m!\equiv 0\pmod q\). La remarque 1.4, borne
+constante sur un ensemble de densité logarithmique \(1\), reste
+ouverte et n'est pas la prochaine question.
+
+Le contrôle indépendant est le script. Les \(78\) identités, pour
+\(x\in\{1,2,31,256,1024,4096\}\) et \(0\le a\le 12\), comparent en
+fractions la somme de la fibre à \(2^{-a}\) fois la somme des
+impairs jusqu'à \(\lfloor x/2^a\rfloor\). Les sommes
+\(2-2^{-A}\) et \(1-2^{-(A+1)}\) sont des égalités de fractions. Les
+blocs \(1\le m\le 40\) sont disjoints, \(m!\ge 2^{m-1}\), et pour
+\(1\le q\le 30\) les blocs \(m=q,q+1,q+2\) couvrent chaque résidu
+dans leurs \(q\) premiers points. Le sandwich jusqu'à \(x=20000\)
+reste un contrôle en flottants. Aucun de ces contrôles n'est la
+preuve de la limite.

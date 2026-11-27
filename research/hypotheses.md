@@ -154,8 +154,11 @@ Le théorème 1.3, lu sur le PDF de *Forum Math. Pi* 10 (2022), dit que
 \(\mathrm{Col}_{\min}(N)<f(N)\) pour presque tout \(N\) en densité
 logarithmique, dès que \(f(N)\to+\infty\). Cela ne produit aucun
 couple \((a,m)\) pour lequel chaque entier de la classe passe sous
-\(f\). Chaque classe a densité \(1/m\) (cycle 014 §2). X34 est
-l'ensemble \(m!+r\), de densité nulle, qui rencontre toutes les
-classes. La borne constante de la remarque 1.4 reste ouverte et n'est
-pas la prochaine question. Ne pas relire ce théorème pour en tirer
-une classe entière.
+\(f\). Chaque classe a densité \(1/m\) (cycle 014 §2). Presque tout
+élément de chaque classe fixée passe sous \(f\). La fibre
+\(v_2(N)=a\) a densité \(2^{-(a+1)}\) (X35) : ne pas recopier le
+\(2^{-a}\) imprimé après le théorème 1.6. X34 est l'ensemble
+\(m!+r\), de densité logarithmique nulle et de densité naturelle
+nulle, qui rencontre toutes les classes. La borne constante de la
+remarque 1.4 reste ouverte et n'est pas la prochaine question. Ne
+pas relire ce théorème pour en tirer une classe entière.

@@ -471,15 +471,29 @@ Si \(f(N)\to+\infty\), l'ensemble
 nulle (Tao, *Forum Math. Pi* 10 (2022), théorème 1.3, lu). Chaque
 classe \(n\equiv r\pmod m\) a densité logarithmique \(1/m\). Elle
 n'est donc pas contenue dans l'ensemble exceptionnel, et la densité
-relative des exceptions dans la classe est nulle. Presque toute la
-classe passe sous \(f\). Aucun entier n'est forcé individuellement.
+relative des exceptions dans la classe est nulle. Presque tout
+élément de chaque classe fixée passe sous \(f\). Aucun entier n'est
+forcé individuellement.
+
+La fibre \(v_2(N)=a\) est la classe \(N\equiv 2^a\pmod{2^{a+1}}\).
+Sa densité, et celle de sa partie où le minimum passe sous \(f\),
+valent \(2^{-(a+1)}\). La somme de \(a=0\) à \(A\) vaut
+\(1-2^{-(A+1)}\). Le paragraphe imprimé après le théorème 1.6 écrit
+\(2^{-a}\) et \(1-2^{-a_0}\) ; ces deux valeurs sont fausses (X35).
+Les théorèmes 1.3 et 1.6 restent.
 
 X34 : \(E=\{m!+r:m\ge 1,\ 1\le r\le m\}\) a une densité logarithmique
-nulle et rencontre chaque classe infiniment souvent. La nullité
-n'implique pas qu'une classe soit entièrement bonne. La remarque 1.4
-laisse ouverte la borne constante pour presque tout \(N\). Le
-théorème 3.1 ne donne qu'une densité logarithmique inférieure
-\(1-O(\log^{-c} N_0)\). Ce n'est pas une preuve de Syracuse.
+nulle, une densité naturelle nulle, et rencontre chaque classe
+infiniment souvent. La nullité n'implique pas qu'une classe soit
+entièrement bonne. La remarque 1.4 laisse ouverte la borne constante
+pour presque tout \(N\). Le théorème 3.1 ne donne qu'une densité
+logarithmique inférieure \(1-O(\log^{-c} N_0)\). Ce n'est pas une
+preuve de Syracuse.
+
+Revue indépendante `6093468477` (PR #27, SHA
+`be519ce67c3acf569e11384f3626bc758011d9e2`) : la définition 1.2,
+l'inégalité stricte, le théorème 3.1 et X34 sont confirmés. La
+densité de fibre est corrigée. Le cycle 015 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
