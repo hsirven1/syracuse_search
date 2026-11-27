@@ -32,7 +32,7 @@ par un rédacteur précédent (voir la PR citée) · **[S]** secondaire ou de m�
   Conséquence de méthode : toute preuve doit exploiter la structure propre de $3x+1$.
 - **Berg–Meinardus** (1994, 1995) : équations fonctionnelles holomorphes équivalentes à la conjecture. [S]
 - **Wirsching** (1998), *LNM* 1681 : densités de prédécesseurs, équations fonctionnelles. [S]
-- **Mori** (2024), arXiv 2411.08084 (« operator theory » et Collatz) : présent dans les références de muaijaz, non lu. [S]
+- **Mori** (2025), arXiv:2411.08084v2, 3 février 2025. **[P]** pour la proposition 4.3.3 et les définitions des §§2–4 utilisées au cycle 007. PDF `https://arxiv.org/pdf/2411.08084`, SHA-256 `e852509294f8698923aa31aa827cbdc0353b861fc24441b73558946b2874c92b`, 27 pages. Non redistribué. L'équivalence au premier retour est re-prouvée (B12). Les théorèmes 4.2.7 et 4.3.10 ne sont pas adoptés. La version d'*Advances in Operator Theory* et le §5 ne sont pas lus comme prémisses.
 
 ## Complexité des itinéraires, valuations, transcendance
 - **Dubickas** (2009), *Glasgow Math. J.* 51, 243–252, thm 5 : $p(L)>1{,}70951129\,L$ pour une trajectoire positive tendant vers l'infini. [P-dép, PR #21]
@@ -63,6 +63,7 @@ par un rédacteur précédent (voir la PR citée) · **[S]** secondaire ou de m�
   - **De Jesús**, *A drift-sensitive complexity bound…*, DOI `10.5281/zenodo.23108509`. **[S]** Résumé seul : complexité des facteurs contre dérive normalisée. Mécanisme différent de B7. Preuve non lue. La revue `6080964566` laisse aussi ce manuscrit non vérifié.
   - **Bernstein–Lagarias (1996)** : non relu dans ce dépôt. La même revue affirme que §1, (1.5)–(1.6), confirme la conjugaison et la conjecture de périodicité. Statut inchangé : non relu.
 - **Cycle 005, lectures ciblées.** Applegate–Lagarias 2003, introduction jusqu'au théorème 1.1, comme ci-dessus. La comparaison des coefficients est élémentaire : $\log3/(\log2)^2$ contre $(\log2+\log3)/(\log2)^2$. Conway 1972 et Kurtz–Simon 2007 ne sont pas relus ; ils restent le garde-fou de méthode déjà en mémoire. Aucune autre source.
+- **Cycle 007, lectures ciblées.** Mori, arXiv:2411.08084v2, comme ci-dessus. Berg–Meinardus et Wirsching (LNM 1681) ne sont pas relus ; l'agenda en demandait un parmi trois. Conway, *A course in operator theory* (2000), cité par Mori pour le théorème 3.4.6, n'a pas été lu.
 - **Cycle 006, lectures ciblées.**
   - **Bundschuh** (1974), *Portugaliae Math.* 33, 1–17, Satz 1 et Satz 2, page imprimée 2. **[P]** pour ces deux énoncés. Scan `https://purl.pt/2719`, fichier PDF public, SHA-256 `ce7657b2fc46fd352eab9f5caff063d7e49697fe910a6348cac7375b3f85c7c8`. Fonction archimédienne $\sum z^n q^{-n(n-1)/2}$. Hypothèse $|q_1|>|q_2|^{(3+\sqrt5)/2}$, soit $\log|q_2|/\log|q_1|<(3-\sqrt5)/2$. Preuve non lue. Ne s'applique pas à $q=81/16$, ni à la valeur 2-adique.
   - **Väänänen** (2009), RIMS Kôkyûroku 1665, 47–59. **[P]** pour ce survey. PDF `https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1665-08.pdf`, SHA-256 `fc5045b5207441a7d2091b20e99688961be096cd506d3f5b5929a663cc4804f2`. Il cite le théorème 5 de Bézivin 1988 comme une indépendance aux places infinies, et place Amou–Väänänen 2005 parmi les résultats archimédiens à paramètre entier. Ce n'est pas une lecture des originaux.

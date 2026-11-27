@@ -275,8 +275,9 @@ suivante.
 Axe **C**. Lire Berg–Meinardus, Wirsching (LNM 1681) ou Mori 2024, et en
 extraire un seul énoncé réfutable, par exemple une prédiction sur un
 tronqué fini, avant tout calcul. Documentaire d'abord. Ne pas rouvrir le
-mot de ce cycle. Cette question n'est pas entamée : le correctif du §11
-doit être revu d'abord.
+mot de ce cycle. Au moment de cette rédaction, elle n'était pas entamée :
+le correctif du §11 devait être revu d'abord. La revue `6081994521`
+confirme ce correctif (§12). La question est traitée au cycle 007.
 
 ## 10. Reproduire
 
@@ -314,4 +315,15 @@ $|\lambda|=\log_2 3>3/2$ et que (5.4) échoue pour $m=2$. Ce PDF n'a pas
 été lu ici. L'article reste hors des prémisses, comme au §6. Cette
 remarque ne prouve pas, ni ne réfute, l'irrationalité de $\xi_w$.
 
-La question du §9 n'est pas entamée.
+La question du §9 n'est pas entamée dans cette revue.
+
+## 12. Revue `6081994521`
+
+Revue indépendante sur le SHA
+`a2886972de6371d3302dd9a17bc3bc59c98e479f`, celui du correctif X22.
+Elle confirme le §2 : le run de B7 est $r_{m+1}$,
+$\beta=\log_2(3/2)$, les quatre rapports, le supremum strict au rang $2$,
+$Q_m<0$ pour $5\le m\le8$, le majorant pour $m\ge9$, et
+$\max(|a|,b)\ge10$. L'irrationalité reste non établie, comme le §7 le
+dit déjà. Aucun changement au texte. Ce n'est pas une seconde preuve.
+Le cycle 007 vient après.

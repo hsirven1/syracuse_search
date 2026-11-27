@@ -190,6 +190,28 @@ corrigée. Le test du script omettait $o_m$ et prenait $r_m$ au lieu de
 $r_{m+1}$. Le supremum $Q_2$ et la chute $Q_m\to-\infty$ sont prouvés dans
 le cycle. Ce n'est pas une seconde preuve de l'identité, ni le cycle suivant.
 
+Revue indépendante `6081994521` (PR #27, SHA `a2886972de6371d3302dd9a17bc3bc59c98e479f`) :
+le correctif X22 est confirmé, y compris $\sup_m Q_m=Q_2$ et $Q_m\to-\infty$.
+L'irrationalité reste ouverte, comme le texte le dit déjà. Aucun changement
+à B11. Ce n'est pas une seconde preuve, ni le cycle suivant : le cycle 007
+vient après.
+
+**B12 — Premier retour modulo $18$** (PROUVÉ, cycle 007 §3). Pour
+$f(n)=3n+1$ si $n$ est impair et $n/2$ si $n$ est pair, soient
+$N_1=\{n\equiv1\text{ ou }5\pmod6\}$, $N_2=\{n\equiv4\text{ ou }16\pmod{18}\}$
+et $\Sigma=N_1\cup N_2$. Le premier retour $P$ de $f$ sur $\Sigma$ est
+défini partout. Sa restriction à $N_1$ est la bijection $n\mapsto3n+1$
+sur $N_2$. Sa restriction à $N_2$ est injective et d'image $\Sigma$. Tout
+entier atteint $N_1$. La conjecture « $f$ atteint $1$ » équivaut à
+« $1$ est dans l'orbite de $P$ pour tout point de $\Sigma$ ». Pour un
+entier positif, $f$ atteint $1$ si et seulement si l'application
+raccourcie $T$ du dépôt atteint $1$. Antériorité : Mori,
+arXiv:2411.08084v2, proposition 4.3.3 ; la preuve d'ici est autonome.
+Deux défauts d'écriture de sa proposition 4.3.2 sont réparés et ne
+réfutent pas l'énoncé. Ce n'est pas une preuve de la conjecture. Les
+théorèmes 4.2.7 et 4.3.10 du même article ne sont pas des prémisses
+(cycle 007 §5).
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

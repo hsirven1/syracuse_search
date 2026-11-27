@@ -92,3 +92,13 @@ borne $\delta L$ sur les Mersenne sans l'hypothèse $K\le3/2$.
 Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutralise Mersenne),
 mais $V-\log_2(n+1)=c\,r$ est une correction de bord : sur de longues fenêtres $V$ suit la hauteur.
 Horizon fixe encore impossible (adversaire $2(2^Ra-1)$, $R>B$). Ne pas relancer sans nouvelle idée.
+
+## H8 — Égalité cyclique dans Mori 2024 (axe C) — OUVERT
+La réduction au premier retour est prouvée (B12). Elle n'est pas une preuve
+de la conjecture. La définition 3.4.4 exige $C^*(T_1,T_2)e_n=\mathcal H$,
+alors que le lemme 4.2.2, tel qu'il est écrit, ne donne que la densité de
+l'orbite dans l'espace fermé de la classe. Les théorèmes 4.2.7 et 4.3.10
+ne sont pas adoptés. Prochaine question : un vecteur explicite de
+$\overline{\mathrm{span}}\{e_{2^k}:k\ge0\}$ qui n'est pas de la forme
+$Te_1$, ou la preuve que tout vecteur de cet espace l'est. Conway 2000,
+cité pour le théorème 3.4.6, n'a pas été lu.
