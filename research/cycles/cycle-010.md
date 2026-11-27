@@ -277,8 +277,10 @@ cette valuation est au moins \(4\).
 
 **Exemples.** Pour \(k=3\), \(v_2(5\cdot27+1)=3\), donc \(L=2\) et
 \(U^5(n_3)=19\). Pour \(k=5\), \(v_2(5\cdot243+1)=6\), donc \(L=5\) et
-\(U^7(n_5)=1367\). Les exposants extraits au pas \(k+2\) sont \(6\) et
-\(3\).
+\(U^7(n_5)=1367\). Au pas \(k+2\), les valuations du numérateur
+\(5\cdot3^{k+2}+1\) sont \(6\) et \(3\). Le pas de \(U\) extrait
+\(v_2(3y+1)\), et \(3y+1\) est ce numérateur divisé par \(4\), donc ces
+exposants valent \(4\) et \(1\).
 
 **Excès non borné, sans forcer le franchissement de \(k\).** Pour chaque
 \(m\ge3\), le cycle 002 §2 donne un entier \(r\) avec
@@ -388,7 +390,7 @@ prémisse.
   au-delà du second bloc, ni une preuve que \(\tau>2k\) infiniment souvent.
 - `agenda.md` : question suivante sur l'axe C, non entamée tant que cette
   correction n'est pas revue.
-- `reviews.md` : revues `6082502361` et `6082611497`.
+- `reviews.md` : revues `6082502361`, `6082611497` et `6082671838`.
 
 ## 9. Prochaine question
 
@@ -416,7 +418,8 @@ Sortie attendue : cinq lignes `PASS`. Elles couvrent le préfixe et la
 sortie pour \(2\le k\le60\), la jonction et l'ordre des temps pour les
 impairs de \(3\) à \(59\), les trois valuations \(4,3,6\), le second
 bloc pour les impairs de \(1\) à \(999\) avec \(\tau\ge k+L\) dès
-\(k\ge3\), les valeurs \(19\), \(1367\) et
+\(k\ge3\), les valeurs \(19\), \(1367\), les exposants extraits \(4\) et
+\(1\) aux indices \(3\) et \(5\),
 \(\tau(n_{757})=\tau(n_{758})=1840\), et le relevé \(2\le k\le1000\).
 Le relevé n'est pas la preuve de B15. L'infinité de l'excès sur \(2k\)
 n'est pas un contrôle du script.
@@ -455,3 +458,32 @@ Le contrôle indépendant, en entiers exacts, est le script : impair
 L'existence d'une formule complète de \(\tau\), et l'infinité des \(k\)
 avec \(\tau>2k\), restent ouvertes. La question de Berg–Meinardus n'est
 pas entamée.
+
+## 12. Revue `6082671838`
+
+Revue indépendante sur le SHA
+`27bbb65a545feac02c004f323220ff5874420798` (PR #27), c'est-à-dire sur
+le correctif du §4. Le second bloc, la borne \(\tau\ge k+L\), la
+convention \(\tau=+\infty\) et la non-bornitude de \(\tau-k\) sont
+confirmés. Une phrase d'exemple est corrigée. Ce n'est pas un nouveau
+cycle.
+
+Les formules du §4 restent. En particulier
+\(U^{k+2}(n_k)=(5\cdot3^{k+2}+1)/2^{v_2(5\cdot3^{k+2}+1)}\), et cette
+valuation du numérateur vaut \(3\) si \(L\ge3\), au moins \(4\) si
+\(L=2\). La phrase « les exposants extraits au pas \(k+2\) sont \(6\) et
+\(3\) » confondait ces deux valuations avec l'exposant retiré par \(U\).
+Pour \(k=3\) puis \(k=5\), \(v_2(5\cdot3^{k+2}+1)\) vaut \(6\) et \(3\).
+Depuis la jonction \(y\), \(3y+1=(5\cdot3^{k+2}+1)/4\). Le pas retire
+\(v_2(3y+1)\), donc \(4\) et \(1\). Les sorties restent \(19\) et
+\(1367\).
+
+X28 est de nouveau confirmé : \(\tau(n_5)=13\). L'infinité des
+dépassements de \(2k\) et une formule complète de première descente
+restent ouvertes. Le PDF de Wiltrout–Landquist répond encore 403 ; le
+rendu déjà lu n'est pas rouvert, et aucune numérotation nouvelle n'est
+une prémisse. La question de Berg–Meinardus n'est pas entamée.
+
+Le contrôle ajouté au script compare, pour \(k=3\) et \(k=5\),
+\(3y+1\) au numérateur divisé par \(4\), et les exposants extraits à
+\(4\) et \(1\). Ce contrôle n'est pas la preuve.

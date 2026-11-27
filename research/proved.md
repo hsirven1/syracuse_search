@@ -314,6 +314,14 @@ trois phrases sur $\tau=+\infty$, le second bloc et la portée du §4 de
 Wiltrout–Landquist sont la correction. Ce n'est pas une seconde preuve,
 ni le cycle suivant.
 
+Revue indépendante `6082671838` (PR #27, SHA
+`27bbb65a545feac02c004f323220ff5874420798`) : ce correctif est confirmé.
+La phrase d'exemple qui appelait $6$ et $3$ les exposants extraits au
+pas $k+2$ désignait $v_2(5\cdot3^{k+2}+1)$. Depuis la jonction $y$,
+$3y+1$ est ce numérateur divisé par $4$, et $U$ extrait $4$ puis $1$.
+La formule du pas $k+2$ n'est pas modifiée. Ce n'est pas une seconde
+preuve, ni le cycle suivant.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

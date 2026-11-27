@@ -10,7 +10,7 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les corrections de la revue `6082611497` sont dans ce commit. Ne pas
+Les corrections de la revue `6082671838` sont dans ce commit. Ne pas
 engager le cycle 011 tant qu'une revue indépendante de ce SHA ne les a
 pas traitées.
 
@@ -33,6 +33,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082671838` (27 nov. 2026, SHA `27bbb65a`) : le second bloc,
+  \(\tau\ge k+L\) et la non-bornitude de \(\tau-k\) sont confirmés. Dans
+  les exemples du cycle 010 §4, \(6\) et \(3\) sont les valuations du
+  numérateur \(5\cdot3^{k+2}+1\), pas les exposants extraits par \(U\).
+  Ceux-ci valent \(4\) et \(1\). Les formules ne changent pas. Prochaine
+  question non entamée. Détail : [reviews.md](reviews.md).
 - Revue `6082611497` (27 nov. 2026, SHA `462014b8`) : B15 et X28
   confirmés. La lecture « la formule uniforme s'arrête à la jonction »
   est corrigée. Pour $k$ impair $\ge3$, le second bloc de longueur

@@ -5,7 +5,9 @@ La preuve est dans research/cycles/cycle-010.md. Ce script ne la remplace pas.
 Il vérifie la forme U^t = 5·3^t·2^{k-t}-1 pour t < k, la valuation
 v_2(5·3^k-1) ∈ {1, 2}, la sortie U^k, la jonction des indices impair et
 suivant, l'inégalité τ(n_k) ≥ τ(n_{k+1}) pour k impair ≥ 3, le second
-bloc U^{k+s} = 3^s(5·3^k+1)/2^{s+1}-1 pour 0 ≤ s < L et τ ≥ k+L, et le
+bloc U^{k+s} = 3^s(5·3^k+1)/2^{s+1}-1 pour 0 ≤ s < L et τ ≥ k+L, les
+exposants extraits au pas k+2 (4 et 1 pour k = 3 et 5, distincts des
+valuations 6 et 3 du numérateur 5·3^{k+2}+1), et le
 relevé fini 2 ≤ k ≤ 1000 des temps τ ≤ 2k. Ce relevé n'est pas une preuve
 pour k > 1000, ni de l'infinité de τ > 2k.
 
@@ -159,6 +161,16 @@ def second_block():
                 z = U(z)
                 if z <= floor:
                     raise AssertionError(("partner", k, _t, z, floor))
+    # 6 et 3 sont v_2(5*3**(k+2)+1). Le pas de U extrait v_2(3y+1).
+    for k, numerator_val, extracted in ((3, 6, 4), (5, 3, 1)):
+        y = n_of(k)
+        for _ in range(k + 1):
+            y = U(y)
+        num = 5 * pow(3, k + 2) + 1
+        if v2(num) != numerator_val or 3 * y + 1 != num // 4:
+            raise AssertionError(("numerator", k, v2(num), 3 * y + 1, num))
+        if v2(3 * y + 1) != extracted:
+            raise AssertionError(("extracted", k, v2(3 * y + 1)))
     if tau(3) != 5:
         raise AssertionError(tau(3))
     x = n_of(3)
