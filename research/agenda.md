@@ -10,28 +10,34 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-B21 est écrit. Il attend une relecture indépendante. Même après cette
-relecture, ne pas ouvrir le cycle 016 avant le 27 novembre 2026 à
-23:17 UTC. Avec le cycle 015, la fenêtre des douze cycles a pour plus
-ancien le cycle 004 : le commit `8bc44f7` est du 26 novembre 2026 à
-23:16:52 UTC. Une confirmation sans objection ne justifie pas un
-treizième cycle dans cette fenêtre.
+La revue `6093792860` confirme B21 et demande deux corrections,
+écrites au cycle 015 §10. L'évitement de la classe commence au rang
+\(1\). Les formulations littérales de la question suivante sont
+fermées (X38, X39), et le cas \(R=1\) est élémentaire. Ce correctif
+n'est pas encore relu. Ne pas ouvrir le cycle 016 avant cette
+relecture, ni avant le 27 novembre 2026 à 23:17 UTC. Le plus ancien
+cycle de la fenêtre reste le cycle 004 : le commit `8bc44f7` est du
+26 novembre 2026 à 23:16:52 UTC.
 
-## 1. [B] Runs impairs bornés — PROCHAINE QUESTION (cycle 016), non entamée
-Les cycles 010 à 015 n'excluent aucune orbite divergente. B21 ferme
-seulement le retour uniforme dans une même classe. Ne pas rouvrir
-B21, Tao, les potentiels, le signe moins, le mot du cycle 006, ni
-\(5\cdot 2^k-1\).
+## 1. [B] Runs impairs de longueur au moins 2 — PROCHAINE QUESTION (cycle 016), non entamée
+Ne pas rouvrir B21, Tao, les potentiels, le signe moins, le mot du
+cycle 006, \(5\cdot 2^k-1\), ni le cas \(R=1\). L'orbite
+\(1\to 2\to 1\) ne descend pas sous \(1\) (X38). Pour \(R=1\), tout
+départ \(n>1\) dont le premier run impair a longueur au plus \(1\)
+descend en au plus deux pas, et une orbite dont tous les runs
+impairs ont longueur au plus \(1\) atteint \(1\). Le mot constant des
+longueurs de runs de \(5\) n'est pas un cycle (X39). Une suite de
+parités périodique dès le départ est un cycle, par le codage modulo
+\(2^k\).
 
 Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
-\(1\)-cycle non trivial. Existe-t-il un entier \(R\ge 1\) tel que
-toute orbite positive dont chaque run impair a une longueur au plus
-\(R\) repasse strictement sous son départ ? Un mot périodique de runs
-bornés est un cycle : ne pas le chercher par force brute, et ne pas
-redémontrer les bornes de Simons–de Weger si le texte lu les contient
-déjà. Si Steiner exclut déjà toute orbite à runs bornés, et pas
-seulement les cycles, ne pas le redémontrer. Ne pas ouvrir ce cycle
-avant la fin du blocage ci-dessus.
+\(1\)-cycle non trivial. Pour un entier \(R\ge 2\), toute orbite
+positive de \(T\) dont chaque run impair a une longueur au plus \(R\)
+atteint-elle \(1\) ? Si le texte lu exclut déjà toute orbite, et pas
+seulement les cycles, ne pas le redémontrer. Ne pas chercher une
+suite de parités périodique par force brute, et ne pas redémontrer
+les bornes de Simons–de Weger si le texte lu les contient déjà. Ne
+pas ouvrir ce cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -42,6 +48,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093792860` (27 nov. 2026, SHA `c6737c04`) : B21 confirmé.
+  Le rang \(0\) du pont reste dans la classe ; l'évitement commence
+  au rang \(1\), avec \(s\ge\max(2,T-j+2)\). X38 : l'orbite
+  \(1\to 2\to 1\) refuse la descente uniforme pour tout \(R\ge 1\).
+  Le cas \(R=1\) est élémentaire. X39 : le mot de runs de \(5\) est
+  constant et \(5\) n'est pas périodique ; une suite de parités
+  périodique dès le départ est un cycle. Le théorème 1.2 de Terras
+  est lu pour cette équivalence. Le cycle 016 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6093548562` (27 nov. 2026, SHA `8428d6cf`) : confirmation de
   X36. Aucune correction. Cycle 015 ensuite : aucune classe ne revient
   dans elle-même en temps uniforme (B21). Détail : [reviews.md](reviews.md).

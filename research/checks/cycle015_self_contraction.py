@@ -135,11 +135,12 @@ def bridge(m: int, s: int) -> tuple[int, int, int]:
             z = U(z)
             assert z % 4 == 3
             assert z % m != 1
-        # Aucun retour strict avant le temps j+s-1.
+        # Le rang 0 est dans la classe. Les rangs 1 .. j+s-2 n'y sont pas.
         x = n
+        assert x % m == 1
         for step_i in range(1, j + s - 1):
             x = U(x)
-            assert not (x < n and x % m == 1)
+            assert x % m != 1
         return n, j, s
     raise AssertionError("no bridge")
 
@@ -153,6 +154,83 @@ def gcd(a: int, b: int) -> int:
 def solve_linear(a: int, b: int, mod: int) -> int:
     """Plus petite solution ≥ 0 de a t ≡ b (mod mod), gcd déjà réduit à 1."""
     return (b * pow(a, -1, mod)) % mod
+
+
+def T(n: int) -> int:
+    return n // 2 if n % 2 == 0 else (3 * n + 1) // 2
+
+
+def odd_run_length(n: int) -> int:
+    assert n % 2 == 1
+    c = 0
+    while n % 2 == 1:
+        c += 1
+        n = T(n)
+    return c
+
+
+def parities(n: int, k: int) -> tuple[int, ...]:
+    out = []
+    for _ in range(k):
+        out.append(n % 2)
+        n = T(n)
+    return tuple(out)
+
+
+def check_formulations() -> None:
+    # X38 : l'orbite de 1 ne descend pas sous 1, et ses runs impairs valent 1.
+    x = 1
+    orbit = [1]
+    for _ in range(4):
+        x = T(x)
+        orbit.append(x)
+    assert orbit == [1, 2, 1, 2, 1]
+    assert odd_run_length(1) == 1 == v2(1 + 1)
+
+    # Pour n>1, un premier run de longueur au plus 1 descend en au plus deux pas.
+    for n in range(2, 4001):
+        if n % 2 == 0:
+            assert T(n) == n // 2 < n
+        elif odd_run_length(n) == 1:
+            assert n % 4 == 1
+            assert T(T(n)) == (3 * n + 1) // 4 < n
+
+    # Si tous les runs impairs valent au plus 1, les impairs décroissent jusqu'à 1.
+    for n in range(1, 4001, 2):
+        assert odd_run_length(n) == v2(n + 1)
+        if n % 4 == 1 and n > 1:
+            nxt = U(n)
+            assert nxt % 2 == 1 and nxt < n
+    n = 5
+    while n != 1:
+        assert n % 4 == 1
+        n = U(n)
+    assert n == 1
+
+    # X39 : le mot des longueurs de runs de 5 est constant, et 5 n'est pas périodique.
+    seen = []
+    x = 5
+    runs = []
+    for _ in range(8):
+        seen.append(x)
+        if x % 2 == 1:
+            runs.append(odd_run_length(x))
+        x = T(x)
+    assert seen == [5, 8, 4, 2, 1, 2, 1, 2]
+    assert runs == [1, 1, 1]
+    y = 5
+    for _ in range(1, 8):
+        y = T(y)
+        assert y != 5
+
+    # Même vecteur de parités de longueur k : une seule classe modulo 2^k.
+    for k in range(1, 11):
+        seen_vec = {}
+        for r in range(1 << k):
+            p = parities(r, k)
+            assert p not in seen_vec
+            seen_vec[p] = r
+        assert len(seen_vec) == 1 << k
 
 
 def main() -> None:
@@ -174,6 +252,13 @@ def main() -> None:
         examples.append((m, n, j, ss))
     print("PASS bridge, eight moduli divisible by 4")
     print("EXAMPLES", " ".join(f"{m}:{n}" for m, n, _j, _s in examples))
+
+    for m, s in ((4, 2), (8, 2), (16, 2), (32, 2)):
+        n, j, ss = bridge(m, s)
+        assert ss == 2 and j >= 1 and n % m == 1
+    print("PASS rank 0 in the class, and s=2 bridge on four moduli")
+    check_formulations()
+    print("PASS orbit of 1, run word of 5, and the R=1 descent")
 
 
 if __name__ == "__main__":

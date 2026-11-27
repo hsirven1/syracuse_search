@@ -201,11 +201,16 @@ Si \(L\) est impair, \(v_0-2=L-2<L\). Si \(L\) est pair,
 Sur la montée, le lemme donne, pour \(1\le r\le s-2\),
 \(U^r(y)\equiv 3\pmod 4\). Comme \(4\) divise \(m\),
 \(U^r(y)\not\equiv 1\pmod m\). Le temps global de cet itéré est
-\(j+r\le j+s-2\).
+\(j+r\), avec \(j+1\le j+r\le j+s-2\). Si \(s=2\), cet intervalle
+est vide.
 
-Ainsi, pour tout \(t\le j+s-2\), \(U^t(n)\not\equiv 1\pmod m\). On
-choisit \(s\ge T-j+2\). Aucun temps \(t\le T\) ne satisfait les deux
-conditions. Le script contrôle huit modules, dont \(m=4\), \(s=6\),
+Les temps \(1\le i\le j\) sont déjà hors de la classe, par la
+valuation. Donc, pour tout \(1\le t\le j+s-2\),
+\(U^t(n)\not\equiv 1\pmod m\). Le rang \(0\) reste dans la classe :
+\(U^0(n)=n\). Ce n'est pas une descente. On choisit
+\(s\ge\max(2,T-j+2)\), de sorte que \(j+s-2\ge T\). Aucun temps
+\(1\le t\le T\) n'est dans la classe, et le rang \(0\) ne descend
+pas. Le script contrôle huit modules, dont \(m=4\), \(s=6\),
 \(n=3497\) : les cinq premiers itérés sont congrus à \(3\) modulo
 \(4\), et le premier retour dans la classe au-dessous du départ est
 \(U^8(3497)=701\).
@@ -218,7 +223,10 @@ congru à \(a\) modulo \(m\), il existe \(t\le T\) avec \(U^t(n)<n\) et
 \(U^t(n)\equiv a\pmod m\).
 
 Les §§3 et 4 couvrent tous les résidus. Le résidu est lu dans
-\(\{0,1,\ldots,m-1\}\).
+\(\{0,1,\ldots,m-1\}\). La même formule définit \(U\) sur les pairs :
+\(3n+1\) est alors impair, et \(U(n)=3n+1\). Le §3 compte les positifs
+de la classe et n'évalue pas \(U\). Les classes sans impair restent
+dans l'énoncé.
 
 ## 6. Portée
 
@@ -243,25 +251,25 @@ comptage ; sa nouveauté reste au classement du §1.
 
 ## 8. Prochaine question
 
-Axe **B**, après la relecture de ce cycle et après la fenêtre
-ci-dessous. Les cycles 010 à 015 ne retirent aucune orbite
-divergente. Ne pas rouvrir B21, ni Tao, ni les potentiels, ni le
-signe moins, ni le mot du cycle 006, ni \(5\cdot 2^k-1\).
+Axe **B**. Les formulations écrites ici avant la revue `6093792860`
+sont fermées au §10. Ne pas les rouvrir. Ne pas rouvrir B21, ni Tao,
+ni les potentiels, ni le signe moins, ni le mot du cycle 006, ni
+\(5\cdot 2^k-1\), ni le cas \(R=1\).
 
 Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
-\(1\)-cycle non trivial. La question est la suivante. Existe-t-il un
-entier \(R\ge 1\) tel que toute orbite positive dont chaque run
-impair a une longueur au plus \(R\) repasse strictement sous son
-départ ? Un mot périodique de runs bornés est un cycle : ne pas le
-traiter par une recherche bornée, et ne pas redémontrer les bornes de
-Simons–de Weger si l'énoncé lu les contient déjà. Si Steiner exclut
-déjà toute orbite à runs bornés, et pas seulement les cycles, ne pas
-le redémontrer.
+\(1\)-cycle non trivial. Pour un entier \(R\ge 2\), toute orbite
+positive de \(T\) dont chaque run impair a une longueur au plus \(R\)
+atteint-elle \(1\) ? Si le texte lu exclut déjà toute orbite, et pas
+seulement les cycles, ne pas le redémontrer. Une suite de parités
+périodique dès le départ est déjà un cycle (§10) : ne pas la chercher
+par force brute, et ne pas redémontrer les bornes de Simons–de Weger
+si le texte lu les contient déjà.
 
 Le cycle 015 est le douzième de la fenêtre dont le plus ancien est
 le cycle 004. Le premier commit de ce cycle est `8bc44f7`, du
-26 novembre 2026 à 23:16:52 UTC. Ne pas ouvrir le cycle 016 avant
-une relecture indépendante de B21, ni avant le 27 novembre 2026 à
+26 novembre 2026 à 23:16:52 UTC. Le §10 est un correctif, pas le
+cycle 016. Ne pas ouvrir le cycle 016 avant une relecture
+indépendante de ce correctif, ni avant le 27 novembre 2026 à
 23:17 UTC.
 
 ## 9. Reproduire
@@ -270,14 +278,117 @@ une relecture indépendante de B21, ni avant le 27 novembre 2026 à
 python3 research/checks/cycle015_self_contraction.py
 ```
 
-Sortie attendue : trois lignes `PASS`, puis une ligne `EXAMPLES`.
+Sortie attendue : trois lignes `PASS`, une ligne `EXAMPLES`, puis
+deux lignes `PASS`.
 La première vérifie, pour \(2\le m\le 40\) et chaque résidu autre que
 \(1\), qu'aucun positif plus petit que le minimum de la classe n'y
 appartient. La deuxième construit, pour cinq modules non divisibles
 par \(4\), un cylindre de A3 dans la classe \(1\) et en contrôle la
 montée. La troisième construit le pont pour huit modules divisibles
-par \(4\) et vérifie l'absence de retour avant le temps \(j+s-1\).
-La ligne d'exemples contient `4:3497` et `6` n'y figure pas : le
-cylindre direct \(2911\) pour \(m=6\), \(s=5\), est contrôlé par la
-deuxième ligne, pas imprimé. Ces contrôles ne remplacent pas les
-quantificateurs des §§3 et 4.
+par \(4\) et vérifie que les rangs \(1,\ldots,j+s-2\) sortent de la
+classe. Deux lignes ensuite contrôlent le rang \(0\), le pont
+\(s=2\), l'orbite de \(1\), le mot de runs de \(5\), et la descente
+du cas \(R=1\). La ligne d'exemples contient `4:3497` et `6` n'y
+figure pas : le cylindre direct \(2911\) pour \(m=6\), \(s=5\), est
+contrôlé par la deuxième ligne, pas imprimé. Ces contrôles ne
+remplacent pas les quantificateurs des §§3, 4 et 10.
+
+## 10. Revue `6093792860`
+
+Revue indépendante sur le SHA
+`c6737c04df5adfc6cde037a0f6904365c4f0595a` (PR #27). Ce n'est pas un
+nouveau cycle. Le cycle 016 n'est pas ouvert.
+
+B21 et les §§2–6 sont confirmés, puis revérifiés. Le résidu autre
+que \(1\) n'a aucun positif plus petit que son minimum. Pour
+\(4\nmid m\), le cylindre de montée se place dans la classe \(1\) et
+son premier temps de descente est \(s\). Pour \(4\mid m\), le pont
+puis ce cylindre évitent la classe pendant un temps arbitraire. Les
+témoins restent \(n_0=3\), \(y=2911\) et \(n=3497\). Sur ce dernier,
+\(U^5(3497)=13283\equiv 3\pmod 4\), \(U^6(3497)=19925\equiv 1\pmod 4\)
+mais \(19925>3497\), et le premier retour strictement plus bas dans
+la classe est \(U^8(3497)=701\). La nouveauté de B21 reste celle du
+§1 : potentiellement nouvelle pour la négation complète, confiance
+moyenne, Terras et Everett n'étant pas les prémisses du pont. Aucune
+orbite divergente n'est exclue.
+
+**Quantificateur.** La phrase « pour tout \(t\le j+s-2\),
+\(U^t(n)\not\equiv 1\pmod m\) » est fausse au rang \(0\). Pour
+\(n=3497\) et \(m=4\), on a \(j=1\), \(s=6\) et \(j+s-2=5\), mais
+\(U^0(3497)=3497\equiv 1\pmod 4\). L'argument écrit couvrait déjà
+\(1\le i\le j\) et \(1\le r\le s-2\). Le §4 dit maintenant
+\(1\le t\le j+s-2\). Le rang \(0\) est le départ : il est dans la
+classe, et il ne satisfait pas \(U^t(n)<n\). On prend
+\(s\ge\max(2,T-j+2)\). Si \(s=2\), la montée \(1\le r\le s-2\) est
+vide et le pont couvre \(1\le t\le j\). L'énoncé B21 ne change pas.
+
+La formule de \(U\) reste celle du §5, y compris sur les pairs, où
+\(U(n)=3n+1\). Le §3 ne l'évalue pas. Restreindre l'énoncé aux
+classes qui contiennent un impair n'est pas nécessaire.
+
+**X38.** Il n'existe aucun entier \(R\ge 1\) tel que toute orbite
+positive de
+\[
+T(n)=\begin{cases}n/2&n\text{ pair},\\(3n+1)/2&n\text{ impair},\end{cases}
+\]
+dont chaque run impair a une longueur au plus \(R\), passe
+strictement sous son départ. L'orbite de \(1\) est \(1\to 2\to 1\).
+Le run impair issu de \(1\) a longueur \(v_2(2)=1\), et aucun entier
+positif n'est strictement plus petit que \(1\).
+
+Avec les départs \(n>1\), le cas \(R=1\) est déjà vrai, et il est
+élémentaire. Si \(n\) est pair, \(T(n)=n/2<n\). Si \(n\) est impair
+et si son premier run a longueur au plus \(1\), alors
+\(v_2(n+1)=1\), donc \(n\equiv 1\pmod 4\), et
+\(T^2(n)=(3n+1)/4<n\). On ne traite pas cette descente comme une
+question ouverte.
+
+Si tous les runs impairs de l'orbite ont longueur au plus \(1\),
+l'orbite atteint \(1\). En effet, pour \(n\) impair,
+\(n_i+1=3^i(n+1)/2^i\), donc \(n_i\) est impair exactement pour
+\(0\le i<v_2(n+1)\). La longueur du run est \(v_2(n+1)\). Elle vaut
+\(1\) pour chaque impair de l'orbite, donc chacun est congru à \(1\)
+modulo \(4\). Le impair suivant est
+\(U(n)=(3n+1)/2^{v_2(3n+1)}\le(3n+1)/4\). Pour \(n>1\), cette valeur
+est strictement plus petite que \(n\). La suite des impairs décroît
+jusqu'à \(1\). Ce fait est le codage d'un run de longueur \(1\), déjà
+la définition \(r(M)=v_2(M+1)\) du cycle 002. Ce n'est pas un
+résultat nouveau, et il ne dit rien pour \(R\ge 2\).
+
+**X39.** La phrase « un mot périodique de runs bornés est un cycle »
+est fausse si le mot est la suite des longueurs de runs impairs.
+L'orbite de \(5\) est \(5\to 8\to 4\to 2\to 1\to 2\to 1\to\cdots\).
+Ses longueurs de runs impairs sont \(1,1,1,\ldots\), et \(5\) n'est
+égal à aucun itéré ultérieur de cette liste.
+
+Si le mot est la suite complète des parités, et s'il est périodique
+de période \(p\) dès le rang \(0\), alors \(n=T^p(n)\). On montre
+d'abord que \(k\) parités communes donnent \(v_2(n-m)\ge k\), la
+valuation de \(0\) étant infinie.
+
+Un pas de même parité baisse la valuation d'exactement un. Si \(n\)
+et \(m\) sont pairs, \(T(n)-T(m)=(n-m)/2\). S'ils sont impairs,
+\(T(n)-T(m)=3(n-m)/2\), et \(3\) est impair. La parité commune donne
+déjà \(v_2(n-m)\ge 1\), donc
+\(v_2(T(n)-T(m))=v_2(n-m)-1\).
+
+Pour \(k=0\), il n'y a pas de condition. Si les \(k+1\) premières
+parités de \(n\) et de \(m\) coïncident, l'hypothèse de récurrence
+donne \(v_2(n-m)\ge k\). Les \(k\) premiers pas suivent la même
+branche, donc \(v_2(T^k(n)-T^k(m))=v_2(n-m)-k\). La parité suivante
+est commune, donc cette valuation est au moins \(1\), et
+\(v_2(n-m)\ge k+1\).
+
+Une période \(p\) dès le rang \(0\) donne donc \(n\equiv T^p(n)\)
+modulo toute puissance de \(2\). Ces deux entiers positifs sont
+égaux, et l'orbite est un cycle. On ne le cherche pas par un
+balayage.
+
+Terras, *Acta Arith.* 30 (1976), théorème 1.2, lu sur le rendu du
+PDF, énonce la même équivalence : mêmes vecteurs d'encodage de
+longueur \(k\) si et seulement si congruence modulo \(2^k\).
+L'application du papier est \(T\). La preuve imprimée n'est pas
+recopiée. L'empreinte et le statut de lecture sont dans
+`prior_art.md`. Everett (1977) n'est pas rouvert. Steiner (1977)
+n'est pas ouvert : il reste la première lecture du cycle 016, qui
+n'est pas commencé.

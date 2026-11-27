@@ -527,7 +527,28 @@ divisions par \(4\), puis ce même cylindre, évite le résidu \(1\)
 pendant un temps arbitraire. Le coefficient \(3^t 2^{L-S}\) d'un
 seul vecteur est un corollaire du codage ; il n'est pas le théorème.
 Aucune orbite divergente n'est exclue. La moitié \(r\neq 1\) est un
-comptage. Terras (1976) et Everett (1977) ne sont pas relus.
+comptage. Everett (1977) n'est pas relu.
+
+Revue indépendante `6093792860` (PR #27, SHA
+`c6737c04df5adfc6cde037a0f6904365c4f0595a`) : B21 est confirmé. Le
+rang \(0\) du pont reste dans la classe. L'évitement vaut pour
+\(1\le t\le j+s-2\), avec \(s\ge\max(2,T-j+2)\). Pour \(m=4\) et
+\(s=6\), \(U^6(3497)=19925\) revient dans la classe au-dessus du
+départ, et \(U^8(3497)=701\) est le premier retour strict. La formule
+de \(U\) couvre les pairs. L'énoncé ne change pas.
+
+**Clôture élémentaire du cas \(R=1\), pas un cycle.** Pour \(T\),
+l'orbite de \(1\) est \(1\to 2\to 1\). Elle a des runs impairs de
+longueur \(1\) et ne descend pas sous \(1\) (X38). Pour tout \(n>1\)
+dont le premier run impair a longueur au plus \(1\), un itéré
+strict tombe sous \(n\) en au plus deux pas. Si tous les runs impairs
+ont longueur au plus \(1\), les termes impairs décroissent jusqu'à
+\(1\). C'est le codage \(r(M)=v_2(M+1)\) du cycle 002, pas une
+nouveauté, et rien pour \(R\ge 2\). La suite des longueurs de runs
+de \(5\) est constante, et \(5\) n'est pas périodique (X39). Une
+suite de parités périodique de période \(p\) dès le rang \(0\) force
+\(n=T^p(n)\). Terras (1976), théorème 1.2, lu, est la même
+congruence. Le cycle 016 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

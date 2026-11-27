@@ -176,4 +176,17 @@ pont de divisions par \(4\) sinon. Un seul vecteur de valuations a un
 coefficient \(3^t 2^{L-S}\) qui ne conserve pas la classe : c'est un
 corollaire du codage, pas une seconde preuve. Aucune orbite n'est
 exclue. Ne pas relancer ce certificat, ni une union finie de vecteurs
-de longueur bornée sur une seule classe.
+de longueur bornée sur une seule classe. La revue `6093792860`
+confirme B21. Le rang \(0\) reste dans la classe ; l'évitement
+commence au rang \(1\).
+
+## H11 — Runs impairs de longueur au plus 1 — FERMÉ (élémentaire, X38)
+Pour \(T\), aucun \(R\ge 1\) ne fait passer toute orbite positive de
+runs impairs bornés par \(R\) strictement sous son départ : l'orbite
+\(1\to 2\to 1\) a des runs de longueur \(1\). Pour \(n>1\), le cas
+\(R=1\) descend en au plus deux pas. Si tous les runs valent au plus
+\(1\), l'orbite atteint \(1\). La suite des longueurs de runs de
+\(5\) est périodique et \(5\) ne l'est pas (X39). Une suite de
+parités périodique dès le départ est un cycle. Ne pas relancer
+\(R=1\). La question ouverte commence à \(R\ge 2\), après Steiner
+(1977), non lu.
