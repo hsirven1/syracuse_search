@@ -165,3 +165,15 @@ classe l'est (X36). La fibre
 nulle, qui rencontre toutes les classes. La borne constante de la
 remarque 1.4 reste ouverte et n'est pas la prochaine question. Ne
 pas relire ce théorème pour en tirer une classe entière.
+
+## H10 — Retour uniforme dans une classe (axe A) — FERMÉ (B21)
+Pour \(U(n)=(3n+1)/2^{v_2(3n+1)}\), aucun triple \((m,a,T)\) ne fait
+revenir tout \(n>1\) de la classe \(a\pmod m\) dans la classe, en
+restant strictement plus petit, en au plus \(T\) pas (B21, X37). Le
+résidu autre que \(1\) échoue par comptage. La classe \(1\pmod m\)
+échoue par un cylindre de montée, direct si \(4\nmid m\), et après un
+pont de divisions par \(4\) sinon. Un seul vecteur de valuations a un
+coefficient \(3^t 2^{L-S}\) qui ne conserve pas la classe : c'est un
+corollaire du codage, pas une seconde preuve. Aucune orbite n'est
+exclue. Ne pas relancer ce certificat, ni une union finie de vecteurs
+de longueur bornée sur une seule classe.

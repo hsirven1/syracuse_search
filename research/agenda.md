@@ -10,34 +10,28 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif de la revue `6093505644` (X36 : la densité relative \(1\)
-ne dit pas que la classe entière échoue) n'a pas encore été relu. Ne
-pas ouvrir le cycle 015 avant cette relecture. Le cycle 014 reste le
-douzième cycle de la fenêtre ouverte par le cycle 003. Le premier
-commit de ce cycle est `0c90981`, daté du 26 novembre 2026 à 22:00:44
-UTC. Même après la relecture, ne pas ouvrir le cycle 015 avant le
-27 novembre 2026 à 22:01 UTC. Une confirmation sans objection ne
-justifie pas un treizième cycle dans cette fenêtre.
+B21 est écrit. Il attend une relecture indépendante. Même après cette
+relecture, ne pas ouvrir le cycle 016 avant le 27 novembre 2026 à
+23:17 UTC. Avec le cycle 015, la fenêtre des douze cycles a pour plus
+ancien le cycle 004 : le commit `8bc44f7` est du 26 novembre 2026 à
+23:16:52 UTC. Une confirmation sans objection ne justifie pas un
+treizième cycle dans cette fenêtre.
 
-## 1. [A] Classe de congruence contractée dans elle-même — PROCHAINE QUESTION (cycle 015), non entamée
-Les cycles 010 à 014 n'excluent aucune orbite divergente. Tao 2022
-règle presque tout élément de chaque classe fixée. Il ne garantit pas
-qu'une classe entière soit bonne (B20, X34, X35, X36). Ne pas raffiner
-cette densité, ni recopier la densité imprimée \(2^{-a}\).
+## 1. [B] Runs impairs bornés — PROCHAINE QUESTION (cycle 016), non entamée
+Les cycles 010 à 015 n'excluent aucune orbite divergente. B21 ferme
+seulement le retour uniforme dans une même classe. Ne pas rouvrir
+B21, Tao, les potentiels, le signe moins, le mot du cycle 006, ni
+\(5\cdot 2^k-1\).
 
-Pour l'application accélérée $U(n)=(3n+1)/2^{v_2(3n+1)}$, existe-t-il
-un module $m\ge 2$, un résidu $a$ et une borne $T$ tels que tout
-entier $n>1$ congru à $a$ modulo $m$ admette un temps $t\le T$ avec
-$U^t(n)<n$ et $U^t(n)\equiv a\pmod m$ ? Une réponse positive
-réduirait la classe à un segment fini. Le premier candidat de la
-porte est un seul vecteur de valuations, constant sur une classe
-modulo $2^L$ : l'affinité a pour coefficient $3^t 2^{L-S}$. S'il est
-déjà dans Terras, Everett ou Lagarias, ne pas le redémontrer, et
-traiter l'union finie de vecteurs. Ne pas rouvrir Tao, B17, B18, B19,
-le signe moins, le mot du cycle 006, la famille $5\cdot 2^k-1$, les
-conjectures 2 et 3 de Berg–Meinardus, ni les théorèmes 4.2.7 et
-4.3.10 de Mori. Ne pas ouvrir ce cycle avant la fin du blocage
-ci-dessus.
+Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
+\(1\)-cycle non trivial. Existe-t-il un entier \(R\ge 1\) tel que
+toute orbite positive dont chaque run impair a une longueur au plus
+\(R\) repasse strictement sous son départ ? Un mot périodique de runs
+bornés est un cycle : ne pas le chercher par force brute, et ne pas
+redémontrer les bornes de Simons–de Weger si le texte lu les contient
+déjà. Si Steiner exclut déjà toute orbite à runs bornés, et pas
+seulement les cycles, ne pas le redémontrer. Ne pas ouvrir ce cycle
+avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -48,6 +42,16 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093548562` (27 nov. 2026, SHA `8428d6cf`) : confirmation de
+  X36. Aucune correction. Cycle 015 ensuite : aucune classe ne revient
+  dans elle-même en temps uniforme (B21). Détail : [reviews.md](reviews.md).
+- Cycle 015 (27 nov. 2026) : pour \(U\), aucun triple \((m,a,T)\) ne
+  fait revenir toute la classe \(a\pmod m\) strictement plus bas en
+  au plus \(T\) pas (B21). Le résidu autre que \(1\) n'a aucun terme
+  positif plus petit que son minimum. La classe \(1\pmod m\) reçoit
+  un cylindre de montée, directement si \(4\nmid m\), après un pont
+  de divisions par \(4\) sinon. Pas une contrainte sur une orbite.
+  [cycle-015](cycles/cycle-015.md)
 - Revue `6093505644` (27 nov. 2026, SHA `8ec0299d`) : la densité
   \(2^{-(a+1)}\) est confirmée. La phrase « la classe entière ne
   l'est pas » est fausse pour \(f(N)=N+1\) (X36). Le théorème ne

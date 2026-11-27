@@ -508,6 +508,27 @@ ne garantit pas qu'une classe entière soit bonne. Aucune classe n'est
 entièrement exceptionnelle : cela reste vrai, et l'ensemble
 exceptionnel du témoin est vide. Le cycle 015 n'est pas ouvert.
 
+Revue indépendante `6093548562` (PR #27, SHA
+`8428d6cf3a98f91dcc2bfa102002c0de829c647e`) : X36 est confirmé.
+Aucune correction. Le cycle 014 n'est pas réécrit.
+
+**B21 — Aucune classe ne se contracte dans elle-même en temps borné**
+(cycle 015). Pour \(U(n)=(3n+1)/2^{v_2(3n+1)}\), il n'existe pas
+d'entiers \(m\ge 2\), \(a\) et \(T\ge 1\) tels que tout \(n>1\)
+congru à \(a\) modulo \(m\) admette un \(t\le T\) avec \(U^t(n)<n\)
+et \(U^t(n)\equiv a\pmod m\).
+
+Si le résidu dans \(\{0,\ldots,m-1\}\) n'est pas \(1\), le plus petit
+\(n_0>1\) de la classe n'a aucun positif de la classe strictement
+plus petit. Si le résidu est \(1\) et si \(4\) ne divise pas \(m\),
+le cylindre \(y=2^s q-1\) de A3 se place dans la classe et son temps
+de descente vaut \(s\). Si \(4\) divise \(m\), un nombre fini de
+divisions par \(4\), puis ce même cylindre, évite le résidu \(1\)
+pendant un temps arbitraire. Le coefficient \(3^t 2^{L-S}\) d'un
+seul vecteur est un corollaire du codage ; il n'est pas le théorème.
+Aucune orbite divergente n'est exclue. La moitié \(r\neq 1\) est un
+comptage. Terras (1976) et Everett (1977) ne sont pas relus.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.
