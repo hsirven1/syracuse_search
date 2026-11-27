@@ -94,8 +94,10 @@ Les deux familles $r_1=64$ et $r_k=\lfloor\beta o_k\rfloor\pm\lfloor\sqrt{o_k}\r
 pour $k\ge2$ ont le même rapport limite $\log_2 3$ (cycle 004 §8). Le signe
 plus donne $Q_k\to+\infty$, donc un réalisateur irrationnel. Le signe moins
 donne $Q_k\to-\infty$ : B7 ne s'applique pas, et l'irrationalité reste ouverte.
-Le cycle 009 ajoute seulement la borne $\max(|a|,b)\ge(2^{66}+2)/3$ (B14),
-l'absence de période (X24) et l'absence de forme polynomiale (X25).
+Le cycle 009 ajoute la valuation $v_2(a-2b)=66$, donc la borne
+$\max(|a|,b)\ge(2^{66}+2)/3$ (B14), l'absence de période par l'infinité
+de zéros (X24) et l'absence de forme polynomiale (X25). La phrase qui
+n'excluait aucune hauteur supérieure est fausse (X27).
 Les placements de zéros qui ne se ramènent pas au mot de taux
 $\lambda>\log_2 3$ en supprimant un préfixe fini restent ouverts, ainsi que
 les runs quasi linéaires.
@@ -254,14 +256,24 @@ correction. Ce n'est pas une seconde preuve. Le cycle 009 vient après.
 **B14 — Hauteur du signe moins** (PROUVÉ, cycle 009 §3). Pour le mot
 à un zéro par bloc avec $r_1=64$ et, pour $k\ge2$,
 $r_k=\lfloor\beta o_k\rfloor-\lfloor\sqrt{o_k}\rfloor$, si
-$\sigma=a/b$ est irréductible et $b>0$, alors $|a-2b|\ge2^{66}$ et
-$\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$. En particulier $\sigma\neq2$.
-Le mot n'est pas ultimement périodique (X24) : $r_k\to+\infty$. La
-suite $o_j$ n'est pas polynomiale, même à un $O(\log)$ près, sur aucune
-progression arithmétique, donc il n'y a pas de réduction terme à terme
-du type B2 ou B11 (X25). L'irrationalité reste ouverte : B7 ne
-s'applique pas ($Q_k\to-\infty$, cycle 004), et VW 1989 n'est pas
-appliqué. Rien sur (C) ni sur Syracuse.
+$\sigma=a/b$ est irréductible et $b>0$, alors $v_2(a-2b)=66$,
+$|a-2b|\ge2^{66}$ et $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$. En particulier
+$\sigma\neq2$. La valuation exclut aussi des hauteurs supérieures, par
+exemple $2+2^{67}$ (X27). La borne de hauteur seule ne tranche pas
+au-dessus du seuil : $2+2^{66}$ satisfait $v_2(a-2b)=66$. Le mot n'est
+pas ultimement périodique (X24) : il a une infinité de zéros et
+$r_k\to+\infty$. La phrase générale sans zéro est fausse pour $1^\infty$
+(X26). La suite $o_j$ n'est pas polynomiale, même à un $O(\log)$ près,
+sur aucune progression arithmétique, donc il n'y a pas de réduction
+terme à terme du type B2 ou B11 (X25). L'irrationalité reste ouverte :
+l'apériodicité n'est pas une réfutation de H3, B7 ne s'applique pas
+($Q_k\to-\infty$, cycle 004), et VW 1989 n'est pas appliqué. Rien sur
+(C) ni sur Syracuse.
+
+Revue indépendante `6082358798` (PR #27, SHA
+`886b3059d09f30a5a349b9423455697f408f4333`) : B14, X24 et X25 sont
+confirmés. Les quatre phrases ci-dessus sont la correction. Ce n'est
+pas une seconde preuve, ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

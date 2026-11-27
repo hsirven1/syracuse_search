@@ -3,8 +3,9 @@
 
 La preuve est dans research/cycles/cycle-009.md. Ce script ne la remplace pas.
 Il vérifie 3^64, le run r_2=29, la chaîne entière r_9≥80, le déséquilibre
-des facteurs de longueur 66, la valuation exacte 66 du cas σ=2, et la
-constante de hauteur (2^66+2)/3.
+des facteurs de longueur 66, les neuf premiers runs, 4 r_k > o_k jusqu'à
+k=18, l'écart du candidat σ=2 (valuation 66, distincte de 96), les témoins
+2+2^67 et 2+2^66, la constante (2^66+2)/3, et U(1)=1.
 
 Usage : python3 research/checks/cycle009_minus_sign.py
 """
@@ -97,26 +98,55 @@ def chain_and_imbalance():
 
 
 def sigma_two_valuation():
-    """Si σ=2, au rang m=2 la valuation reste 66, pas 3+o_3."""
-    seq = runs(3)
+    """Le candidat σ=2 donne v_2(A_2)=66. Le reste de la série vaut 96."""
+    seq = runs(4)
     o = [0]
     rs = []
     for _, oi, r in seq:
         rs.append(r)
         o.append(oi + r)
-    # o[0]=o_1=0, o[1]=o_2, o[2]=o_3 ; rs[1]=r_2.
+    # o[0]=o_1=0, o[1]=o_2, o[2]=o_3, o[3]=o_4 ; rs[1]=r_2.
     if o[1] != 64 or rs[1] != 29 or o[2] != 93:
         raise AssertionError((o, rs))
-    # P_2 = 2^{1+0} 3^{64} + 2^{2+64}
+    if rs[2] * 4 <= o[2] or o[3] < o[2] + 1 or 4 + o[3] <= 96:
+        raise AssertionError(("reste", o, rs))
+    # P_2 = 2^{1+0} 3^{64} + 2^{2+64}, candidat (a, b) = (2, 1).
     p2 = 2 * 3 ** 64 + 2 ** 66
     a2 = 2 * 3 ** 64 - p2
-    if a2 != -(2 ** 66) or v2(a2) != 66:
+    if a2 != -(2 ** 66) or v2(a2) != 66 or v2(a2) == 96:
         raise AssertionError(("A2", a2, v2(a2)))
-    if 3 + o[2] <= 66:
-        raise AssertionError("valuation requise")
-    # Le terme j=3 a une valuation strictement plus grande.
-    if v2(2 ** (3 + o[2])) != 3 + o[2] or 3 + o[2] != 96:
+    if v2(2 ** (3 + o[2])) != 96:
         raise AssertionError("terme 3")
+    if v2(2 ** (4 + o[3])) <= 96:
+        raise AssertionError("terme 4")
+
+
+def review_witnesses():
+    seq = runs(18)
+    expected = [64, 29, 45, 69, 107, 166, 259, 405, 636]
+    got = [r for _, _, r in seq[:9]]
+    if got != expected:
+        raise AssertionError(got)
+    for k, o, r in seq[1:]:
+        if 4 * r <= o:
+            raise AssertionError((k, o, r))
+    threshold = (2 ** 66 + 2) // 3
+    high = 2 + 2 ** 67
+    boundary = 2 + 2 ** 66
+    if v2(high - 2) != 67 or high <= threshold:
+        raise AssertionError("2+2^67")
+    if v2(boundary - 2) != 66 or boundary <= threshold:
+        raise AssertionError("2+2^66")
+    one = 3 * 1 + 1
+    if v2(one) != 2 or one // 4 != 1:
+        raise AssertionError("U(1)")
+    for n in (5, 9, 13):
+        step = 3 * n + 1
+        u = step
+        while u % 2 == 0:
+            u //= 2
+        if n % 4 != 1 or u >= n:
+            raise AssertionError((n, u))
 
 
 def height_constant():
@@ -142,9 +172,12 @@ def main():
     chain_and_imbalance()
     print("PASS chaine r_k > o_k/4 : r_9>=80, et r_4>=66 ; facteurs 64 uns contre 66")
     sigma_two_valuation()
-    print("PASS sigma=2 : v_2(A_2)=66 < 96=3+o_3")
+    print("PASS candidat sigma=2 : v_2(A_2)=66, reste de la serie de valuation 96")
+    review_witnesses()
+    print("PASS neuf runs, 4 r_k > o_k jusqu'a k=18, temoins 2+2^67 et 2+2^66")
     height_constant()
     print("PASS max(|a|,b) >= (2^66+2)/3 > 2^64")
+    print("PASS U(1)=1, et U(n)<n pour n=5, 9, 13")
 
 
 if __name__ == "__main__":

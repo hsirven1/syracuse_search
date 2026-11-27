@@ -2,12 +2,17 @@
 
 Revues déjà traitées : [reviews.md](reviews.md). Ne pas reprendre un identifiant qui y figure.
 
-La **première entrée** est la prochaine question à traiter. Un cycle = une expérience ciblée :
+La **première entrée numérotée** est la prochaine question à traiter, sauf si le blocage ci-dessous est encore ouvert. Un cycle = une expérience ciblée :
 énoncé réfutable → contre-exemple (symbolique d'abord, calcul exact borné ensuite) → preuve ou
 réfutation → comparaison à la littérature → `cycles/cycle-NNN.md`. Axes : **A** fonctions de descente,
 certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opérateurs de transfert,
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
+
+## Blocage
+Les corrections de la revue `6082358798` sont dans ce commit. Ne pas
+engager le cycle 010 tant qu'une nouvelle revue indépendante ne les a
+pas confirmées.
 
 ## 1. [A] Descente accélérée de $5\cdot2^k-1$ — PROCHAINE QUESTION (cycle 010)
 Pour $k\ge2$, $n_k=5\cdot2^k-1\equiv3\pmod4$, donc le pas accéléré
@@ -15,10 +20,11 @@ $U(n)=(3n+1)/2^{v_2(3n+1)}$ vérifie $U(n_k)>n_k$. Le temps
 $\tau(n_k)=\min\{t\ge1:U^t(n_k)<n_k\}$ admet-il une borne explicite en
 $k$, par une trajectoire en forme close ? Sinon, la montée dépasse-t-elle
 $2k$ pas accélérés pour des $k$ arbitrairement grands ? Écarter $a=1$
-(Mersenne) et la classe $n\equiv1\pmod4$. Porte d'antériorité d'abord.
-Si aucun mécanisme clos n'apparaît après un contre-exemple borné,
-s'arrêter. Ne pas rouvrir le signe moins, le mot du cycle 006, B10, B13
-ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
+(Mersenne) et la classe $n\equiv1\pmod4$ pour $n>1$, qui vérifie
+$U(n)<n$. Le point $n=1$ est fixe : $U(1)=1$. Porte d'antériorité
+d'abord. Si aucun mécanisme clos n'apparaît après un contre-exemple
+borné, s'arrêter. Ne pas rouvrir le signe moins, le mot du cycle 006,
+B10, B13 ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -29,6 +35,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082358798` (27 nov. 2026, SHA `886b3059`) : B14, X24 et X25
+  confirmés. Correction : $1^\infty$ réfute la phrase générale sur les
+  runs périodiques (X26) ; la réciproque est H3, pas une réfutation ;
+  $2+2^{67}$ est exclu par $v_2(a-2b)=66$ (X27) ; $U(1)=1$. Le cycle
+  010 n'est pas engagé. Détail : [reviews.md](reviews.md).
 - Revue `6082253067` (27 nov. 2026, SHA `e7c52409`) : B13 confirmée.
   Aucune correction. Cycle 009 ensuite : le signe moins n'est pas
   périodique (X24), $o_j$ n'est pas polynomiale sur une progression

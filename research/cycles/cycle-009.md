@@ -9,9 +9,12 @@ Le mot n'est pas ultimement périodique (X24). La fonction $o_j$ n'est pas
 polynomiale, même à $O(\log)$ près, sur aucune progression arithmétique :
 il n'y a pas de réduction terme à terme du type B2 ou B11 (X25). Si la
 somme de réalisation $\sigma=a/b$ est rationnelle irréductible avec $b>0$,
-alors $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$ (B14). Ce n'est pas une exclusion
-de $\mathbb Q$, ni une preuve de Syracuse. B7 n'est pas réutilisé pour
-conclure : son hypothèse $\sup Q_m=+\infty$ est fausse sur ce mot.
+alors $v_2(a-2b)=66$ et $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$ (B14). La
+valuation exclut aussi des hauteurs supérieures, par exemple $2+2^{67}$
+(X27). La borne de hauteur, seule, ne tranche pas au-dessus du seuil.
+Ce n'est pas une exclusion de $\mathbb Q$, ni une preuve de Syracuse.
+B7 n'est pas réutilisé pour conclure : son hypothèse $\sup Q_m=+\infty$
+est fausse sur ce mot.
 
 ## 0. Question traitée, et porte d'antériorité
 
@@ -74,16 +77,35 @@ $r_{k+1}/r_k\to\log_2 3$. De $8<9$ on tire $\log_2 3>3/2$.
 
 ## 2. Pas de queue périodique (X24)
 
-**Lemme.** Les runs $r_k$ ne sont pas bornés. Le mot $w$ n'est pas
-ultimement périodique.
+**Lemme.** Pour $k\ge2$, $r_k>o_k/4$ et $r_k\to+\infty$. Le mot $w$
+contient une infinité de zéros et n'est pas ultimement périodique.
 
-Un mot binaire ultimement périodique a des runs bornés par la longueur
-d'une période. Ici $r_k>o_k/4$ et $o_k\to+\infty$, donc $r_k\to+\infty$.
+Le cycle 004 §8 donne $r_k>o_k/4$ et $o_k\to+\infty$ pour $k\ge2$, donc
+$r_k\to+\infty$. Chaque bloc est $0\,1^{r_k}$, donc il y a une infinité
+de zéros.
 
-La réciproque est fausse : l'absence de période n'exclut pas $\mathbb Q$.
-C'est la conjecture H3. Le cycle 006 §2 le dit déjà pour un autre mot.
-Les réalisations rationnelles classiques, $(1^d0)^\infty$ pour $c=0$,
-restent hors de ce mot.
+Supposons qu'à partir d'un indice la suite des symboles soit périodique
+de période $p\ge1$. Cette queue contient encore une infinité de zéros,
+donc un bloc de période contient au moins un zéro. Aucun run de $1$
+contenu dans la queue n'a alors longueur $\ge p$ : $p$ uns consécutifs
+couvriraient toutes les positions modulo $p$, et le bloc serait $1^p$.
+Comme $r_k\to+\infty$, tous les runs de $1$ sauf un nombre fini ont
+longueur $\ge p$. Un seul peut chevaucher le début de la queue. L'un
+des autres est donc contenu dans la queue. Contradiction.
+
+La phrase « tout mot binaire ultimement périodique a des runs bornés
+par la longueur d'une période » est fausse. Le mot $1^\infty$ a la
+période $1$ et un run infini (X26). La preuve ci-dessus n'utilise pas
+cette phrase : elle utilise les zéros de $w$.
+
+La réciproque de l'implication « itinéraire ultimement périodique
+$\Rightarrow$ réalisation rationnelle » est la conjecture H3. Elle n'est
+pas réfutée : aucun rationnel de $\mathbb Z_2$ à itinéraire apériodique
+n'est produit. L'apériodicité de $w$ n'entraîne pas
+$\xi_w\notin\mathbb Q$. Le cycle 006 §2 le dit déjà pour un autre mot.
+Les réalisations $(1^d0)^\infty$, pour $c=0$, restent hors de ce mot.
+Bernstein–Lagarias 1996, §1, (1.5)–(1.6), cité par la revue
+`6082358798`, n'a pas été relu et n'est pas une prémisse.
 
 ## 3. Borne de hauteur (B14)
 
@@ -93,8 +115,12 @@ $$
 \qquad\text{et}\qquad
 \max(|a|,b)\ge\frac{2^{66}+2}{3}>2^{64}.
 $$
-En particulier $\sigma\neq2$. Cela n'exclut aucun rationnel de hauteur
-supérieure.
+En particulier $\sigma\neq2$. Cette valuation exclut aussi des
+rationnels de hauteur supérieure au seuil. Pour $a=2+2^{67}$ et $b=1$,
+$v_2(a-2b)=67\neq66$ et $\max(|a|,b)=2+2^{67}>(2^{66}+2)/3$ (X27). La
+borne de hauteur, à elle seule, ne tranche pas au-dessus du seuil :
+$a=2+2^{66}$ et $b=1$ satisfont $v_2(a-2b)=66$ et
+$\max(|a|,b)=2+2^{66}>(2^{66}+2)/3$.
 
 **Preuve.** On reprend le calcul de valuation du cycle 003 §2 au seul
 rang $m=1$, sans l'hypothèse $\sup Q=+\infty$. Ici $o_1=0$, $G_1=2$,
@@ -129,14 +155,19 @@ $$
 Enfin $2^{66}+2-3\cdot2^{64}=2^{64}+2>0$, donc cette borne dépasse
 $2^{64}$.
 
-Le cas $(a,b)=(2,1)$ est le témoin $\sigma=2$ : $A_1=0$, dont la
-valuation n'est pas $66$. Pour le contrôle du rang $m=2$,
-$P_2=2\cdot3^{64}+2^{66}$ et $2\cdot3^{64}-P_2=-2^{66}$, de valuation
-$66$, alors que la formule générale demanderait $3+o_3=96$. ∎
+Le cas $(a,b)=(2,1)$ donne $A_1=0$, dont la valuation n'est pas $66$.
+Pour la série elle-même, au rang $m=2$, le terme $j=3$ vaut $2^{96}$.
+Pour $j\ge4$, $j+o_j\ge4+o_4$. Comme $r_3>o_3/4>0$, on a
+$o_4\ge o_3+1$ et $4+o_4\ge98>96$. La valuation du reste est donc $96$,
+et $v_2(A_2)=96$ dès que $b$ est impair. Pour le candidat $\sigma=2$,
+$P_2=2\cdot3^{64}+2^{66}$ et $A_2=2\cdot3^{64}-P_2=-2^{66}$, de
+valuation $66\neq96$. C'est l'écart du candidat, pas une exception à
+$v_2(A_m)=m+1+o_{m+1}$. ∎
 
-Les rangs $m\ge2$ ne sont pas repris. Le cycle 004 montre déjà
-$Q_k\to-\infty$ : la comparaison archimédienne de B7 devient plus faible
-que la borne ci-dessus, et elle ne devient jamais une exclusion.
+Le rang $m=2$ ne sert qu'à séparer le candidat $\sigma=2$ du reste de la
+série. La comparaison archimédienne des rangs suivants n'est pas reprise.
+Le cycle 004 montre déjà $Q_k\to-\infty$ : elle devient plus faible que
+la borne ci-dessus, et elle ne devient jamais une exclusion.
 
 ## 4. Pas de forme polynomiale, donc pas de réduction terme à terme (X25)
 
@@ -212,8 +243,11 @@ font pas partie.
 
 ## 6. Ce que ce cycle ne montre pas
 
-- $\xi_w\notin\mathbb Q$, ni $\sigma\notin\mathbb Q$. La borne B14 laisse
-  toute hauteur $\ge(2^{66}+2)/3$ ouverte.
+- $\xi_w\notin\mathbb Q$, ni $\sigma\notin\mathbb Q$. Parmi les fractions
+  irréductibles $a/b$ avec $b>0$ impair et $v_2(a-2b)=66$, la borne de
+  hauteur laisse ouvertes celles qui vérifient
+  $\max(|a|,b)\ge(2^{66}+2)/3$. Elle n'épargne pas toute hauteur
+  supérieure : $2+2^{67}$ est exclu par la valuation (X27).
 - Une application de VW 1989, de Bundschuh 1974, ou de B7. Le mot du
   cycle 006 n'est pas rouvert.
 - L'égalité réelle de la série et son égalité $2$-adique. X14 reste en
@@ -256,7 +290,7 @@ rencontrées dans la recherche (SSRN, arXiv:2610.02601) n'ont pas été lues.
 - `prior_art.md` : pas de théorème nouveau adopté.
 - `abandoned.md` : ne pas relancer ce mot sans outil nouveau.
 - `agenda.md` : prochaine question sur l'axe A.
-- `reviews.md` : revue `6082253067`.
+- `reviews.md` : revues `6082253067` et `6082358798`.
 
 ## 10. Prochaine question
 
@@ -272,9 +306,14 @@ $k$, donnée par une trajectoire en forme close, ou la montée dépasse-t-elle
 $2k$ pas accélérés pour des $k$ arbitrairement grands ?
 
 Écarter $a=1$ (montée de Mersenne, déjà dans le dépôt) et la classe
-$n\equiv1\pmod4$, qui descend en un pas de $U$. Ne pas rouvrir le mot
-du signe moins, le mot du cycle 006, B10, B13 ni X21. Si aucun mécanisme
-clos n'apparaît après l'antériorité et un contre-exemple borné, s'arrêter.
+$n\equiv1\pmod4$ pour $n>1$, qui descend en un pas de $U$. Pour
+$n=4m+1$ avec $m\ge1$, $3n+1=4(3m+1)$, donc $v_2(3n+1)\ge2$ et
+$U(n)\le(3n+1)/4$. L'inégalité $(3n+1)/4<n$ équivaut à $n>1$. Le cas
+$n=1$ n'est pas une descente : $3\cdot1+1=4$ et $U(1)=1$. Ne pas
+rouvrir le mot du signe moins, le mot du cycle 006, B10, B13 ni X21.
+Si aucun mécanisme clos n'apparaît après l'antériorité et un
+contre-exemple borné, s'arrêter. Ce cycle n'est pas engagé tant que
+la revue `6082358798` n'a pas été revue à nouveau.
 
 ## 11. Reproduire
 
@@ -282,8 +321,35 @@ clos n'apparaît après l'antériorité et un contre-exemple borné, s'arrêter.
 python3 research/checks/cycle009_minus_sign.py
 ```
 
-Sortie attendue : quatre lignes `PASS`. Elles couvrent $3^{64}$ et
+Sortie attendue : six lignes `PASS`. Elles couvrent $3^{64}$ et
 $\lfloor64\log_2(3/2)\rfloor=37$, la chaîne $r_9\ge80$ avec $r_4\ge66$,
-les deux facteurs de longueur $66$, la valuation $66<96$ du témoin
-$\sigma=2$, et $(2^{66}+2)/3>2^{64}$. L'irrationalité n'est pas un
+les deux facteurs de longueur $66$, les neuf premiers runs et
+$4r_k>o_k$ pour $2\le k\le18$, le candidat $\sigma=2$ avec
+$v_2(A_2)=66\neq96$, les témoins $2+2^{67}$ et $2+2^{66}$, la constante
+$(2^{66}+2)/3>2^{64}$, et $U(1)=1$. L'irrationalité n'est pas un
 contrôle du script : elle reste ouverte.
+
+## 12. Revue `6082358798`
+
+Revue indépendante sur le SHA
+`886b3059d09f30a5a349b9423455697f408f4333` (PR #27). B14, X24 dans la
+portée corrigée, et X25 sont confirmés. Quatre phrases sont corrigées
+dans cette révision.
+
+La majoration des runs de tout mot ultimement périodique est fausse
+pour $1^\infty$ (X26). La preuve de X24 passe par l'infinité de zéros.
+« La réciproque est fausse » est retiré : la réciproque est la
+conjecture H3. Bernstein–Lagarias 1996 n'a pas été relu.
+« Cela n'exclut aucun rationnel de hauteur supérieure » est faux :
+$2+2^{67}$ a une hauteur supérieure et $v_2(a-2b)=67$ (X27). La fraction
+$2+2^{66}$ montre que la borne de hauteur seule ne tranche pas au-dessus
+du seuil. Au §10, la descente $n\equiv1\pmod4$ est restreinte à $n>1$,
+car $U(1)=1$.
+
+L'irrationalité du mot reste ouverte. Le cycle 010 n'est pas engagé :
+ces corrections attendent une nouvelle revue. Le contrôle indiqué par
+la revue est repris pour les neuf premiers runs, l'inégalité
+$4r_k>o_k$ jusqu'à $k=18$, la valuation $96$ et les deux témoins de
+hauteur. Ce segment fini n'est pas la preuve. Le décompte des fenêtres
+de longueur $66$ n'est pas repris : le facteur $1^{66}$ suit déjà de
+$r_9\ge80$.
