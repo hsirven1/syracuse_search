@@ -9,33 +9,34 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [A] Horizon minimal d'un certificat à poids borné — PROCHAINE QUESTION (cycle 005)
-Hypothèse : $0<\ell\le W\le h$, $\rho<1$, et pour tout $n\ge N_0$ il existe $t\le B(n)$ avec
-$T^t(n)\,W(T^t n)\le\rho\, n\, W(n)$. Lemme réfutable : une constante explicite $C$ vérifie
-$B(2^L-1)\ge\delta L-C$ pour tout $L$ assez grand — la chaîne traverse la montée de Mersenne
-(A2), atteint l'ordre de $3^L$, puis redescend — ou bien un triplet $(\ell,h,\rho)$ et une
-fonction $B(n)=o(\log n)$ qui contractent tous les Mersenne. Comparer $C$ à la borne
-$\ge6{,}14\log n$ d'Applegate–Lagarias 2003, sans refaire leur programme linéaire.
-Garde-fou : Conway / Kurtz–Simon. Dépend : A2, A5. Une seule preuve ou un contre-exemple explicite.
+## 1. [B] Frontière de Tschakaloff sur un run quasi linéaire — PROCHAINE QUESTION (cycle 006)
+Mot à un zéro par bloc, $r_j=j+[j\text{ impair}]$. La réalisation 2-adique est-elle une
+combinaison $\mathbb Q$-linéaire de deux valeurs $f_q(\alpha_i)$ ? Si oui, l'un des énoncés
+de Bézivin, Bundschuh ou Amou–Väänänen l'exclut-il de $\mathbb Z_{(2)}$ ? Lire l'énoncé avant
+toute preuve et y vérifier l'obstruction $\Gamma(2,0)<\gamma$. Dépend : B1, B2. Pas une
+relecture de VW 1989.
 
-## 2. [B] Frontière de la méthode de Tschakaloff (H5)
-Quelles familles de mots se ramènent à des valeurs $f_q(\alpha)$ ? Runs $cj+d+p_j$ ($p$ périodique) ⇒ $l\ge2$,
-hors de portée de VW ($\Gamma(2,0)<\gamma$). Rechercher des mesures p-adiques plus fortes (Bézivin, Bundschuh,
-Amou–Väänänen…) **avant** toute tentative de preuve. Dépend : B2.
-
-## 3. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles
+## 2. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles
 Lire Berg–Meinardus, Wirsching (LNM 1681), Mori 2024 ; extraire **un** énoncé réfutable (par ex. une
 prédiction d'un tronqué fini) avant tout calcul. Documentaire d'abord. Aucune dépendance.
 
-## 4. [B, long terme] (C) densité orbitale positive (H1)
+## 3. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
 (H) ⇒ (C) uniforme, désormais prouvé (B6), avec $\eta_N\ge1/(A+1)$. (H) elle-même est la
 conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 
-## 5. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
+## 4. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 005 (26 nov. 2026) : si $\rho h/\ell\le3/2$, alors $5\cdot2^t>2\cdot3^L$
+  pour tout temps de contraction de $2^L-1$ (B10). Sans cette hypothèse, X21
+  contracte chaque Mersenne en un pas. Le coefficient reste sous la borne
+  d'Applegate–Lagarias 2003. [cycle-005](cycles/cycle-005.md)
+- Revue `6081702521` (26 nov. 2026, SHA `7120654`) : comparaisons $Q_k>k$ et
+  $Q_k<0$, borne $k+3$ et préfixe fini confirmés. Irrationalité du signe moins
+  laissée ouverte, déjà dans le texte. Aucune correction. Cycle 005 ensuite.
+  Détail : [reviews.md](reviews.md).
 - Revue `6081622758` (26 nov. 2026, SHA `3bdc5da`) : proposition du seuil
   confirmée. Le test du signe plus compare désormais $Q_k>k$. Le signe moins
   n'exclut aucun réalisateur. Prochaine question non entamée.

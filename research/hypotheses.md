@@ -61,13 +61,17 @@ Exemples : $r_j=cj+d+p_j$ avec $p$ périodique non constant, $r_j=\lfloor j/P\rf
 La réalisation devient une combinaison de $l\ge2$ valeurs de Tschakaloff ; or
 $\Gamma(2,0)=(5-\sqrt{17})/4\approx0{,}219<\gamma=1-\log2/\log3\approx0{,}369$ :
 VW 1989 ne s'applique plus. Il faut d'autres résultats p-adiques (à rechercher) ou une obstruction.
+Prochaine question, une seule famille : $r_j=j+[j\text{ impair}]$, puis Bézivin, Bundschuh
+ou Amou–Väänänen sur l'énoncé lu. Pas une revue générale.
 
-## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — CANDIDAT
-Si $0<\ell\le W\le h$ réels, $\rho<1$, et tout $n\ge N_0$ admet $t\le B(n)$ avec
-$T^t(n)W(T^tn)\le\rho\,nW(n)$, alors $B(n)\ge\delta\log_2n-O(1)$ pour une infinité de $n$.
-Esquisse : la chaîne vérifie $n_k\le(h/\ell)\rho^kn_0$ ; partant de $2^L-1$, elle doit sauter
-la montée (temps $L$, valeur $3^L-1$) puis redescendre de $\beta L-O(1)$ pas au moins.
-Probablement classique ; à comparer à Applegate–Lagarias (bornes inférieures de temps d'arrêt).
+## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — CAS PARTICULIER PROUVÉ ; ÉNONCÉ SANS SEUIL RÉFUTÉ
+Sans hypothèse sur $K=\rho h/\ell$, l'esquisse est fausse (X21) : $\ell=1$, $h=2$,
+$\rho=5/6$ contracte chaque $2^L-1$ en un pas. Si $K\le3/2$, B10 donne
+$5\cdot2^t>2\cdot3^L$, donc $B(2^L-1)\ge\delta L-\log_2(5/2)$ pour tout $L\ge2$.
+Le coefficient reste sous Applegate–Lagarias 2003, (4) et théorème 1.1. L'existence
+d'un certificat valable pour tout entier impliquerait l'entrée dans un segment
+fini : non construite ici. Ne pas relancer la borne $\delta L$ sans l'hypothèse
+$K\le3/2$.
 
 ## H7 — Potentiels cohomologues $V(n)=\log_2(n+1)+c\,v_2(n+1)$ (axe A) — OBSERVATION
 Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutralise Mersenne),

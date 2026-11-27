@@ -141,6 +141,22 @@ L'inégalité sur $w_{16+t}$ est large. Le signe moins n'est pas exclu comme
 itinéraire d'un entier : seule son irrationalité reste ouverte. Ce n'est pas
 une seconde preuve de B9, ni le cycle suivant.
 
+Revue indépendante `6081702521` (PR #27, SHA `7120654a69a0bd4849816b2e83a60dfbf79d6d77`) :
+les comparaisons $Q_k>k$ et $Q_k<0$, la borne $Q_k>k+3$ pour $k\ge2$ et
+l'invariance par préfixe fini sont confirmées. L'irrationalité du signe
+moins reste ouverte, comme le §8 le dit déjà. Aucun changement au texte de
+B9. Ce n'est pas une seconde preuve, ni le cycle suivant.
+
+**B10 — Horizon Mersenne d'un poids borné** (PROUVÉ, cycle 005 §5).
+Si $0<\ell\le W\le h$, $\rho<1$ et $K=\rho h/\ell\le3/2$, tout temps de
+contraction $t$ de $2^L-1$ ($L\ge2$) vérifie $5\cdot2^t>2\cdot3^L$. Donc
+$B(2^L-1)\ge\log_2 3\cdot L-\log_2(5/2)$. Mécanisme : l'ascension A2 reste
+strictement au-dessus du facteur $3/2$, puis $H(T(n))>H(n)-1$ à chaque pas,
+avec $H(n)=\log_2(n+1)$. Si $K>3/2$, l'énoncé sans hypothèse est faux
+(X21). Le coefficient de tête est inférieur aux bornes d'Applegate–Lagarias
+2003 sur le temps d'arrêt total ; leur programme d'arbres n'est pas refait.
+Aucun certificat global n'est construit.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

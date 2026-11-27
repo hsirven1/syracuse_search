@@ -626,3 +626,26 @@ $2^{o_k+r_k+k+1}<3^{o_k}+P_k$ au signe moins. Ce segment n'est pas la preuve.
 Le script du dépôt s'arrête à $k=16$, comme annoncé. Aucune source
 supplémentaire n'a été lue. Ce n'est pas un nouveau cycle. La prochaine
 question de l'agenda n'est pas abordée.
+
+## 15. Revue `6081702521`
+
+Revue indépendante sur le SHA `7120654a69a0bd4849816b2e83a60dfbf79d6d77`
+(26 novembre 2026). Marqueur `SYRACUSE_INDEPENDENT_REVIEW`. Elle confirme les
+comparaisons corrigées et la portée du §8. Ce n'est pas une seconde preuve,
+ni une correction.
+
+- Le signe plus compare $2^{o_k+r_k+1}$ à $3^{o_k}+P_k$, donc $Q_k>k$. Le
+  signe moins conserve $2^{o_k+r_k+k+1}$, donc $Q_k<0$. Les §§10 et 14
+  décrivent ces exposants. Pour $k\ge2$, la borne écrite donne déjà
+  $Q_k>k+3$. L'inégalité $w_{16+t}\ge w_{16}\cdot(11/10)^t$ reste large,
+  avec égalité en $t=0$.
+- Pour le signe moins, $Q_k\to-\infty$ laisse B7 inapplicable. Les inverses
+  affines conservent la rationalité dans les deux sens. L'irrationalité de
+  cette famille reste ouverte. Le texte du §8 dit déjà cela : aucune phrase
+  n'est à reprendre.
+- Le segment $2\le k\le16$ du script et le contrôle jusqu'à $k=18$ ne sont
+  pas la preuve. Aucune source supplémentaire n'a été lue.
+
+La proposition du seuil, X20 et B9 restent dans l'état du §14. Cette
+confirmation ne modifie pas le cycle 004. La question suivante est le
+cycle 005.
