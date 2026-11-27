@@ -29,6 +29,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082191024` (27 nov. 2026, SHA `ff58fed`) : B13 confirmée.
+  La définition de $t_*$ est corrigée pour $K\le1/2$. La constante $C$
+  est $\log_2 K+J(\log_2 3)^2$. La forme uniforme de B10 n'est plus
+  dite toujours plus serrée. Prochaine question inchangée, non entamée.
+  Détail : [reviews.md](reviews.md).
 - Revue `6082099628` (27 nov. 2026, SHA `eeaeb41`) : X23 et
   l'inégalité $P(m)\ge n$ confirmés. La phrase « premier point de
   $\Sigma$ » est vraie sous l'hypothèse de collision ; elle est conservée.
@@ -37,8 +42,8 @@ Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`)
 - Cycle 008 (27 nov. 2026) : si un poids borné certifie une contraction
   $\Phi(T^t(n))\le\rho\Phi(n)$ pour tout $n\ge N_0$, alors
   $B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$ (B13). La
-  constante ne dépend que de $K$ et de $\rho$. Pour $K\le3/2$, B10 reste
-  plus serré sur les Mersenne. [cycle-008](cycles/cycle-008.md)
+  constante est $C=\log_2 K+J(\log_2 3)^2$. Pour $K\le3/2$, la borne
+  directe sur les Mersenne est $t>\delta L-\log_2 K$. [cycle-008](cycles/cycle-008.md)
 - Revue `6082060844` (27 nov. 2026, SHA `a60a1a6`) : B12 confirmée.
   L'objection de fermeture est réfutée (X23). L'inégalité $P(m)\ge n$
   est justifiée. Les théorèmes 4.2.7 et 4.3.10 restent non adoptés.

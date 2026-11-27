@@ -77,14 +77,18 @@ par $q=81/16$. Ce n'est pas la prochaine question.
 ## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — PROUVÉ (B13)
 L'énoncé initial est prouvé : si $0<\ell\le W\le h$, $0<\rho<1$, et si tout
 $n\ge N_0$ admet un temps de contraction $t\le B(n)$ de $\Phi(n)=n\,W(n)$, alors
-$B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$. La constante $C$ ne
-dépend que de $K=\rho h/\ell$ et de $\rho$ (cycle 008 §4–§5). Aucun poids borné
-ne rend la prémisse vraie avec $B(n)=o(\log n)$. X21 ne la réfute pas : $\ell=1$,
-$h=2$, $\rho=5/6$ certifie les Mersenne seulement, en un pas. Il réfute l'obstruction
-locale sans seuil. Si $K\le3/2$, B10 reste plus serré sur les Mersenne :
-$3\cdot2^t>2\cdot3^L$, donc $B(2^L-1)\ge\delta L-\log_2(3/2)$. La forme sans poids
-$T^t(n)\le\rho n$ est le cas $K=\rho$ de la même estimation :
-$\rho\cdot2^t>3^L$ (cycle 008 §1). Si $\rho\le0$, aucune contraction n'existe.
+$B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$. La constante
+$C=\log_2 K+J(\log_2 3)^2$ ne dépend que de $K=\rho h/\ell$ et de $\rho$
+(cycle 008 §4–§5). Ici $t_*$ est le maximum de $\{0\}\cup\{t\ge1:(3/2)^t<2K\}$,
+et $J=(m_*-1)\,t_*$. Aucun poids borné ne rend la prémisse vraie avec
+$B(n)=o(\log n)$. X21 ne la réfute pas : $\ell=1$, $h=2$, $\rho=5/6$ certifie
+les Mersenne seulement, en un pas. Il réfute l'obstruction locale sans seuil.
+Si $K\le3/2$, le témoin est le Mersenne et $t>\delta L-\log_2 K$, déjà dans
+la preuve de B10. La forme uniforme $3\cdot2^t>2\cdot3^L$ est plus faible
+pour $K\le3/4$ : $h=\ell$, $\rho=1/4$ donne $J=0$ et $C=-2$. Elle est plus
+forte pour $K>3/4$, où $J\ge1$. La forme sans poids $T^t(n)\le\rho n$ est le
+cas $K=\rho$ de la même estimation : $\rho\cdot2^t>3^L$ (cycle 008 §1). Si
+$\rho\le0$, aucune contraction n'existe.
 Le coefficient de tête reste sous Applegate–Lagarias 2003, (4) et théorème 1.1.
 L'existence d'un certificat n'est pas montrée. Ne pas relancer B13, ni B10, ni X21.
 

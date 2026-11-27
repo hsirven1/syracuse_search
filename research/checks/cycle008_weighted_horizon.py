@@ -4,8 +4,9 @@
 La preuve est dans research/cycles/cycle-008.md. Ce script ne la remplace pas.
 Il vérifie le corollaire non pondéré, l'identité de montée sur un sommet partiel,
 l'absence de contraction pendant la montée restante pour le poids de X21, les
-constantes entières (m_*, t_*, J) du cas ρ=5/6, K=5/3, et la descente
-2^{t+1} K > 3^R lorsque le premier retour sous K n a lieu après le sommet.
+constantes entières (m_*, t_*, J) du cas ρ=5/6, K=5/3, la descente
+K·2^t > 3^R lorsque le premier retour sous K n a lieu après le sommet,
+l'identité 3^R-2^R, et la convention t_*=0 pour K≤1/2.
 
 Usage : python3 research/checks/cycle008_weighted_horizon.py
 """
@@ -123,12 +124,83 @@ def late_descent():
                 if hit <= R:
                     continue
                 seen += 1
-                # 2^{t+1} K > 3^R
-                if (1 << (hit + 1)) * knum <= (3**R) * kden:
+                # K · 2^t > 3^R
+                if knum * (1 << hit) <= (3**R) * kden:
                     raise AssertionError((knum, kden, L, j, hit, R))
     if seen < 100:
         raise AssertionError(("too few late returns", seen))
-    print("PASS late descent 2^(t+1) K > 3^R")
+    print("PASS late descent K*2^t > 3^R")
+
+
+def sharp_gap():
+    for L in range(1, 41):
+        for j in range(0, L):
+            R = L - j
+            n = climb(L, j)
+            left = (1 << R) * (3**L - 1) - (3**R) * n
+            right = (3**R) - (1 << R)
+            if left != right or right <= 0:
+                raise AssertionError((L, j, left, right))
+    print("PASS sharp gap 3^R - 2^R")
+
+
+def t_star(knum, kden):
+    """Maximum de {0} et des t≥1 tels que (3/2)^t < 2K."""
+    t = 0
+    num, den = 1, 1
+    while True:
+        nxt_num, nxt_den = num * 3, den * 2
+        if nxt_num * kden >= nxt_den * 2 * knum:
+            return t
+        t += 1
+        num, den = nxt_num, nxt_den
+        if t > 64:
+            raise AssertionError("t_star")
+
+
+def m_star(knum, kden, rnum, rden):
+    """Plus petit m≥1 tel que (3/(2ρ))^m ≥ 2K/ρ."""
+    m = 1
+    while True:
+        left = (3**m) * kden * (rden ** (m - 1))
+        right = 2 * knum * (2**m) * (rnum ** (m - 1))
+        if left >= right:
+            return m
+        m += 1
+        if m > 40:
+            raise AssertionError("m_star")
+
+
+def convention_and_threshold():
+    # K≤1/2 : l'ensemble {t≥0 : (3/2)^t < 2K} est vide, y compris à K=1/2.
+    for knum, kden in ((1, 2), (1, 4), (1, 5), (2, 5)):
+        if kden < 2 * knum:
+            raise AssertionError(("legacy set nonempty", knum, kden))
+        if t_star(knum, kden) != 0:
+            raise AssertionError(("t_star", knum, kden))
+    if t_star(3, 4) != 0 or t_star(5, 3) != 2 or t_star(1, 1) != 1:
+        raise AssertionError("known t_star")
+    # m_*=1 exactement pour K≤3/4, et le couple de X21 reste m_*=3.
+    if m_star(1, 4, 1, 4) != 1 or m_star(3, 4, 1, 2) != 1:
+        raise AssertionError("m_star below 3/4")
+    if m_star(5, 3, 5, 6) != 3:
+        raise AssertionError("m_star 5/6")
+    for knum, kden, rnum, rden in (
+        (4, 5, 1, 2),
+        (1, 1, 1, 2),
+        (5, 4, 5, 6),
+        (3, 2, 9, 10),
+    ):
+        if t_star(knum, kden) < 1 or m_star(knum, kden, rnum, rden) < 2:
+            raise AssertionError(("above 3/4", knum, kden, rnum, rden))
+    # log2(3/2) > -1 et log2(3/2) > -2, et (log2 3)^2 > 1.
+    if not (3 > 1 and 6 > 1 and 3 > 2):
+        raise AssertionError("constant comparison")
+    # Pour L≥2, 2^L-1 > 2^{L-1} : l'écart de l'exemple ρ=1/4 est strict.
+    for L in range(2, 41):
+        if (1 << L) - 1 <= (1 << (L - 1)):
+            raise AssertionError((L,))
+    print("PASS t_*=0 for K<=1/2 and the 3/4 threshold")
 
 
 def main():
@@ -137,6 +209,8 @@ def main():
     x21_successor()
     constants_five_sixths()
     late_descent()
+    sharp_gap()
+    convention_and_threshold()
 
 
 if __name__ == "__main__":

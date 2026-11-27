@@ -11,9 +11,10 @@ B(n)>\log_2 3\cdot\log_2 n-C
 $$
 pour une infinité de $n$, où $C$ ne dépend que de $K=\rho h/\ell$ et de $\rho$.
 La branche « exhiber un poids et un horizon $o(\log n)$ » est impossible.
-Ce n'est pas une preuve de Syracuse. Pour $K\le3/2$, B10 reste plus serré sur
-les Mersenne eux-mêmes. X21 ne contredit pas l'énoncé : ce poids ne certifie
-pas tous les entiers.
+Ce n'est pas une preuve de Syracuse. Pour $K\le3/2$, le témoin est le
+Mersenne et la borne directe est $t>\delta L-\log_2 K$ ; B10 n'en garde
+que la forme uniforme en $\log_2(3/2)$. X21 ne contredit pas l'énoncé :
+ce poids ne certifie pas tous les entiers.
 
 ## 0. Question traitée
 
@@ -100,8 +101,12 @@ Posons $m_*$ le plus petit entier $\ge1$ tel que
 $$
 \Bigl(\frac{3}{2\rho}\Bigr)^{m_*}\ge\frac{2K}{\rho}=\frac{2h}{\ell},
 $$
-et $t_*$ le plus grand entier $\ge0$ tel que $(3/2)^{t_*}<2K$. Si
-$2K\le3/2$, alors $t_*=0$. L'entier $J=(m_*-1)\,t_*$ ne dépend que de
+et $t_*$ le maximum de $\{0\}\cup\{t\text{ entier}\ge1:(3/2)^t<2K\}$.
+Si $2K\le3/2$, le second ensemble est vide et $t_*=0$. Si $K\le1/2$,
+l'ensemble $\{t\ge0:(3/2)^t<2K\}$ est lui-même vide, y compris à
+l'égalité $2K=1$, puisque $(3/2)^0=1$. Le maximum qui contient $0$ est
+alors la convention du lemme : l'ancienne formule, « le plus grand
+$t\ge0$ », ne désigne rien. L'entier $J=(m_*-1)\,t_*$ ne dépend que de
 $K$ et de $\rho$.
 
 **Lemme.** Une contraction de $n_j$ dont l'image est encore un $n_{j+t}$
@@ -126,15 +131,36 @@ La chaîne compte donc au plus $m_*-1$ sauts, chacun de longueur au plus
 $t_*$.
 
 Pour $K\le3/2$, le §2 interdit déjà toute contraction avec $t\le L-j$ :
-$T^t(n_j)>(3/2)^t n_j\ge K n_j$. Le premier sommet de la chaîne est alors
-$j_*=0$, et $J$ n'est qu'une majoration. B10, sur les seuls Mersenne,
-reste la borne utile dans ce régime : $t>\delta L-\log_2(3/2)$. La
-constante du §5 est plus faible. Elle n'est pas un remplacement de B10.
+$T^t(n_j)>(3/2)^t n_j\ge(3/2)\,n_j\ge K n_j$. Le premier sommet est
+$j_*=0$, et $J$ n'est qu'une majoration. Le critère $(3/2)^t<2K$ est
+plus lâche que la comparaison directe à $K$ : $t_*$ peut être positif
+alors qu'aucun saut n'existe. Sur le Mersenne, l'estimation du §5
+donne $t>\delta L-\log_2 K$. La preuve de
+B10 contient déjà $K\cdot2^t>3^L$ (cycle 005 §5) et n'en retient, dans
+l'énoncé, que la conséquence uniforme $t>\delta L-\log_2(3/2)$, égale
+au seuil $K=3/2$ et plus faible en dessous.
+
+Le seuil $3/4$ sépare les deux constantes. On a $m_*=1$ si et seulement
+si $3/(2\rho)\ge2K/\rho$, c'est-à-dire $K\le3/4$, et $t_*=0$ dans le
+même cas. Donc $J=0$ et $C=\log_2 K\le\log_2(3/4)<\log_2(3/2)$. Si
+$K>3/4$, alors $m_*\ge2$ et $t_*\ge1$, donc $J\ge1$ et
+$C\ge\log_2 K+(\log_2 3)^2>\log_2(3/4)+(\log_2 3)^2$. Or
+$\log_2(3/4)+(\log_2 3)^2-\log_2(3/2)=-1+(\log_2 3)^2>0$,
+car $3>2$. Donc $C>\log_2(3/2)$. Pour
+$h=\ell$ et $\rho=1/4$, on est dans le premier cas : $K=1/4$,
+$t_*=0$, $J=0$ et $C=-2$. Sur $n=2^L-1$, $L\ge2$,
+$$
+\delta\log_2 n-C-(\delta L-\log_2(3/2))>\delta(\log_2 n-(L-1))>0,
+$$
+puisque $2^L-1>2^{L-1}$ et $C=-2=\log_2(3/2)-\delta-1$. La borne
+uniforme de B10 est alors la plus faible.
 
 ## 5. L'implication globale (B13)
 
 **Proposition.** Soient $0<\ell\le W\le h$, $0<\rho<1$ et $K=\rho h/\ell$.
-Soit $C=\log_2(2K)+J\,(\log_2 3)^2$, avec $J$ comme au §4. Si une fonction
+Soit $C=\log_2 K+J\,(\log_2 3)^2$, avec $J$ comme au §4. Comme $K>0$,
+ce logarithme est défini ; il est négatif lorsque $K<1$. L'écriture
+$\log_2(2K)$ majore cette constante d'exactement une unité. Si une fonction
 $B$ vérifie : tout entier $n\ge N_0$ admet un temps de contraction
 $t\le B(n)$, alors, pour une infinité de $n$,
 $$
@@ -145,32 +171,32 @@ Soit $L>\max(J,1)$ assez grand pour que $2^L-1\ge N_0$. La montée
 $(n_j)_{0\le j\le L}$ est strictement croissante, donc chaque terme est
 au moins $N_0$ et possède un temps de contraction.
 
-On construit des indices $0=j_0<j_1<\cdots$ tant que $n_{j_r}$ admet une
-contraction d'image $n_{j_r+t}$ avec $1\le t\le L-j_r$. On choisit alors
-le plus petit tel $t$ et l'on pose $j_{r+1}=j_r+t$. Le §4 arrête la
-construction avant $m_*$ sauts, à un indice $j_*\le J<L$. Le point
-$n=n_{j_*}$ n'a donc aucune contraction d'image encore dans la liste
-$(n_j)$. Tout temps de contraction de $n$ vérifie $t>R$, où
-$R=L-j_*\ge1$.
+On construit des indices $0=j_0<j_1<\cdots$ tant qu'il existe un entier
+$t$ avec $1\le t\le L-j_r$ tel que $\Phi(T^t(n_{j_r}))\le\rho\,\Phi(n_{j_r})$.
+Pour un tel temps, l'image est $n_{j_r+t}$, encore dans la montée, sommet
+inclus. On choisit le plus petit $t$ et l'on pose $j_{r+1}=j_r+t$. Le §4
+arrête la construction avant $m_*$ sauts, à un indice $j_*\le J<L$. Au
+point $n=n_{j_*}$, aucune contraction n'a donc une longueur $t$ avec
+$1\le t\le R$, où $R=L-j_*\ge1$ : aucune contraction jusqu'au sommet
+inclus. Le procédé ne contrôle pas un retour ultérieur de l'orbite sur
+la liste $(n_j)$. Tout temps de contraction, que l'orbite y revienne ou
+non, vérifie $t>R$.
 
-Soit $t=R+s$ un tel temps. Alors $s\ge1$, $T^R(n)=3^L-1$ et
-$y=T^s(3^L-1)\ge(3^L-1)/2^s$. La contraction donne $y\le K n$. Comme
-$n<3^{j_*}\,2^R$,
+Soit $t=R+s$ un tel temps, $s\ge1$. Alors $T^R(n)=3^L-1$ et
+$y=T^s(3^L-1)\ge(3^L-1)/2^s$. La contraction donne $y\le K n$, donc
 $$
-3^L-1\le K\,n\,2^s<K\,3^{j_*}\,2^t.
+K\cdot2^t\ge2^R\frac{3^L-1}{n}.
 $$
-Donc $2^t>(3^L-1)/(K\,3^{j_*})$. Or
-$(3^L-1)/3^{j_*}=3^R-3^{-j_*}\ge3^R-1$, avec égalité seulement si
-$j_*=0$, et $3^R-1>3^R/2$ pour $R\ge1$. Ainsi
-$2^t>3^R/(2K)$, et
+Comme $n=3^{j_*}\,2^R-1$ et $L=j_*+R$,
 $$
-t>\delta R-\log_2(2K).
+2^R(3^L-1)-3^R n=3^R-2^R>0.
 $$
-Par ailleurs $n<3^{j_*}\,2^R$, donc
+Le quotient est strictement supérieur à $3^R$, et $K\cdot2^t>3^R$. Ainsi
+$t>\delta R-\log_2 K$. Par ailleurs $n<3^{j_*}\,2^R$, donc
 $\log_2 n<R+j_*\delta$ et $\delta\log_2 n<\delta R+j_*\delta^2$. Comme
 $j_*\le J$,
 $$
-t>\delta R-\log_2(2K)>\delta\log_2 n-J\delta^2-\log_2(2K)=\delta\log_2 n-C.
+t>\delta R-\log_2 K>\delta\log_2 n-J\delta^2-\log_2 K=\delta\log_2 n-C.
 $$
 Tout horizon admissible vérifie $B(n)\ge t$, donc $B(n)>\delta\log_2 n-C$.
 
@@ -192,9 +218,11 @@ n'est pas un contre-exemple à B13.
 - La conjecture, ni l'existence d'un certificat global. S'il en existe
   un, itérer $\Phi\le\rho\Phi$ fait entrer l'orbite dans un segment
   fini, comme le cycle 005 §8 le disait déjà. Ce texte n'en construit pas.
-- Une amélioration de B10 pour $K\le3/2$. La constante $C$ est alors plus
-  faible que $\log_2(3/2)$, et le point témoin peut ne pas être le
-  Mersenne.
+- Un remplacement de B10. Pour $K\le3/2$ le témoin du §5 est le
+  Mersenne, et $t>\delta L-\log_2 K$ est déjà dans la preuve du cycle
+  005 §5. L'énoncé de B10 n'en garde que la forme uniforme. Cette
+  forme est plus faible que $C$ lorsque $K\le3/4$, et plus forte
+  lorsque $3/4<K\le3/2$, parce que $J\ge1$ (cycle 008 §4).
 - Le coefficient d'Applegate–Lagarias 2003 sur le temps d'atteinte de
   $1$. B13 borne le premier temps de contraction de $\Phi$, pas
   $\sigma_\infty$. Le théorème 1.1 et la recherche d'arbres ne sont pas
@@ -275,10 +303,51 @@ rouvrir le mot du cycle 006, ne pas relancer B10, B13 ni X21.
 python3 research/checks/cycle008_weighted_horizon.py
 ```
 
-Sortie attendue : cinq lignes `PASS`. Elles couvrent le corollaire non
+Sortie attendue : sept lignes `PASS`. Elles couvrent le corollaire non
 pondéré pour quatre valeurs de $\rho$ et $2\le L\le40$, l'identité de
 montée partielle jusqu'à $L=30$, le successeur de X21 pour $2\le L\le30$,
-les entiers $m_*=3$, $t_*=2$, $J=4$, et la descente
-$2^{t+1}K>3^R$ sur les retours tardifs de sept fractions $K$, pour
-$2\le L\le17$. L'implication B13 est prouvée au §5 pour tout réel $K$ et
-tout $L$ assez grand. Le script n'en voit qu'un segment.
+les entiers $m_*=3$, $t_*=2$, $J=4$, la descente $K\cdot2^t>3^R$ sur les
+retours tardifs de sept fractions $K$ pour $2\le L\le17$, l'identité
+$2^R(3^L-1)-3^R n_j=3^R-2^R$, et la convention $t_*=0$ lorsque
+$K\le1/2$, avec $C=-2$ pour $\rho=1/4$. L'implication B13 est prouvée
+au §5 pour tout réel $K>0$ et tout $L$ assez grand. Le script n'en voit
+qu'un segment.
+
+## 12. Revue `6082191024`
+
+Revue indépendante sur le SHA
+`ff58fed0501768dabaa980ee5d0668b347d8b898` (PR #27), c'est-à-dire sur
+B13. Le verdict de la revue est que l'implication est prouvée. Trois
+corrections de rédaction, intégrées ci-dessus. Ce n'est pas un nouveau
+cycle.
+
+La définition littérale « le plus grand $t\ge0$ tel que
+$(3/2)^t<2K$ » a un ensemble vide lorsque $K\le1/2$, y compris à
+$2K=1$. La phrase qui posait alors $t_*=0$ était la convention utile,
+pas le maximum de cet ensemble. Le §4 définit désormais $t_*$ comme
+le maximum de $\{0\}$ et des entiers $t\ge1$ vérifiant l'inégalité.
+Pour $\rho=5/6$ et $K=5/3$, on a encore $t_*=2$ et $J=4$. Le lemme et
+la majoration $j_*\le J$ restent ceux du texte relu.
+
+Au §5, un saut est un temps $1\le t\le L-j_r$. La construction
+s'arrête sur l'absence de contraction jusqu'au sommet inclus. Elle ne
+contrôle pas un retour ultérieur sur la liste $(n_j)$. L'inégalité
+$t>R$ suffit à l'estimation, et elle vaut aussi pour un tel retour.
+
+L'identité $2^R(3^L-1)-3^R n_{j_*}=3^R-2^R$ remplace la comparaison
+$3^R-1>3^R/2$. On en tire $K\cdot2^t>3^R$, donc
+$t>\delta R-\log_2 K$. La constante passe de $\log_2(2K)$ à
+$\log_2 K$. L'ancienne valeur reste un majorant, d'exactement une
+unité. Sur l'exemple $h=\ell$, $\rho=1/4$, l'ancienne constante vaut
+$\log_2(1/2)=-1$ et la nouvelle vaut $-2$. Les deux sont inférieures
+à $\log_2(3/2)$ : pour $C=-1$, l'écart sur $n=2^L-1$ est
+$\delta(\log_2 n-(L-1))>0$. La forme uniforme de B10 n'est donc pas
+toujours plus serrée. La comparaison pertinente, pour $K\le3/2$ et
+$j_*=0$, est $t>\delta L-\log_2 K$, déjà écrite dans la preuve du
+cycle 005 §5 avant le passage à $3/2$.
+
+La revue a contrôlé en JavaScript, pour $2\le L\le70$, $1\,272$
+chaînes et $1\,268$ retours. Ce segment n'est pas repris. Le script
+Python a été exécuté : il vérifie l'identité, la convention
+$t_*=0$, le seuil $3/4$ et la descente stricte $K\cdot2^t>3^R$.
+Applegate–Lagarias 2003 n'est pas relu. Aucune source nouvelle.

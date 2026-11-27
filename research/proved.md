@@ -226,13 +226,24 @@ Si $0<\ell\le W\le h$, $0<\rho<1$, $K=\rho h/\ell$, et si tout entier
 $n\ge N_0$ admet un temps $t\le B(n)$ avec
 $T^t(n)\,W(T^t(n))\le\rho\,n\,W(n)$, alors
 $B(n)>\log_2 3\cdot\log_2 n-C$ pour une infinité de $n$. La constante
-$C=\log_2(2K)+J(\log_2 3)^2$ est celle du cycle 008 §4 : $J=(m_*-1)\,t_*$.
-Aucun horizon $o(\log n)$ ne convient. Pour $K\le3/2$, B10 reste plus
-serré sur les Mersenne. La forme sans poids $T^t(n)\le\rho n$ donne
-$\rho\cdot2^t>3^L$ (cycle 008 §1) ; ce n'est pas un énoncé nouveau.
-X21 reste local. Antériorité du mécanisme : la montée A2 et l'horizon
-fixe de `no_finite_certificate` (A5). Pas une preuve de la conjecture,
-ni une construction de certificat.
+$C=\log_2 K+J(\log_2 3)^2$ est celle du cycle 008 §4–§5 :
+$J=(m_*-1)\,t_*$, et $t_*$ est le maximum de
+$\{0\}\cup\{t\ge1:(3/2)^t<2K\}$. L'écriture $\log_2(2K)$ majore $C$
+d'une unité. Aucun horizon $o(\log n)$ ne convient. Pour $K\le3/2$, le
+témoin est le Mersenne et $t>\delta L-\log_2 K$, déjà dans la preuve de
+B10 ; la forme uniforme en $\log_2(3/2)$ est plus faible lorsque
+$K\le3/4$ et plus forte lorsque $K>3/4$, car alors $J\ge1$. La forme
+sans poids $T^t(n)\le\rho n$ donne $\rho\cdot2^t>3^L$ (cycle 008 §1) ;
+ce n'est pas un énoncé nouveau. X21 reste local. Antériorité du
+mécanisme : la montée A2 et l'horizon fixe de `no_finite_certificate`
+(A5). Pas une preuve de la conjecture, ni une construction de certificat.
+
+Revue indépendante `6082191024` (PR #27, SHA
+`ff58fed0501768dabaa980ee5d0668b347d8b898`) : B13 est confirmée. La
+définition de $t_*$ est corrigée pour $K\le1/2$, la constante perd le
+facteur $2$, et la comparaison avec la forme uniforme de B10 est
+restreinte comme ci-dessus. Ce n'est pas une seconde preuve, ni le
+cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
