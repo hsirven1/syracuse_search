@@ -87,31 +87,42 @@ non convergente de \(C\) rencontre \(5\) ou \(7\pmod 8\).
 **Obstacle.** C'est l'affaiblissement que les auteurs disent encore
 ouvert, après avoir réglé les paires \(\{1,5\}\) et \(\{1,7\}\).
 
-**Intérêt.** Il impliquerait \(P(2)\), puisque éviter \(7\) est plus
-fort que d'éviter la paire \(\{5,7\}\).
+**Intérêt.** Aucun pour une preuve de \(P(2)\). La conjecture 4.14
+n'implique pas \(P(2)\). Éviter \(\{5,7\}\) implique d'éviter \(7\),
+et l'inclusion est stricte sur les orbites positives :
+\(5\to 8\to 4\to 2\to 1\) rencontre \(5\pmod 8\) et n'atteint jamais
+\(7\pmod 8\) (X42). C'est \(P(2)\) qui implique 4.14. La forme
+contraposée de 4.14 ne couvre pas une orbite qui évite \(7\) et
+rencontre \(5\).
 
 **Résultat le plus proche.** La conjecture 4.14 elle-même, et le
 cycle \(-5\to-7\to-10\to-5\), qui évite ces deux résidus (§3).
 
 **Écart.** Aucun énoncé intermédiaire n'est proposé.
 
-**Classement.** DÉJÀ CONNU comme conjecture ouverte. Confiance haute
-sur le texte. Pas de stratégie qui n'essaie pas de résoudre cette
-conjecture.
+**Classement.** DÉJÀ CONNU comme conjecture ouverte, et plus faible
+que la conjecture 4.13. Confiance haute sur le texte. Prouver 4.14
+ne prouverait pas \(P(2)\). Pas de stratégie qui n'essaie pas de
+résoudre l'une de ces deux conjectures.
 
 **Décision.** NO-GO. Trois candidats ont été examinés. Une seule
 comparaison est écrite : l'équivalence du candidat 1.
 
 ## 2. Équivalence
 
-Le run impair issu d'un impair \(m\) a longueur \(v_2(m+1)\) (cycle 015,
-§10). Cette longueur est au moins \(3\) si et seulement si
-\(m\equiv 7\pmod 8\). Dans un run de longueur \(r\), le terme d'indice
-\(i\) a la valuation \(r-i\). Un terme impair \(\equiv 7\pmod 8\) force
-donc le run qui le contient à avoir une longueur au moins \(3\).
-Inversement, un run de longueur au moins \(3\) commence par un tel
-terme. Ainsi \(P(2)\) dit que toute orbite positive de \(T\) qui ne
-rencontre pas le résidu \(7\pmod 8\) atteint \(1\).
+Le run impair issu d'un impair \(m\) a longueur \(r=v_2(m+1)\) (cycle 015,
+§10). Pour \(0\le i\le r\),
+\[
+v_2(T^i(m)+1)=r-i.
+\]
+Pour \(0\le i<r\), \(T^i(m)\) est impair, donc \(v_2(T^i(m))=0\). La
+quantité \(r-i\) n'est pas la valuation du terme. Cette longueur est
+au moins \(3\) si et seulement si \(m\equiv 7\pmod 8\). Si un terme
+impair du run vaut \(7\pmod 8\), et si c'est \(T^i(m)\), alors
+\(r-i\ge 3\) : à partir de ce terme, en le comptant, il reste au moins
+trois impairs. Inversement, un run de longueur au moins \(3\) commence
+par un tel terme. Ainsi \(P(2)\) dit que toute orbite positive de \(T\)
+qui ne rencontre pas le résidu \(7\pmod 8\) atteint \(1\).
 
 L'application du PDF est
 \[
@@ -181,7 +192,8 @@ L'équivalence du §2 est prouvée (B22). \(P(2)\) reste la conjecture
 positive divergente n'est exclue. Le script contrôle les quatre
 résidus de \(3m+1\), le cycle négatif, la montée de \(11\), l'accord
 de \(C\) et de \(T\) jusqu'à \(4000\), et le signe de \(U(n)-n\) selon
-le résidu modulo \(8\). Ces contrôles ne remplacent pas le §2.
+le résidu modulo \(8\). Le §8 y ajoute l'orbite de \(5\) et la
+valuation de \(T^i(m)+1\). Ces contrôles ne remplacent pas le §2.
 
 ## 5. Mises à jour de la mémoire
 
@@ -210,7 +222,8 @@ et ne pas la redémontrer.
 Le cycle 016 est le douzième de la fenêtre dont le plus ancien est le
 cycle 005. Le premier commit de ce cycle est `ebba330`, du 27 novembre
 2026 à 00:03:27 UTC. Ne pas ouvrir le cycle 017 avant une relecture
-indépendante de ce cycle, ni avant le 28 novembre 2026 à 00:04 UTC.
+indépendante du correctif de la revue `6094223904`, ni avant le
+28 novembre 2026 à 00:04 UTC.
 
 ## 7. Reproduire
 
@@ -218,4 +231,46 @@ indépendante de ce cycle, ni avant le 28 novembre 2026 à 00:04 UTC.
 python3 research/checks/cycle016_run_bound.py
 ```
 
-Sortie attendue : 5 lignes `PASS`.
+Sortie attendue : 7 lignes `PASS`.
+
+## 8. Revue `6094223904`
+
+Revue indépendante sur le SHA
+`bab008e6c4bfb8a8c858f505b743ba6bebb4582a` (PR #27), soumise le
+27 novembre 2026 à 23:20 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 017 n'est pas ouvert.
+
+B22, X41 et le seuil \(\tau=1\) sont confirmés. L'édition publiée
+citée par la revue n'est pas rouverte. Le sens de l'implication et
+la valuation se lisent sur les énoncés déjà enregistrés et sur le
+calcul ci-dessous. La conjecture 4.13 reste ouverte. Ce correctif
+ne la résout pas.
+
+**X42.** La phrase du §1, « Il impliquerait \(P(2)\), puisque éviter
+\(7\) est plus fort que d'éviter la paire \(\{5,7\}\) », inversait
+l'inclusion. Éviter \(\{5,7\}\) implique d'éviter \(7\). La
+réciproque est fausse sur les orbites positives. Sous \(T\),
+\[
+5\to 8\to 4\to 2\to 1\to 2\to 1.
+\]
+Les résidus sont \(5,0,4,2,1\pmod 8\). Cette orbite rencontre \(5\)
+et n'atteint jamais \(7\). Elle converge, donc elle ne sépare pas
+les deux conclusions sur une orbite divergente. Elle sépare les
+hypothèses. La conjecture 4.14, lue comme « toute trajectoire qui
+évite \(5\) et \(7\pmod 8\) atteint \(1\) », ne dit rien d'une
+orbite qui évite \(7\) et rencontre \(5\). \(P(2)\) implique 4.14,
+par inclusion des hypothèses. L'implication inverse ne suit pas.
+Les deux conjectures restent ouvertes.
+
+**Valuation.** La phrase du §2, « le terme d'indice \(i\) a la
+valuation \(r-i\) », est fausse si elle porte sur le terme. Pour
+\(m=7\), \(r=v_2(8)=3\). Les termes \(7\), \(11\) et \(17\) sont
+impairs, donc de valuation \(0\), et \(v_2(T^i(7)+1)\) vaut
+\(3,2,1\). Le rang suivant est \(26\), pair, et
+\(v_2(27)=0\). La formule du cycle 015 §10 donne
+\(v_2(T^i(m)+1)=r-i\) pour \(0\le i\le r\). Pour \(m=15\),
+\(r=4\) et le second terme est \(23\equiv 7\pmod 8\), avec
+\(r-i=3\) : à partir de \(23\), en le comptant, il reste
+\(23,35,53\). La valuation de \(23\) est \(0\). B22 ne change pas.
+Un run a longueur au moins \(3\) si et seulement s'il commence par
+\(7\pmod 8\), et un terme \(7\pmod 8\) force \(r-i\ge 3\).

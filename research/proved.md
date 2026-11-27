@@ -593,6 +593,18 @@ Revue indépendante `6093952309` (PR #27, SHA
 `db5009a9c5b95b172b6bb43f0fa77d46a0f9c0d4`) : X40 et B21 confirmés.
 Aucune correction. Le cycle 016 vient ensuite.
 
+Revue indépendante `6094223904` (PR #27, SHA
+`bab008e6c4bfb8a8c858f505b743ba6bebb4582a`) : B22, X41 et le seuil
+\(\tau=1\) sont confirmés. La phrase qui faisait de la conjecture
+4.14 une prémisse de \(P(2)\) est fausse (X42). Éviter \(\{5,7\}\)
+implique d'éviter \(7\), strictement : \(5\to 8\to 4\to 2\to 1\)
+rencontre \(5\pmod 8\) et jamais \(7\). \(P(2)\) implique 4.14, et
+non l'inverse. Dans un run de longueur \(r\),
+\(v_2(T^i(m)+1)=r-i\) pour \(0\le i\le r\). Pour \(i<r\), le terme
+est impair et sa valuation est \(0\). Témoins : \(7,11,17\), et
+\(23\) dans le run de \(15\). B22 ne change pas. La conjecture 4.13
+reste ouverte. Le cycle 017 n'est pas ouvert.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

@@ -10,12 +10,13 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6093952309` confirme X40. Aucune correction. Le cycle 016
-identifie \(P(2)\) à la conjecture 4.13 de Yolcu–Aaronson–Heule et
-ne la démontre pas. Ne pas ouvrir le cycle 017 avant une relecture
-de ce cycle, ni avant le 28 novembre 2026 à 00:04 UTC. Le plus
-ancien cycle de la fenêtre est alors le cycle 005 : le commit
-`ebba330` est du 27 novembre 2026 à 00:03:27 UTC.
+La revue `6094223904` confirme B22 et corrige le sens de
+l'implication entre \(P(2)\) et la conjecture 4.14 (X42), ainsi que
+la valuation écrite au cycle 016 §2. B22 reste l'équivalence avec
+la conjecture 4.13, non résolue. Ne pas ouvrir le cycle 017 avant
+une relecture de ce correctif, ni avant le 28 novembre 2026 à
+00:04 UTC. Le plus ancien cycle de la fenêtre est le cycle 005 :
+le commit `ebba330` est du 27 novembre 2026 à 00:03:27 UTC.
 
 ## 1. [C] La borne de Korec et les classes — PROCHAINE QUESTION (cycle 017), non entamée
 Ne pas rouvrir \(P(2)\), les conjectures 4.11 à 4.14, Steiner, les
@@ -40,6 +41,13 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094223904` (27 nov. 2026, SHA `bab008e`) : B22, X41 et le
+  seuil en un pas confirmés. La phrase « la conjecture 4.14
+  impliquerait \(P(2)\) » est fausse (X42). L'orbite
+  \(5\to 8\to 4\to 2\to 1\) évite \(7\pmod 8\) et rencontre \(5\).
+  \(P(2)\) implique 4.14. La valuation \(r-i\) est celle de
+  \(T^i(m)+1\). Le cycle 017 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6093952309` (27 nov. 2026, SHA `db5009a`) : X40 et B21
   confirmés. Aucune correction. Cycle 016 ensuite : \(P(2)\) est la
   conjecture 4.13 de Yolcu–Aaronson–Heule, arXiv:2105.14697v3 (B22).
