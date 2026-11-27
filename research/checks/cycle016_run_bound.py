@@ -4,8 +4,9 @@
 Ils vérifient l'équivalence entre P(2) et l'évitement du résidu 7
 modulo 8, le cycle négatif qui évite ce résidu, et la caractérisation
 de tau = 1. Ils vérifient aussi que l'orbite de 5 évite 7 en
-rencontrant 5, et que r-i est la valuation de T^i(m)+1. Ils ne
-prouvent pas la conjecture 4.13.
+rencontrant 5, que r-i est la valuation de T^i(m)+1, et que la
+première visite de 5 modulo 8 transmet l'évitement de 7 et
+l'atteinte de 1 à sa queue. Ils ne tranchent ni 4.13 ni 4.14.
 
 Usage : python3 research/checks/cycle016_run_bound.py
 """
@@ -118,6 +119,45 @@ def main() -> None:
     assert chain15 == [15, 23, 35, 53, 80]
     assert 23 % 8 == 7 and v2(23) == 0 and v2(24) == 3
 
+    c5 = [5]
+    x = 5
+    for _ in range(8):
+        x = C(x)
+        c5.append(x)
+    assert c5 == [5, 16, 8, 4, 2, 1, 4, 2, 1]
+    assert [y % 8 for y in c5] == [5, 0, 0, 4, 2, 1, 4, 2, 1]
+    assert all(y % 8 != 7 for y in c5)
+
+    def forward(step, n: int, limit: int = 500) -> list[int]:
+        seen: set[int] = set()
+        x = n
+        seq: list[int] = []
+        for _ in range(limit):
+            seq.append(x)
+            if x == 1 or x in seen:
+                return seq
+            seen.add(x)
+            x = step(x)
+        raise AssertionError(n)
+
+    for n in range(1, 4001):
+        seq_t = forward(T, n)
+        seq_c = forward(C, n)
+        assert any(z % 8 == 5 for z in seq_t) == any(z % 8 == 5 for z in seq_c)
+        if any(z % 8 == 7 for z in seq_t):
+            continue
+        fives = [i for i, z in enumerate(seq_t) if z % 8 == 5]
+        if not fives:
+            continue
+        j = fives[0]
+        m = seq_t[j]
+        tail = seq_t[j:]
+        assert m % 8 == 5
+        assert all(z % 8 != 7 for z in tail)
+        assert 1 not in seq_t[:j]
+        assert (1 in seq_t) == (1 in tail)
+        assert next(z for z in seq_c if z % 8 == 5) == m
+
     print("PASS residue 3n+1")
     print("PASS cycle -5")
     print("PASS montee 11")
@@ -125,6 +165,7 @@ def main() -> None:
     print("PASS tau=1 hors de 3 et 7 mod 8")
     print("PASS orbite 5 separe 7 et {5,7}")
     print("PASS valuation de T^i(m)+1")
+    print("PASS queue au premier 5")
 
 
 if __name__ == "__main__":

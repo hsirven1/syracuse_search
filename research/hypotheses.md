@@ -207,10 +207,13 @@ ne l'obtient pas.
 arXiv:2105.14697v3 : toute trajectoire non convergente de \(C\)
 rencontre \(7\pmod 8\). L'équivalence avec les runs de \(T\) est B22.
 Le théorème 4.10 règle \(2,3,4,6\pmod 8\). Les conjectures 4.11,
-4.12 et 4.14 restent ouvertes dans le même texte. La conjecture
-4.14 n'implique pas \(P(2)\) (X42) : éviter \(\{5,7\}\) est plus
-restrictif qu'éviter \(7\), et l'orbite de \(5\) sépare les deux
-hypothèses. C'est \(P(2)\) qui implique 4.14. Steiner (1977)
+4.12 et 4.14 restent ouvertes dans le même texte. \(P(2)\) implique
+4.14 par inclusion des hypothèses (X42). L'implication inverse ne
+suit pas de cette inclusion : éviter \(\{5,7\}\) est plus restrictif
+qu'éviter \(7\), et l'orbite convergente de \(5\) sépare les
+hypothèses. Pour déduire \(P(2)\) de 4.14, il reste la queue issue
+du premier terme \(\equiv 5\pmod 8\) (cycle 016 §9). Cette réduction
+ne démontre pas que 4.14 n'entraîne pas \(P(2)\). Steiner (1977)
 n'est pas obtenu. Simons–de Weger, version 1.44, ne traitent que
 les orbites périodiques, avec \(m\le 75\) minima. Le cycle
 \(-5\to-7\to-10\) évite \(7\pmod 8\) (X41) : une preuve doit utiliser

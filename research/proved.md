@@ -598,12 +598,24 @@ Revue indépendante `6094223904` (PR #27, SHA
 \(\tau=1\) sont confirmés. La phrase qui faisait de la conjecture
 4.14 une prémisse de \(P(2)\) est fausse (X42). Éviter \(\{5,7\}\)
 implique d'éviter \(7\), strictement : \(5\to 8\to 4\to 2\to 1\)
-rencontre \(5\pmod 8\) et jamais \(7\). \(P(2)\) implique 4.14, et
-non l'inverse. Dans un run de longueur \(r\),
+rencontre \(5\pmod 8\) et jamais \(7\). \(P(2)\) implique 4.14 par
+inclusion des hypothèses. L'implication inverse ne suit pas de
+cette inclusion. Dans un run de longueur \(r\),
 \(v_2(T^i(m)+1)=r-i\) pour \(0\le i\le r\). Pour \(i<r\), le terme
 est impair et sa valuation est \(0\). Témoins : \(7,11,17\), et
 \(23\) dans le run de \(15\). B22 ne change pas. La conjecture 4.13
 reste ouverte. Le cycle 017 n'est pas ouvert.
+
+Revue indépendante `6094246430` (PR #27, SHA
+`6bd08925c58185587b6c7d4eee8787eb6933706c`) : B22, la valuation et
+l'implication directe sont confirmés. La formulation « 4.14
+n'implique pas \(P(2)\) » est retirée. L'inclusion stricte et
+l'orbite convergente de \(5\) séparent les hypothèses, pas les deux
+conjectures. Pour déduire \(P(2)\) de 4.14, il reste la queue issue
+du premier terme \(\equiv 5\pmod 8\) : elle évite encore \(7\), et
+l'atteinte de \(1\) se transmet. Cette queue commence par
+\(5\pmod 8\), donc 4.14 ne s'y applique pas directement. Aucune des
+deux conjectures n'est résolue. Le cycle 017 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

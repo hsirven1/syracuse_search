@@ -87,23 +87,32 @@ non convergente de \(C\) rencontre \(5\) ou \(7\pmod 8\).
 **Obstacle.** C'est l'affaiblissement que les auteurs disent encore
 ouvert, après avoir réglé les paires \(\{1,5\}\) et \(\{1,7\}\).
 
-**Intérêt.** Aucun pour une preuve de \(P(2)\). La conjecture 4.14
-n'implique pas \(P(2)\). Éviter \(\{5,7\}\) implique d'éviter \(7\),
-et l'inclusion est stricte sur les orbites positives :
+**Intérêt.** Aucun pour une preuve directe de \(P(2)\). La conjecture
+4.14 ne couvre directement que les orbites qui évitent les deux
+résidus. Éviter \(\{5,7\}\) implique d'éviter \(7\), et l'inclusion
+est stricte sur les orbites positives :
 \(5\to 8\to 4\to 2\to 1\) rencontre \(5\pmod 8\) et n'atteint jamais
-\(7\pmod 8\) (X42). C'est \(P(2)\) qui implique 4.14. La forme
-contraposée de 4.14 ne couvre pas une orbite qui évite \(7\) et
-rencontre \(5\).
+\(7\pmod 8\) (X42). Cette orbite converge, donc elle sépare les
+hypothèses, pas les valeurs de vérité des deux conjectures.
+\(P(2)\) implique 4.14 par inclusion. L'implication inverse ne suit
+pas de cette inclusion. Pour déduire \(P(2)\) de 4.14, il resterait
+à traiter les orbites qui évitent \(7\) et rencontrent \(5\). Après
+la première visite de \(5\pmod 8\), cette question se réduit à la
+queue issue de ce terme (§9). Cette réduction ne démontre pas que
+4.14 n'entraîne pas \(P(2)\).
 
 **Résultat le plus proche.** La conjecture 4.14 elle-même, et le
 cycle \(-5\to-7\to-10\to-5\), qui évite ces deux résidus (§3).
 
-**Écart.** Aucun énoncé intermédiaire n'est proposé.
+**Écart.** Aucun énoncé intermédiaire n'est proposé. La réduction
+du §9 laisse la queue ouverte.
 
-**Classement.** DÉJÀ CONNU comme conjecture ouverte, et plus faible
-que la conjecture 4.13. Confiance haute sur le texte. Prouver 4.14
-ne prouverait pas \(P(2)\). Pas de stratégie qui n'essaie pas de
-résoudre l'une de ces deux conjectures.
+**Classement.** DÉJÀ CONNU comme conjecture ouverte. Elle suit de
+la conjecture 4.13 par inclusion des hypothèses. L'inverse n'est
+pas établi. Confiance haute sur le texte. Prouver 4.14 laisserait
+ouvertes les queues qui commencent par \(5\pmod 8\) et évitent
+\(7\). Pas de stratégie qui n'essaie pas de résoudre l'une de ces
+deux conjectures.
 
 **Décision.** NO-GO. Trois candidats ont été examinés. Une seule
 comparaison est écrite : l'équivalence du candidat 1.
@@ -222,7 +231,7 @@ et ne pas la redémontrer.
 Le cycle 016 est le douzième de la fenêtre dont le plus ancien est le
 cycle 005. Le premier commit de ce cycle est `ebba330`, du 27 novembre
 2026 à 00:03:27 UTC. Ne pas ouvrir le cycle 017 avant une relecture
-indépendante du correctif de la revue `6094223904`, ni avant le
+indépendante du correctif de la revue `6094246430`, ni avant le
 28 novembre 2026 à 00:04 UTC.
 
 ## 7. Reproduire
@@ -231,7 +240,7 @@ indépendante du correctif de la revue `6094223904`, ni avant le
 python3 research/checks/cycle016_run_bound.py
 ```
 
-Sortie attendue : 7 lignes `PASS`.
+Sortie attendue : 8 lignes `PASS`.
 
 ## 8. Revue `6094223904`
 
@@ -259,8 +268,9 @@ les deux conclusions sur une orbite divergente. Elle sépare les
 hypothèses. La conjecture 4.14, lue comme « toute trajectoire qui
 évite \(5\) et \(7\pmod 8\) atteint \(1\) », ne dit rien d'une
 orbite qui évite \(7\) et rencontre \(5\). \(P(2)\) implique 4.14,
-par inclusion des hypothèses. L'implication inverse ne suit pas.
-Les deux conjectures restent ouvertes.
+par inclusion des hypothèses. L'implication inverse ne suit pas de
+cette inclusion. Les deux conjectures restent ouvertes. Cette
+phrase ne dit pas que 4.14 n'entraîne pas \(P(2)\) (§9).
 
 **Valuation.** La phrase du §2, « le terme d'indice \(i\) a la
 valuation \(r-i\) », est fausse si elle porte sur le terme. Pour
@@ -274,3 +284,59 @@ impairs, donc de valuation \(0\), et \(v_2(T^i(7)+1)\) vaut
 \(23,35,53\). La valuation de \(23\) est \(0\). B22 ne change pas.
 Un run a longueur au moins \(3\) si et seulement s'il commence par
 \(7\pmod 8\), et un terme \(7\pmod 8\) force \(r-i\ge 3\).
+
+## 9. Revue `6094246430`
+
+Revue indépendante sur le SHA
+`6bd08925c58185587b6c7d4eee8787eb6933706c` (PR #27), soumise le
+27 novembre 2026 à 23:26 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 017 n'est pas ouvert.
+
+B22, la valuation du §2 et l'implication directe de X42 sont
+confirmés. L'édition publiée citée par la revue n'est pas rouverte.
+Les énoncés utilisés restent ceux du PDF arXiv v3 déjà lu.
+
+**Portée.** Le §8 dit que l'implication inverse ne suit pas de
+l'inclusion des hypothèses. L'inclusion stricte, et l'orbite
+convergente de \(5\), ne démontrent pas que la conjecture 4.14
+n'entraîne pas \(P(2)\). Les formulations « 4.14 n'implique pas
+\(P(2)\) », « et non l'inverse » et « prouver 4.14 ne prouverait
+pas \(P(2)\) » dépassaient cet argument. Elles sont retirées du §1
+et de la mémoire.
+
+**Réduction de l'écart.** Soit \(n\ge 1\) dont l'orbite de \(T\) ne
+rencontre pas \(7\pmod 8\).
+
+- Si elle ne rencontre pas non plus \(5\pmod 8\), elle est une
+  instance directe de la conjecture 4.14, lue comme « toute
+  trajectoire qui évite \(5\) et \(7\pmod 8\) atteint \(1\) ».
+- Sinon, soit \(m=T^j(n)\) le premier terme \(\equiv 5\pmod 8\).
+  Alors \(m\) est impair. L'orbite de \(m\) est la queue de celle
+  de \(n\), donc elle évite encore \(7\pmod 8\). Elle commence par
+  \(5\pmod 8\), donc 4.14 ne s'y applique pas directement. L'orbite
+  de \(n\) atteint \(1\) si et seulement si celle de \(m\) l'atteint.
+  En effet \(1\not\equiv 5\pmod 8\), et l'orbite de \(1\) est
+  \(\{1,2\}\), qui évite \(5\). Un passage par \(1\) avant le rang
+  \(j\) empêcherait tout terme ultérieur d'être \(\equiv 5\pmod 8\).
+
+Le même entier \(m\) est le premier terme \(\equiv 5\pmod 8\) de
+l'orbite de \(C\). Depuis tout impair \(k\), \(C\) insère seulement
+\(3k+1\), qui est pair, donc non congru à \(5\) ni à \(7\pmod 8\).
+L'atteinte de \(1\) est déjà la même pour \(C\) et pour \(T\) (§2).
+Sous \(C\), l'orbite de \(1\) est \(\{1,2,4\}\), qui évite \(5\) et
+\(7\).
+Sous \(C\), \(5\to 16\to 8\to 4\to 2\to 1\to 4\to 2\to 1\), résidus
+\(5,0,0,4,2,1,4,2,1\pmod 8\).
+
+Ainsi 4.14 ne couvre directement que les orbites qui évitent les
+deux résidus. Pour en déduire \(P(2)\), il reste à traiter celles
+qui évitent \(7\) et rencontrent \(5\), et il suffit de le faire
+sur la queue issue du premier terme \(\equiv 5\pmod 8\). L'évitement
+de \(7\) et l'atteinte ultérieure de \(1\) se transmettent à cette
+queue. Aucune des conjectures 4.13 et 4.14 n'est résolue. On ne
+conclut pas que l'une n'entraîne pas l'autre.
+
+Le script vérifie, pour chaque départ de \(1\) à \(4000\), que \(C\)
+et \(T\) rencontrent \(5\pmod 8\) ensemble, et, lorsque l'orbite de
+\(T\) évite \(7\), que le premier \(5\) éventuel a la même atteinte
+de \(1\) et évite \(7\). Ce contrôle fini n'est pas la preuve.

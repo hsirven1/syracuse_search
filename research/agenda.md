@@ -10,13 +10,16 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6094223904` confirme B22 et corrige le sens de
-l'implication entre \(P(2)\) et la conjecture 4.14 (X42), ainsi que
-la valuation écrite au cycle 016 §2. B22 reste l'équivalence avec
-la conjecture 4.13, non résolue. Ne pas ouvrir le cycle 017 avant
-une relecture de ce correctif, ni avant le 28 novembre 2026 à
-00:04 UTC. Le plus ancien cycle de la fenêtre est le cycle 005 :
-le commit `ebba330` est du 27 novembre 2026 à 00:03:27 UTC.
+La revue `6094246430` confirme B22, la valuation et l'implication
+directe de X42. Elle retire « 4.14 n'implique pas \(P(2)\) » :
+l'inclusion stricte et l'orbite convergente de \(5\) séparent les
+hypothèses, pas les deux conjectures. Pour déduire \(P(2)\) de
+4.14, il reste la queue issue du premier terme \(\equiv 5\pmod 8\)
+(cycle 016 §9). Cette réduction ne résout ni 4.13 ni 4.14. Ne pas
+ouvrir le cycle 017 avant une relecture de ce correctif, ni avant
+le 28 novembre 2026 à 00:04 UTC. Le plus ancien cycle de la fenêtre
+est le cycle 005 : le commit `ebba330` est du 27 novembre 2026 à
+00:03:27 UTC.
 
 ## 1. [C] La borne de Korec et les classes — PROCHAINE QUESTION (cycle 017), non entamée
 Ne pas rouvrir \(P(2)\), les conjectures 4.11 à 4.14, Steiner, les
@@ -41,6 +44,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094246430` (27 nov. 2026, SHA `6bd08925`) : B22, la
+  valuation et l'implication directe de X42 confirmées. La
+  formulation catégorique « 4.14 n'implique pas \(P(2)\) » est
+  retirée. La queue issue du premier \(5\pmod 8\) reste à traiter.
+  Aucune des deux conjectures n'est résolue. Le cycle 017 n'est pas
+  ouvert. Détail : [reviews.md](reviews.md).
 - Revue `6094223904` (27 nov. 2026, SHA `bab008e`) : B22, X41 et le
   seuil en un pas confirmés. La phrase « la conjecture 4.14
   impliquerait \(P(2)\) » est fausse (X42). L'orbite
