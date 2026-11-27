@@ -16,22 +16,24 @@ Les cycles 001 à 012 sont douze cycles nouveaux dont le premier commit est
 revue reste permise. Une confirmation sans objection ne justifie pas un
 treizième cycle dans cette fenêtre.
 
-## 1. [B] Correction jointe $(n\bmod M,\ v_2(n+1))$ — PROCHAINE QUESTION (cycle 013), non entamée
-Chang, théorème 3.1, exclut $\log_2 n+g(n\bmod 2^k)$. B17 exclut toute
-fonction de la seule valuation $v_2(n+1)$, ajoutée à $\log_2 n$ ou à
-$\log_2(n+1)$, lorsque la décroissance est exigée pour tout impair $>1$.
-La note du 19 octobre 2026,
+## 1. [B] Compteurs de facteurs premiers dans le potentiel additif — PROCHAINE QUESTION (cycle 013), non entamée
+B18 ferme $H(n)+\Phi(n\bmod M, v_2(n+1))$ hors d'un ensemble fini, sur
+$U$ et sur $T$, sans compteurs. La note du 19 octobre 2026,
 `https://rstation.ai/problems/collatz/papers/3`, affirme qu'aucune fonction
 $H(n)+\Phi(n\bmod M, v_2(n+1))+\beta\omega(n)+\gamma\Omega(n)+R(\Omega(n)-\omega(n))$
 n'est non croissante sur tous les pas $U$ d'impairs assez grands. Ce n'est
-pas une publication primaire, et le crible n'a pas été revérifié.
+pas une publication primaire. Les lemmes 3 et 4, crible de valeurs sans
+facteur carré, n'ont pas été revérifiés. Un seul trajet ne suffit pas :
+$123=3\cdot 41$ et $139$ est premier.
 
-Le cycle 013 commence par la porte d'antériorité sur cet énoncé. Ou bien
-la preuve a un trou précis, ou bien l'obstruction est déjà écrite et ne
-doit pas être refaite. Pas de nouvel ansatz avant cette porte. Ne pas
-rouvrir B10, B13, X21, le signe moins, le mot du cycle 006, la famille
-$5\cdot 2^k-1$, les conjectures 2 et 3 de Berg–Meinardus, ni les théorèmes
-4.2.7 et 4.3.10 de Mori. Ne pas déduire Syracuse d'une descente partielle.
+Le cycle 013 commence par la porte d'antériorité sur ce seul complément.
+Ou bien la preuve a un trou précis, ou bien l'obstruction avec compteurs
+est déjà écrite et ne doit pas être refaite. Pas de nouvel ansatz avant
+cette porte. Ne pas rouvrir B10, B13, B17, B18, X21, X31, le signe moins,
+le mot du cycle 006, la famille $5\cdot 2^k-1$, les conjectures 2 et 3 de
+Berg–Meinardus, ni les théorèmes 4.2.7 et 4.3.10 de Mori. Ne pas déduire
+Syracuse d'une descente partielle. Ne pas ouvrir ce cycle avant la fin du
+blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -42,6 +44,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082913526` (27 nov. 2026, SHA `41cced5e`) : X31 et B17
+  confirmés. L'exception finie et le couple $(n\bmod M, v_2(n+1))$ sans
+  compteurs sont fermés (B18, X32). Le théorème 1 de la note, avec
+  compteurs, n'est pas adopté. Le cycle 013 n'est pas entamé.
+  Détail : [reviews.md](reviews.md).
 - Revue `6082845312` (27 nov. 2026, SHA `a29ba699`) : le correctif du
   cycle 011 est confirmé. Résidu \(-\lambda^\mu\), coefficient
   \(\lambda^{2\mu}\), équivalence \(a_n=a_{t(n)}\). Aucune correction.

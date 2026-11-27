@@ -4,8 +4,8 @@
 La preuve est dans research/cycles/cycle-012.md. Ce script ne la remplace pas.
 Il vérifie les trois pas U(3)=5, U(7)=11, U(9)=7, les identités
 U(n)+1=3(n+1)/2 pour n=3 et n=7, les comparaisons 9>7, 9>5 et 385>189,
-le pas pair 6→3, l'égalité au seuil β sur 3→5, et un potentiel rapide
-h(t)=1000 t qui croît en 9→7.
+le pas pair 6→3, l'égalité au seuil β sur 3→5, un potentiel rapide
+h(t)=1000 t qui croît en 9→7, et la famille x=64A-5, y=96A-7, z=72A-5.
 
 Usage : python3 research/checks/cycle012_lyapunov.py
 """
@@ -64,11 +64,71 @@ def linear_T():
             raise AssertionError(("six does not increase", p, q))
 
 
+def affine_branch():
+    samples = ((1, 1), (3, 4), (2, 3), (5, 8), (100, 1))
+    for p, q in samples:
+        if (1 << (p + q)) <= 3**q:
+            raise AssertionError(("not above beta", p, q))
+    for A in range(1, 501):
+        check_one(A)
+        for p, q in samples:
+            z = 72 * A - 5
+            if (z + 1) ** q * (1 << (2 * p)) <= (2 * z + 1) ** q:
+                raise AssertionError(("even step", p, q, A))
+    for M in range(1, 101):
+        for q in range(1, 101):
+            check_one(M * q, M)
+    # A=2 changes ω: 123=3*41 and 139 is prime. One path does not fix counters.
+    if 3 * 41 != 123:
+        raise AssertionError("123")
+    if not is_prime(139):
+        raise AssertionError("139")
+
+
+def check_one(A, modulus=None):
+    x = 64 * A - 5
+    y = 96 * A - 7
+    z = 72 * A - 5
+    if 3 * x + 1 != 2 * y or 3 * y + 1 != 4 * z:
+        raise AssertionError(("identity", A))
+    if x % 2 == 0 or y % 2 == 0 or z % 2 == 0:
+        raise AssertionError(("parity", A))
+    if U(x) != y or U(y) != z:
+        raise AssertionError(("U", A))
+    if T(x) != y or T(y) != 2 * z or T(2 * z) != z:
+        raise AssertionError(("T", A))
+    if z <= x or y <= x or 2 * z <= y:
+        raise AssertionError(("growth", A))
+    if (v2(x + 1), v2(y + 1), v2(z + 1), v2(2 * z + 1)) != (2, 1, 2, 0):
+        raise AssertionError(("valuation", A))
+    if (y + 1) * 2 != (x + 1) * 3 or (2 * z + 1) * 2 != (y + 1) * 3:
+        raise AssertionError(("odd ratios", A))
+    if z + 1 != 4 * (18 * A - 1) or 2 * z + 1 != 9 * (16 * A - 1):
+        raise AssertionError(("even ratio", A))
+    if 18 * A - 1 <= 16 * A - 1 or 9 * (z + 1) <= 4 * (2 * z + 1):
+        raise AssertionError(("beta gap", A))
+    if modulus is not None and z % modulus != x % modulus:
+        raise AssertionError(("residue", A, modulus))
+
+
+def is_prime(n):
+    if n < 2:
+        return False
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1 if d == 2 else 2
+    return True
+
+
 def main():
     odd_identities()
     print("PASS odd identities and gaps")
     linear_T()
     print("PASS linear steps 6 and 3")
+    affine_branch()
+    print("PASS affine branch without prime counters")
 
 
 if __name__ == "__main__":

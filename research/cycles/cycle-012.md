@@ -9,9 +9,11 @@ stricte le long des orbites positives de \(T\) hors de \(\{1,2\}\).
 Plus généralement, aucune fonction réelle de la seule valuation
 \(v_2(n+1)\) ne répare \(\log_2(n)\) ni \(\log_2(n+1)\) sur l'application
 accélérée \(U\), si la décroissance est exigée pour tout impair \(>1\).
-Ce n'est pas une preuve de Syracuse. Le cas d'un ensemble fini
-d'exceptions, et le cas d'une correction qui voit à la fois un résidu
-fixe et la valuation, restent ouverts.
+Ce n'est pas une preuve de Syracuse. L'exception finie et la
+correction jointe \((n\bmod M,\ v_2(n+1))\), sans compteurs de facteurs
+premiers, sont fermées par B18 (§9). La forme qui ajoute
+\(\omega\), \(\Omega\) et une fonction de \(\Omega-\omega\) n'est pas
+tranchée.
 
 ## 0. Revue traitée, question, porte d'antériorité
 
@@ -68,8 +70,9 @@ Une note du 19 octobre 2026, lue sur
 `https://rstation.ai/problems/collatz/papers/3`, affirme une obstruction
 pour \(H(n)+\Phi(n\bmod M,v_2(n+1))\) plus des compteurs de facteurs
 premiers, hors d'un ensemble fini. Ce n'est pas une publication primaire.
-Le crible n'a pas été revérifié. Ce texte n'est pas une prémisse. Notre
-énoncé ne conclut ni pour un module, ni hors d'un ensemble fini.
+Le crible des lemmes 3 et 4 n'a pas été revérifié. Ce texte n'est pas
+une prémisse de B17. La partie sans compteurs est prouvée au §9, par
+une progression explicite, sans ce crible.
 
 **Écart.** Le théorème 3.1 de Chang fixe le module et ne voit pas
 \(v_2(n+1)\). Le §4(2) vise \(\log_2 n+h(v_2(n+1))\) mais ne le prouve
@@ -187,49 +190,59 @@ ne passe pas. Le même \(h\) est tout de même exclu par B17. En effet
 
 Le théorème 3.1, lui, n'est pas mis en cause. Il ne porte pas sur
 \(h(t(n))\). Nous n'adoptons pas sa preuve : les trois pas ci-dessus
-sont autonomes. Nous n'en tirons pas non plus l'infinité des témoins
-pour une fonction \(\Phi\) qui aurait le droit d'échouer en \(3\), \(7\)
-et \(9\).
+sont autonomes. Cette dichotomie ne donne pas, à elle seule, des
+témoins arbitrairement grands si \(\Phi\) peut échouer en \(3\), \(7\)
+et \(9\). Cette infinitude est B18, au §9, par une autre famille.
 
 ## 5. Ce que ce cycle ne montre pas
 
-Rien sur (C), sur (H), ni sur Syracuse. Une fonction qui décroît pour
-tout impair assez grand, mais pas en \(3\), \(7\) ou \(9\), n'est pas
-exclue. Une correction \(\Phi(n\bmod M, v_2(n+1))\), pour un module
-\(M\) fixé, n'est pas exclue non plus : les trois pas n'imposent plus
-la même valeur de \(\Phi\) à valuation égale. Les variantes (1), (3) et
-(4) du §4 de Chang, précision adaptative, ordinaux et quantités non
-locales, ne sont pas traitées. Le poids \(h(t)=1000\,t\) montre seulement
-que l'esquisse du §4(2) ne couvre pas les fonctions à croissance rapide.
-Il ne ferme pas la question hors d'un ensemble fini.
+Rien sur (C), sur (H), ni sur Syracuse. B17 n'exclut pas, à lui seul,
+une décroissance qui échouerait seulement en \(3\), \(7\) et \(9\) :
+les trois pas n'imposent plus la même valeur de \(\Phi\) dès qu'un
+résidu modulo \(M\) entre dans la correction. Cette exception finie,
+et la correction jointe sans compteurs, sont B18 (§9), pas une question
+ouverte. Les variantes (1), (3) et (4) du §4 de Chang, précision
+adaptative, ordinaux et quantités non locales, ne sont pas traitées.
+Le poids \(h(t)=1000\,t\) montre seulement que l'esquisse du §4(2) ne
+couvre pas les fonctions à croissance rapide.
+
+La forme avec compteurs reste hors de ce cycle. Sur un seul trajet,
+\(\omega\) peut changer : pour \(A=2\), \(x=123=3\cdot41\) et
+\(z=139\), qui est premier, donc \(\omega\) passe de \(2\) à \(1\).
+Les lemmes 3 et 4 de la note, qui produisent deux trajets de signes
+opposés, ne sont pas relus comme preuve.
 
 ## 6. Mises à jour de la mémoire
 
-- `proved.md` : B17. La revue `6082845312` est enregistrée sous B16,
-  sans changement de formule.
-- `counterexamples.md` : X31.
-- `hypotheses.md` : H7 est réfutée pour la famille écrite.
-- `prior_art.md` : Chang, théorème 3.1 et §4(2).
-- `abandoned.md` : ne pas relancer cette forme de potentiel.
-- `agenda.md` : question suivante, et budget de cycles.
-- `reviews.md` : revue `6082845312`.
+- `proved.md` : B17, puis B18 après la revue `6082913526`.
+- `counterexamples.md` : X31, puis X32.
+- `hypotheses.md` : H7 est réfutée, y compris hors d'un ensemble fini
+  et pour le couple \((n\bmod M, v_2(n+1))\) sans compteurs.
+- `prior_art.md` : Chang, théorème 3.1 et §4(2) ; la branche de la note
+  du 19 octobre 2026, sans adoption du crible.
+- `abandoned.md` : ne pas relancer la forme sans compteurs.
+- `agenda.md` : la question suivante est le seul complément avec
+  compteurs, non entamé. Le budget de cycles reste celui du §8.
+- `reviews.md` : revues `6082845312` et `6082913526`.
 
 ## 7. Prochaine question
 
-Axe **B**, un seul énoncé, et seulement après le budget du §8 de
-l'agenda. Le théorème 3.1 de Chang et B17 laissent ouverte une
-correction qui dépend du couple \((n\bmod M, v_2(n+1))\). La note du
-19 octobre 2026 citée au §0 affirme que cette forme, même augmentée de
-compteurs de facteurs premiers, ne peut pas être non croissante sur
-tous les grands pas impairs de \(U\).
+Axe **B**, un seul énoncé, et seulement après le budget du blocage de
+l'agenda. B18 ferme la correction \(H(n)+\Phi(n\bmod M, v_2(n+1))\),
+hors d'un ensemble fini, sur \(U\) et sur \(T\). La note du 19 octobre
+2026 affirme davantage : la même forme, augmentée de
+\(\beta\omega(n)+\gamma\Omega(n)+R(\Omega(n)-\omega(n))\), ne peut pas
+être non croissante sur tous les grands pas impairs de \(U\).
 
-Le cycle suivant commence par la porte d'antériorité sur cet énoncé,
-pas par un nouveau potentiel. Ou bien la preuve lue a un trou précis,
-ou bien l'obstruction est déjà écrite et ne doit pas être refaite.
-Ne pas rouvrir B10, B13, X21, le signe moins, le mot du cycle 006, la
-famille \(5\cdot 2^k-1\), les conjectures 2 et 3 de Berg–Meinardus, ni
-les théorèmes 4.2.7 et 4.3.10 de Mori. Ne pas déduire Syracuse d'une
-descente partielle.
+Le cycle suivant commence par la porte d'antériorité sur ce seul
+complément. Le théorème 1 de la note n'est pas adopté : ses lemmes 3
+et 4, crible de valeurs sans facteur carré, n'ont pas été revérifiés.
+Ou bien cette preuve a un trou précis, ou bien l'obstruction avec
+compteurs est déjà écrite et ne doit pas être refaite. Pas de nouvel
+ansatz avant cette porte. Ne pas rouvrir B10, B13, B17, B18, X21, X31,
+le signe moins, le mot du cycle 006, la famille \(5\cdot 2^k-1\), les
+conjectures 2 et 3 de Berg–Meinardus, ni les théorèmes 4.2.7 et 4.3.10
+de Mori. Ne pas déduire Syracuse d'une descente partielle.
 
 ## 8. Reproduire
 
@@ -237,8 +250,130 @@ descente partielle.
 python3 research/checks/cycle012_lyapunov.py
 ```
 
-Sortie attendue : deux lignes `PASS`. Elles couvrent les trois images
-accélérées, les deux identités de hauteur, les trois comparaisons
-entières, le poids \(1000\,t\), le pas \(6\to 3\), l'égalité au seuil
-sur \(3\to 5\), et cinq rationnels \(c>\beta\). Ces contrôles ne sont
-pas la preuve : la dichotomie sur \(\Phi\) est au §3.
+Sortie attendue : trois lignes `PASS`. Les deux premières couvrent les
+trois images accélérées, les deux identités de hauteur, les trois
+comparaisons entières, le poids \(1000\,t\), le pas \(6\to 3\),
+l'égalité au seuil sur \(3\to 5\), et cinq rationnels \(c>\beta\). La
+troisième couvre la famille du §9 : identités, valuations, congruence,
+bilan strict, dix mille couples \((M,q)\), cinq rationnels \(c>\beta\)
+sur le pas pair, et le témoin \(123\to139\) où \(\omega\) change. Ces
+contrôles ne sont pas la preuve.
+
+## 9. Revue `6082913526` : exceptions finies et résidu joint (B18)
+
+Revue indépendante sur le SHA
+`41cced5e74fd9dcf1d3288c8a9fc4181041f2e92` (PR #27), marqueur
+`SYRACUSE_INDEPENDENT_REVIEW`. X31 et B17 (§§1–3) sont confirmés. Le
+pas \(3\to 5\) a l'écart \(\beta-c\). Pour \(c>\beta\),
+\(V(3)-V(6)>\log_2(9/7)\). Les témoins de \(U\) sont \(3,7,9\), hors de
+\(\{1,2\}\). Aucune correction de ces deux énoncés.
+
+**Porte, pour le seul correctif.** L'énoncé ajouté est le suivant.
+Soit \(M\ge 1\). Soit \(\Phi\) une fonction réelle quelconque de
+\((n\bmod M,\ v_2(n+1))\).
+
+- Si \(H\) est strictement croissante sur les impairs positifs, aucun
+  entier \(N_0\) ne satisfait \(V(U(n))<V(n)\) pour tout impair
+  \(n>N_0\), ni la même phrase avec \(\le\).
+- Si \(H\) est strictement croissante sur les entiers \(\ge 1\), aucun
+  entier \(N_0\) ne satisfait \(V(T(n))<V(n)\) pour tout entier
+  \(n>N_0\), ni la même phrase avec \(\le\).
+
+Ici \(V=H+\Phi\). L'obstacle était la phrase « reste ouvert » des §§5
+et 7 de la première rédaction. La fermer retire une architecture de
+certificat. Elle ne contraint pas une orbite divergente.
+
+Le résultat le plus proche déjà certifié est le théorème 3.1 de Chang :
+\(\log_2 n+g(n\bmod 2^k)\), sans valuation. Il ne voit pas
+\(v_2(n+1)\). Son §4(2) ne prouve pas non plus la valuation seule. La
+note du 19 octobre 2026, §3, écrit le cycle signé \(-5\xrightarrow{1}-7\xrightarrow{2}-5\) et
+\(F(n)=(9n+5)/8\). Son théorème 1 ajoute les compteurs et un crible.
+Ce théorème est plus fort si le crible est juste, mais les lemmes 3 et
+4 ne sont pas vérifiés ici : B18 n'en est pas un corollaire. Les
+formules \(x=64A-5\), \(y=96A-7\), \(z=72A-5\) ne sont pas copiées de
+la note. Les deux trajets affichés au §6 de la note, \(187\to281\to211\)
+et \(379\to569\to427\), sont les cas \(A=3\) et \(A=6\) de ces
+formules. Classement : prouvé ici, sans revendication d'originalité.
+La branche est celle de la note ; le crible reste non adopté.
+Signification : fermer l'exception finie et le couple résidu–valuation.
+Pas une contrainte sur un contre-exemple hypothétique de Syracuse.
+
+**Preuve.** Soit \(q\ge 1\) et \(A=Mq\). Posons
+\[
+x=64A-5,\qquad y=96A-7,\qquad z=72A-5.
+\]
+Alors
+\[
+3x+1=192A-14=2y,\qquad 3y+1=288A-20=4z.
+\]
+Les entiers \(96A\) et \(72A\) sont pairs, donc \(y\) et \(z\) sont
+impairs, \(x\) aussi. Ainsi \(v_2(3x+1)=1\), \(v_2(3y+1)=2\),
+\(U(x)=y\) et \(U(y)=z\). Sous \(T\), \(T(x)=y\), \(T(y)=2z\) et
+\(T(2z)=z\).
+
+Ensuite \(z-x=8A>0\). De plus
+\[
+x+1=4(16A-1),\qquad z+1=4(18A-1),
+\]
+et \(16A-1\), \(18A-1\) sont impairs, donc \(v_2(x+1)=v_2(z+1)=2\).
+Comme \(64A\) et \(72A\) sont des multiples de \(M\),
+\(x\equiv z\equiv -5\pmod M\). Les deux arguments de \(\Phi\)
+coïncident, et
+\[
+V(z)-V(x)=H(z)-H(x)>0
+\]
+dès que \(H(z)>H(x)\). C'est le cas si \(H\) est strictement croissante
+sur les impairs, puisque \(x\) et \(z\) sont impairs.
+
+Les départs de \(U\) sont \(x\) et \(y\), avec \(y-x=32A-2>0\). Soit
+\(q=\max(N_0,0)+1\). Alors \(A\ge 1\) et \(x\ge 59\). Si \(N_0\ge 0\),
+\[
+x=64M(N_0+1)-5\ge 64(N_0+1)-5>N_0.
+\]
+Si \(N_0<0\), alors \(x\ge 59>N_0\). Dans les deux cas \(y>x>N_0\). Si
+les deux pas vérifiaient \(V(U(\cdot))\le V\), on aurait
+\(V(z)\le V(x)\). Contradiction. L'un des deux pas augmente donc \(V\).
+La même comparaison exclut l'inégalité stricte.
+
+Sous \(T\), les trois départs sont \(x\), \(y\) et \(2z=144A-10\), et
+\(2z-y=48A-3>0\). Le même \(q\) place \(x\), \(y\) et \(2z\) au-dessus
+de \(N_0\). Le bilan \(V(z)>V(x)\) force l'un des trois pas à augmenter
+\(V\), pourvu que \(H\) soit définie et strictement croissante sur tous
+les entiers \(\ge 1\), afin que \(V(2z)\) ait un sens. On ne désigne
+pas lequel des trois pas augmente, pour un \(\Phi\) quelconque.
+
+**Famille linéaire.** Pour \(V(n)=\log_2(n+1)+c\,v_2(n+1)\), tout pas
+impair de \(T\) a l'écart \(\beta-c\), car
+\(T(n)+1=3(n+1)/2\) et la valuation baisse de \(1\). Donc
+\(V(y)-V(x)=V(2z)-V(y)=\beta-c\). Sur le pas pair,
+\[
+2z+1=9(16A-1),\qquad z+1=4(18A-1),
+\]
+et
+\begin{align*}
+V(z)-V(2z)
+&=2c+\log_2\frac{4(18A-1)}{9(16A-1)}\\
+&=2(c-\beta)+\log_2\frac{18A-1}{16A-1}.
+\end{align*}
+Le second terme est strictement positif, car \(18A-1>16A-1\). Si
+\(c<\beta\), le pas \(x\to y\) augmente \(V\). Si \(c=\beta\), ce pas
+a un écart nul, et \(2z\to z\) augmente \(V\). Si \(c>\beta\), le pas
+\(2z\to z\) augmente \(V\). Dans les trois cas le départ est
+arbitrairement grand. Pour \(c>\beta\), tout pas impair diminue \(V\) de
+\(c-\beta\) : l'obstruction éventuelle est le pas pair. Le bilan des
+trois pas ne dépend pas de \(c\),
+\[
+V(z)-V(x)=\log_2\frac{18A-1}{16A-1}>0,
+\]
+puisque les valuations aux extrémités sont égales.
+
+**Ce que B18 ne reprend pas.** Le théorème 1 de la note demande deux
+trajets, des extrémités sans facteur carré, et des poids positifs qui
+annulent \(\omega\) et \(\Omega\). Un seul trajet ne le fait pas :
+\(A=2\) donne \(x=123=3\cdot 41\) et \(z=139\), premier. Ce théorème,
+ses lemmes 3 et 4, et l'argument de Brun–Titchmarsh ne sont pas
+adoptés. Les variantes non additives, les temps de retour adaptatifs
+et les dérives moyennes restent hors de l'énoncé, comme la note le
+dit elle-même au §7. Ce n'est pas le cycle 013 : le budget de douze
+cycles dans la fenêtre de vingt-quatre heures reste en vigueur, et
+cette section est le correctif de la revue.

@@ -371,9 +371,39 @@ toute fonction réelle \(\Phi\) de \(v_2(n+1)\), ni \(\log_2 n+\Phi\) ni
 \(U(7)=11\) et \(U(9)=7\). Le théorème 3.1 de Chang exclut une autre
 famille, \(\log_2 n+g(n\bmod 2^k)\). Son §4(2) laisse
 \(\log_2 n+h(v_2(n+1))\) au lecteur ; l'esquisse ne couvre pas une
-fonction à croissance rapide, et B17 ferme l'énoncé sans ensemble
-exceptionnel. Ce n'est pas une descente des grandes orbites, ni une
-exclusion des corrections qui voient aussi un résidu fixe.
+fonction à croissance rapide. B17 ferme l'énoncé sans ensemble
+exceptionnel, pour ces deux hauteurs et pour la seule valuation. Il ne
+traite pas, à lui seul, une exception finie ni un résidu modulo \(M\).
+Cette fermeture est B18. Ce n'est pas une descente des grandes orbites.
+
+Revue indépendante `6082913526` (PR #27, SHA
+`41cced5e74fd9dcf1d3288c8a9fc4181041f2e92`) : X31 et B17 confirmés.
+Aucune correction de leurs formules. La phrase qui laissait ouvertes
+l'exception finie et la correction \((n\bmod M, v_2(n+1))\) sans
+compteurs est réfutée (X32, B18). Le théorème 1 de la note du 19
+octobre 2026, avec \(\omega\), \(\Omega\) et \(R(\Omega-\omega)\),
+n'est pas adopté : le crible n'est pas revérifié. Ce n'est pas le
+cycle 013.
+
+**B18 — Aucune correction \(H+\Phi(n\bmod M, v_2(n+1))\) n'est
+ultimement décroissante** (PROUVÉ, cycle 012 §9). Pour tout module
+\(M\ge 1\) et toute fonction réelle \(\Phi\) du couple
+\((n\bmod M, v_2(n+1))\), si \(H\) est strictement croissante sur les
+impairs positifs, alors, au-delà de tout seuil, au moins un pas \(U\)
+augmente \(V=H+\Phi\). Si \(H\) est strictement croissante sur tous les
+entiers \(\ge 1\), au-delà de tout seuil, au moins un pas de \(T\)
+augmente \(V\). Les deux formes larges,
+\(V(U(n))\le V(n)\) et \(V(T(n))\le V(n)\), échouent aussi. La famille
+est \(x=64Mq-5\), \(y=96Mq-7\), \(z=72Mq-5\), pour \(q\ge 1\) :
+\(U(x)=y\), \(U(y)=z\), \(T^3(x)=z\), \(z>x\), \(z\equiv x\pmod M\) et
+\(v_2(x+1)=v_2(z+1)=2\). Le cas linéaire
+\(\log_2(n+1)+c\,v_2(n+1)\) est inclus : l'écart d'un pas impair est
+\(\beta-c\), et celui de \(2z\to z\) vaut
+\(2(c-\beta)+\log_2((18A-1)/(16A-1))\). Le théorème 3.1 de Chang ne
+voit pas la valuation. La note du 19 octobre 2026 écrit la branche
+\(F(n)=(9n+5)/8\) issue de \((-5,-7)\) ; ses lemmes 3 et 4 ne sont pas
+une prémisse. Un seul trajet ne fige pas \(\omega\) : \(123=3\cdot41\)
+et \(139\) est premier. Ce n'est pas une preuve de Syracuse.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
