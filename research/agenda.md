@@ -10,22 +10,19 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les corrections de la revue `6082438456` sont dans ce commit. Ne pas
-engager le cycle 010 tant qu'une nouvelle revue indépendante ne les a
-pas confirmées. La revue confirme les corrections de `6082358798` et
-exclut $2+2^{66}$ au rang $2$.
+Les résultats du cycle 010 sont dans ce commit. Ne pas engager la
+question suivante tant qu'une revue indépendante de ce SHA ne les a pas
+traités.
 
-## 1. [A] Descente accélérée de $5\cdot2^k-1$ — PROCHAINE QUESTION (cycle 010)
-Pour $k\ge2$, $n_k=5\cdot2^k-1\equiv3\pmod4$, donc le pas accéléré
-$U(n)=(3n+1)/2^{v_2(3n+1)}$ vérifie $U(n_k)>n_k$. Le temps
-$\tau(n_k)=\min\{t\ge1:U^t(n_k)<n_k\}$ admet-il une borne explicite en
-$k$, par une trajectoire en forme close ? Sinon, la montée dépasse-t-elle
-$2k$ pas accélérés pour des $k$ arbitrairement grands ? Écarter $a=1$
-(Mersenne) et la classe $n\equiv1\pmod4$ pour $n>1$, qui vérifie
-$U(n)<n$. Le point $n=1$ est fixe : $U(1)=1$. Porte d'antériorité
-d'abord. Si aucun mécanisme clos n'apparaît après un contre-exemple
-borné, s'arrêter. Ne pas rouvrir le signe moins, le mot du cycle 006,
-B10, B13 ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
+## 1. [C] Équation de Berg–Meinardus — PROCHAINE QUESTION (cycle 011)
+Lire l'énoncé primaire de Berg–Meinardus (1994 ou 1995) qui rend la
+conjecture équivalente à une équation fonctionnelle holomorphe. Cette
+équivalence donne-t-elle une contrainte sur une trajectoire individuelle
+qui ne soit pas déjà B12, ou bien est-elle une reformulation globale sans
+nouveau lemme de descente ? Si le texte primaire n'est pas obtenu,
+s'arrêter et consigner l'antériorité comme non vérifiée. Ne pas rouvrir
+la famille $5\cdot2^k-1$, le signe moins, le mot du cycle 006, B10, B13,
+X21, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -36,6 +33,18 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 010 (27 nov. 2026) : le préfixe accéléré de $5\cdot2^k-1$ est
+  connu. Pour $k\ge3$, la sortie $U^k$ reste au-dessus du départ, donc
+  $\tau\ge k+1$ (B15). Pour $k$ impair $\ge3$, les orbites de $n_k$ et
+  de $n_{k+1}$ se rejoignent au pas $k+1$, encore au-dessus (Wiltrout–
+  Landquist, théorème 4, transporté vers $U$). La forme close s'arrête
+  là. $\tau\le2k$ pour tout $k$ est faux (X28, $k=5$, $\tau=13$). Le
+  relevé $2\le k\le1000$ ne prouve pas l'infinité de l'excès.
+  [cycle-010](cycles/cycle-010.md)
+- Revue `6082502361` (27 nov. 2026, SHA `c5ab6439`) : l'exclusion de
+  $2+2^{66}$ au rang $2$ est confirmée. Aucune correction. Le résidu
+  $u=956973825$ satisfait les deux valuations ; l'irrationalité reste
+  ouverte. Cycle 010 ensuite. Détail : [reviews.md](reviews.md).
 - Revue `6082438456` (27 nov. 2026, SHA `645ee7b8`) : les corrections
   de `6082358798` sont confirmées. Le candidat $2+2^{66}$ satisfait le
   rang $1$ et la borne de hauteur, mais $v_2(A_2)=74\neq96$ : il est

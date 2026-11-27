@@ -281,6 +281,24 @@ Revue indépendante `6082438456` (PR #27, SHA
 confirmées. Le candidat $2+2^{66}$ est exclu au rang $2$. Ce n'est pas
 une preuve d'irrationalité, ni le cycle suivant.
 
+Revue indépendante `6082502361` (PR #27, SHA
+`c5ab64394914d91280442ab479f264a840dd5942`) : cette exclusion est
+confirmée, sans correction. Ce n'est pas une seconde preuve. Le cycle
+010 vient après.
+
+**B15 — Sortie de $5\cdot2^k-1$ encore au-dessus du départ** (PROUVÉ,
+cycle 010 §2–§3). Pour $k\ge2$, $U^t(5\cdot2^k-1)=5\cdot3^t\cdot2^{k-t}-1$
+si $0\le t\le k-1$, et $v_2(5\cdot3^k-1)=1$ ou $2$ selon la parité de
+$k$. Alors $U^k=(5\cdot3^k-1)/2^{\varepsilon(k)}$. Pour $k=2$, $\tau=2$.
+Pour $k\ge3$, $U^k>n_k$, donc $\tau\ge k+1$. Si $k\ge3$ est impair,
+$U^{k+1}(n_k)=U^{k+1}(n_{k+1})=(5\cdot3^{k+1}-1)/4>n_{k+1}$, donc
+$\tau(n_k)\ge\tau(n_{k+1})\ge k+2$. Le préfixe $t\le k-1$ est la propriété
+de Syracuse déjà écrite (Wikipedia, puce lue ; calcul (i) à partie
+impaire $5$). La valeur de jonction est le théorème 4 de
+Wiltrout–Landquist 2016 pour $b=5$, transporté de $T$ vers $U$. Pas une
+formule de $\tau$, ni une preuve que $\tau>2k$ infiniment souvent. X28
+réfute seulement $\tau\le2k$ pour tout $k$.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

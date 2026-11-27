@@ -121,5 +121,8 @@ non lu. L'esquisse d'orbite déjà fermée par Kadison 1957, signalée par la
 revue `6082060844`, n'est pas reproduite et n'est pas une prémisse. Ne pas
 relancer la lecture sans barres. L'implication globale de H6 est B13.
 Le signe moins est traité au cycle 009 : hauteur B14, irrationalité
-ouverte. La question suivante est la descente accélérée de
-$5\cdot2^k-1$, pas un nouveau lemme sur $\{e_{2^k}\}$.
+ouverte. La revue `6082502361` confirme l'exclusion de $2+2^{66}$ au
+rang $2$ et ne la transforme pas en irrationalité. La descente accélérée
+de $5\cdot2^k-1$ est B15 : $\tau\ge k+1$ pour $k\ge3$, sans formule close
+jusqu'à la descente. La question suivante est l'équation de
+Berg–Meinardus, pas un nouveau lemme sur $\{e_{2^k}\}$.
