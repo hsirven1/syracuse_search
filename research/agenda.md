@@ -9,26 +9,29 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [B] Frontière de Tschakaloff sur un run quasi linéaire — PROCHAINE QUESTION (cycle 006)
-Mot à un zéro par bloc, $r_j=j+[j\text{ impair}]$. La réalisation 2-adique est-elle une
-combinaison $\mathbb Q$-linéaire de deux valeurs $f_q(\alpha_i)$ ? Si oui, l'un des énoncés
-de Bézivin, Bundschuh ou Amou–Väänänen l'exclut-il de $\mathbb Z_{(2)}$ ? Lire l'énoncé avant
-toute preuve et y vérifier l'obstruction $\Gamma(2,0)<\gamma$. Dépend : B1, B2. Pas une
-relecture de VW 1989.
+## 1. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles — PROCHAINE QUESTION (cycle 007)
+Lire Berg–Meinardus, Wirsching (LNM 1681) ou Mori 2024, et en extraire **un** énoncé
+réfutable (par exemple une prédiction sur un tronqué fini) avant tout calcul.
+Documentaire d'abord. Aucune dépendance. Ne pas rouvrir le mot du cycle 006.
 
-## 2. [C] Revue ciblée : opérateurs de transfert et équations fonctionnelles
-Lire Berg–Meinardus, Wirsching (LNM 1681), Mori 2024 ; extraire **un** énoncé réfutable (par ex. une
-prédiction d'un tronqué fini) avant tout calcul. Documentaire d'abord. Aucune dépendance.
-
-## 3. [B, long terme] (C) densité orbitale positive (H1)
+## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
 (H) ⇒ (C) uniforme, désormais prouvé (B6), avec $\eta_N\ge1/(A+1)$. (H) elle-même est la
 conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 
-## 4. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
+## 3. [Validation] Relecture humaine du scan VW 1989, pp. 200–201
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 006 (27 nov. 2026) : le mot $r_j=j+[j\text{ impair}]$ a pour réalisation
+  $4\xi+1+2f_{81/16}(4)+f_{81/16}(9)=0$ dans $\mathbb Q_2$ (B11). VW 1989 ne
+  s'applique pas ($\gamma>\Gamma(2,0)$). Les Satz 1 et 2 de Bundschuh 1974,
+  lus, sont archimédiens et leur hypothèse échoue. Bézivin 1988 et
+  Amou–Väänänen 2005 : originaux non obtenus, énoncés cités non 2-adiques
+  pour ce $q$. Irrationalité ouverte. [cycle-006](cycles/cycle-006.md)
+- Revue `6081884788` (27 nov. 2026, SHA `0b935a9`) : corrections du cycle 005
+  confirmées. Aucune correction supplémentaire. Cycle 006 ensuite.
+  Détail : [reviews.md](reviews.md).
 - Revue `6081843230` (27 nov. 2026, SHA `ebba330`) : B10 et X21 confirmés.
   La comparaison $2^L+K-1\ge2^L$ est corrigée pour $0<K<1$. La borne s'écrit
   $3\cdot2^t>2\cdot3^L$. X21 ne réfute que l'obstruction locale ; l'implication

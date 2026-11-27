@@ -263,3 +263,13 @@ Contrôles indépendants, en arithmétique entière : pour $2\le L\le120$, le
 premier $t$ tel que $2T^t(2^L-1)\le3(2^L-1)$ vérifie $t>L$ et
 $3\cdot2^t>2\cdot3^L$. Les retours $L=2,4,6$ sont $t=3,6,9$, avec images
 $4$, $20$ et $91$. Le script Python a été exécuté : cinq lignes `PASS`.
+
+## 11. Revue `6081884788`
+
+Revue indépendante sur le SHA `0b935a943b7972fa3998ac98b2c53fcc6772ea5b`
+(PR #27), c'est-à-dire sur les corrections du §10. B10 sous la forme
+$3\cdot2^t>2\cdot3^L$, la comparaison $2^L+K-1>0$, le certificat local
+X21 et le décompte $\log_2(3^k-1)$ sont confirmés. L'implication globale
+de H6 reste ouverte, comme le texte le disait déjà. Aucune correction.
+La question du §9 est traitée ensuite, dans le cycle 006. Ce n'est pas
+une seconde preuve de B10.

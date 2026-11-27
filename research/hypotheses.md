@@ -50,19 +50,26 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
   ($k\ge2$) ont le même rapport limite : $Q_k\to+\infty$ pour le signe plus,
   $Q_k\to-\infty$ pour le signe moins. L'irrationalité du signe moins reste
   ouverte. Les placements de zéros non réductibles par un préfixe fini restent
-  ouverts. Les runs quasi linéaires restent H5.
+  ouverts. Les runs quasi linéaires restent H5 : la famille appariée est
+  l'identité B11, et son irrationalité reste ouverte.
 - Les contrôles du cycle 003 testent les fenêtres atteintes depuis les départs
   choisis. Ils ne recensent pas les cycles de $3x+b$ (X19).
 - Portée : rien de neuf pour (C). Une orbite entière non bornée a déjà
   $r_m\le\beta o_m-m+O_N(1)$ par l'identité de hauteur.
 
 ## H5 — Au-delà de VW : runs quasi linéaires — OUVERT
-Exemples : $r_j=cj+d+p_j$ avec $p$ périodique non constant, $r_j=\lfloor j/P\rfloor$.
-La réalisation devient une combinaison de $l\ge2$ valeurs de Tschakaloff ; or
-$\Gamma(2,0)=(5-\sqrt{17})/4\approx0{,}219<\gamma=1-\log2/\log3\approx0{,}369$ :
-VW 1989 ne s'applique plus. Il faut d'autres résultats p-adiques (à rechercher) ou une obstruction.
-Prochaine question, une seule famille : $r_j=j+[j\text{ impair}]$, puis Bézivin, Bundschuh
-ou Amou–Väänänen sur l'énoncé lu. Pas une revue générale.
+Exemples encore ouverts : $r_j=cj+d+p_j$ avec $p$ périodique non constant,
+$r_j=\lfloor j/P\rfloor$. Pour $l\ge2$,
+$\Gamma(2,0)=(5-\sqrt{17})/4<\gamma=1-\log2/\log3$ : VW 1989 ne s'applique pas.
+La famille $r_j=j+[j\text{ impair}]$ est réduite (B11) :
+$4\xi+1+2f_{81/16}(4)+f_{81/16}(9)=0$ dans $\mathbb Q_2$. Sur ce $q$,
+$\gamma>\Gamma(2,0)$ est prouvé par $8<9$ et $121<153$. Les Satz 1 et 2 de
+Bundschuh 1974 sont archimédiens et leur hypothèse échoue ($256>243$,
+$80>49$). Les originaux de Bézivin 1988 et d'Amou–Väänänen 2005 n'ont pas
+été lus ; les énoncés cités ne donnent pas l'exclusion 2-adique. B7 est
+aveugle ($Q_m\to-\infty$). L'irrationalité de cette famille reste ouverte.
+Ne pas la relancer sans un énoncé p-adique dont l'hypothèse est satisfaite
+par $q=81/16$. Ce n'est pas la prochaine question.
 
 ## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — LOCAL SANS SEUIL RÉFUTÉ ; $K\le3/2$ PROUVÉ ; GLOBAL OUVERT
 L'énoncé initial : si $0<\ell\le W\le h$, $0<\rho<1$, et si tout $n\ge N_0$ admet

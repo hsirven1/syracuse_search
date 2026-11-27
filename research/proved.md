@@ -165,6 +165,23 @@ $3\cdot2^t>2\cdot3^L$. L'implication globale de H6 reste ouverte. La
 justification de la formule (4) compte $\log_2(3^k-1)$ pas après le sommet.
 Ce n'est pas une seconde preuve de l'ascension, ni le cycle suivant.
 
+Revue indépendante `6081884788` (PR #27, SHA `0b935a943b7972fa3998ac98b2c53fcc6772ea5b`) :
+la forme $3\cdot2^t>2\cdot3^L$, la positivité de $2^L+K-1$, X21 et le
+décompte après le sommet sont confirmés. H6 globale reste ouverte. Aucun
+changement au texte de B10. Ce n'est pas une seconde preuve, ni le cycle
+suivant : le cycle 006 vient après.
+
+**B11 — Réalisation des runs appariés** (PROUVÉ, cycle 006 §3). Pour le mot
+à un zéro par bloc et $r_j=j+[j\text{ impair}]$, avec $q=81/16$ et
+$f_q(x)=\sum_{n\ge0}q^{-n(n+1)/2}x^n$,
+$$4\xi_w+1+2f_q(4)+f_q(9)=0\quad\text{dans }\mathbb Q_2.$$
+Les termes pairs et impairs sont exactement $u_m(4)$ et $\tfrac12 u_m(9)$.
+Donc $\xi_w\in\mathbb Q$ si et seulement si $2f_q(4)+f_q(9)\in\mathbb Q$.
+Ce n'est pas une exclusion : $\gamma>\Gamma(2,0)$ pour ce $q$ (cycle 006 §4),
+les Satz 1 et 2 de Bundschuh 1974 ne s'appliquent pas (§5), et les énoncés
+lus de Bézivin 1988 et d'Amou–Väänänen 2005 ne portent pas sur cette valeur
+2-adique (§6). B7 est aveugle, $Q_m\to-\infty$. L'irrationalité reste ouverte.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.
