@@ -9,15 +9,15 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [C] Égalité ou densité du vecteur cyclique de Mori — PROCHAINE QUESTION (cycle 008)
-La définition 3.4.4 de Mori, arXiv:2411.08084v2, exige
-$C^*(T_1,T_2)e_1=\mathcal H$. Le lemme 4.2.2 ne donne que la densité
-(cycle 007 §5). Montrer que tout vecteur de
-$\overline{\mathrm{span}}\{e_{2^k}:k\ge0\}$ est de la forme $Te_1$, ou
-en exhiber un qui ne l'est pas. Cette demi-droite est dans la classe de
-$1$, sans la conjecture. Ne pas rouvrir le mot du cycle 006. Ne pas
-traiter le théorème 4.2.7 comme prouvé avant ce point. Conway 2000 n'a
-pas été lu.
+## 1. [A] Implication globale de H6 — PROCHAINE QUESTION (cycle 008)
+Soient $0<\ell\le W\le h$ et $0<\rho<1$. Si une fonction $B$ vérifie :
+tout entier $n\ge N_0$ admet un temps $t\le B(n)$ avec $T^t(n)\le\rho n$,
+alors $B(n)\ge\delta\log_2 n-O(1)$ pour une infinité de $n$. Sinon,
+exhiber un poids et une fonction $B(n)=o(\log n)$ qui rendent la
+prémisse vraie. Ne pas relancer B10, ni X21, ni le mot du cycle 006, ni
+la lecture sans barres de Mori (X23). Conway 2000 et Kadison 1957 n'ont
+pas été lus. Cette question n'est pas entamée : le correctif de la
+revue `6082060844` s'arrête avant.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -28,14 +28,21 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082060844` (27 nov. 2026, SHA `a60a1a6`) : B12 confirmée.
+  L'objection de fermeture est réfutée (X23). L'inégalité $P(m)\ge n$
+  est justifiée. Les théorèmes 4.2.7 et 4.3.10 restent non adoptés.
+  Prochaine question : l'implication globale de H6, non entamée.
+  Détail : [reviews.md](reviews.md).
 - Revue `6081994521` (27 nov. 2026, SHA `a288697`) : correctif X22
   confirmé. Aucune correction supplémentaire. Cycle 007 ensuite.
   Détail : [reviews.md](reviews.md).
 - Cycle 007 (27 nov. 2026) : l'application non raccourcie atteint $1$
   si et seulement si le premier retour $P$ sur $\Sigma=N_1\cup N_2$
   ramène tout point à $1$ (B12). Antériorité Mori, prop. 4.3.3 ; preuve
-  autonome. Deux défauts d'écriture de la prop. 4.3.2 sont réparés.
-  Les théorèmes 4.2.7 et 4.3.10 ne sont pas adoptés.
+  autonome. La paire de résidus de la prop. 4.3.2 est fausse ; les deux
+  produits valent $4$. L'inégalité $P(m)\ge n$ est justifiée. L'objection
+  de fermeture est réfutée (X23). Les théorèmes 4.2.7 et 4.3.10 ne sont
+  pas adoptés.
   [cycle-007](cycles/cycle-007.md)
 - Revue `6081961103` (27 nov. 2026, SHA `fcd6a00`) : B11 confirmée. La
   comparaison $Q_m<0$ dès $m\ge4$ est réfutée (X22). Avec $r_{m+1}$ et

@@ -23,7 +23,10 @@ La source lue est Mori, parce que le PDF d'arXiv est public. Les deux
 autres ne sont pas lus. L'énoncé retenu est la proposition 4.3.3 : la
 conjecture équivaut à $1\in\mathrm{orb}(n;P)$ pour tout $n\in\Sigma$.
 Le texte imprimé de la proposition 4.3.2, dont elle dépend, a deux défauts
-d'écriture. Ils sont réparés au §4. La preuve du §3 est autonome.
+d'écriture : la paire de résidus, et une inégalité laissée sans argument.
+La paire est fausse, l'inégalité est justifiée au §4. La preuve du §3
+est autonome. La première rédaction du §5 lisait la définition 3.4.4
+sans ses barres de fermeture. Cette lecture est retirée au §10.
 
 ## 1. Source
 
@@ -31,9 +34,12 @@ d'écriture. Ils sont réparés au §4. La preuve du §3 est autonome.
 arXiv:2411.08084v2, 3 février 2025, 27 pages. **[P]** pour les énoncés
 cités aux §§2–4. PDF `https://arxiv.org/pdf/2411.08084`, SHA-256
 `e852509294f8698923aa31aa827cbdc0353b861fc24441b73558946b2874c92b`.
-Non redistribué. La version d'*Advances in Operator Theory* n'a pas été
-lue. Les généralisations du §5, et Conway, *A course in operator theory*
-(2000), cité pour le théorème 3.4.6, ne sont pas des prémisses.
+Non redistribué. La définition cyclique et le lemme 4.2.2 ont été relus
+dans la source TeX de l'e-print v2 ; les empreintes sont au §10. La
+version d'*Advances in Operator Theory* n'a pas été lue. Les
+généralisations du §5, et Conway, *A course in operator theory* (2000),
+cité pour le théorème 3.4.6 et pour la proposition 13.3 du chapitre 2,
+ne sont pas des prémisses.
 
 L'application du papier est
 $$f(n)=\begin{cases}3n+1&n\text{ impair},\\ n/2&n\text{ pair.}\end{cases}$$
@@ -146,13 +152,23 @@ $\{1,2,4\}$. Comme $k\in\Sigma$, on a $k\in\{1,4\}$. Enfin $P(1)=4$ et
 $P(4)=1$, car $4,2,1$ est la chaîne et $2\notin\Sigma$. Dans les deux
 cas, $1$ est un itéré de $k$ par $P$, donc de $n$.
 
-## 4. Deux défauts d'écriture, et la recherche d'un contre-exemple
+## 4. Le résidu imprimé, l'inégalité, et la recherche d'un contre-exemple
 
 La proposition 4.3.2 affirme que $P$ restreint à $N_2$ est injective, puis
 écrit : si $m>n$ et $P(m)=P(n)$, alors $m$ est un multiple de $n$, « donc »
-$P(m)\ge n$. Cette conséquence n'est pas justifiée. L'injectivité est
-cependant vraie : la contradiction correcte est $P(m)=n$, prouvée au §3,
-et non $P(m)\ge n$.
+$P(m)\ge n$. L'inégalité est justifiée, et elle suffit à la contradiction.
+Posons $r=P(m)=P(n)$. Le §3 donne $m=2^a r$ et $n=2^b r$ avec $a>b\ge1$,
+donc $n\ge2r>r$. La suite $m,m/2,\ldots,r$ est strictement décroissante
+et contient $n$. Comme $n\in\Sigma$, le premier terme de cette suite,
+après $m$, qui tombe dans $\Sigma$ arrive au plus tard en $n$. Ce terme
+est $P(m)$, et tout terme de la suite jusqu'à $n$ inclus est $\ge n$.
+Donc $P(m)\ge n$. Or $P(m)=r<n$.
+
+Sous la même hypothèse de collision, l'égalité $P(m)=n$ est vraie aussi :
+$P(m)=r$ exclut tout intermédiaire dans $\Sigma$, et $n$ est le premier
+point de $\Sigma$ rencontré. Elle est plus forte que nécessaire. Elle
+n'est pas vraie pour un point ultérieur quelconque de la même chaîne.
+La chaîne $16,8,4,2,1$ donne $P(16)=4$, et $1\in\Sigma$, avec $4>1$.
 
 Le même texte dit : si $n\equiv7,16\pmod{18}$, alors
 $16n\equiv16,4\pmod{18}$. Les deux produits valent $4$ :
@@ -160,7 +176,8 @@ $112-108=4$ et $256-252=4$. Les deux résidus sont dans $N_2$.
 L'appartenance annoncée reste vraie ; la paire de résidus imprimée est
 fausse.
 
-Aucun de ces deux défauts ne fournit un contre-exemple à B12. Le script
+Ni la paire de résidus, ni l'inégalité une fois justifiée, ne fournit un
+contre-exemple à B12. Le script
 cherche en outre une collision de $P$ parmi les $2\,222$ éléments de $N_2$
 jusqu'à $20\,000$, et un impair $q\equiv3\pmod6$, $q\le30\,000$, dont
 l'impair suivant sortirait de $N_1$. Il n'en trouve pas. Ce segment n'est
@@ -168,22 +185,43 @@ pas la preuve.
 
 ## 5. Ce qui n'est pas adopté
 
-La définition 3.4.4 demande qu'un vecteur cyclique $x$ vérifie
-$\{Tx:T\in\mathcal A\}=\mathcal H$, pas seulement que cette orbite soit
-dense. Le lemme 4.2.2 énonce
-$C^*(T_1,T_2)e_n=\overline{\mathrm{span}}\{e_m:m\sim n\}$, en appelant
-cet espace fermé au lemme 4.1.1. L'argument écrit montre seulement que
-chaque vecteur de base de la classe est un mot fini en $T_1,T_2,T_1^*,T_2^*$
-appliqué à $e_n$, donc que les combinaisons finies sont dans l'orbite, et
-que les limites en norme d'opérateurs restent dans l'espace fermé. Cela
-donne la densité, pas l'égalité des ensembles.
+La première rédaction de ce paragraphe ôtait les barres de fermeture de
+la définition 3.4.4 et du lemme 4.2.2, puis concluait que la densité ne
+satisfaisait pas la définition. Cette lecture est réfutée (X23, §10).
 
-Le sens « vecteur cyclique $\Rightarrow$ conjecture » du théorème 4.2.3
-reste valide, car une orbite égale à $\mathcal H$ est dense. Le sens
-réciproque, et donc les équivalences 4.2.7 et 4.3.10, ne sont pas
-établis par le texte lu. Ils ne sont pas des prémisses. Le corollaire
-4.1.3, qui n'est qu'une condition suffisante, n'est pas non plus une
-réduction utilisable ici. Les §§5 et suivants ne sont pas vérifiés.
+Dans la source arXiv:2411.08084v2, la définition intitulée « Cyclic
+vectors », numérotée 3.4.4 dans le HTML ar5iv, demande
+$$\overline{\mathcal A x}=\overline{\{Tx:T\in\mathcal A\}}=\mathcal H.$$
+Le lemme libellé `lem:Equality 1`, numéroté 4.2.2 dans le même HTML,
+demande
+$$\overline{C^*(T_1,T_2)e_n}=\overline{\mathrm{span}}\{e_m:m\sim n\}.$$
+Le paragraphe de notation de la source pose que $\overline Y$ est la
+fermeture de $Y$. Le théorème 4.2.3 écrit ses deux sens avec ces
+fermetures. La densité qu'il énonce satisfait donc la définition
+imprimée.
+
+Le calcul écrit dans la source place chaque $e_m$, pour $m\sim n$, égal
+à un mot fini en $T_1,T_2$ et leurs adjoints, appliqué à $e_n$. Ce
+vecteur de base est dans l'orbite, pas seulement dans sa fermeture. La
+fermeture de l'espace engendré est alors contenue dans la fermeture de
+l'orbite. L'inclusion réciproque est renvoyée par la source au lemme
+4.1.1 ; elle n'a pas été réécrite ici.
+
+Les théorèmes 4.2.7 et 4.3.10 ne sont pas adoptés. Leur nécessité passe
+par 4.2.6 et 4.3.9. Ces deux textes identifient l'absence de sous-espace
+réducteur non trivial au commutant $\mathbb C I$, en citant que le
+commutant, algèbre de von Neumann, est l'adhérence des combinaisons
+linéaires de ses projections (Conway 2000, chapitre 2, proposition 13.3).
+Ce livre n'a pas été lu. Le corollaire 4.1.3 reste une condition
+suffisante, pas une réduction utilisée ici. Le §5 de Mori et les
+sections suivantes ne sont pas vérifiés.
+
+La revue `6082060844` esquisse en outre que l'orbite
+$C^*(T_1,T_2)e_1$ est déjà fermée, par $U=T_2^2T_1$ et le théorème 1 de
+Kadison (1957). Cette esquisse n'est pas reproduite. L'article de
+Kadison n'a pas été lu. La définition imprimée ne demande que la
+fermeture, déjà dans le lemme cité. Ce n'est pas une prémisse, ni la
+question suivante.
 
 ## 6. Ce que ce cycle ne montre pas
 
@@ -197,22 +235,27 @@ réduction utilisable ici. Les §§5 et suivants ne sont pas vérifiés.
 ## 7. Mises à jour de la mémoire
 
 - `proved.md` : B12, l'équivalence seulement.
-- `hypotheses.md` : H8, l'égalité cyclique laissée ouverte.
-- `prior_art.md` : Mori passé en lecture primaire pour ces énoncés.
+- `hypotheses.md` : H8. L'objection de fermeture est réfutée (X23).
+  Les théorèmes 4.2.7 et 4.3.10 restent non adoptés.
+- `prior_art.md` : Mori passé en lecture primaire pour ces énoncés, et
+  pour la définition cyclique et le lemme 4.2.2 dans la source v2.
 - `abandoned.md` : ne pas invoquer 4.2.7 ou 4.3.10 comme équivalence
-  déjà prouvée.
-- `agenda.md` : question retirée. Prochaine question : l'égalité du §5.
-- `reviews.md` : revue `6081994521`.
+  déjà prouvée, et ne pas relancer la lecture sans barres.
+- `counterexamples.md` : X23.
+- `agenda.md` : l'égalité du §5 est retirée. Prochaine question : axe A,
+  l'implication globale de H6.
+- `reviews.md` : revues `6081994521` et `6082060844`.
 
 ## 8. Prochaine question
 
-Axe **C**, encore Mori, un seul point. La définition 3.4.4 exige
-$C^*(T_1,T_2)e_1=\mathcal H$. Montrer que tout vecteur de l'espace fermé
-engendré par $\{e_{2^k}:k\ge0\}$ est de la forme $Te_1$ avec
-$T\in C^*(T_1,T_2)$, ou donner un vecteur explicite qui ne l'est pas.
-Cette demi-droite est dans la classe de $1$, sans supposer la conjecture.
-Ne pas rouvrir le mot du cycle 006. Ne pas traiter le théorème 4.2.7
-comme prouvé avant ce point. Conway 2000 n'a pas été lu.
+Axe **A**, un seul énoncé. Soient $0<\ell\le W\le h$ et $0<\rho<1$. Si
+une fonction $B$ vérifie : tout entier $n\ge N_0$ admet un temps
+$t\le B(n)$ avec $T^t(n)\le\rho n$, alors
+$B(n)\ge\delta\log_2 n-O(1)$ pour une infinité de $n$. Sinon, exhiber
+un poids et une fonction $B(n)=o(\log n)$ qui rendent la prémisse vraie.
+Ne pas relancer B10, ni X21, ni le mot du cycle 006, ni la lecture sans
+barres réfutée au §10. Conway 2000 et Kadison 1957 n'ont pas été lus.
+Cette question n'est pas entamée dans le présent correctif.
 
 ## 9. Reproduire
 
@@ -220,9 +263,44 @@ comme prouvé avant ce point. Conway 2000 n'a pas été lu.
 python3 research/checks/cycle007_first_return.py
 ```
 
-Sortie attendue : cinq lignes `PASS`. Elles couvrent les huit produits,
+Sortie attendue : six lignes `PASS`. Elles couvrent les huit produits,
 les chaînes $112\to7$, $16\to4$ et $4\to1$, l'identité $P(n)=3n+1$ pour
 les $n\in N_1$ jusqu'à $3\,000$, l'absence de collision de $P$ sur $N_2$
-jusqu'à $20\,000$ ($2\,222$ valeurs) et le saut vers $N_1$ pour les
-$5\,000$ impairs $q\equiv3\pmod6$ jusqu'à $30\,000$. L'injectivité, la
-surjectivité et l'équivalence sont prouvées au §3 pour tout entier.
+jusqu'à $20\,000$ ($2\,222$ valeurs), le saut vers $N_1$ pour les
+$5\,000$ impairs $q\equiv3\pmod6$ jusqu'à $30\,000$, et l'inégalité
+$P(m)\ge x$ pour chaque point de $\Sigma$ sur la chaîne de divisions
+issue d'un $m\in N_2$ jusqu'à $20\,000$, avec le témoin $P(16)=4>1$.
+L'injectivité, la surjectivité et l'équivalence sont prouvées au §3
+pour tout entier. L'inégalité du §4 l'est aussi ; le script n'en voit
+qu'un segment.
+
+## 10. Revue `6082060844`
+
+Revue indépendante sur le SHA
+`a60a1a6a6b64386a25c3de11d18aab48819ddf11` (PR #27). B12, §§2–3, est
+confirmée. La preuve du §3 n'a pas été réécrite.
+
+L'objection de fermeture du §5 a été reproduite contre la source, et
+elle tombe. Le fichier
+`Application_of_Operator_Theory_for_the_Collatz_Conjecture.tex` de
+l'e-print `https://arxiv.org/e-print/2411.08084v2` contient les deux
+barres. Empreinte SHA-256 du fichier :
+`19ab8b0a912a81b3f0aa3a98a7db8a16ef7fb097f641b7001efb485726e50372`.
+Empreinte de l'archive :
+`cdcece33cb131fb77be007076cb992ceefa12b0e86b6f338a44b22376817964d`.
+Le HTML ar5iv de la même version numérote ces énoncés 3.4.4 et 4.2.2
+et affiche les barres. L'extraction texte du PDF déjà empreinté au §1
+les efface : c'est l'origine de la lecture fausse. X23 enregistre cette
+réfutation. Elle ne valide ni le théorème 4.2.7, ni le théorème 4.3.10,
+ni le §5 de l'article.
+
+L'inégalité $P(m)\ge n$ est celle justifiée au §4. Le témoin
+$P(16)=4>1$ montre que $P(m)=n$ n'est pas une identité générale le long
+de la chaîne. Les deux résidus $16n$ pour $n\equiv7,16\pmod{18}$ valent
+$4$, comme le §4 le disait déjà : $112-108=4$ et $256-252=4$.
+
+L'esquisse d'orbite fermée de la revue, et le théorème 1 de Kadison
+(1957) qu'elle cite, ne sont pas des prémisses. La question du §8
+ancien, qui demandait l'égalité exacte sur $\{e_{2^k}\}$ pour combler
+des barres absentes, est retirée avec ces barres. Elle n'est pas
+entamée.

@@ -4,8 +4,11 @@
 La preuve est dans research/cycles/cycle-007.md. Ce script ne la remplace pas.
 Il revérifie les huit produits du partage en classes, les antécédents
 2^k r, l'identité P(n)=3n+1 sur un segment de N1, l'absence de collision
-de P sur N2 jusqu'à 20 000, et le saut vers N1 pour les impairs ≡3 mod 6
-jusqu'à 30 000. Ces bornes ne sont pas la preuve.
+de P sur N2 jusqu'à 20 000, le saut vers N1 pour les impairs ≡3 mod 6
+jusqu'à 30 000, et l'inégalité P(m) ≥ x pour chaque point de Σ sur la
+chaîne de divisions issue d'un m de N2 jusqu'à 20 000. Ces bornes ne
+sont pas la preuve. Le témoin P(16)=4 > 1 montre que l'égalité P(m)=n
+n'est pas générale le long de la chaîne.
 
 Usage : python3 research/checks/cycle007_first_return.py
 """
@@ -99,6 +102,27 @@ def no_collision():
     print("PASS injectivity-bound")
 
 
+def return_not_below_later_sigma():
+    # 16 → 8 → 4 → 2 → 1, et 1 ∈ Σ, mais P(16)=4 > 1.
+    if first_return(16) != 4 or not in_sigma(1):
+        raise AssertionError("witness 16")
+    pairs = 0
+    for m in range(2, 20001):
+        if m % 18 not in N2:
+            continue
+        image = first_return(m)
+        x = m
+        while x % 2 == 0:
+            x //= 2
+            if in_sigma(x):
+                pairs += 1
+                if image < x:
+                    raise AssertionError((m, x, image))
+    if pairs < 2222:
+        raise AssertionError(pairs)
+    print("PASS return-bound")
+
+
 def next_odd_in_n1():
     checked = 0
     q = 3
@@ -121,3 +145,4 @@ if __name__ == "__main__":
     map_on_n1()
     no_collision()
     next_odd_in_n1()
+    return_not_below_later_sigma()

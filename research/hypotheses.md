@@ -93,12 +93,13 @@ Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutral
 mais $V-\log_2(n+1)=c\,r$ est une correction de bord : sur de longues fenêtres $V$ suit la hauteur.
 Horizon fixe encore impossible (adversaire $2(2^Ra-1)$, $R>B$). Ne pas relancer sans nouvelle idée.
 
-## H8 — Égalité cyclique dans Mori 2024 (axe C) — OUVERT
+## H8 — Équivalences opératorielles de Mori 2024 (axe C) — FERMETURE RÉFUTÉE ; THÉORÈMES NON ADOPTÉS
 La réduction au premier retour est prouvée (B12). Elle n'est pas une preuve
-de la conjecture. La définition 3.4.4 exige $C^*(T_1,T_2)e_n=\mathcal H$,
-alors que le lemme 4.2.2, tel qu'il est écrit, ne donne que la densité de
-l'orbite dans l'espace fermé de la classe. Les théorèmes 4.2.7 et 4.3.10
-ne sont pas adoptés. Prochaine question : un vecteur explicite de
-$\overline{\mathrm{span}}\{e_{2^k}:k\ge0\}$ qui n'est pas de la forme
-$Te_1$, ou la preuve que tout vecteur de cet espace l'est. Conway 2000,
-cité pour le théorème 3.4.6, n'a pas été lu.
+de la conjecture. L'objection « la définition 3.4.4 demande l'égalité sans
+fermeture, et le lemme 4.2.2 ne la donne pas » est réfutée (X23) : la source
+v2 met une barre des deux côtés. Les théorèmes 4.2.7 et 4.3.10 ne sont pas
+adoptés. Leur nécessité cite Conway 2000, chapitre 2, proposition 13.3,
+non lu. L'esquisse d'orbite déjà fermée par Kadison 1957, signalée par la
+revue `6082060844`, n'est pas reproduite et n'est pas une prémisse. Ne pas
+relancer la lecture sans barres. La question suivante est l'implication
+globale de H6, pas un nouveau lemme sur $\{e_{2^k}\}$.

@@ -207,10 +207,13 @@ entier atteint $N_1$. La conjecture « $f$ atteint $1$ » équivaut à
 entier positif, $f$ atteint $1$ si et seulement si l'application
 raccourcie $T$ du dépôt atteint $1$. Antériorité : Mori,
 arXiv:2411.08084v2, proposition 4.3.3 ; la preuve d'ici est autonome.
-Deux défauts d'écriture de sa proposition 4.3.2 sont réparés et ne
-réfutent pas l'énoncé. Ce n'est pas une preuve de la conjecture. Les
-théorèmes 4.2.7 et 4.3.10 du même article ne sont pas des prémisses
-(cycle 007 §5).
+La paire de résidus imprimée $16n\equiv16,4\pmod{18}$ pour
+$n\equiv7,16$ est fausse : les deux produits valent $4$. Elle ne réfute
+pas l'énoncé. L'inégalité $P(m)\ge n$ de la même proposition est
+justifiée par la chaîne de divisions décroissante (cycle 007 §4). Ce
+n'est pas une preuve de la conjecture. L'objection de fermeture sur la
+définition 3.4.4 est réfutée (X23). Les théorèmes 4.2.7 et 4.3.10 du
+même article ne sont pas des prémisses (cycle 007 §5).
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
