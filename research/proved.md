@@ -556,13 +556,25 @@ cas \(R=1\) sont confirmés. La formule close vaut pour
 \(0\le i\le v_2(n+1)\), jusqu'au premier pair inclus. Pour \(n=1\),
 \(T^2(1)=1\) est impair, donc cette formule ne décrit pas l'orbite
 entière. Le retour de B21 est le premier retour strictement plus
-bas. Pour \(m=2\), \(U(n)\) est impair et \(U(3)=5\) n'est pas une
-descente. La montée de \(2911\) est stricte pour \(1\le t<5\). La
-question suivante est \(P(2)\). L'existence d'un \(R\ge 2\) qui
-convient lui équivaut. La lecture pour tout \(R\ge 2\) n'est pas
-ouverte. Steiner (1977) et Simons–de Weger ne sont pas ouverts.
-Aucune orbite divergente n'est exclue. Le cycle 016 n'est pas
-ouvert.
+bas. Pour \(m=2\), \(U(n)\) est impair, donc la classe est rejointe
+au premier pas. Ce retour peut être ascendant, par exemple
+\(U(3)=5\), et peut descendre, par exemple \(U(9)=7\) (X40). La
+montée de \(2911\) est stricte pour \(1\le t<5\). La question
+suivante est \(P(2)\). L'existence d'un \(R\ge 2\) qui convient
+lui équivaut. La lecture pour tout \(R\ge 2\) n'est pas ouverte.
+Steiner (1977) et Simons–de Weger ne sont pas ouverts. Aucune
+orbite divergente n'est exclue. Le cycle 016 n'est pas ouvert.
+
+Revue indépendante `6093923797` (PR #27, SHA
+`2a6474b8416668076dfc3aee4b7e62e2e30243d0`) : la formule du bloc
+initial, le cas \(R=1\), B21 et la réduction à \(P(2)\) sont
+confirmés. La phrase universelle « ce retour n'est pas une
+descente » est fausse (X40). Si \(n\equiv 3\pmod 4\),
+\(U(n)=(3n+1)/2>n\). Si \(n\equiv 1\pmod 4\) et \(n>1\),
+\(U(n)\le(3n+1)/4<n\). B21 ne change pas. \(P(2)\) n'est pas
+entamé. Steiner (1977) n'est pas ouvert. Simons–de Weger,
+§§1.1–1.2, est cité par la revue et n'est pas ouvert ici. Le
+cycle 016 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

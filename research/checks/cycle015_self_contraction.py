@@ -210,10 +210,20 @@ def check_formulations() -> None:
             x = T(x)
         assert odd_run_length(n) == r
 
-    # Pour m=2, U renvoie un impair : le retour dans la classe n'est pas une descente.
+    # Pour m=2, U renvoie un impair. Le retour au premier pas peut monter
+    # (3→5) ou descendre (9→7) : X40.
     assert U(3) == 5 > 3 and U(3) % 2 == 1
+    assert U(9) == 7 < 9 and U(9) % 2 == 1
+    assert U(5) == 1 < 5 and U(1) == 1
     for n in range(1, 4001):
-        assert U(n) % 2 == 1
+        u = U(n)
+        assert u % 2 == 1
+        if n % 2 == 1 and n % 4 == 3:
+            assert u == (3 * n + 1) // 2 > n
+        elif n % 4 == 1 and n > 1:
+            assert u <= (3 * n + 1) // 4 < n
+        elif n == 1:
+            assert u == 1
 
     # Montée stricte de 2911 pour 1 ≤ t < 5. Le rang 0 est égal au départ.
     y = 2911
@@ -289,7 +299,7 @@ def main() -> None:
         assert ss == 2 and j >= 1 and n % m == 1
     print("PASS rank 0 in the class, and s=2 bridge on four moduli")
     check_formulations()
-    print("PASS orbit of 1, run word of 5, and the R=1 descent")
+    print("PASS orbit of 1, run word of 5, the R=1 descent, and both signs mod 2")
 
 
 if __name__ == "__main__":

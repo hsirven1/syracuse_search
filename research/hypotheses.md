@@ -179,10 +179,12 @@ exclue. Ne pas relancer ce certificat, ni une union finie de vecteurs
 de longueur bornée sur une seule classe. La revue `6093792860`
 confirme B21. Le rang \(0\) reste dans la classe ; l'évitement
 commence au rang \(1\). La revue `6093856144` confirme le même
-énoncé. Le retour est strictement plus bas. Pour \(m=2\), \(U(n)\)
-est impair, donc la classe est rejointe au premier pas, et
-\(U(3)=5\) n'est pas une descente. Le cas \(4\nmid m\) retarde la
-descente. Le cas \(4\mid m\) retarde tout retour positif.
+énoncé. Le retour de B21 est strictement plus bas. Pour \(m=2\),
+\(U(n)\) est impair, donc la classe est rejointe au premier pas.
+Ce retour peut être ascendant, par exemple \(U(3)=5\), et peut
+descendre, par exemple \(U(9)=7\) (X40, revue `6093923797`). Le cas
+\(4\nmid m\) retarde la descente. Le cas \(4\mid m\) retarde tout
+retour positif.
 
 ## H11 — Runs impairs de longueur au plus 1 — FERMÉ (élémentaire, X38)
 Pour \(T\), aucun \(R\ge 1\) ne fait passer toute orbite positive de

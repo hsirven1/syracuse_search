@@ -10,14 +10,12 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6093856144` confirme B21, X38, X39 et le cas \(R=1\).
-Deux formulations locales étaient fausses. La formule close du
-cycle 015 §10 vaut jusqu'au premier pair inclus, pas sur l'orbite
-entière : \(T^2(1)=1\). Le retour de B21 est le premier retour
-strictement plus bas. Pour \(m=2\), la classe est rejointe au
-premier pas, et \(U(3)=5\) n'est pas une descente. La montée de
-\(2911\) est stricte pour \(1\le t<5\). La question suivante est
-\(P(2)\), pas une lecture universelle sur tout \(R\ge 2\). Ce
+La revue `6093923797` confirme la formule du bloc impair initial,
+le cas \(R=1\), B21, la fenêtre de \(2911\) et la réduction à
+\(P(2)\). Une phrase était trop générale. Pour \(m=2\), le retour
+dans la classe a lieu au premier pas et peut être ascendant, par
+exemple \(3\to 5\). Il peut aussi descendre : \(U(9)=7\) (X40).
+B21 reste l'absence d'un horizon pour tous les départs. Ce
 correctif n'est pas encore relu. Ne pas ouvrir le cycle 016 avant
 cette relecture, ni avant le 27 novembre 2026 à 23:17 UTC. Le plus
 ancien cycle de la fenêtre reste le cycle 004 : le commit
@@ -58,13 +56,22 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093923797` (27 nov. 2026, SHA `2a6474b`) : formule du
+  bloc initial, cas \(R=1\), B21 et réduction à \(P(2)\) confirmés.
+  La phrase « le retour au premier pas n'est pas une descente » est
+  fausse (X40) : \(U(3)=5\) monte et \(U(9)=7\) descend. Le partage
+  modulo \(4\) est élémentaire. \(P(2)\) n'est pas entamé. Steiner
+  n'est pas ouvert. Simons–de Weger est cité et n'est pas ouvert.
+  Le cycle 016 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6093856144` (27 nov. 2026, SHA `3679167`) : B21, X38, X39
   et le cas \(R=1\) confirmés. La formule close ne vaut pas au-delà
   du premier pair (X38 reste vrai). Le retour de B21 est strictement
-  plus bas ; pour \(m=2\), il a lieu au premier pas sans être une
-  descente. La montée de \(2911\) est écrite pour \(1\le t<5\). La
-  question suivante est \(P(2)\). Steiner et Simons–de Weger ne sont
-  pas ouverts. Le cycle 016 n'est pas ouvert.
+  plus bas. La phrase alors écrite, « sans être une descente », est
+  corrigée par la revue `6093923797` (X40). La montée de \(2911\)
+  est écrite pour \(1\le t<5\). La question suivante est \(P(2)\).
+  Steiner et Simons–de Weger ne sont pas ouverts. Le cycle 016
+  n'est pas ouvert.
   Détail : [reviews.md](reviews.md).
 - Revue `6093792860` (27 nov. 2026, SHA `c6737c04`) : B21 confirmé.
   Le rang \(0\) du pont reste dans la classe ; l'évitement commence

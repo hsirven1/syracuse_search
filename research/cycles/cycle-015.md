@@ -455,8 +455,9 @@ restent vrais : ils n'utilisent la formule que sur ce bloc.
 la classe. Pour \(m=2\), tout entier \(n\ge 1\) a \(U(n)\) impair :
 si \(n\) est pair, \(3n+1\) est impair ; si \(n\) est impair, \(U\)
 retire tous les facteurs \(2\). Tout départ de la classe
-\(1\pmod 2\) y revient donc au premier pas. Ce retour n'est pas une
-descente : \(U(3)=5>3\). Le cas \(4\nmid m\) de la preuve retarde
+\(1\pmod 2\) y revient donc au premier pas. Ce retour peut être
+ascendant, par exemple \(3\to 5\). Il peut aussi descendre :
+\(U(9)=7<9\) (X40, §12). Le cas \(4\nmid m\) de la preuve retarde
 la descente, par \(U^t(y)>y\) pour \(1\le t<s\). Il ne dit pas que
 ces itérés quittent la classe. Le cas \(4\mid m\) retarde tout
 retour positif : aucun rang \(1\le t\le j+s-2\) n'est dans la
@@ -467,3 +468,41 @@ suivantes sont \(4367\), \(6551\), \(9827\), \(14741\) et \(691\).
 **Quantificateur de la question suivante.** Il est écrit au §8.
 \(P(2)\) est la question. L'existence d'un \(R\ge 2\) qui convient
 lui équivaut. La lecture pour tout \(R\ge 2\) n'est pas ouverte.
+
+## 12. Revue `6093923797`
+
+Revue indépendante sur le SHA
+`2a6474b8416668076dfc3aee4b7e62e2e30243d0` (PR #27), soumise le
+27 novembre 2026 à 22:22 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 016 n'est pas ouvert.
+
+La formule du bloc impair initial, le cas \(R=1\), B21, la fenêtre
+de \(2911\) et la réduction du §8 à \(P(2)\) sont confirmés.
+\(P(2)\) n'est pas entamé. Steiner (1977) n'est pas ouvert. La revue
+cite Simons–de Weger, §§1.1–1.2 ; ce PDF n'est pas ouvert ici et
+n'est pas une prémisse.
+
+**X40.** La phrase « pour \(m=2\), le retour au premier pas n'est
+pas une descente » est trop générale. Elle figurait dans X37, dans
+le §11, dans le résumé de l'agenda et dans le commentaire du
+script. \(U(n)\) est impair pour tout entier \(n\ge 1\). Le retour
+dans la classe \(1\pmod 2\) a donc lieu au premier pas. Son signe
+dépend du résidu modulo \(4\).
+
+Soit \(n\) impair.
+- Si \(n\equiv 3\pmod 4\), alors \(3n+1\equiv 2\pmod 4\), donc
+  \(v_2(3n+1)=1\) et \(U(n)=(3n+1)/2\). Cette valeur dépasse \(n\),
+  car \(n+1>0\). Le retour est une montée. Témoin : \(U(3)=5\).
+- Si \(n\equiv 1\pmod 4\) et \(n>1\), alors \(3n+1\) est divisible
+  par \(4\), donc \(v_2(3n+1)\ge 2\) et
+  \(U(n)\le(3n+1)/4\). Cette borne est strictement plus petite que
+  \(n\), car \(n>1\). Le retour est une descente. Témoin :
+  \(3\cdot 9+1=28\) et \(U(9)=7\). Le même cas donne \(U(5)=1\).
+- Si \(n=1\), \(U(1)=1\).
+
+Le retour a lieu au premier pas et peut être ascendant, par
+exemple \(3\to 5\). B21 ne change pas : aucun temps ne fait
+descendre tous les départs de la classe. Les entiers
+\(n\equiv 3\pmod 4\) montent dès le premier pas, donc \(T=1\) ne
+couvre pas la classe. Ce partage est élémentaire. Ce n'est pas un
+théorème nouveau, ni une contrainte sur une orbite divergente.
