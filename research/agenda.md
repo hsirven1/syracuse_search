@@ -10,30 +10,29 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les cycles 001 à 012 sont douze cycles nouveaux dont le premier commit est
-`416b1f1`, daté du 26 novembre 2026 à 20:05:56 UTC. Ne pas ouvrir le cycle
-013 avant le 27 novembre 2026 à 20:06 UTC. Une correction mathématique d'une
-revue reste permise. Une confirmation sans objection ne justifie pas un
-treizième cycle dans cette fenêtre.
+Le cycle 013 est le douzième cycle de la fenêtre ouverte par le cycle 002.
+Le premier commit de ce cycle est `adf706a`, daté du 26 novembre 2026 à
+21:22:58 UTC. Ne pas ouvrir le cycle 014 avant le 27 novembre 2026 à
+21:23 UTC. Une correction mathématique d'une revue reste permise. Une
+confirmation sans objection ne justifie pas un treizième cycle dans
+cette fenêtre.
 
-## 1. [B] Compteurs de facteurs premiers dans le potentiel additif — PROCHAINE QUESTION (cycle 013), non entamée
-B18 ferme $H(n)+\Phi(n\bmod M, v_2(n+1))$ hors d'un ensemble fini, sur
-$U$ et sur $T$, sans compteurs. La note du 19 octobre 2026,
-`https://rstation.ai/problems/collatz/papers/3`, affirme qu'aucune fonction
-$H(n)+\Phi(n\bmod M, v_2(n+1))+\beta\omega(n)+\gamma\Omega(n)+R(\Omega(n)-\omega(n))$
-n'est non croissante sur tous les pas $U$ d'impairs assez grands. Ce n'est
-pas une publication primaire. Les lemmes 3 et 4, crible de valeurs sans
-facteur carré, n'ont pas été revérifiés. Un seul trajet ne suffit pas :
-$123=3\cdot 41$ et $139$ est premier.
+## 1. [C] Énoncé primaire de Tao 2022 et classes de congruence — PROCHAINE QUESTION (cycle 014), non entamée
+Les cycles 010 à 013 n'excluent aucune orbite divergente. L'architecture
+$H+\Phi(n\bmod M, v_2(n+1))+\beta\omega+\gamma\Omega+R(\Omega-\omega)$
+est fermée (B18 sans compteurs, B19 avec compteurs). Ne pas l'étendre.
 
-Le cycle 013 commence par la porte d'antériorité sur ce seul complément.
-Ou bien la preuve a un trou précis, ou bien l'obstruction avec compteurs
-est déjà écrite et ne doit pas être refaite. Pas de nouvel ansatz avant
-cette porte. Ne pas rouvrir B10, B13, B17, B18, X21, X31, le signe moins,
-le mot du cycle 006, la famille $5\cdot 2^k-1$, les conjectures 2 et 3 de
-Berg–Meinardus, ni les théorèmes 4.2.7 et 4.3.10 de Mori. Ne pas déduire
-Syracuse d'une descente partielle. Ne pas ouvrir ce cycle avant la fin du
-blocage ci-dessus.
+Tao, *Forum of Mathematics, Pi* (2022), est cité en source secondaire :
+presque tout départ, en densité logarithmique, passe sous $f(n)\to\infty$.
+Le PDF n'a pas été lu. Le cycle 014 est la porte d'antériorité sur ce
+seul énoncé. Le candidat est le corollaire lu sur le texte primaire :
+l'ensemble des départs qui ne passent pas sous $f(n)$ a une densité
+logarithmique nulle. Décider s'il exclut une classe de congruence, ou
+seulement un ensemble de cette densité. Pas de preuve de la conjecture.
+Ne pas rouvrir B17, B18, B19, le signe moins, le mot du cycle 006, la
+famille $5\cdot 2^k-1$, les conjectures 2 et 3 de Berg–Meinardus, ni
+les théorèmes 4.2.7 et 4.3.10 de Mori. Ne pas ouvrir ce cycle avant la
+fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -44,6 +43,17 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 013 (27 nov. 2026) : la porte sur les compteurs est NO-GO.
+  Le théorème 1 de la note du 19 octobre 2026 est l'énoncé demandé.
+  Le lemme 2 et l'identité pondérée sont réécrits (B19). Les lemmes 3
+  et 4 réduisent l'existence pour chaque module au théorème des nombres
+  premiers en progression fixe et à Brun–Titchmarsh ; les PDF ne sont
+  pas ouverts. Certificats élémentaires pour $M=1$ et $M=24$. Pas une
+  découverte, ni une contrainte sur une orbite divergente.
+  [cycle-013](cycles/cycle-013.md)
+- Revue `6082966513` (27 nov. 2026, SHA `b033647`) : B18 confirmé.
+  Aucune correction. Le cycle 013 vient après, une fois la fenêtre des
+  douze cycles ouverte. Détail : [reviews.md](reviews.md).
 - Revue `6082913526` (27 nov. 2026, SHA `41cced5e`) : X31 et B17
   confirmés. L'exception finie et le couple $(n\bmod M, v_2(n+1))$ sans
   compteurs sont fermés (B18, X32). Le théorème 1 de la note, avec

@@ -114,9 +114,11 @@ valuation $v_2(n+1)$, ajoutée à $\log_2 n$ ou à $\log_2(n+1)$, échoue aussi
 sur $U$ en l'un des trois impairs $3$, $7$, $9$ (B17). L'exception finie
 et le couple $(n\bmod M, v_2(n+1))$, sans compteurs, sont fermés pour
 toute hauteur strictement croissante (B18, X32). La forme qui ajoute
-$\beta\omega+\gamma\Omega+R(\Omega-\omega)$ n'est pas tranchée : le
-crible de la note du 19 octobre 2026 n'est pas revérifié. Ne pas
-relancer la forme sans ces compteurs.
+$\beta\omega+\gamma\Omega+R(\Omega-\omega)$ est le théorème 1 de la
+note du 19 octobre 2026, vérifié au cycle 013 (B19) : la moitié
+élémentaire est prouvée, et l'existence pour chaque module est une
+réduction à deux théorèmes analytiques non relus. Ne pas relancer
+cette architecture, avec ou sans compteurs.
 
 ## H8 — Équivalences opératorielles de Mori 2024 (axe C) — FERMETURE RÉFUTÉE ; THÉORÈMES NON ADOPTÉS
 La réduction au premier retour est prouvée (B12). Elle n'est pas une preuve
@@ -140,5 +142,6 @@ du §5 (X30). L'équivalence de la conjecture 3 est le §12 ; elle ne donne
 pas de descente. La revue `6082845312` confirme ce correctif. Le cycle 012
 réfute H7 (X31, B17). La revue `6082913526` confirme ces deux énoncés
 et ferme l'exception finie ainsi que le couple résidu–valuation sans
-compteurs (B18, X32). Elle n'en tire pas de descente, ni le théorème 1
-de la note avec compteurs.
+compteurs (B18, X32). Elle n'en tire pas de descente. Le théorème 1 de la note, avec
+compteurs, est le cycle 013 (B19) : pas une seconde preuve, et pas
+une contrainte sur une orbite divergente.

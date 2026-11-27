@@ -382,8 +382,8 @@ Aucune correction de leurs formules. La phrase qui laissait ouvertes
 l'exception finie et la correction \((n\bmod M, v_2(n+1))\) sans
 compteurs est réfutée (X32, B18). Le théorème 1 de la note du 19
 octobre 2026, avec \(\omega\), \(\Omega\) et \(R(\Omega-\omega)\),
-n'est pas adopté : le crible n'est pas revérifié. Ce n'est pas le
-cycle 013.
+n'est pas adopté dans ce correctif : le crible n'y est pas revérifié.
+Le cycle 013 le traite ensuite (B19).
 
 **B18 — Aucune correction \(H+\Phi(n\bmod M, v_2(n+1))\) n'est
 ultimement décroissante** (PROUVÉ, cycle 012 §9). Pour tout module
@@ -404,6 +404,35 @@ voit pas la valuation. La note du 19 octobre 2026 écrit la branche
 \(F(n)=(9n+5)/8\) issue de \((-5,-7)\) ; ses lemmes 3 et 4 ne sont pas
 une prémisse. Un seul trajet ne fige pas \(\omega\) : \(123=3\cdot41\)
 et \(139\) est premier. Ce n'est pas une preuve de Syracuse.
+
+**B19 — Le potentiel additif avec \(\omega\), \(\Omega\) et \(R(\Omega-\omega)\)
+n'est pas ultimement décroissant sur \(U\)** (cycle 013). Énoncé déjà
+écrit dans la note du 19 octobre 2026, théorème 1. Ce n'est pas une
+découverte.
+
+La moitié élémentaire est prouvée ici. Deux trajets \(U\) au-dessus
+de \(X_0\), à extrémités sans facteur carré, de même résidu modulo
+\(M\), de valuation \(v_2(n+1)=2\), avec une extrémité strictement
+plus grande et tous les états au moins égaux au départ, et avec les
+orientations premier vers composé et composé vers premier, admettent
+des poids entiers positifs qui annulent \(\omega\), \(\Omega\) et
+\(R\). Le bilan pondéré vaut celui de \(H\) et il est strictement
+positif. Pour \(M=24\), les trajets \(187\to 211\) et \(379\to 427\)
+suffisent. Pour \(M=1\), \(123\to 139\) et \(379\to 427\) suffisent.
+Le trajet qui augmente \(V\) dépend de \(\beta\).
+
+L'existence de telles paires pour chaque \(M\) est le lemme 2 de la
+note, réécrit au cycle 013 §1, suivi des lemmes 3 et 4. Ces deux
+lemmes réduisent l'infinité au théorème des nombres premiers en
+progression de module fixé et à Brun–Titchmarsh. La proportion
+locale (9) a été contrôlée sur \(117\) cas. Les PDF analytiques
+cités ne sont pas ouverts, et la réduction n'est pas une preuve
+autonome du crible. Aucun trou précis n'est apparu dans l'argument
+écrit. Aucune borne de recherche n'est ajoutée.
+
+B19 ne couvre pas une fonction jointe arbitraire de \(\omega\) et
+\(\Omega\), ni la dérive moyenne. Sur les extrémités sans facteur
+carré, \(\Omega=\omega\). Ce n'est pas une preuve de Syracuse.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
