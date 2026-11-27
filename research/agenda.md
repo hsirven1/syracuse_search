@@ -10,19 +10,20 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les corrections de la revue `6082671838` sont dans ce commit. Ne pas
-engager le cycle 011 tant qu'une revue indépendante de ce SHA ne les a
-pas traitées.
+Aucun. La revue `6082693818` a confirmé le correctif du cycle 010.
+Le cycle 011 est dans ce commit.
 
-## 1. [C] Équation de Berg–Meinardus — PROCHAINE QUESTION (cycle 011)
-Lire l'énoncé primaire de Berg–Meinardus (1994 ou 1995) qui rend la
-conjecture équivalente à une équation fonctionnelle holomorphe. Cette
-équivalence donne-t-elle une contrainte sur une trajectoire individuelle
-qui ne soit pas déjà B12, ou bien est-elle une reformulation globale sans
-nouveau lemme de descente ? Si le texte primaire n'est pas obtenu,
-s'arrêter et consigner l'antériorité comme non vérifiée. Ne pas rouvrir
-la famille $5\cdot2^k-1$, le signe moins, le mot du cycle 006, B10, B13,
-X21, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
+## 1. [A] Lyapunov $V=\log_2(n+1)+c\,v_2(n+1)$ — PROCHAINE QUESTION (cycle 012)
+Pour tout réel $c$, $V$ est-elle une fonction de Lyapunov stricte le long
+des orbites positives de $T$ ? Le cas $c\le\beta$ est le premier pas impair
+d'un Mersenne : l'écart vaut $\beta-c$. Pour $c>\beta$, H7 observe que les
+longues fenêtres suivent la hauteur, sans témoin. Produire un entier $n>1$
+et un temps $t\ge 1$ avec $V(T^t(n))\ge V(n)$, ou prouver la décroissance
+stricte hors du cycle. Dans ce second cas, ne pas en déduire Syracuse :
+il resterait à montrer que $V$ est propre et minorée. S'arrêter au premier
+témoin. Ne pas rouvrir B10, B13, X21, le signe moins, le mot du cycle 006,
+la famille $5\cdot2^k-1$, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
+Ne pas reprendre Berg–Meinardus : c'est une reformulation (B16).
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -33,6 +34,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 011 (27 nov. 2026) : la conjecture 2 de Berg–Meinardus 1995 est
+  l'atteinte de $1$ pour $n\ge 1$ (B16). Le point $0$ s'en sépare (X29).
+  La conjecture 3 est globale. Le théorème 3 ne contraint pas les orbites.
+  Pas de lemme de descente. L'article de 1994 n'est pas lu.
+  [cycle-011](cycles/cycle-011.md)
+- Revue `6082693818` (27 nov. 2026, SHA `7b5a225`) : le correctif
+  d'exemples du cycle 010 est confirmé. Exposants extraits $4$ et $1$,
+  sorties $19$ et $1367$. Aucune correction. Cycle 011 ensuite.
+  Détail : [reviews.md](reviews.md).
 - Revue `6082671838` (27 nov. 2026, SHA `27bbb65a`) : le second bloc,
   \(\tau\ge k+L\) et la non-bornitude de \(\tau-k\) sont confirmés. Dans
   les exemples du cycle 010 §4, \(6\) et \(3\) sont les valuations du

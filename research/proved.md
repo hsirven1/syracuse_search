@@ -322,6 +322,27 @@ $3y+1$ est ce numérateur divisé par $4$, et $U$ extrait $4$ puis $1$.
 La formule du pas $k+2$ n'est pas modifiée. Ce n'est pas une seconde
 preuve, ni le cycle suivant.
 
+Revue indépendante `6082693818` (PR #27, SHA
+`7b5a225387402859bfd0679032a73091972258b8`) : ce correctif d'exemples
+est confirmé. Pour $k=3$ et $k=5$, les exposants extraits sont $4$
+et $1$, et les sorties restent $19$ et $1367$. Aucune correction.
+Ce n'est pas une seconde preuve. Le cycle 011 vient après.
+
+**B16 — La conjecture 2 de Berg–Meinardus est l'atteinte de $1$**
+(PROUVÉ, cycle 011 §3 ; déjà annoncé dans la note de 1995, preuve
+autonome). Pour l'application $t$ de cette note, qui est le $T$ du
+dépôt, et pour tout entier $n\ge 1$, un itéré vaut $1$ si et seulement
+si $g_n(w)=\sum_{m\ge 0}t_m(n)w^m$ s'écrit $q(w)/(1-w^2)$ avec
+$q\in\mathbb Z[w]$. La queue de période divisant $2$ est le cycle
+$\{1,2\}$. Le point $n=0$ satisfait la forme rationnelle et n'atteint
+pas $1$ (X29). Ce n'est pas une descente, ni une contrainte au-delà de
+la conjecture dont B12 est la forme par premier retour. La conjecture 3
+de la même note, unicité holomorphe de (19) dans le disque, est un énoncé
+global ; sa preuve d'équivalence est renvoyée à l'article de 1994, non lu.
+Le théorème 3 de la note, toute solution entière est constante, est relu
+et ne contraint aucune orbite : le disque $|w|<2/3$ de $g_n$ est
+inconditionnel.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.
