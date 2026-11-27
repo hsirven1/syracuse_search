@@ -10,29 +10,31 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le cycle 013 est le douzième cycle de la fenêtre ouverte par le cycle 002.
-Le premier commit de ce cycle est `adf706a`, daté du 26 novembre 2026 à
-21:22:58 UTC. Ne pas ouvrir le cycle 014 avant le 27 novembre 2026 à
-21:23 UTC. Une correction mathématique d'une revue reste permise. Une
+Le cycle 014 est le douzième cycle de la fenêtre ouverte par le cycle 003.
+Le premier commit de ce cycle est `0c90981`, daté du 26 novembre 2026 à
+22:00:44 UTC. Ne pas ouvrir le cycle 015 avant le 27 novembre 2026 à
+22:01 UTC. Une correction mathématique d'une revue reste permise. Une
 confirmation sans objection ne justifie pas un treizième cycle dans
 cette fenêtre.
 
-## 1. [C] Énoncé primaire de Tao 2022 et classes de congruence — PROCHAINE QUESTION (cycle 014), non entamée
-Les cycles 010 à 013 n'excluent aucune orbite divergente. L'architecture
-$H+\Phi(n\bmod M, v_2(n+1))+\beta\omega+\gamma\Omega+R(\Omega-\omega)$
-est fermée (B18 sans compteurs, B19 avec compteurs). Ne pas l'étendre.
+## 1. [A] Classe de congruence contractée dans elle-même — PROCHAINE QUESTION (cycle 015), non entamée
+Les cycles 010 à 014 n'excluent aucune orbite divergente. Tao 2022
+règle presque toute classe et aucune classe (B20, X34). Ne pas
+raffiner cette densité.
 
-Tao, *Forum of Mathematics, Pi* (2022), est cité en source secondaire :
-presque tout départ, en densité logarithmique, passe sous $f(n)\to\infty$.
-Le PDF n'a pas été lu. Le cycle 014 est la porte d'antériorité sur ce
-seul énoncé. Le candidat est le corollaire lu sur le texte primaire :
-l'ensemble des départs qui ne passent pas sous $f(n)$ a une densité
-logarithmique nulle. Décider s'il exclut une classe de congruence, ou
-seulement un ensemble de cette densité. Pas de preuve de la conjecture.
-Ne pas rouvrir B17, B18, B19, le signe moins, le mot du cycle 006, la
-famille $5\cdot 2^k-1$, les conjectures 2 et 3 de Berg–Meinardus, ni
-les théorèmes 4.2.7 et 4.3.10 de Mori. Ne pas ouvrir ce cycle avant la
-fin du blocage ci-dessus.
+Pour l'application accélérée $U(n)=(3n+1)/2^{v_2(3n+1)}$, existe-t-il
+un module $m\ge 2$, un résidu $a$ et une borne $T$ tels que tout
+entier $n>1$ congru à $a$ modulo $m$ admette un temps $t\le T$ avec
+$U^t(n)<n$ et $U^t(n)\equiv a\pmod m$ ? Une réponse positive
+réduirait la classe à un segment fini. Le premier candidat de la
+porte est un seul vecteur de valuations, constant sur une classe
+modulo $2^L$ : l'affinité a pour coefficient $3^t 2^{L-S}$. S'il est
+déjà dans Terras, Everett ou Lagarias, ne pas le redémontrer, et
+traiter l'union finie de vecteurs. Ne pas rouvrir Tao, B17, B18, B19,
+le signe moins, le mot du cycle 006, la famille $5\cdot 2^k-1$, les
+conjectures 2 et 3 de Berg–Meinardus, ni les théorèmes 4.2.7 et
+4.3.10 de Mori. Ne pas ouvrir ce cycle avant la fin du blocage
+ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -43,6 +45,18 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093045943` (27 nov. 2026, SHA `02bcbd97`) : correctif du
+  cycle 013 confirmé. Bilans \(-84\) et \(148\), somme \(64\), seuils
+  \(X_0<187\) et \(X_0<123\), trajet \(59\to 67\). Aucune correction.
+  Cycle 014 ensuite : Tao 2022, théorème 1.3, n'exclut aucune classe
+  de congruence (B20, X34). Détail : [reviews.md](reviews.md).
+- Cycle 014 (27 nov. 2026) : le théorème 1.3 de Tao, lu sur le PDF de
+  *Forum Math. Pi* 10 (2022), dit que l'ensemble exceptionnel a une
+  densité logarithmique nulle. Chaque classe a densité \(1/m\), donc
+  presque toute la classe passe sous \(f\), et aucune classe n'est
+  entièrement exceptionnelle. X34 montre qu'une densité nulle peut
+  couper toutes les classes. Pas une découverte, ni une contrainte
+  sur une orbite. [cycle-014](cycles/cycle-014.md)
 - Revue `6093000151` (27 nov. 2026, SHA `9e26d12`) : lemme 2, identité
   pondérée et réduction des lemmes 3 et 4 confirmés. Thorner–Zaman et
   Ramaré, cités par la revue, ne sont pas ouverts ici.

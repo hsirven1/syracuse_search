@@ -457,6 +457,30 @@ corrigés : le bilan \(-84\) et \(148\) est celui de \(M=1\), les
 certificats finis s'arrêtent à \(X_0<187\) et \(X_0<123\), et X33
 retire la phrase « un seul trajet ne suffit pas ».
 
+Revue indépendante `6093045943` (PR #27, SHA
+`02bcbd97fff10f478ebbc46a5d76862a4b87946a`) : ce correctif est
+confirmé, y compris les bilans \(-84\) et \(148\), la somme \(64\),
+les seuils et X33. Aucune correction.
+
+**B20 — Le théorème 1.3 de Tao 2022 n'exclut aucune classe de
+congruence** (cycle 014). Énoncé de densité déjà publié. Ce n'est pas
+une découverte.
+
+Si \(f(N)\to+\infty\), l'ensemble
+\(\{N:\mathrm{Col}_{\min}(N)\ge f(N)\}\) a une densité logarithmique
+nulle (Tao, *Forum Math. Pi* 10 (2022), théorème 1.3, lu). Chaque
+classe \(n\equiv r\pmod m\) a densité logarithmique \(1/m\). Elle
+n'est donc pas contenue dans l'ensemble exceptionnel, et la densité
+relative des exceptions dans la classe est nulle. Presque toute la
+classe passe sous \(f\). Aucun entier n'est forcé individuellement.
+
+X34 : \(E=\{m!+r:m\ge 1,\ 1\le r\le m\}\) a une densité logarithmique
+nulle et rencontre chaque classe infiniment souvent. La nullité
+n'implique pas qu'une classe soit entièrement bonne. La remarque 1.4
+laisse ouverte la borne constante pour presque tout \(N\). Le
+théorème 3.1 ne donne qu'une densité logarithmique inférieure
+\(1-O(\log^{-c} N_0)\). Ce n'est pas une preuve de Syracuse.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

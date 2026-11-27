@@ -148,3 +148,14 @@ et ferme l'exception finie ainsi que le couple résidu–valuation sans
 compteurs (B18, X32). Elle n'en tire pas de descente. Le théorème 1 de la note, avec
 compteurs, est le cycle 013 (B19) : pas une seconde preuve, et pas
 une contrainte sur une orbite divergente.
+
+## H9 — Tao 2022 et les classes de congruence (axe C) — FERMÉ (B20, X34)
+Le théorème 1.3, lu sur le PDF de *Forum Math. Pi* 10 (2022), dit que
+\(\mathrm{Col}_{\min}(N)<f(N)\) pour presque tout \(N\) en densité
+logarithmique, dès que \(f(N)\to+\infty\). Cela ne produit aucun
+couple \((a,m)\) pour lequel chaque entier de la classe passe sous
+\(f\). Chaque classe a densité \(1/m\) (cycle 014 §2). X34 est
+l'ensemble \(m!+r\), de densité nulle, qui rencontre toutes les
+classes. La borne constante de la remarque 1.4 reste ouverte et n'est
+pas la prochaine question. Ne pas relire ce théorème pour en tirer
+une classe entière.
