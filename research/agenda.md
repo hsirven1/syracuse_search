@@ -10,21 +10,28 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6082791301` corrige le résidu du cycle 011 (X30) et écrit
-l'équivalence de la conjecture 3 au §12. Ce correctif n'est pas encore
-relu. Ne pas ouvrir le cycle 012 avant cette relecture.
+Les cycles 001 à 012 sont douze cycles nouveaux dont le premier commit est
+`416b1f1`, daté du 26 novembre 2026 à 20:05:56 UTC. Ne pas ouvrir le cycle
+013 avant le 27 novembre 2026 à 20:06 UTC. Une correction mathématique d'une
+revue reste permise. Une confirmation sans objection ne justifie pas un
+treizième cycle dans cette fenêtre.
 
-## 1. [A] Lyapunov $V=\log_2(n+1)+c\,v_2(n+1)$ — PROCHAINE QUESTION (cycle 012), non entamée
-Pour tout réel $c$, $V$ est-elle une fonction de Lyapunov stricte le long
-des orbites positives de $T$ ? Le cas $c\le\beta$ est le premier pas impair
-d'un Mersenne : l'écart vaut $\beta-c$. Pour $c>\beta$, H7 observe que les
-longues fenêtres suivent la hauteur, sans témoin. Produire un entier $n>1$
-et un temps $t\ge 1$ avec $V(T^t(n))\ge V(n)$, ou prouver la décroissance
-stricte hors du cycle. Dans ce second cas, ne pas en déduire Syracuse :
-il resterait à montrer que $V$ est propre et minorée. S'arrêter au premier
-témoin. Ne pas rouvrir B10, B13, X21, le signe moins, le mot du cycle 006,
-la famille $5\cdot2^k-1$, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
-Ne pas reprendre Berg–Meinardus : la conjecture 2 est B16, et la conjecture 3 est la même reformulation au cycle 011 §12.
+## 1. [B] Correction jointe $(n\bmod M,\ v_2(n+1))$ — PROCHAINE QUESTION (cycle 013), non entamée
+Chang, théorème 3.1, exclut $\log_2 n+g(n\bmod 2^k)$. B17 exclut toute
+fonction de la seule valuation $v_2(n+1)$, ajoutée à $\log_2 n$ ou à
+$\log_2(n+1)$, lorsque la décroissance est exigée pour tout impair $>1$.
+La note du 19 octobre 2026,
+`https://rstation.ai/problems/collatz/papers/3`, affirme qu'aucune fonction
+$H(n)+\Phi(n\bmod M, v_2(n+1))+\beta\omega(n)+\gamma\Omega(n)+R(\Omega(n)-\omega(n))$
+n'est non croissante sur tous les pas $U$ d'impairs assez grands. Ce n'est
+pas une publication primaire, et le crible n'a pas été revérifié.
+
+Le cycle 013 commence par la porte d'antériorité sur cet énoncé. Ou bien
+la preuve a un trou précis, ou bien l'obstruction est déjà écrite et ne
+doit pas être refaite. Pas de nouvel ansatz avant cette porte. Ne pas
+rouvrir B10, B13, X21, le signe moins, le mot du cycle 006, la famille
+$5\cdot 2^k-1$, les conjectures 2 et 3 de Berg–Meinardus, ni les théorèmes
+4.2.7 et 4.3.10 de Mori. Ne pas déduire Syracuse d'une descente partielle.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -35,6 +42,19 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082845312` (27 nov. 2026, SHA `a29ba699`) : le correctif du
+  cycle 011 est confirmé. Résidu \(-\lambda^\mu\), coefficient
+  \(\lambda^{2\mu}\), équivalence \(a_n=a_{t(n)}\). Aucune correction.
+  Cycle 012 ensuite : X31 et B17. Aucune fonction de la seule valuation
+  \(v_2(n+1)\) n'est une fonction de Lyapunov stricte sans exception.
+  Détail : [reviews.md](reviews.md).
+- Cycle 012 (27 nov. 2026) : pour tout réel $c$,
+  $\log_2(n+1)+c\,v_2(n+1)$ échoue hors de $\{1,2\}$ (X31). Pour toute
+  fonction réelle $\Phi$, $\log_2 n+\Phi(v_2(n+1))$ et
+  $\log_2(n+1)+\Phi(v_2(n+1))$ échouent sur $U$ en l'un de $3$, $7$, $9$
+  (B17). Le §4(2) de Chang laisse cet énoncé ouvert ; son esquisse ne
+  couvre pas une croissance rapide. Pas une preuve de Syracuse.
+  [cycle-012](cycles/cycle-012.md)
 - Revue `6082791301` (27 nov. 2026, SHA `ded6e1ce`) : B16 et X29
   confirmés. Le résidu du cycle 011 §5 vaut \(-\lambda^\mu\), pas
   \(\lambda^{2\mu}\) (X30). L'identité de séries reste vraie. La

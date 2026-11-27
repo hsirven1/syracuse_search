@@ -355,6 +355,26 @@ de la reformulation annoncée en 1995. L'article de 1994 reste non lu
 et n'est pas une prémisse. Ce n'est pas une seconde preuve de B16, ni
 le cycle suivant.
 
+Revue indépendante `6082845312` (PR #27, SHA
+`a29ba6992d54dedee90f4e443998dba5dadd5d08`) : ce correctif est confirmé.
+Le résidu vaut \(-\lambda^\mu\), le coefficient de \((1-\lambda^\mu w)^{-1}\)
+vaut \(\lambda^{2\mu}\), et (18) équivaut à \(a_n=a_{t(n)}\). Aucune
+correction. Ce n'est pas une seconde preuve. Le cycle 012 vient après.
+
+**B17 — Aucune correction de la seule valuation \(v_2(n+1)\) n'est une
+fonction de Lyapunov stricte** (PROUVÉ, cycle 012 §2–§3). Pour tout réel
+\(c\), \(V(n)=\log_2(n+1)+c\,v_2(n+1)\) échoue hors de \(\{1,2\}\) : le pas
+\(3\to 5\) si \(c\le\beta\), le pas \(6\to 3\) si \(c>\beta\) (X31). Pour
+toute fonction réelle \(\Phi\) de \(v_2(n+1)\), ni \(\log_2 n+\Phi\) ni
+\(\log_2(n+1)+\Phi\) ne décroît en tout impair \(>1\) sous
+\(U(n)=(3n+1)/2^{v_2(3n+1)}\). La dichotomie n'utilise que \(U(3)=5\),
+\(U(7)=11\) et \(U(9)=7\). Le théorème 3.1 de Chang exclut une autre
+famille, \(\log_2 n+g(n\bmod 2^k)\). Son §4(2) laisse
+\(\log_2 n+h(v_2(n+1))\) au lecteur ; l'esquisse ne couvre pas une
+fonction à croissance rapide, et B17 ferme l'énoncé sans ensemble
+exceptionnel. Ce n'est pas une descente des grandes orbites, ni une
+exclusion des corrections qui voient aussi un résidu fixe.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

@@ -106,10 +106,15 @@ $\rho\le0$, aucune contraction n'existe.
 Le coefficient de tête reste sous Applegate–Lagarias 2003, (4) et théorème 1.1.
 L'existence d'un certificat n'est pas montrée. Ne pas relancer B13, ni B10, ni X21.
 
-## H7 — Potentiels cohomologues $V(n)=\log_2(n+1)+c\,v_2(n+1)$ (axe A) — OBSERVATION
-Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutralise Mersenne),
-mais $V-\log_2(n+1)=c\,r$ est une correction de bord : sur de longues fenêtres $V$ suit la hauteur.
-Horizon fixe encore impossible (adversaire $2(2^Ra-1)$, $R>B$). Ne pas relancer sans nouvelle idée.
+## H7 — Potentiels $V(n)=\log_2(n+1)+c\,v_2(n+1)$ (axe A) — RÉFUTÉ (X31, B17)
+Pour tout réel $c$, $V$ n'est pas une fonction de Lyapunov stricte hors de
+$\{1,2\}$ (cycle 012 §2). Le pas impair diminue bien $V$ de $c-\beta$ lorsque
+$c>\beta$, mais $6\to 3$ l'augmente. Toute fonction réelle de la seule
+valuation $v_2(n+1)$, ajoutée à $\log_2 n$ ou à $\log_2(n+1)$, échoue aussi
+sur $U$ en l'un des trois impairs $3$, $7$, $9$ (B17). Cela ne ferme pas le
+cas d'un ensemble fini d'exceptions, ni une correction du couple
+$(n\bmod M, v_2(n+1))$. Ne pas relancer la forme qui ne dépend que de
+$v_2(n+1)$.
 
 ## H8 — Équivalences opératorielles de Mori 2024 (axe C) — FERMETURE RÉFUTÉE ; THÉORÈMES NON ADOPTÉS
 La réduction au premier retour est prouvée (B12). Elle n'est pas une preuve
@@ -130,4 +135,5 @@ preuve que $\tau>2k$ infiniment souvent. L'équation de Berg–Meinardus
 est le cycle 011 : reformulation, pas un lemme de descente, et pas un
 nouveau lemme sur $\{e_{2^k}\}$. La revue `6082791301` corrige le résidu
 du §5 (X30). L'équivalence de la conjecture 3 est le §12 ; elle ne donne
-pas de descente. Le cycle 012 n'est pas entamé.
+pas de descente. La revue `6082845312` confirme ce correctif. Le cycle 012
+réfute H7 (X31, B17) et n'en tire pas de descente.
