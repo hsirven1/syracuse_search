@@ -37,8 +37,9 @@ Le signe moins n'est pas ultimement périodique : infinité de zéros et
 $r_k\to+\infty$ (X24). La phrase sans hypothèse de zéro est fausse pour
 $1^\infty$ (X26). Il ne se réduit pas terme à terme à la forme de B2 ou
 de B11 (X25). Si $\sigma=a/b$, alors $v_2(a-2b)=66$ et
-$\max(|a|,b)\ge(2^{66}+2)/3$ (B14). Cette valuation exclut $2+2^{67}$
-(X27) ; la borne de hauteur seule laisse $2+2^{66}$ ouvert.
+$\max(|a|,b)\ge(2^{66}+2)/3$ (B14). Cette valuation de rang $1$ exclut
+$2+2^{67}$ (X27). La fraction $2+2^{66}$ satisfait le rang $1$ et la
+borne de hauteur ; elle est exclue au rang $2$, car $v_2(A_2)=74\neq96$.
 L'apériodicité ne réfute pas H3. L'irrationalité reste ouverte.
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
@@ -59,8 +60,9 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
   ouverte : le cycle 009 donne $v_2(a-2b)=66$, donc
   $\max(|a|,b)\ge(2^{66}+2)/3$ (B14), l'absence de queue périodique par
   l'infinité de zéros (X24) et l'absence de forme polynomiale sur une
-  progression arithmétique (X25). La valuation exclut certaines hauteurs
-  supérieures (X27). Ne pas la relancer sans un outil qui ne soit ni B7
+  progression arithmétique (X25). La valuation de rang $1$ exclut
+  certaines hauteurs supérieures, et le rang $2$ exclut $2+2^{66}$ (X27).
+  Ne pas la relancer sans un outil qui ne soit ni B7
   ni VW 1989. Les placements de zéros non réductibles par un préfixe fini restent
   ouverts. Les runs quasi linéaires restent H5 : la famille appariée est
   l'identité B11. Sur ce mot $\sup Q_m=Q_2=\log_2(2048/217)$, donc

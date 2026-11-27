@@ -260,7 +260,8 @@ $\sigma=a/b$ est irréductible et $b>0$, alors $v_2(a-2b)=66$,
 $|a-2b|\ge2^{66}$ et $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$. En particulier
 $\sigma\neq2$. La valuation exclut aussi des hauteurs supérieures, par
 exemple $2+2^{67}$ (X27). La borne de hauteur seule ne tranche pas
-au-dessus du seuil : $2+2^{66}$ satisfait $v_2(a-2b)=66$. Le mot n'est
+au-dessus du seuil : $2+2^{66}$ satisfait $v_2(a-2b)=66$, mais le rang
+$2$ l'exclut, car $v_2(A_2)=74\neq96$. Le mot n'est
 pas ultimement périodique (X24) : il a une infinité de zéros et
 $r_k\to+\infty$. La phrase générale sans zéro est fausse pour $1^\infty$
 (X26). La suite $o_j$ n'est pas polynomiale, même à un $O(\log)$ près,
@@ -274,6 +275,11 @@ Revue indépendante `6082358798` (PR #27, SHA
 `886b3059d09f30a5a349b9423455697f408f4333`) : B14, X24 et X25 sont
 confirmés. Les quatre phrases ci-dessus sont la correction. Ce n'est
 pas une seconde preuve, ni le cycle suivant.
+
+Revue indépendante `6082438456` (PR #27, SHA
+`645ee7b8bbd9f348753592e66acf5db4187fac6b`) : ces corrections sont
+confirmées. Le candidat $2+2^{66}$ est exclu au rang $2$. Ce n'est pas
+une preuve d'irrationalité, ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

@@ -5,7 +5,8 @@ La preuve est dans research/cycles/cycle-009.md. Ce script ne la remplace pas.
 Il vérifie 3^64, le run r_2=29, la chaîne entière r_9≥80, le déséquilibre
 des facteurs de longueur 66, les neuf premiers runs, 4 r_k > o_k jusqu'à
 k=18, l'écart du candidat σ=2 (valuation 66, distincte de 96), les témoins
-2+2^67 et 2+2^66, la constante (2^66+2)/3, et U(1)=1.
+2+2^67 (exclu au rang 1) et 2+2^66 (v_2(A_2)=74), les exposants
+1, 66, 96, 142, la constante (2^66+2)/3, et U(1)=1.
 
 Usage : python3 research/checks/cycle009_minus_sign.py
 """
@@ -130,6 +131,9 @@ def review_witnesses():
     for k, o, r in seq[1:]:
         if 4 * r <= o:
             raise AssertionError((k, o, r))
+    exponents = [k + o for k, o, _ in seq[:4]]
+    if exponents != [1, 66, 96, 142]:
+        raise AssertionError(exponents)
     threshold = (2 ** 66 + 2) // 3
     high = 2 + 2 ** 67
     boundary = 2 + 2 ** 66
@@ -137,6 +141,32 @@ def review_witnesses():
         raise AssertionError("2+2^67")
     if v2(boundary - 2) != 66 or boundary <= threshold:
         raise AssertionError("2+2^66")
+    # Rang 2 : v_2(3^2-1)=3, puis cinq doublements, car 3^{2^s}+1 ≡ 2 (mod 8).
+    exp = 2
+    val = v2(3 ** exp - 1)
+    if val != 3:
+        raise AssertionError("v2(3^2-1)")
+    for _ in range(5):
+        power = 3 ** exp
+        if (power + 1) % 8 != 2 or v2(power + 1) != 1:
+            raise AssertionError(("mod8", exp))
+        exp *= 2
+        nxt = v2(3 ** exp - 1)
+        if nxt != val + 1:
+            raise AssertionError((exp, nxt, val))
+        val = nxt
+    if exp != 64 or val != 8 or v2(3 ** 64 - 1) != 8:
+        raise AssertionError((exp, val))
+    p64 = 3 ** 64
+    p2 = 2 * p64 + 2 ** 66
+    a2_boundary = boundary * p64 - p2
+    if a2_boundary != 2 ** 66 * (p64 - 1) or v2(a2_boundary) != 74:
+        raise AssertionError(("A2 boundary", v2(a2_boundary)))
+    a2_high = high * p64 - p2
+    if a2_high != 2 ** 66 * (2 * p64 - 1) or v2(a2_high) != 66:
+        raise AssertionError(("A2 high", v2(a2_high)))
+    if v2(2 * p64 - 1) != 0:
+        raise AssertionError("2*3^64-1")
     one = 3 * 1 + 1
     if v2(one) != 2 or one // 4 != 1:
         raise AssertionError("U(1)")
@@ -174,7 +204,8 @@ def main():
     sigma_two_valuation()
     print("PASS candidat sigma=2 : v_2(A_2)=66, reste de la serie de valuation 96")
     review_witnesses()
-    print("PASS neuf runs, 4 r_k > o_k jusqu'a k=18, temoins 2+2^67 et 2+2^66")
+    print("PASS neuf runs, 4 r_k > o_k jusqu'a k=18, exposants 1,66,96,142")
+    print("PASS rang 1 exclut 2+2^67 ; 2+2^66 a v_2(A_2)=74, pas 96")
     height_constant()
     print("PASS max(|a|,b) >= (2^66+2)/3 > 2^64")
     print("PASS U(1)=1, et U(n)<n pour n=5, 9, 13")

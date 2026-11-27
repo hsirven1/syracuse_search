@@ -9,9 +9,12 @@ Le mot n'est pas ultimement périodique (X24). La fonction $o_j$ n'est pas
 polynomiale, même à $O(\log)$ près, sur aucune progression arithmétique :
 il n'y a pas de réduction terme à terme du type B2 ou B11 (X25). Si la
 somme de réalisation $\sigma=a/b$ est rationnelle irréductible avec $b>0$,
-alors $v_2(a-2b)=66$ et $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$ (B14). La
-valuation exclut aussi des hauteurs supérieures, par exemple $2+2^{67}$
-(X27). La borne de hauteur, seule, ne tranche pas au-dessus du seuil.
+alors $v_2(a-2b)=66$ et $\max(|a|,b)\ge(2^{66}+2)/3>2^{64}$ (B14). Le
+rang $1$ exclut aussi des hauteurs supérieures, par exemple $2+2^{67}$
+(X27). La fraction $2+2^{66}$ satisfait ce rang et la borne de hauteur ;
+le rang $2$ l'exclut, car $v_2(A_2)=74\neq96$. La borne de hauteur,
+seule, ne tranche pas au-dessus du seuil, et ces deux exclusions ne
+vident pas la classe $v_2(a-2b)=66$.
 Ce n'est pas une exclusion de $\mathbb Q$, ni une preuve de Syracuse.
 B7 n'est pas réutilisé pour conclure : son hypothèse $\sup Q_m=+\infty$
 est fausse sur ce mot.
@@ -115,15 +118,16 @@ $$
 \qquad\text{et}\qquad
 \max(|a|,b)\ge\frac{2^{66}+2}{3}>2^{64}.
 $$
-En particulier $\sigma\neq2$. Cette valuation exclut aussi des
-rationnels de hauteur supérieure au seuil. Pour $a=2+2^{67}$ et $b=1$,
+En particulier $\sigma\neq2$. Le rang $1$ exclut aussi des rationnels
+de hauteur supérieure au seuil. Pour $a=2+2^{67}$ et $b=1$,
 $v_2(a-2b)=67\neq66$ et $\max(|a|,b)=2+2^{67}>(2^{66}+2)/3$ (X27). La
 borne de hauteur, à elle seule, ne tranche pas au-dessus du seuil :
 $a=2+2^{66}$ et $b=1$ satisfont $v_2(a-2b)=66$ et
-$\max(|a|,b)=2+2^{66}>(2^{66}+2)/3$.
+$\max(|a|,b)=2+2^{66}>(2^{66}+2)/3$. Ce candidat n'est pas une
+réalisation : le rang $2$, calculé ci-dessous, donne $v_2(A_2)=74\neq96$.
 
-**Preuve.** On reprend le calcul de valuation du cycle 003 §2 au seul
-rang $m=1$, sans l'hypothèse $\sup Q=+\infty$. Ici $o_1=0$, $G_1=2$,
+**Preuve.** On reprend le calcul de valuation du cycle 003 §2, d'abord
+au rang $m=1$, sans l'hypothèse $\sup Q=+\infty$. Ici $o_1=0$, $G_1=2$,
 $P_1=2$ et $A_1=a-2b$. Le reste vérifie, dans $\mathbb Q_2$,
 $$
 3^{o_2}(\sigma-G_1)=\sum_{j\ge2}2^{j+o_j}3^{o_2-o_j}.
@@ -159,15 +163,36 @@ Le cas $(a,b)=(2,1)$ donne $A_1=0$, dont la valuation n'est pas $66$.
 Pour la série elle-même, au rang $m=2$, le terme $j=3$ vaut $2^{96}$.
 Pour $j\ge4$, $j+o_j\ge4+o_4$. Comme $r_3>o_3/4>0$, on a
 $o_4\ge o_3+1$ et $4+o_4\ge98>96$. La valuation du reste est donc $96$,
-et $v_2(A_2)=96$ dès que $b$ est impair. Pour le candidat $\sigma=2$,
-$P_2=2\cdot3^{64}+2^{66}$ et $A_2=2\cdot3^{64}-P_2=-2^{66}$, de
-valuation $66\neq96$. C'est l'écart du candidat, pas une exception à
-$v_2(A_m)=m+1+o_{m+1}$. ∎
+et $v_2(A_2)=96$ dès que $b$ est impair, avec
+$P_2=2\cdot3^{64}+2^{66}$ et $A_2=3^{64}a-bP_2$.
 
-Le rang $m=2$ ne sert qu'à séparer le candidat $\sigma=2$ du reste de la
-série. La comparaison archimédienne des rangs suivants n'est pas reprise.
-Le cycle 004 montre déjà $Q_k\to-\infty$ : elle devient plus faible que
-la borne ci-dessus, et elle ne devient jamais une exclusion.
+Pour $(a,b)=(2,1)$, $A_2=-2^{66}$ et $v_2(A_2)=66\neq96$. Pour
+$(a,b)=(2+2^{66},1)$,
+$$
+A_2=3^{64}(2+2^{66})-P_2=2^{66}(3^{64}-1).
+$$
+Or $v_2(3^2-1)=v_2(8)=3$. Pour $s\ge1$,
+$3^{2^s}=(3^2)^{2^{s-1}}\equiv1\pmod8$, donc
+$3^{2^s}+1\equiv2\pmod8$ et $v_2(3^{2^s}+1)=1$. L'identité
+$3^{2^{s+1}}-1=(3^{2^s}-1)(3^{2^s}+1)$ ajoute une unité à chaque
+doublement. Les cinq pas $s=1,\ldots,5$ mènent de l'exposant $2$ à
+$64$, donc $v_2(3^{64}-1)=3+5=8$ et $v_2(A_2)=66+8=74\neq96$.
+
+Pour $(a,b)=(2+2^{67},1)$, l'exclusion est déjà celle du rang $1$ :
+$A_1=2^{67}$. Le même polynôme donne
+$A_2=2^{66}(2\cdot3^{64}-1)$. Le facteur $2\cdot3^{64}-1$ est impair,
+donc $v_2(A_2)=66$. Ce second écart ne remplace pas le premier.
+
+L'écart de ces candidats n'est pas une exception à
+$v_2(A_m)=m+1+o_{m+1}$ : pour une réalisation, cette valuation vaut
+$66$ au rang $1$ et $96$ au rang $2$. ∎
+
+Le rang $m=1$ donne la borne de hauteur. Le rang $m=2$ exclut $\sigma=2$
+et $2+2^{66}$. Il ne vide pas la classe des fractions qui vérifient
+$v_2(a-2b)=66$ et la borne de hauteur. La comparaison archimédienne des
+rangs suivants n'est pas reprise. Le cycle 004 montre déjà
+$Q_k\to-\infty$ : elle devient plus faible que la borne ci-dessus, et
+elle ne devient jamais une exclusion.
 
 ## 4. Pas de forme polynomiale, donc pas de réduction terme à terme (X25)
 
@@ -246,8 +271,10 @@ font pas partie.
 - $\xi_w\notin\mathbb Q$, ni $\sigma\notin\mathbb Q$. Parmi les fractions
   irréductibles $a/b$ avec $b>0$ impair et $v_2(a-2b)=66$, la borne de
   hauteur laisse ouvertes celles qui vérifient
-  $\max(|a|,b)\ge(2^{66}+2)/3$. Elle n'épargne pas toute hauteur
-  supérieure : $2+2^{67}$ est exclu par la valuation (X27).
+  $\max(|a|,b)\ge(2^{66}+2)/3$. Le rang $1$ exclut $2+2^{67}$. La
+  fraction $2+2^{66}$ satisfait le rang $1$ et cette borne, mais
+  $v_2(A_2)=74\neq96$ l'exclut au rang $2$ (X27). Ces deux exclusions
+  ne vident pas la classe.
 - Une application de VW 1989, de Bundschuh 1974, ou de B7. Le mot du
   cycle 006 n'est pas rouvert.
 - L'égalité réelle de la série et son égalité $2$-adique. X14 reste en
@@ -272,9 +299,15 @@ n'est pas relu.
 
 La limite $r_{k+1}/r_k\to\log_2 3$ et l'inégalité $r_k>o_k/4$ sont le
 cycle 004 §8. La valuation $v_2(A_m)=m+1+o_{m+1}$ est le mécanisme du
-cycle 003 §2, appliqué ici au seul rang $m=1$. B2 et B11 fournissent
-les deux formes polynomiales exclues. H3 est inchangée dans son énoncé
-général.
+cycle 003 §2. Les deux rangs calculés sont distincts. Le rang $m=1$
+donne $v_2(A_1)=66$ et la borne de hauteur. Le rang $m=2$ donne
+$v_2(A_2)=96$ : il exclut $\sigma=2$, dont la valuation est $66$, et
+$2+2^{66}$, dont la valuation est $74$. Le candidat $2+2^{67}$ est
+exclu dès le rang $1$, où $v_2(A_1)=67$ ; son rang $2$ vaut $66$ et
+n'est pas la raison de l'exclusion. Aucun théorème de Tschakaloff
+n'est appliqué. Les rangs $m\ge3$ ne sont pas un critère
+d'irrationalité. B2 et B11 fournissent les deux formes polynomiales
+exclues. H3 est inchangée dans son énoncé général.
 
 Lecture de ce cycle : le HTML public d'arXiv:1805.00133, assez pour y
 retrouver la conjecture de périodicité comme conjecture, pas comme
@@ -290,7 +323,7 @@ rencontrées dans la recherche (SSRN, arXiv:2610.02601) n'ont pas été lues.
 - `prior_art.md` : pas de théorème nouveau adopté.
 - `abandoned.md` : ne pas relancer ce mot sans outil nouveau.
 - `agenda.md` : prochaine question sur l'axe A.
-- `reviews.md` : revues `6082253067` et `6082358798`.
+- `reviews.md` : revues `6082253067`, `6082358798` et `6082438456`.
 
 ## 10. Prochaine question
 
@@ -312,8 +345,9 @@ $U(n)\le(3n+1)/4$. L'inégalité $(3n+1)/4<n$ équivaut à $n>1$. Le cas
 $n=1$ n'est pas une descente : $3\cdot1+1=4$ et $U(1)=1$. Ne pas
 rouvrir le mot du signe moins, le mot du cycle 006, B10, B13 ni X21.
 Si aucun mécanisme clos n'apparaît après l'antériorité et un
-contre-exemple borné, s'arrêter. Ce cycle n'est pas engagé tant que
-la revue `6082358798` n'a pas été revue à nouveau.
+contre-exemple borné, s'arrêter. Ce cycle n'est pas engagé : la revue
+`6082438456` confirme le correctif précédent et demande encore une
+confirmation du rang $2$.
 
 ## 11. Reproduire
 
@@ -321,13 +355,16 @@ la revue `6082358798` n'a pas été revue à nouveau.
 python3 research/checks/cycle009_minus_sign.py
 ```
 
-Sortie attendue : six lignes `PASS`. Elles couvrent $3^{64}$ et
+Sortie attendue : sept lignes `PASS`. Elles couvrent $3^{64}$ et
 $\lfloor64\log_2(3/2)\rfloor=37$, la chaîne $r_9\ge80$ avec $r_4\ge66$,
 les deux facteurs de longueur $66$, les neuf premiers runs et
 $4r_k>o_k$ pour $2\le k\le18$, le candidat $\sigma=2$ avec
-$v_2(A_2)=66\neq96$, les témoins $2+2^{67}$ et $2+2^{66}$, la constante
-$(2^{66}+2)/3>2^{64}$, et $U(1)=1$. L'irrationalité n'est pas un
-contrôle du script : elle reste ouverte.
+$v_2(A_2)=66\neq96$, le témoin $2+2^{67}$ exclu au rang $1$, le témoin
+$2+2^{66}$ avec $v_2(A_2)=74\neq96$, les quatre premiers exposants
+$1,66,96,142$, la constante $(2^{66}+2)/3>2^{64}$, et $U(1)=1$.
+L'exposant $142$ est un contrôle fini : la preuve n'utilise que
+$4+o_4\ge98$. L'irrationalité n'est pas un contrôle du script : elle
+reste ouverte.
 
 ## 12. Revue `6082358798`
 
@@ -353,3 +390,27 @@ $4r_k>o_k$ jusqu'à $k=18$, la valuation $96$ et les deux témoins de
 hauteur. Ce segment fini n'est pas la preuve. Le décompte des fenêtres
 de longueur $66$ n'est pas repris : le facteur $1^{66}$ suit déjà de
 $r_9\ge80$.
+
+## 13. Revue `6082438456`
+
+Revue indépendante sur le SHA
+`645ee7b8bbd9f348753592e66acf5db4187fac6b` (PR #27), c'est-à-dire sur
+le correctif de la revue `6082358798`. X26, la portée de X24, le statut
+conjectural de la réciproque, B14, l'exclusion de $2+2^{67}$ au rang
+$1$, et $U(1)=1$ sont confirmés. Bernstein–Lagarias 1996, de nouveau
+cité, n'a pas été ouvert ici et n'est pas une prémisse.
+
+Une phrase est corrigée. Dans `abandoned.md`, $2+2^{66}$ était laissé
+ouvert. Ce candidat satisfait $v_2(A_1)=66$ et la borne de hauteur, mais
+$A_2=2^{66}(3^{64}-1)$ a la valuation $74$, pas $96$. La preuve est au
+§3 : $v_2(3^2-1)=3$, et chacun des cinq doublements ajoute une unité
+parce que $3^{2^s}+1\equiv2\pmod8$. Le §8 distingue désormais les deux
+rangs. Le témoin $2+2^{67}$ reste exclu au rang $1$ ; son rang $2$ vaut
+$66$ et n'est pas la raison de l'exclusion.
+
+L'irrationalité du mot reste ouverte : exclure $\sigma=2$, $2+2^{66}$ et
+$2+2^{67}$ ne décide pas l'existence d'une autre fraction. Aucun
+théorème de Tschakaloff n'est appliqué. Le cycle 010 n'est pas engagé.
+Le script vérifie $v_2(A_2)=74$ pour $2+2^{66}$, la récurrence des
+doublements, et les exposants $1,66,96,142$. Le dernier est un contrôle
+fini, pas une étape de la preuve.

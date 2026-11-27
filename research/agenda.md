@@ -10,9 +10,10 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les corrections de la revue `6082358798` sont dans ce commit. Ne pas
+Les corrections de la revue `6082438456` sont dans ce commit. Ne pas
 engager le cycle 010 tant qu'une nouvelle revue indépendante ne les a
-pas confirmées.
+pas confirmées. La revue confirme les corrections de `6082358798` et
+exclut $2+2^{66}$ au rang $2$.
 
 ## 1. [A] Descente accélérée de $5\cdot2^k-1$ — PROCHAINE QUESTION (cycle 010)
 Pour $k\ge2$, $n_k=5\cdot2^k-1\equiv3\pmod4$, donc le pas accéléré
@@ -35,6 +36,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082438456` (27 nov. 2026, SHA `645ee7b8`) : les corrections
+  de `6082358798` sont confirmées. Le candidat $2+2^{66}$ satisfait le
+  rang $1$ et la borne de hauteur, mais $v_2(A_2)=74\neq96$ : il est
+  exclu au rang $2$. L'irrationalité reste ouverte. Le cycle 010 n'est
+  pas engagé. Détail : [reviews.md](reviews.md).
 - Revue `6082358798` (27 nov. 2026, SHA `886b3059`) : B14, X24 et X25
   confirmés. Correction : $1^\infty$ réfute la phrase générale sur les
   runs périodiques (X26) ; la réciproque est H3, pas une réfutation ;
