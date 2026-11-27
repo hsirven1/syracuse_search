@@ -1,20 +1,25 @@
-# Cycle 010 — Préfixe de \(5\cdot2^k-1\) : la forme close s'arrête au-dessus du départ
+# Cycle 010 — Préfixe de \(5\cdot2^k-1\) : sortie et second bloc au-dessus du départ
 
 Date : 27 novembre 2026. Axe **A**.
 Branche : `research/memory`. Script : [`../checks/cycle010_accelerated_descent.py`](../checks/cycle010_accelerated_descent.py).
 
-**Verdict : pas de borne explicite de \(\tau\), et pas de preuve que
-\(\tau>2k\) pour une infinité de \(k\).**
-Le préfixe accéléré est connu. La sortie est explicite, et pour \(k\ge3\)
-elle reste strictement au-dessus de \(n_k\), donc \(\tau(n_k)\ge k+1\) (B15).
+**Verdict : B15 et le second bloc sont prouvés. Pas de formule de
+\(\tau\) jusqu'à la descente, et pas de preuve que \(\tau>2k\) pour une
+infinité de \(k\).**
+Le préfixe accéléré \(t\le k-1\) est connu. Pour \(k\ge3\), la sortie
+reste strictement au-dessus de \(n_k\), donc \(\tau(n_k)\ge k+1\) (B15).
 Pour \(k\) impair \(\ge3\), les orbites de \(n_k\) et de \(n_{k+1}\) se
-rejoignent au pas \(k+1\), encore au-dessus des deux départs, donc
-\(\tau(n_k)\ge\tau(n_{k+1})\). La formule uniforme s'arrête là : le bloc
-suivant a pour longueur \(v_2(5\cdot3^k+1)-1\), qui n'est pas constante.
-L'inégalité universelle \(\tau\le2k\) est fausse (X28). Le segment
-\(2\le k\le1000\) montre les deux signes ; il ne prouve pas l'infinité.
-Ce n'est pas une preuve de Syracuse, ni une contrainte sur une trajectoire
-arbitraire.
+rejoignent au pas \(k+1\). Si aucun temps de descente n'existe,
+\(\tau=+\infty\) : les comparaisons n'exigent pas la terminaison.
+Le bloc suivant est explicite. Avec \(L=v_2(5\cdot3^k+1)-1\), on a
+\(U^{k+s}(n_k)=3^s(5\cdot3^k+1)/2^{s+1}-1>n_k\) pour \(0\le s<L\), donc
+\(\tau(n_k)\ge k+L\). La longueur \(L\) et l'exposant extrait au pas
+\(k+L\) dépendent de \(k\). Comme \(L\) n'est pas bornée sur les impairs,
+\(\tau(n_k)-k\) ne l'est pas non plus. Cela ne donne pas \(\tau>2k\)
+infiniment souvent. L'inégalité universelle \(\tau\le2k\) est fausse
+(X28). Le segment \(2\le k\le1000\) montre les deux signes ; il ne prouve
+pas l'infinité. Ce n'est pas une preuve de Syracuse, ni une contrainte
+sur une trajectoire arbitraire.
 
 ## 0. Question traitée, et porte d'antériorité
 
@@ -25,9 +30,11 @@ n'est pas réécrit.
 
 **Candidat.** Pour \(k\ge2\), \(n_k=5\cdot2^k-1\) et
 \(U(n)=(3n+1)/2^{v_2(3n+1)}\), le temps
-\(\tau(n_k)=\min\{t\ge1:U^t(n_k)<n_k\}\) admet-il une borne explicite en
-\(k\), donnée par une trajectoire en forme close ? Sinon, a-t-on
-\(\tau(n_k)>2k\) pour des \(k\) arbitrairement grands ?
+\(\tau(n)=\min\{t\ge1:U^t(n)<n\}\) admet-il, sur \(n=n_k\), une borne
+explicite en \(k\), donnée par une trajectoire en forme close ? Sinon,
+a-t-on \(\tau(n_k)>2k\) pour des \(k\) arbitrairement grands ? Si
+l'ensemble est vide, \(\tau(n)=+\infty\). Les inégalités de temps
+s'entendent dans les réels étendus.
 
 **Obstacle.** \(n_k\equiv3\pmod4\), donc \(U(n_k)>n_k\). La longueur de
 la queue de uns est \(k=v_2(n_k+1)\). Une formule close de la première
@@ -76,19 +83,23 @@ ni ne parle de \(\tau(n_k)\) contre \(2k\).
 **Classification.** Le préfixe \(t\le k-1\) est **ALREADY KNOWN**.
 La valeur de jonction \((5\cdot3^{k+1}-1)/4\) est un **DIRECT COROLLARY**
 du théorème 4 pour \(b=5\), une fois les pas pairs du Terras regroupés
-en pas de \(U\). La comparaison \(\tau\ge k+1\) n'y figure pas : elle est
-élémentaire, et c'est la seule partie qui dépasse ces énoncés. Une
-formule close de \(\tau\) lui-même est **PRIOR ART UNVERIFIED** au sens
-où le §4 de Wiltrout–Landquist laisse le temps total ouvert, et où rien
+en pas de \(U\). La comparaison \(\tau\ge k+1\) n'y figure pas. Le second
+bloc du §4 non plus : c'est la même identité \(U(x)+1=(3/2)(x+1)\) tant
+que \(x\equiv3\pmod4\), poursuivie jusqu'à épuisement de la valuation.
+Une formule complète de \(\tau\) est **PRIOR ART UNVERIFIED**. Le §4 de
+Wiltrout–Landquist porte sur le temps total de Terras jusqu'à \(1\), pas
+sur \(\tau\). Il ne fournit pas cette formule et ne l'exclut pas. Rien
 de lu ne donne \(\tau\). Ce n'est pas une preuve de nouveauté.
 
-**Décision.** **NO-GO** pour une formule close de \(\tau\), et **NO-GO**
-pour une preuve que \(\tau>2k\) infiniment souvent : après la jonction,
-l'orbite est celle que leur §4 laisse sans formule. **GO** seulement
-pour la comparaison de taille et pour le relevé borné demandé par
-l'agenda. Un seul calcul : le script ci-dessous. Pas de second candidat.
-La famille \(a=1\) et la classe \(n\equiv1\pmod4\), \(n>1\), restent
-écartées. \(U(1)=1\).
+**Décision.** **NO-GO** pour une formule complète de \(\tau\), et
+**NO-GO** pour une preuve que \(\tau>2k\) infiniment souvent. La raison
+n'est pas le §4 de Wiltrout–Landquist. Après le second bloc, l'exposant
+extrait \(v_2(3^Lm-1)\) dépend de \(k\) et la suite est la dynamique
+générale de \(U\). La non-bornitude de \(L\) ne force pas \(L>k\).
+**GO** initial pour la comparaison de taille et pour le relevé borné.
+Le second bloc est la correction de la revue `6082611497`, vérifiée par
+le même script, pas un second candidat. La famille \(a=1\) et la classe
+\(n\equiv1\pmod4\), \(n>1\), restent écartées. \(U(1)=1\).
 
 ## 1. Préfixe et sortie
 
@@ -179,7 +190,9 @@ Pour \(k\ge3\), l'indice \(k+1\ge4\) tombe sous la proposition du §2 :
 \(n_{k+1}=2n_k+1>n_k\). Les orbites sont égales à partir du rang \(k+1\).
 Pour \(1\le t\le k\), \(U^t(n_k)>n_k\). Pour
 \(k+1\le t<\tau(n_{k+1})\), la valeur commune est \(\ge n_{k+1}>n_k\).
-Donc \(\tau(n_k)\ge\tau(n_{k+1})\). La borne \(k+2\) est le §2 à l'indice
+Donc \(\tau(n_k)\ge\tau(n_{k+1})\). Si \(\tau(n_{k+1})=+\infty\), cette
+queue ne descend jamais sous \(n_{k+1}\), donc jamais sous \(n_k\), et
+\(\tau(n_k)=+\infty\). La borne \(k+2\) est le §2 à l'indice
 \(k+1\). \(\square\)
 
 Le cas \(k=1\) montre que l'hypothèse \(k\ge3\) est nécessaire pour
@@ -195,33 +208,108 @@ les temps d'atteinte de \(1\), pas les temps de première descente sous
 des valuations \(1\) et \(2\) du §1. Il n'ajoute pas de trajectoire
 au-delà de ce point.
 
-## 4. Pourquoi la forme close s'arrête
+## 4. Le second bloc, de longueur variable
 
-Pour \(k\) impair, \(U^k(n_k)+1=(5\cdot3^k+1)/2\). Comme
-\(5\cdot3^k+1\equiv0\pmod8\), la valuation est au moins \(3\), et la
-longueur de la queue de uns de \(U^k(n_k)\) est
-\(v_2(5\cdot3^k+1)-1\). Cette valuation n'est pas la même pour tous les
-impairs :
+La formule dont la valuation ne dépend que de la parité de \(k\) s'arrête
+au pas \(k\). Elle se prolonge d'un second bloc. La longueur de ce bloc
+et l'exposant extrait à sa sortie dépendent de \(k\). La revue
+`6082611497` refuse la lecture « aucun prolongement explicite n'existe ».
+Les états ci-dessous sont ce prolongement. Aucun entier fixe n'est égal
+à \(U^{k+2}(n_k)\) pour tout impair \(k\) : les valeurs \(19\) et \(1367\)
+diffèrent.
+
+**Proposition.** Soit \(k\ge1\) impair et
+\(L=v_2(5\cdot3^k+1)-1\). Alors \(L\ge2\). Pour \(0\le s<L\),
 \[
-v_2(5\cdot3+1)=4,\qquad v_2(5\cdot3^3+1)=3,\qquad v_2(5\cdot3^5+1)=6.
+U^{k+s}(n_k)=\frac{3^s(5\cdot3^k+1)}{2^{s+1}}-1.
 \]
-Les longueurs de bloc suivantes sont donc \(3\), \(2\) et \(5\). Aucun
-entier fixe ne décrit \(U^{k+2}(n_k)\) pour tout \(k\) impair. Le cycle
-002 a déjà montré que \(v_2(5\cdot3^r+1)\) est non bornée : le témoin
-\(r=757\), valuation \(16\), n'est pas recalculé ici. Une queue de
-longueur \(15\) au second bloc de \(n_{757}\) ne dépasse pas \(2\cdot757\).
-Elle ne tranche pas la comparaison à \(2k\).
+Si de plus \(k\ge3\), ces valeurs sont \(>n_k\), donc
+\(\tau(n_k)\ge k+L\), et la même borne vaut pour \(\tau(n_{k+1})\).
+Par ailleurs
+\[
+U^{k+2}(n_k)=\frac{5\cdot3^{k+2}+1}{2^{v_2(5\cdot3^{k+2}+1)}}.
+\]
+Cette valuation vaut \(3\) si \(L\ge3\), et elle est \(\ge4\) si \(L=2\).
+À la sortie du bloc, avec \(m=(5\cdot3^k+1)/2^{L+1}\) impair,
+\[
+U^{k+L}(n_k)=\frac{3^Lm-1}{2^{v_2(3^Lm-1)}}.
+\]
 
-Après la jonction, le point commun est le départ d'une orbite que le §4
-de Wiltrout–Landquist laisse sans formule, même pour le temps total.
-Poursuivre bloc par bloc réintroduireait la dynamique générale de \(U\).
-C'est le point d'arrêt demandé.
+**Preuve.** Comme \(k\) est impair, \(3^k\equiv3\pmod8\), donc
+\(5\cdot3^k+1\equiv0\pmod8\) et \(L\ge2\). Le §1 donne
+\(U^k(n_k)+1=(5\cdot3^k+1)/2\), de valuation \(L\).
+
+Si \(x\equiv3\pmod4\), alors \(v_2(x+1)\ge2\), donc \(v_2(3x+1)=1\) et
+\(U(x)+1=(3/2)(x+1)\). Chaque tel pas diminue la valuation de \(1\).
+Le cas \(s=0\) est le §1. Supposons la forme annoncée à un indice
+\(s\le L-2\). Alors \(v_2(U^{k+s}(n_k)+1)=L-s\ge2\), donc cet état est
+\(\equiv3\pmod4\), et l'état d'indice \(s+1\) a la même forme. Cela donne
+la formule pour \(0\le s<L\). Le quotient est entier parce que
+\(v_2(5\cdot3^k+1)=L+1>s\).
+
+Pour \(k\ge3\) et \(s=0\), le §2 donne \(U^k(n_k)>n_k\). Pour
+\(1\le s<L\),
+\[
+U^{k+s}(n_k)+1=(3/2)^s\bigl(U^k(n_k)+1\bigr)>U^k(n_k)+1,
+\]
+donc \(U^{k+s}(n_k)>n_k\). Les pas \(1\le t\le k+L-1\) restent au-dessus
+de \(n_k\), et \(\tau(n_k)\ge k+L\).
+
+Le pas \(k+1\) est la jonction \(y\) du §3, avec \(y>n_{k+1}\) et
+\(v_2(y+1)=L-1\). Si \(L\ge3\), les pas suivants jusqu'à l'indice
+\(k+L-1\) sont encore des multiplications par \(3/2\) : l'état y est
+\((3/2)^{t-k-1}(y+1)-1\), et \((3x+1)/2>x\) dès que \(x>1\). Ces états
+sont donc \(>y>n_{k+1}\). Les pas \(1\le t\le k+1\) de \(n_{k+1}\) sont
+déjà au-dessus par le §2. Si \(L=2\), il n'y a pas de pas intermédiaire
+entre la jonction et l'indice \(k+1\). Dans les deux cas,
+\(\tau(n_{k+1})\ge k+L\).
+
+L'identité en \(k+2\) est un pas de \(U\) appliqué à \(y\) :
+\(3y+1=(5\cdot3^{k+2}+1)/4\). Si \(L\ge3\), alors \(y\equiv3\pmod4\),
+la valuation extraite sur \(3y+1\) est \(1\), et
+\(v_2(5\cdot3^{k+2}+1)=3\). Si \(L=2\), alors \(y\equiv1\pmod4\) et
+cette valuation est au moins \(4\).
+
+À l'indice \(s=L-1\), la valuation résiduelle est \(1\), donc l'état
+\(x\) vérifie \(x+1=2\cdot3^{L-1}m\) avec \(m\) impair. Alors
+\(3x+1=2(3^Lm-1)\), et le pas suivant est le quotient annoncé.
+\(\square\)
+
+**Exemples.** Pour \(k=3\), \(v_2(5\cdot27+1)=3\), donc \(L=2\) et
+\(U^5(n_3)=19\). Pour \(k=5\), \(v_2(5\cdot243+1)=6\), donc \(L=5\) et
+\(U^7(n_5)=1367\). Les exposants extraits au pas \(k+2\) sont \(6\) et
+\(3\).
+
+**Excès non borné, sans forcer le franchissement de \(k\).** Pour chaque
+\(m\ge3\), le cycle 002 §2 donne un entier \(r\) avec
+\(v_2(5\cdot3^r+1)\ge m\). Un tel \(r\) est impair : la congruence
+entraîne \(5\cdot3^r\equiv-1\pmod8\), et \(3^r\equiv3\pmod8\) si et
+seulement si \(r\) est impair. Comme \(5\cdot3^r+1\ge2^m\), on a
+\(r\to\infty\) avec \(m\). Pour \(m\ge8\), \(3^3=27<(2^8-1)/5\), donc
+\(r\ge5\). Alors \(L\ge m-1\) et \(\tau(n_r)-r\ge m-1\). L'excès
+\(\tau-k\) n'est pas borné sur les impairs \(k\ge5\).
+
+Il n'en suit pas que \(\tau>2k\). La minoration dépasse \(k\) seulement
+si \(L>k\), ce qui n'est pas montré. Le témoin \(r=757\) a la valuation
+\(16\), donc \(L=15\) et \(k+L=772<2\cdot757\). Le temps complet calculé
+au §5 vaut \(1840\), qui dépasse \(1514\), mais c'est une valeur finie.
+
+**Portée.** Le §4 de Wiltrout–Landquist, tel qu'il a été lu, laisse
+ouverte une formule du temps total de Terras jusqu'à \(1\). Ce temps
+n'est pas \(\tau\). Cette lacune n'interdit pas une formule de première
+descente, et elle n'en donne pas une. La formule uniforme en la parité
+s'arrête au pas \(k\). Le bloc suivant a une longueur \(L(k)\) et un
+exposant de sortie \(v_2(3^Lm-1)\), tous deux variables. Poursuivre
+au-delà reprend la dynamique générale de \(U\). Aucune formule complète
+de \(\tau\) n'est obtenue ici.
 
 ## 5. La comparaison à \(2k\)
 
 **X28.** L'inégalité \(\tau(n_k)\le2k\) pour tout \(k\ge2\) est fausse :
-\(\tau(n_5)=13>10\). Le témoin est entier. Il ne dit pas que l'excès
-revient pour des \(k\) arbitrairement grands.
+\(\tau(n_5)=13>10\). La trajectoire est
+\(159,239,359,539,809,607,911,1367,2051,3077,577,433,325,61\).
+Le témoin est entier. Il ne dit pas que l'excès revient pour des \(k\)
+arbitrairement grands. La borne \(k+L\) du §4 non plus.
 
 Le script calcule \(\tau(n_k)\) pour \(2\le k\le1000\). Dans cet intervalle,
 \(\tau\le2k\) exactement pour les vingt-cinq couples
@@ -238,6 +326,11 @@ Partout ailleurs dans l'intervalle, \(\tau>2k\). Le rapport maximal y est
 \(\tau(n_{21})/21=110/21\). Le plus grand \(k\le1000\) avec \(\tau\le2k\)
 est \(324\), et \(\tau(n_{324})=648\).
 
+Pour \(k=757\), \(v_2(5\cdot3^{757}+1)=16\) et
+\(\tau(n_{757})=\tau(n_{758})=1840\). Comme \(2\cdot757=1514<1840\), ce
+témoin dépasse \(2k\). La borne du second bloc ne l'explique pas :
+\(k+L=772\). C'est une valeur dans le relevé, pas une infinité.
+
 Ce segment est un contrôle fini. Il ne prouve ni que \(324\) est le
 dernier, ni que \(\tau>2k\) pour tout \(k>324\), ni que l'excès est
 infini. Aucune formule lue sur ces valeurs n'a été promue au rang de
@@ -246,11 +339,16 @@ preuve.
 ## 6. Statut
 
 B15 est prouvé. C'est une comparaison de taille sur un préfixe déjà
-publié, plus le transport de la jonction de Terras vers \(U\). Ce n'est
-pas une borne supérieure de \(\tau\), ni une exclusion de trajectoire
+publié, plus le transport de la jonction de Terras vers \(U\). Le §4
+y ajoute le second bloc : pour \(k\) impair \(\ge3\),
+\(\tau(n_k)\ge k+v_2(5\cdot3^k+1)-1\), et \(\tau-k\) n'est pas borné sur
+cette sous-suite. Ce n'est pas une borne supérieure de \(\tau\), ni
+\(\tau>2k\) infiniment souvent, ni une exclusion de trajectoire
 divergente. La question de l'agenda reste **INCONCLUSIVE** sur ses deux
 branches : pas de forme close jusqu'à la descente, pas de théorème
-d'excès infini. X28 réfute seulement la majoration universelle par \(2k\).
+d'excès au-dessus de \(2k\). X28 réfute seulement la majoration
+universelle par \(2k\). Le §4 de Wiltrout–Landquist ne ferme aucune des
+deux branches.
 
 Antériorité utilisée : Wiltrout–Landquist, théorèmes 1 et 4 et §4, lus
 sur le rendu ; la puce Syracuse de Wikipedia, lue, non primaire ; le
@@ -280,19 +378,24 @@ prémisse.
 
 ## 8. Mises à jour de la mémoire
 
-- `proved.md` : B15, comparaison de taille seulement.
-- `counterexamples.md` : X28.
-- `prior_art.md` : Wiltrout–Landquist, rendu lu, PDF non empreinté.
-- `abandoned.md` : ne pas chercher une formule close de \(\tau(n_k)\)
-  au-delà de la jonction.
-- `agenda.md` : question suivante sur l'axe C, non entamée.
-- `reviews.md` : revue `6082502361`.
+- `proved.md` : B15, comparaison de taille, puis second bloc après la
+  revue `6082611497`.
+- `counterexamples.md` : X28. La borne \(k+L\) ne prouve pas l'infinité
+  de l'excès sur \(2k\).
+- `prior_art.md` : Wiltrout–Landquist, rendu lu, PDF non empreinté. Leur
+  §4 ne porte pas sur \(\tau\).
+- `abandoned.md` : ne pas chercher une formule complète de \(\tau(n_k)\)
+  au-delà du second bloc, ni une preuve que \(\tau>2k\) infiniment souvent.
+- `agenda.md` : question suivante sur l'axe C, non entamée tant que cette
+  correction n'est pas revue.
+- `reviews.md` : revues `6082502361` et `6082611497`.
 
 ## 9. Prochaine question
 
-Axe **C**, un seul énoncé. Le préfixe de \(5\cdot2^k-1\) ne contraint pas
-les trajectoires arbitraires, et le prolonger est l'ouvert déjà écrit par
-Wiltrout–Landquist.
+Axe **C**, un seul énoncé. Le préfixe de \(5\cdot2^k-1\), second bloc
+compris, ne contraint pas les trajectoires arbitraires. Le prolonger
+au-delà de l'exposant \(v_2(3^Lm-1)\) est la dynamique générale de \(U\).
+Ce n'est pas la question suivante.
 
 Lire l'énoncé primaire de Berg–Meinardus (1994 ou 1995) qui rend la
 conjecture équivalente à une équation fonctionnelle holomorphe. Cette
@@ -309,8 +412,46 @@ B13, X21, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
 python3 research/checks/cycle010_accelerated_descent.py
 ```
 
-Sortie attendue : quatre lignes `PASS`. Elles couvrent le préfixe et la
+Sortie attendue : cinq lignes `PASS`. Elles couvrent le préfixe et la
 sortie pour \(2\le k\le60\), la jonction et l'ordre des temps pour les
-impairs de \(3\) à \(59\), les trois valuations \(4,3,6\), et le relevé
-\(2\le k\le1000\). Le relevé n'est pas la preuve de B15. L'infinité de
-l'excès sur \(2k\) n'est pas un contrôle du script.
+impairs de \(3\) à \(59\), les trois valuations \(4,3,6\), le second
+bloc pour les impairs de \(1\) à \(999\) avec \(\tau\ge k+L\) dès
+\(k\ge3\), les valeurs \(19\), \(1367\) et
+\(\tau(n_{757})=\tau(n_{758})=1840\), et le relevé \(2\le k\le1000\).
+Le relevé n'est pas la preuve de B15. L'infinité de l'excès sur \(2k\)
+n'est pas un contrôle du script.
+
+## 11. Revue `6082611497`
+
+Revue indépendante sur le SHA
+`462014b889458b90b481bf567cfcd57a0ddb89be` (PR #27), c'est-à-dire sur
+B15. Les §§1–3 sont confirmés, ainsi que X28 et la trajectoire de
+\(n_5\). Trois corrections, intégrées ci-dessus. Ce n'est pas un nouveau
+cycle.
+
+La convention \(\tau=+\infty\) est ajoutée à la définition. Sans elle,
+la comparaison \(\tau(n_k)\ge\tau(n_{k+1})\) supposait qu'un temps de
+descente existe. Le cas infini est le §3 : la queue commune ne peut pas
+descendre sous \(n_k\) si elle ne descend pas sous \(n_{k+1}\).
+
+La phrase « la formule uniforme s'arrête là », lue comme une impossibilité
+de prolonger le préfixe, est fausse. Le §4 donne les états
+\(0\le s<L\) et la sortie \(U^{k+L}\). Pour \(k=3\), le pas suivant la
+jonction vaut \(19\). Pour \(k=5\), il vaut \(1367\). La longueur \(L\)
+et l'exposant extrait varient avec \(k\). Comme les solutions du cycle
+002 §2 sont impaires, \(\tau(n_k)-k\) n'est pas borné. Le témoin
+\(r=757\) a \(L=15<757\), donc cette minoration ne dépasse pas \(k\).
+
+Le §4 de Wiltrout–Landquist ne suffit pas à exclure une formule de
+première descente : il porte sur le temps total. Le PDF brut reste non
+empreinté. La revue signale que le texte intégral a répondu HTTP 403 et
+ne confirme pas la numérotation des théorèmes 1 et 4. Le rendu déjà lu
+n'est pas rouvert, et l'identité de jonction est revérifiée sans ce
+numéro. Aucune source nouvelle n'est une prémisse.
+
+Le contrôle indépendant, en entiers exacts, est le script : impair
+\(1\le k\le999\) pour la formule, \(k\ge3\) pour \(\tau\ge k+L\), et
+\(\tau(n_{757})=\tau(n_{758})=1840\). Ce segment n'est pas la preuve.
+L'existence d'une formule complète de \(\tau\), et l'infinité des \(k\)
+avec \(\tau>2k\), restent ouvertes. La question de Berg–Meinardus n'est
+pas entamée.

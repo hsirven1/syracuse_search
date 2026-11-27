@@ -10,9 +10,9 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Les résultats du cycle 010 sont dans ce commit. Ne pas engager la
-question suivante tant qu'une revue indépendante de ce SHA ne les a pas
-traités.
+Les corrections de la revue `6082611497` sont dans ce commit. Ne pas
+engager le cycle 011 tant qu'une revue indépendante de ce SHA ne les a
+pas traitées.
 
 ## 1. [C] Équation de Berg–Meinardus — PROCHAINE QUESTION (cycle 011)
 Lire l'énoncé primaire de Berg–Meinardus (1994 ou 1995) qui rend la
@@ -33,13 +33,22 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082611497` (27 nov. 2026, SHA `462014b8`) : B15 et X28
+  confirmés. La lecture « la formule uniforme s'arrête à la jonction »
+  est corrigée. Pour $k$ impair $\ge3$, le second bloc de longueur
+  $L=v_2(5\cdot3^k+1)-1$ reste explicite et $\tau\ge k+L$. L'excès
+  $\tau-k$ n'est pas borné. Cela ne prouve pas $\tau>2k$ infiniment
+  souvent. Le §4 de Wiltrout–Landquist porte sur le temps total, pas
+  sur $\tau$. Convention $\tau=+\infty$ si l'ensemble est vide. Prochaine
+  question non entamée. Détail : [reviews.md](reviews.md).
 - Cycle 010 (27 nov. 2026) : le préfixe accéléré de $5\cdot2^k-1$ est
   connu. Pour $k\ge3$, la sortie $U^k$ reste au-dessus du départ, donc
   $\tau\ge k+1$ (B15). Pour $k$ impair $\ge3$, les orbites de $n_k$ et
   de $n_{k+1}$ se rejoignent au pas $k+1$, encore au-dessus (Wiltrout–
-  Landquist, théorème 4, transporté vers $U$). La forme close s'arrête
-  là. $\tau\le2k$ pour tout $k$ est faux (X28, $k=5$, $\tau=13$). Le
-  relevé $2\le k\le1000$ ne prouve pas l'infinité de l'excès.
+  Landquist, théorème 4, transporté vers $U$). Le second bloc est
+  explicite et $\tau\ge k+L$. $\tau\le2k$ pour tout $k$ est faux
+  (X28, $k=5$, $\tau=13$). Le relevé $2\le k\le1000$ ne prouve pas
+  l'infinité de l'excès au-dessus de $2k$.
   [cycle-010](cycles/cycle-010.md)
 - Revue `6082502361` (27 nov. 2026, SHA `c5ab6439`) : l'exclusion de
   $2+2^{66}$ au rang $2$ est confirmée. Aucune correction. Le résidu

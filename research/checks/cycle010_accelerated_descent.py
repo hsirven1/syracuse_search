@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Contrôles exacts du cycle 010 : préfixe de 5·2^k-1 et comparaison à 2k.
+"""Contrôles exacts du cycle 010 : préfixe de 5·2^k-1 et second bloc.
 
 La preuve est dans research/cycles/cycle-010.md. Ce script ne la remplace pas.
 Il vérifie la forme U^t = 5·3^t·2^{k-t}-1 pour t < k, la valuation
 v_2(5·3^k-1) ∈ {1, 2}, la sortie U^k, la jonction des indices impair et
-suivant, l'inégalité τ(n_k) ≥ τ(n_{k+1}) pour k impair ≥ 3, et le relevé
-fini 2 ≤ k ≤ 1000 des temps τ ≤ 2k. Ce relevé n'est pas une preuve pour
-k > 1000.
+suivant, l'inégalité τ(n_k) ≥ τ(n_{k+1}) pour k impair ≥ 3, le second
+bloc U^{k+s} = 3^s(5·3^k+1)/2^{s+1}-1 pour 0 ≤ s < L et τ ≥ k+L, et le
+relevé fini 2 ≤ k ≤ 1000 des temps τ ≤ 2k. Ce relevé n'est pas une preuve
+pour k > 1000, ni de l'infinité de τ > 2k.
 
 Usage : python3 research/checks/cycle010_accelerated_descent.py
 """
@@ -25,7 +26,12 @@ def n_of(k):
     return 5 * (1 << k) - 1
 
 
+_TAU = {}
+
+
 def tau(k):
+    if k in _TAU:
+        return _TAU[k]
     n0 = n_of(k)
     n = n0
     t = 0
@@ -34,6 +40,7 @@ def tau(k):
         t += 1
         if t > 100000:
             raise AssertionError(("tau unbounded in the cap", k))
+    _TAU[k] = t
     return t
 
 
@@ -96,6 +103,78 @@ LEQ_2K = (
 )
 
 
+def second_block():
+    # Orbit of n_5 through the first descent. Not a proof for other k.
+    n = n_of(5)
+    seq = [n]
+    for _ in range(13):
+        n = U(n)
+        seq.append(n)
+    if seq != [
+        159, 239, 359, 539, 809, 607, 911, 1367, 2051, 3077, 577, 433, 325, 61
+    ]:
+        raise AssertionError(("orbit5", seq))
+    if v2(5 * pow(3, 757) + 1) != 16:
+        raise AssertionError("valuation 757")
+    for k in range(1, 1000, 2):
+        base = 5 * pow(3, k) + 1
+        L = v2(base) - 1
+        if L < 2:
+            raise AssertionError(("L", k, L))
+        x = n_of(k)
+        for _ in range(k):
+            x = U(x)
+        for s in range(L):
+            if base % 2 ** (s + 1) != 0:
+                raise AssertionError(("div", k, s))
+            expect = pow(3, s) * base // 2 ** (s + 1) - 1
+            if s:
+                x = U(x)
+            if x != expect:
+                raise AssertionError(("block", k, s, x, expect))
+            if k >= 3 and x <= n_of(k):
+                raise AssertionError(("above", k, s, x))
+        m = base >> (L + 1)
+        if m % 2 == 0:
+            raise AssertionError(("m", k, m))
+        exit_num = pow(3, L) * m - 1
+        if U(x) != exit_num >> v2(exit_num):
+            raise AssertionError(("exit block", k, U(x)))
+        y = n_of(k)
+        for _ in range(k + 2):
+            y = U(y)
+        num = 5 * pow(3, k + 2) + 1
+        if y != num >> v2(num):
+            raise AssertionError(("k+2", k, y, v2(num)))
+        if L >= 3 and v2(num) != 3:
+            raise AssertionError(("val3", k, L, v2(num)))
+        if L == 2 and v2(num) < 4:
+            raise AssertionError(("val4", k, v2(num)))
+        if k >= 3:
+            if tau(k) < k + L or tau(k + 1) < k + L or tau(k) < tau(k + 1):
+                raise AssertionError(("bound", k, L, tau(k), tau(k + 1)))
+            z = n_of(k + 1)
+            floor = z
+            for _t in range(1, k + L):
+                z = U(z)
+                if z <= floor:
+                    raise AssertionError(("partner", k, _t, z, floor))
+    if tau(3) != 5:
+        raise AssertionError(tau(3))
+    x = n_of(3)
+    for _ in range(5):
+        x = U(x)
+    if x != 19:
+        raise AssertionError(("k3", x))
+    x = n_of(5)
+    for _ in range(7):
+        x = U(x)
+    if x != 1367:
+        raise AssertionError(("k5", x))
+    if tau(757) != 1840 or tau(758) != 1840:
+        raise AssertionError((tau(757), tau(758)))
+
+
 def survey():
     found = []
     best = (2, 2)
@@ -118,6 +197,8 @@ def main():
     print("PASS prefix, exit valuation and U^k > n_k for 3 <= k <= 60")
     merge_and_order()
     print("PASS junction at step k+1 and tau(n_k) >= tau(n_{k+1}) for odd k = 3..59")
+    second_block()
+    print("PASS second block 0 <= s < L, tau >= k+L for odd k = 3..999, tau(757)=1840")
     survey()
     print("PASS finite survey 2 <= k <= 1000: 25 values with tau <= 2k, max tau/k at k=21")
     print("PASS k=5 has tau=13 > 10")

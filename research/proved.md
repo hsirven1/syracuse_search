@@ -287,17 +287,32 @@ confirmée, sans correction. Ce n'est pas une seconde preuve. Le cycle
 010 vient après.
 
 **B15 — Sortie de $5\cdot2^k-1$ encore au-dessus du départ** (PROUVÉ,
-cycle 010 §2–§3). Pour $k\ge2$, $U^t(5\cdot2^k-1)=5\cdot3^t\cdot2^{k-t}-1$
+cycle 010 §2–§4). Pour $k\ge2$, $U^t(5\cdot2^k-1)=5\cdot3^t\cdot2^{k-t}-1$
 si $0\le t\le k-1$, et $v_2(5\cdot3^k-1)=1$ ou $2$ selon la parité de
 $k$. Alors $U^k=(5\cdot3^k-1)/2^{\varepsilon(k)}$. Pour $k=2$, $\tau=2$.
 Pour $k\ge3$, $U^k>n_k$, donc $\tau\ge k+1$. Si $k\ge3$ est impair,
 $U^{k+1}(n_k)=U^{k+1}(n_{k+1})=(5\cdot3^{k+1}-1)/4>n_{k+1}$, donc
-$\tau(n_k)\ge\tau(n_{k+1})\ge k+2$. Le préfixe $t\le k-1$ est la propriété
-de Syracuse déjà écrite (Wikipedia, puce lue ; calcul (i) à partie
-impaire $5$). La valeur de jonction est le théorème 4 de
-Wiltrout–Landquist 2016 pour $b=5$, transporté de $T$ vers $U$. Pas une
-formule de $\tau$, ni une preuve que $\tau>2k$ infiniment souvent. X28
-réfute seulement $\tau\le2k$ pour tout $k$.
+$\tau(n_k)\ge\tau(n_{k+1})\ge k+2$. Convention : $\tau=+\infty$ si aucun
+temps de descente n'existe. Pour ce même $k$ impair et
+$L=v_2(5\cdot3^k+1)-1\ge2$,
+$U^{k+s}=3^s(5\cdot3^k+1)/2^{s+1}-1$ pour $0\le s<L$, donc
+$\tau(n_k)\ge k+L$ et $\tau(n_{k+1})\ge k+L$. L'excès $\tau-k$ n'est pas
+borné sur ces impairs : les $r$ du cycle 002 §2 sont impairs. Cela ne
+donne pas $\tau>2k$ infiniment souvent. Le pas $k+2$ vaut
+$(5\cdot3^{k+2}+1)/2^{v_2(5\cdot3^{k+2}+1)}$ ; cette valuation est $3$ si
+$L\ge3$ et $\ge4$ si $L=2$ ($k=3$ donne $19$, $k=5$ donne $1367$). Le
+préfixe $t\le k-1$ est la propriété de Syracuse déjà écrite (Wikipedia,
+puce lue ; calcul (i) à partie impaire $5$). La valeur de jonction est le
+théorème 4 de Wiltrout–Landquist 2016 pour $b=5$, transporté de $T$ vers
+$U$. Leur §4 porte sur le temps total, pas sur $\tau$, et n'exclut pas
+une formule de première descente. Pas une formule complète de $\tau$.
+X28 réfute seulement $\tau\le2k$ pour tout $k$.
+
+Revue indépendante `6082611497` (PR #27, SHA
+`462014b889458b90b481bf567cfcd57a0ddb89be`) : B15 et X28 confirmés. Les
+trois phrases sur $\tau=+\infty$, le second bloc et la portée du §4 de
+Wiltrout–Landquist sont la correction. Ce n'est pas une seconde preuve,
+ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
