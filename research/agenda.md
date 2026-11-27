@@ -10,20 +10,20 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif de la revue `6093468477` (densité \(2^{-(a+1)}\) de la
-fibre, X35) n'a pas encore été relu. Ne pas ouvrir le cycle 015 avant
-cette relecture. Le cycle 014 reste le douzième cycle de la fenêtre
-ouverte par le cycle 003. Le premier commit de ce cycle est
-`0c90981`, daté du 26 novembre 2026 à 22:00:44 UTC. Même après la
-relecture, ne pas ouvrir le cycle 015 avant le 27 novembre 2026 à
-22:01 UTC. Une confirmation sans objection ne justifie pas un
-treizième cycle dans cette fenêtre.
+Le correctif de la revue `6093505644` (X36 : la densité relative \(1\)
+ne dit pas que la classe entière échoue) n'a pas encore été relu. Ne
+pas ouvrir le cycle 015 avant cette relecture. Le cycle 014 reste le
+douzième cycle de la fenêtre ouverte par le cycle 003. Le premier
+commit de ce cycle est `0c90981`, daté du 26 novembre 2026 à 22:00:44
+UTC. Même après la relecture, ne pas ouvrir le cycle 015 avant le
+27 novembre 2026 à 22:01 UTC. Une confirmation sans objection ne
+justifie pas un treizième cycle dans cette fenêtre.
 
 ## 1. [A] Classe de congruence contractée dans elle-même — PROCHAINE QUESTION (cycle 015), non entamée
 Les cycles 010 à 014 n'excluent aucune orbite divergente. Tao 2022
-règle presque tout élément de chaque classe fixée, et aucune classe
-entière (B20, X34, X35). Ne pas raffiner cette densité, ni recopier
-la densité imprimée \(2^{-a}\).
+règle presque tout élément de chaque classe fixée. Il ne garantit pas
+qu'une classe entière soit bonne (B20, X34, X35, X36). Ne pas raffiner
+cette densité, ni recopier la densité imprimée \(2^{-a}\).
 
 Pour l'application accélérée $U(n)=(3n+1)/2^{v_2(3n+1)}$, existe-t-il
 un module $m\ge 2$, un résidu $a$ et une borne $T$ tels que tout
@@ -48,6 +48,11 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093505644` (27 nov. 2026, SHA `8ec0299d`) : la densité
+  \(2^{-(a+1)}\) est confirmée. La phrase « la classe entière ne
+  l'est pas » est fausse pour \(f(N)=N+1\) (X36). Le théorème ne
+  garantit pas qu'une classe entière soit bonne. Le cycle 015 n'est
+  pas ouvert. Détail : [reviews.md](reviews.md).
 - Revue `6093468477` (27 nov. 2026, SHA `be519ce6`) : la densité
   \(2^{-a}\) du cycle 014 §1 est fausse. La fibre \(v_2=a\) a densité
   \(2^{-(a+1)}\) (X35), et la somme jusqu'à \(A\) vaut

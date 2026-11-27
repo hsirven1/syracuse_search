@@ -473,7 +473,9 @@ classe \(n\equiv r\pmod m\) a densité logarithmique \(1/m\). Elle
 n'est donc pas contenue dans l'ensemble exceptionnel, et la densité
 relative des exceptions dans la classe est nulle. Presque tout
 élément de chaque classe fixée passe sous \(f\). Aucun entier n'est
-forcé individuellement.
+forcé individuellement. La densité relative \(1\) n'implique pas que
+la classe entière échoue : pour \(f(N)=N+1\), elle est entièrement
+bonne (X36).
 
 La fibre \(v_2(N)=a\) est la classe \(N\equiv 2^a\pmod{2^{a+1}}\).
 Sa densité, et celle de sa partie où le minimum passe sous \(f\),
@@ -494,6 +496,17 @@ Revue indépendante `6093468477` (PR #27, SHA
 `be519ce67c3acf569e11384f3626bc758011d9e2`) : la définition 1.2,
 l'inégalité stricte, le théorème 3.1 et X34 sont confirmés. La
 densité de fibre est corrigée. Le cycle 015 n'est pas ouvert.
+
+Revue indépendante `6093505644` (PR #27, SHA
+`8ec0299d6c08d66195fb596e077a1c4fe82858d5`) : la densité
+\(2^{-(a+1)}\) est confirmée, y compris le poids
+\(2^{-a}H_{\lfloor x/2^a\rfloor}-2^{-(a+1)}H_{\lfloor x/2^{a+1}\rfloor}\).
+La phrase « la classe entière ne l'est pas » est retirée (X36). Pour
+\(f(N)=N+1\), la définition lue sur le PDF arXiv v7 donne
+\(\mathrm{Col}_{\min}(N)\le N<f(N)\) pour tout \(N\ge 1\). Le théorème
+ne garantit pas qu'une classe entière soit bonne. Aucune classe n'est
+entièrement exceptionnelle : cela reste vrai, et l'ensemble
+exceptionnel du témoin est vide. Le cycle 015 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

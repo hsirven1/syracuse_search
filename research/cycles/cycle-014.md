@@ -120,7 +120,8 @@ l'application de Syracuse sur les impairs. Pour chaque entier
 logarithmique \(2^{-(a+1)}\). La partie de cette fibre dont le
 minimum passe sous \(f\) a la même densité : le théorème 1.3 en
 retire un poids \(o(\log x)\). Presque tout élément de cette classe
-est donc bon. La classe entière ne l'est pas. Le paragraphe imprimé
+est donc bon. Le théorème ne garantit pas que la classe entière est
+bonne (X36, §10). Le paragraphe imprimé
 après le théorème 1.6 écrit \(2^{-a}\) et une somme partielle
 \(1-2^{-a_0}\). Ces deux valeurs sont fausses (X35, §9). La somme
 des densités de \(a=0\) à \(A\) vaut \(1-2^{-(A+1)}\).
@@ -251,16 +252,18 @@ Seul le théorème 1.3 du HTML v7 a été confronté au PDF de 2022.
 - `prior_art.md` : Tao 2022, théorèmes lus.
 - `abandoned.md` : ne pas utiliser ce théorème pour exclure une classe.
 - `agenda.md` : prochaine question hors de cette densité.
-- `reviews.md` : revue `6093045943`, puis `6093468477` au §9.
+- `reviews.md` : revue `6093045943`, puis `6093468477` au §9, puis
+  `6093505644` au §10.
 
 ## 7. Prochaine question
 
 Les cycles 010 à 014 n'ont pas exclu d'orbite divergente. Tao règle
-presque tout élément de chaque classe fixée, et aucune classe
-entière. Ne pas raffiner cette densité, ni relire le théorème 1.3
-pour en tirer une borne constante. La correction de la revue
-`6093468477` est au §9. Le cycle 015 n'est pas ouvert : il attend
-la relecture de ce correctif, puis la fenêtre datée ci-dessous.
+presque tout élément de chaque classe fixée. Le théorème ne garantit
+pas qu'une classe entière soit bonne (X36). Ne pas raffiner cette
+densité, ni relire le théorème 1.3 pour en tirer une borne constante.
+La correction de la revue `6093468477` est au §9, et celle de la revue
+`6093505644` est au §10. Le cycle 015 n'est pas ouvert : il attend
+la relecture de ce second correctif, puis la fenêtre datée ci-dessous.
 
 Axe **A**, après le budget ci-dessous. Existe-t-il un module \(m\ge 2\),
 un résidu \(a\) et une borne \(T\) tels que tout entier \(n>1\)
@@ -290,7 +293,7 @@ Le premier commit de ce cycle est `0c90981`, du 26 novembre 2026 à
 python3 research/checks/cycle014_log_density.py
 ```
 
-Sortie attendue : cinq lignes `PASS`. Les deux premières sont
+Sortie attendue : six lignes `PASS`. Les deux premières sont
 numériques : le sandwich du §2 jusqu'à \(x=20000\), pour les modules
 \(1,2,3,8,24\), et la somme des inverses du témoin comparée à
 \(\sum m/m!\), toutes deux en flottants. La troisième trouve, pour
@@ -298,8 +301,12 @@ chaque module \(q\le 8\), au moins deux points de \(E\) dans chaque
 résidu. La quatrième vérifie en fractions les \(78\) identités de
 fibres et les deux sommes de densités. La cinquième vérifie en
 entiers les blocs, les résidus pour \(q\le 30\), et la borne de
-comptage. Ces contrôles ne sont pas la preuve de la limite, ni celle
-de l'infinité des rencontres.
+comptage. La sixième compare, sur les abscisses
+\(1,3,17,100,511,2048\), les \(78\) poids de fibres à la différence
+de sommes harmoniques, ainsi que les \(78\) poids cumulés, les sommes
+jusqu'à \(A=40\), et les blocs \(m=q,q+1,q+7\) pour \(q\le 40\). Ces
+contrôles ne sont pas la preuve de la limite, ni celle de l'infinité
+des rencontres.
 
 ## 9. Revue `6093468477`
 
@@ -369,3 +376,72 @@ blocs \(1\le m\le 40\) sont disjoints, \(m!\ge 2^{m-1}\), et pour
 dans leurs \(q\) premiers points. Le sandwich jusqu'à \(x=20000\)
 reste un contrôle en flottants. Aucun de ces contrôles n'est la
 preuve de la limite.
+
+## 10. Revue `6093505644`
+
+Revue indépendante sur le SHA
+`8ec0299d6c08d66195fb596e077a1c4fe82858d5` (PR #27), c'est-à-dire sur
+le correctif du §9. Ce n'est pas un nouveau cycle. Le cycle 015 n'est
+pas ouvert.
+
+La normalisation est confirmée. Pour
+\(H_y=\sum_{1\le n\le y}1/n\), avec la convention \(H_y=0\) si
+\(y\le 0\), le poids de la fibre \(v_2(N)=a\) jusqu'à \(x\) est
+\[
+2^{-a}H_{\lfloor x/2^a\rfloor}
+-2^{-(a+1)}H_{\lfloor x/2^{a+1}\rfloor}.
+\]
+Les entiers \(N\le x\) divisibles par \(2^a\) sont les \(2^am\) avec
+\(1\le m\le\lfloor x/2^a\rfloor\), et la somme de leurs inverses est
+le premier terme. On retire les multiples de \(2^{a+1}\). La forme
+du §9 est la même quantité : la somme des inverses des impairs
+jusqu'à \(y\) vaut \(H_y-\frac12 H_{\lfloor y/2\rfloor}\), et
+\(\lfloor\lfloor x/2^a\rfloor/2\rfloor=\lfloor x/2^{a+1}\rfloor\).
+En divisant par \(H_x\), à \(a\) fixé, les deux termes tendent vers
+\(2^{-a}\) et \(2^{-(a+1)}\), donc la densité vaut
+\(2^{-(a+1)}\). Le poids des exceptions est \(o(\log x)\) par le
+théorème 1.3, donc la partie bonne a la même densité absolue. Le
+passage par le théorème 1.6, déjà écrit au §9, donne le même
+résultat. La somme de \(a=0\) à \(A\) reste \(1-2^{-(A+1)}\). Les
+deux valeurs imprimées après le théorème 1.6 ne sont pas relues sur
+le PDF de la revue : le §9 les a écartées. Le PDF arXiv v7, lu pour
+la définition ci-dessous, porte la même phrase de transfert, déjà
+X35. Les théorèmes 1.3 et 1.6 restent.
+
+**X36.** La phrase du §1 « La classe entière ne l'est pas » ne suit
+pas de la densité relative \(1\). Cette densité laisse ouverte une
+fibre entièrement bonne.
+
+La définition utilisée est celle du PDF arXiv:1909.03562v7, 16 juillet
+2026, 58 pages, SHA-256
+`62cf49d4d8e8e681c7a4738ebaf56f3dbb7b67de95f37ccbac6e428ef3fc394e`,
+page 1. Elle n'est pas redistribuée. Le PDF de *Forum Math. Pi* n'est
+pas rouvert. On a
+\(\mathrm{Col}_{\min}(N)=\inf_{n\in\mathbb N}\mathrm{Col}^n(N)\), où
+\(\mathbb N=\{0,1,2,\ldots\}\), et l'orbite est
+\(\{N,\mathrm{Col}(N),\mathrm{Col}^2(N),\ldots\}\). L'itéré de rang
+\(0\) est \(N\), donc \(\mathrm{Col}_{\min}(N)\le N\). Le §1 disait
+déjà « minimum de l'orbite » ; cette lecture en fixe le premier terme.
+Le reste de la v7, et la v6, ne sont pas audités.
+
+Témoin : \(f(N)=N+1\). Alors \(f(N)\to+\infty\), et
+\(N<N+1\), donc \(\mathrm{Col}_{\min}(N)<f(N)\) pour tout entier
+\(N\ge 1\). L'ensemble exceptionnel est vide. Chaque fibre
+\(v_2=a\), et chaque classe de congruence, est entièrement bonne.
+
+La phrase est remplacée par : le théorème ne garantit pas que la
+classe entière est bonne. C'est le quantificateur du §4. Ce
+paragraphe dit déjà que presque tout élément passe sous \(f\), et
+qu'aucune classe n'est entièrement exceptionnelle. La seconde
+affirmation reste vraie pour le témoin, l'ensemble exceptionnel étant
+vide. Elle n'interdit pas, pour une autre fonction \(f\), une infinité
+d'exceptions dans la classe : le §4 dit que cette infinité reste
+possible, pas qu'elle est réalisée. B20 et X34 restent dans cette
+portée. X34 parle de l'inférence à partir de la densité seule.
+
+Le script vérifie en fractions les \(78\) poids et les \(78\) cumulés
+sur \(x\in\{1,3,17,100,511,2048\}\) et \(0\le a\le 12\), les deux
+sommes géométriques pour \(0\le A\le 40\), et les blocs
+\(m=q,q+1,q+7\) pour \(1\le q\le 40\). Le témoin n'est pas un calcul
+d'orbite : c'est l'inégalité \(N<N+1\), avec \(N\) dans l'orbite.
+Ces contrôles ne sont pas la preuve de la limite.

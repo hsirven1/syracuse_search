@@ -152,10 +152,13 @@ une contrainte sur une orbite divergente.
 ## H9 — Tao 2022 et les classes de congruence (axe C) — FERMÉ (B20, X34)
 Le théorème 1.3, lu sur le PDF de *Forum Math. Pi* 10 (2022), dit que
 \(\mathrm{Col}_{\min}(N)<f(N)\) pour presque tout \(N\) en densité
-logarithmique, dès que \(f(N)\to+\infty\). Cela ne produit aucun
-couple \((a,m)\) pour lequel chaque entier de la classe passe sous
+logarithmique, dès que \(f(N)\to+\infty\). Ce théorème n'établit, pour aucun
+couple \((a,m)\), que chaque entier de la classe passe sous
 \(f\). Chaque classe a densité \(1/m\) (cycle 014 §2). Presque tout
-élément de chaque classe fixée passe sous \(f\). La fibre
+élément de chaque classe fixée passe sous \(f\). Le théorème ne
+garantit pas qu'une classe entière soit bonne. Pour \(f(N)=N+1\),
+\(\mathrm{Col}_{\min}(N)\le N<f(N)\) pour tout \(N\), donc chaque
+classe l'est (X36). La fibre
 \(v_2(N)=a\) a densité \(2^{-(a+1)}\) (X35) : ne pas recopier le
 \(2^{-a}\) imprimé après le théorème 1.6. X34 est l'ensemble
 \(m!+r\), de densité logarithmique nulle et de densité naturelle

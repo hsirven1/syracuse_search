@@ -3,8 +3,10 @@
 
 Le sandwich harmonique et la somme flottante du témoin X34 comparent
 des flottants avec une tolérance : ce sont des contrôles numériques.
-Les identités de fibres, la somme des densités et les blocs de
-factorielles sont des égalités exactes, en fractions ou en entiers.
+Les identités de fibres, la somme des densités, la différence de
+sommes harmoniques et les blocs de factorielles sont des égalités
+exactes, en fractions ou en entiers. Le témoin f(N)=N+1 ne calcule
+pas une orbite.
 
 La discussion est dans research/cycles/cycle-014.md. Ce script ne
 remplace pas la preuve.
@@ -145,6 +147,65 @@ def check_x34_exact():
             raise AssertionError((x, count, cap))
 
 
+def check_harmonic_fiber_weights():
+    """Poids exact de la revue 6093505644, et représentants de X36.
+
+    La différence de sommes harmoniques est l'identité du cycle 014 §10.
+    N < N+1 ne remplace pas la définition de Col_min.
+    """
+    xs = (1, 3, 17, 100, 511, 2048)
+    fiber_count = 0
+    cumulative_count = 0
+    for x in xs:
+        running = Fraction(0)
+        full = harmonic_fraction(x)
+        for a in range(13):
+            left = fiber_reciprocal_sum(x, a)
+            y = x >> a
+            right = harmonic_fraction(y) / (1 << a) - harmonic_fraction(y >> 1) / (
+                1 << (a + 1)
+            )
+            if left != right:
+                raise AssertionError((x, a, left, right))
+            fiber_count += 1
+            running += left
+            cumulative = full - harmonic_fraction(x >> (a + 1)) / (1 << (a + 1))
+            if running != cumulative:
+                raise AssertionError((x, a, running, cumulative))
+            cumulative_count += 1
+    if fiber_count != 78 or cumulative_count != 78:
+        raise AssertionError((fiber_count, cumulative_count))
+    for upper in range(41):
+        printed = sum((Fraction(1, 1 << a) for a in range(upper + 1)), Fraction(0))
+        correct = sum(
+            (Fraction(1, 1 << (a + 1)) for a in range(upper + 1)),
+            Fraction(0),
+        )
+        if printed != 2 - Fraction(1, 1 << upper):
+            raise AssertionError((upper, printed))
+        if correct != 1 - Fraction(1, 1 << (upper + 1)):
+            raise AssertionError((upper, correct))
+    for q in range(1, 41):
+        for m in (q, q + 1, q + 7):
+            base = factorial(m)
+            if base < (1 << (m - 1)):
+                raise AssertionError(m)
+            residues = {(base + r) % q for r in range(1, q + 1)}
+            if residues != set(range(q)):
+                raise AssertionError((q, m))
+    for a in range(16):
+        n = 1 << a
+        if n % (1 << (a + 1)) != n or not n < n + 1:
+            raise AssertionError(a)
+    return fiber_count, cumulative_count
+
+
+def harmonic_fraction(y):
+    if y <= 0:
+        return Fraction(0)
+    return sum((Fraction(1, n) for n in range(1, y + 1)), Fraction(0))
+
+
 def main():
     x = 20000
     for m in (1, 2, 3, 8, 24):
@@ -183,6 +244,14 @@ def main():
     )
     check_x34_exact()
     print("PASS blocs exacts, résidus q≤30, et borne de comptage")
+    weights, cumulative = check_harmonic_fiber_weights()
+    print(
+        "PASS poids harmoniques :",
+        weights,
+        "fibres,",
+        cumulative,
+        "cumulés, sommes jusqu'à A=40, blocs q≤40",
+    )
 
 
 if __name__ == "__main__":
