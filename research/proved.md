@@ -148,14 +148,22 @@ moins reste ouverte, comme le §8 le dit déjà. Aucun changement au texte de
 B9. Ce n'est pas une seconde preuve, ni le cycle suivant.
 
 **B10 — Horizon Mersenne d'un poids borné** (PROUVÉ, cycle 005 §5).
-Si $0<\ell\le W\le h$, $\rho<1$ et $K=\rho h/\ell\le3/2$, tout temps de
-contraction $t$ de $2^L-1$ ($L\ge2$) vérifie $5\cdot2^t>2\cdot3^L$. Donc
-$B(2^L-1)\ge\log_2 3\cdot L-\log_2(5/2)$. Mécanisme : l'ascension A2 reste
-strictement au-dessus du facteur $3/2$, puis $H(T(n))>H(n)-1$ à chaque pas,
-avec $H(n)=\log_2(n+1)$. Si $K>3/2$, l'énoncé sans hypothèse est faux
-(X21). Le coefficient de tête est inférieur aux bornes d'Applegate–Lagarias
-2003 sur le temps d'arrêt total ; leur programme d'arbres n'est pas refait.
+Si $0<\ell\le W\le h$, $0<\rho<1$ et $K=\rho h/\ell\le3/2$, tout temps de
+contraction $t$ de $2^L-1$ ($L\ge2$) vérifie $3\cdot2^t>2\cdot3^L$. Donc
+$B(2^L-1)\ge\log_2 3\cdot L-\log_2(3/2)$. La forme $5\cdot2^t>2\cdot3^L$ en
+découle. Mécanisme : l'ascension A2 reste strictement au-dessus du facteur
+$3/2$ jusqu'au temps $L$, puis $T(x)\ge x/2$. Si $K>3/2$, la borne locale
+sans seuil est fausse (X21). Cela ne réfute pas l'implication globale de H6.
+Le coefficient de tête est inférieur aux bornes d'Applegate–Lagarias 2003
+sur le temps d'arrêt total ; leur programme d'arbres n'est pas refait.
 Aucun certificat global n'est construit.
+
+Revue indépendante `6081843230` (PR #27, SHA `ebba3309f617204d844c241d84c5442af3e35c85`) :
+B10 et X21 sont confirmés. La comparaison $2^L+K-1\ge2^L$ est fausse pour
+$0<K<1$ ; la différence $2^L+K-1$ reste positive, et la borne s'écrit
+$3\cdot2^t>2\cdot3^L$. L'implication globale de H6 reste ouverte. La
+justification de la formule (4) compte $\log_2(3^k-1)$ pas après le sommet.
+Ce n'est pas une seconde preuve de l'ascension, ni le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

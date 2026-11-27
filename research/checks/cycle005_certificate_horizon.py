@@ -3,8 +3,9 @@
 
 La preuve est dans research/cycles/cycle-005.md. Ce script ne la remplace pas.
 Il vérifie l'identité de montée, le rapport strict (3/2)^t, le contre-exemple
-X21, et le premier retour sous (3/2)(2^L-1) pour 2≤L≤30. Le cas L=6 atteint
-le premier entier autorisé par 5·2^t > 2·3^L.
+X21, et le premier retour sous (3/2)(2^L-1) pour 2≤L≤30. La comparaison
+servie est 3·2^t > 2·3^L. Le cas L=2, K=1/2 contrôle que 2^L+K-1 est
+positif et strictement inférieur à 2^L. L'orbite 8→4→2→1 prend trois pas.
 
 Usage : python3 research/checks/cycle005_certificate_horizon.py
 """
@@ -70,15 +71,47 @@ def return_bound():
     sharp = {}
     for L in range(2, 31):
         t = first_return(L)
-        if t <= L or 5 * (1 << t) <= 2 * (3**L):
+        if t <= L or 3 * (1 << t) <= 2 * (3**L):
             raise AssertionError((L, t))
+        if 3**L <= 1 << L:
+            raise AssertionError(("écart nul", L))
         sharp[L] = t
-    # L=4 : 5·2^5 = 160 < 162 = 2·3^4, et le retour est à t=6.
-    if sharp[4] != 6 or 5 * (1 << 5) >= 2 * (3**4):
-        raise AssertionError(sharp[4])
-    # L=6 : 5·2^8 = 1280 < 1458 = 2·3^6, et le retour est à t=9.
-    if sharp[6] != 9 or 5 * (1 << 8) >= 2 * (3**6):
-        raise AssertionError(sharp[6])
+    images = {}
+    for L, t in ((2, 3), (4, 6), (6, 9)):
+        y = (1 << L) - 1
+        for _ in range(t):
+            y = collatz(y)
+        images[L] = y
+    # L=2 : 3·2^2 = 12 < 18 = 2·3^2, retour à t=3, image 4.
+    if sharp[2] != 3 or images[2] != 4 or 3 * (1 << 2) >= 2 * (3**2):
+        raise AssertionError((sharp[2], images[2]))
+    # L=4 : 3·2^5 = 96 < 162 = 2·3^4, retour à t=6, image 20.
+    if sharp[4] != 6 or images[4] != 20 or 3 * (1 << 5) >= 2 * (3**4):
+        raise AssertionError((sharp[4], images[4]))
+    # L=6 : 3·2^8 = 768 < 1458 = 2·3^6, retour à t=9, image 91.
+    if sharp[6] != 9 or images[6] != 91 or 3 * (1 << 8) >= 2 * (3**6):
+        raise AssertionError((sharp[6], images[6]))
+    # La forme 5·2^t > 2·3^L suit de 3·2^t > 2·3^L. On la contrôle sur les mêmes retours.
+    for L, t in sharp.items():
+        if 5 * (1 << t) <= 2 * (3**L):
+            raise AssertionError((L, t))
+
+
+def small_ratio_and_peak():
+    # L=2, K=1/2. Doubler élimine le dénominateur :
+    # 2(2^L+K-1)=2^{L+1}-1=7 < 8=2·2^L, et 7>0.
+    # 2(K(2^L-1)+1)=5 < 12=2(K+1)2^L.
+    L = 2
+    twice_diff = (1 << (L + 1)) - 1
+    if twice_diff <= 0 or twice_diff >= (1 << (L + 1)):
+        raise AssertionError(twice_diff)
+    if (1 << L) + 1 >= 3 * (1 << L):
+        raise AssertionError("hauteur")
+    y = (3**L) - 1
+    for _ in range(3):
+        y = collatz(y)
+    if y != 1:
+        raise AssertionError(y)
 
 
 def main():
@@ -89,7 +122,9 @@ def main():
     counterexample()
     print("PASS contre-exemple X21, 2<=L<=80")
     return_bound()
-    print("PASS retour sous 3/2, 2<=L<=30, dont L=4 et L=6")
+    print("PASS retour sous 3/2, 2<=L<=30, comparaison 3*2^t > 2*3^L")
+    small_ratio_and_peak()
+    print("PASS K=1/2 et descente 8->1 en trois pas")
 
 
 if __name__ == "__main__":

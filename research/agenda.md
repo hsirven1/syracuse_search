@@ -29,7 +29,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
-- Cycle 005 (26 nov. 2026) : si $\rho h/\ell\le3/2$, alors $5\cdot2^t>2\cdot3^L$
+- Revue `6081843230` (27 nov. 2026, SHA `ebba330`) : B10 et X21 confirmés.
+  La comparaison $2^L+K-1\ge2^L$ est corrigée pour $0<K<1$. La borne s'écrit
+  $3\cdot2^t>2\cdot3^L$. X21 ne réfute que l'obstruction locale ; l'implication
+  globale de H6 reste ouverte. Prochaine question non entamée.
+  Détail : [reviews.md](reviews.md).
+- Cycle 005 (26 nov. 2026) : si $\rho h/\ell\le3/2$, alors $3\cdot2^t>2\cdot3^L$
   pour tout temps de contraction de $2^L-1$ (B10). Sans cette hypothèse, X21
   contracte chaque Mersenne en un pas. Le coefficient reste sous la borne
   d'Applegate–Lagarias 2003. [cycle-005](cycles/cycle-005.md)

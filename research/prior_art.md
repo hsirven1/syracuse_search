@@ -19,7 +19,7 @@ par un rédacteur précédent (voir la PR citée) · **[S]** secondaire ou de m�
 - **Inselmann** (2024), arXiv 2402.03276 : $n^\varepsilon$ en densité naturelle — **préprint**, non audité. [S]
 - **Krasikov–Lagarias** (2003), *Acta Arith.* 109 : $\gg x^{0,84}$ départs atteignant 1. **Applegate–Lagarias** (1995) :
   programmes linéaires, stricte croissance des seuils annoncée (PR #7). [P-dép]
-- **Applegate–Lagarias** (2003), *Math. Comp.* 72, 1035–1049 ; arXiv:math/0103054. Énoncé du théorème 1.1 et formule (4) lus sur l'arXiv (cycle 005) : $\sigma_\infty(n)>6{,}14316\log n$ infiniment souvent, et $\gamma(2^k-1)\ge(\log2+\log3)/(\log2)^2\approx3{,}729$. Leur $T$ est le nôtre, leur $\log$ est naturel. Preuve par arbres non refaite. Le coefficient de B10 est strictement plus petit. [P pour ces deux énoncés]
+- **Applegate–Lagarias** (2003), *Math. Comp.* 72, 1035–1049 ; arXiv:math/0103054. Énoncé du théorème 1.1 et formule (4) lus sur l'arXiv (cycle 005, relus jusqu'au théorème 1.1 lors de la revue `6081843230`) : $\sigma_\infty(n)>6{,}14316\log n$ infiniment souvent, coefficient $29/(29\log2-14\log3)$, et $\gamma(2^k-1)\ge(\log2+\log3)/(\log2)^2\approx3{,}729$. Après le sommet, le décompte correct est au moins $\log_2(3^k-1)$ pas, pas $\log_2(3^k)$ ; pour $k=2$, $8$ atteint $1$ en trois pas, et le coefficient de (4) subsiste. Leur $T$ est le nôtre, leur $\log$ est naturel. Preuve par arbres non refaite. Le coefficient de B10 est strictement plus petit. [P pour ces deux énoncés]
 
 ## Cycles
 - **Steiner** (1977) 1-cycles ; **Simons–de Weger** (2005), *Acta Arith.* 117 : pas de $m$-cycle pour $m\le68$. [S]

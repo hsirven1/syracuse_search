@@ -64,14 +64,19 @@ VW 1989 ne s'applique plus. Il faut d'autres résultats p-adiques (à rechercher
 Prochaine question, une seule famille : $r_j=j+[j\text{ impair}]$, puis Bézivin, Bundschuh
 ou Amou–Väänänen sur l'énoncé lu. Pas une revue générale.
 
-## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — CAS PARTICULIER PROUVÉ ; ÉNONCÉ SANS SEUIL RÉFUTÉ
-Sans hypothèse sur $K=\rho h/\ell$, l'esquisse est fausse (X21) : $\ell=1$, $h=2$,
-$\rho=5/6$ contracte chaque $2^L-1$ en un pas. Si $K\le3/2$, B10 donne
-$5\cdot2^t>2\cdot3^L$, donc $B(2^L-1)\ge\delta L-\log_2(5/2)$ pour tout $L\ge2$.
-Le coefficient reste sous Applegate–Lagarias 2003, (4) et théorème 1.1. L'existence
-d'un certificat valable pour tout entier impliquerait l'entrée dans un segment
-fini : non construite ici. Ne pas relancer la borne $\delta L$ sans l'hypothèse
-$K\le3/2$.
+## H6 — Certificats à poids bornés et horizon dépendant de la hauteur (axe A) — LOCAL SANS SEUIL RÉFUTÉ ; $K\le3/2$ PROUVÉ ; GLOBAL OUVERT
+L'énoncé initial : si $0<\ell\le W\le h$, $0<\rho<1$, et si tout $n\ge N_0$ admet
+un temps de contraction $t\le B(n)$, alors $B(n)\ge\delta\log_2 n-O(1)$ pour une
+infinité de $n$. Cette implication reste ouverte. X21 ne la réfute pas : $\ell=1$,
+$h=2$, $\rho=5/6$ certifie les Mersenne seulement, en un pas. Il réfute l'obstruction
+locale sans seuil et l'esquisse « toute chaîne franchit le sommet $3^L$ ». Si
+$K=\rho h/\ell\le3/2$, B10 donne $3\cdot2^t>2\cdot3^L$, donc
+$B(2^L-1)\ge\delta L-\log_2(3/2)$ pour tout $L\ge2$. La forme $5\cdot2^t>2\cdot3^L$
+en découle. Si $\rho\le0$, aucune contraction n'existe. Le coefficient de tête reste
+sous Applegate–Lagarias 2003, (4) et théorème 1.1 ; après le sommet, le nombre de
+pas est au moins $\log_2(3^L-1)$. L'existence d'un certificat valable pour tout entier
+impliquerait l'entrée dans un segment fini : non construite ici. Ne pas relancer la
+borne $\delta L$ sur les Mersenne sans l'hypothèse $K\le3/2$.
 
 ## H7 — Potentiels cohomologues $V(n)=\log_2(n+1)+c\,v_2(n+1)$ (axe A) — OBSERVATION
 Pour $c>\beta$, $V$ décroît strictement à chaque pas impair d'un run (neutralise Mersenne),
