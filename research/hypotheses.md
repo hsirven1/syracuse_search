@@ -128,4 +128,6 @@ le second bloc donne $\tau\ge k+v_2(5\cdot3^k+1)-1$, et $\tau-k$ n'est
 pas borné. Il n'y a pas de formule close jusqu'à la descente, ni de
 preuve que $\tau>2k$ infiniment souvent. L'équation de Berg–Meinardus
 est le cycle 011 : reformulation, pas un lemme de descente, et pas un
-nouveau lemme sur $\{e_{2^k}\}$.
+nouveau lemme sur $\{e_{2^k}\}$. La revue `6082791301` corrige le résidu
+du §5 (X30). L'équivalence de la conjecture 3 est le §12 ; elle ne donne
+pas de descente. Le cycle 012 n'est pas entamé.

@@ -2,9 +2,11 @@
 """Contrôles exacts du cycle 011.
 
 La preuve est dans research/cycles/cycle-011.md. Ce script ne la remplace pas.
-Six lignes PASS : fractions partielles de h(z)=z/(1-z), équation (21) pour
-quatre termes impairs, croissance jusqu'à 2000, polynôme q pour 1 ≤ n ≤ 500
-et le point n=0, récurrence (16) jusqu'à 500, et les quatre cas de parité.
+Neuf lignes PASS : fractions partielles de h(z)=z/(1-z), résidu -λ^μ,
+filtre géométrique, coefficients de la forme 3z(h(z^3)-h(z^6)), équation
+(21) pour quatre termes impairs, croissance jusqu'à 2000, polynôme q pour
+1 ≤ n ≤ 500 et le point n=0, récurrence (16) jusqu'à 500, et les quatre
+cas de parité. Le résidu n'est pas le coefficient λ^{2μ}.
 
 Usage : python3 research/checks/cycle011_berg_meinardus.py
 """
@@ -45,6 +47,54 @@ def padd(f, g):
         b = g[i] if i < len(g) else (0, 0)
         out.append(add(a, b))
     return out
+
+
+def check_residue_versus_coefficient():
+    # λ^0 = 1, λ^1 = λ, λ^2 = -1 - λ.
+    # Le résidu en λ^{-μ} est -λ^μ. Le coefficient devant (1-λ^μ w)^{-1}
+    # est λ^{2μ}. Les deux diffèrent pour μ = 0, 1, 2.
+    lam = [(1, 0), (0, 1), (-1, -1)]
+    other = mul(add((1, 0), smul(-1, lam[1])), add((1, 0), smul(-1, lam[2])))
+    assert other == (3, 0), other
+    for mu in range(3):
+        residue = smul(-1, lam[mu])
+        coefficient = lam[(2 * mu) % 3]
+        assert residue != coefficient
+    assert smul(-1, lam[0]) == (-1, 0)
+    assert lam[0] == (1, 0)
+
+
+def check_geometric_filter():
+    lam = [(1, 0), (0, 1), (-1, -1)]
+    for j in range(24):
+        total = (0, 0)
+        for nu in range(3):
+            total = add(total, lam[(nu * (j + 2)) % 3])
+        if j % 3 == 1:
+            assert total == (3, 0), (j, total)
+        else:
+            assert total == (0, 0), (j, total)
+
+
+def check_cleared_coefficients():
+    # E = 3z(h(z^3)-h(z^6)) - ∑_ν λ^ν h(λ^ν z^2), avec a_j = j+1.
+    # [z^{6m+1}] = 3(a_{2m}-a_m) et [z^{6m+4}] = 3(a_{2m+1}-a_{3m+2}).
+    # Ce segment ne remplace pas l'identification du §12.
+    a = [j + 1 for j in range(80)]
+    q_max = 6 * 20 + 4
+    acc = [0] * (q_max + 1)
+    for j, aj in enumerate(a):
+        if 3 * j + 1 <= q_max:
+            acc[3 * j + 1] += 3 * aj
+        if 6 * j + 1 <= q_max:
+            acc[6 * j + 1] -= 3 * aj
+        if j % 3 == 2 and 2 * j <= q_max:
+            acc[2 * j] -= 3 * aj
+    for m in range(12):
+        assert acc[6 * m + 1] == 3 * (a[2 * m] - a[m])
+        assert acc[6 * m + 4] == 3 * (a[2 * m + 1] - a[3 * m + 2])
+    assert acc[2] == 0 and acc[3] == 0
+    assert acc[4] == 3 * (a[1] - a[2]) == -3
 
 
 def check_partial_fraction():
@@ -188,6 +238,12 @@ def check_period_dividing_two():
 def main():
     check_partial_fraction()
     print("PASS fractions partielles : somme λ^{2ν}/(1-λ^ν w) = 3w/(1-w^3)")
+    check_residue_versus_coefficient()
+    print("PASS résidu -λ^μ, distinct du coefficient λ^{2μ} ; en w=1 le résidu vaut -1")
+    check_geometric_filter()
+    print("PASS filtre : somme_ν λ^{ν(j+2)} = 3 si j≡1 (mod 3), et 0 sinon, pour 0 ≤ j < 24")
+    check_cleared_coefficients()
+    print("PASS coefficients de 3z(h(z^3)-h(z^6)) pour a_j=j+1 et m < 12")
     for e in (1, 3, 5, 7):
         check_odd_geometric(e)
     print("PASS équation (21) pour z^{2n-1}/(1-z^{2n-1}), n=1..4")

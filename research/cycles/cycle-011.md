@@ -13,6 +13,14 @@ ces énoncés, le théorème 3, dit que toute solution entière est constante.
 Il n'exclut aucune orbite entière. Le PDF de 1994, où la note place les
 preuves d'équivalence, n'a pas été obtenu.
 
+La revue `6082791301` corrige le résidu du §5 (X30). L'identité de
+fractions partielles reste vraie, par séries géométriques. L'équivalence
+annoncée entre la conjecture 3 et l'atteinte de \(1\), pour \(n\ge 1\),
+est écrite au §12 : les coefficients de (18) donnent \(a_n=a_{t(n)}\),
+et le témoin indicateur est celui du théorème 1 de Meinardus 2001, lu.
+Ce n'est toujours pas une descente. L'article de 1994 n'est pas une
+prémisse de cet argument.
+
 ## 0. Question traitée, et porte d'antériorité
 
 La revue `6082693818` confirme le correctif d'exemples du cycle 010 sur
@@ -179,16 +187,34 @@ Pour \(h(z)=z/(1-z)\),
 \[
 h(z^3)-h(z^6)=\frac{z^3}{1-z^6}.
 \]
-Avec \(w=z^2\) et \(1-w^3=\prod_{\nu=0}^{2}(1-\lambda^\nu w)\), le
-résidu de \(3w/(1-w^3)\) au pôle \(w=\lambda^{-μ}=\lambda^{2μ}\) vaut
-\(\lambda^{2μ}\), car le produit des deux autres facteurs vaut
-\((1-\lambda)(1-\lambda^2)=3\). Donc
+Avec \(w=z^2\) et \(1-w^3=\prod_{\nu=0}^{2}(1-\lambda^\nu w)\),
 \[
-\sum_{\nu=0}^{2}\frac{\lambda^{2\nu}}{1-\lambda^\nu w}=\frac{3w}{1-w^3},
+\sum_{\nu=0}^{2}\frac{\lambda^{2\nu}}{1-\lambda^\nu w}=\frac{3w}{1-w^3}
 \]
-et (18) est satisfaite. Une constante l'est aussi : \(\sum_{\nu=0}^{2}\lambda^\nu=0\).
-La combinaison (19) suit. Le script contrôle l'identité de numérateurs
-dans \(\mathbb Z[\lambda]/(\lambda^2+\lambda+1)\).
+pour \(|w|<1\). Le coefficient de \(w^j\) à gauche est
+\(\sum_{\nu=0}^{2}\lambda^{\nu(j+2)}\). Cette somme vaut \(3\) si
+\(j\equiv 1\pmod 3\), et \(0\) sinon. La série vaut donc
+\(3\sum_{m\ge 0}w^{3m+1}=3w/(1-w^3)\).
+
+Le nombre \(\lambda^{2\mu}\) est le coefficient devant
+\((1-\lambda^\mu w)^{-1}\). Comme \(\lambda^{-\mu}=\lambda^{2\mu}\) et
+\((1-\lambda)(1-\lambda^2)=3\),
+\[
+\lim_{w\to\lambda^{-\mu}}(1-\lambda^\mu w)\frac{3w}{1-w^3}=\lambda^{2\mu}.
+\]
+Ce nombre n'est pas le résidu. La dérivée de \(1-w^3\) est \(-3w^2\),
+donc
+\[
+\mathrm{Res}\Bigl(\frac{3w}{1-w^3},\lambda^{-\mu}\Bigr)
+=\frac{3\lambda^{-\mu}}{-3\lambda^{-2\mu}}=-\lambda^\mu.
+\]
+En \(w=1\), ce résidu vaut \(-1\). L'ancienne phrase, qui appelait
+\(\lambda^{2\mu}\) le résidu, est fausse (X30). L'identité de séries
+subsiste, et (18) est satisfaite pour \(h(z)=z/(1-z)\). Une constante
+l'est aussi : \(\sum_{\nu=0}^{2}\lambda^\nu=0\). La combinaison (19)
+suit. Le script contrôle l'identité de numérateurs dans
+\(\mathbb Z[\lambda]/(\lambda^2+\lambda+1)\), le filtre
+\(j\equiv 1\pmod 3\), et le résidu \(-\lambda^\mu\).
 
 Le même calcul donne, pour \(e\) impair,
 \[
@@ -253,11 +279,12 @@ texte lu, de test applicable à un entier sans reconstruire la fonction
 
 ## 8. Ce que ce cycle ne montre pas
 
-L'équivalence entre la conjecture 1 et la conjecture 3 n'est pas
-prouvée ici. Le PDF de 1994 reste non lu : antériorité non vérifiée
-pour cette preuve, pas pour l'énoncé de 1995. Aucune solution
-holomorphe autre que (19) n'est construite, ni exclue, au-delà des
-fonctions entières. Rien sur (C), sur (H), ni sur Syracuse.
+L'équivalence entre la conjecture 1, pour \(n\ge 1\), et la conjecture 3
+est écrite au §12. Le PDF de 1994 reste non lu et n'est pas une prémisse
+de cet argument. Aucune solution holomorphe autre que (19) n'est
+construite sans supposer qu'un entier positif évite \(1\), et aucune
+n'est exclue sans la conjecture. Le théorème 3 reste celui du §6.
+Rien sur (C), sur (H), ni sur Syracuse.
 Le disque \(|w|<2/3\) n'est pas une borne de temps d'arrêt.
 
 ## 9. Mises à jour de la mémoire
@@ -300,8 +327,101 @@ famille \(5\cdot 2^k-1\), ni les théorèmes 4.2.7 et 4.3.10 de Mori.
 python3 research/checks/cycle011_berg_meinardus.py
 ```
 
-Sortie attendue : six lignes `PASS`. Elles couvrent l'identité
-\(3w/(1-w^3)\), quatre termes de l'équation (21), la croissance jusqu'à
-\(2000\), les polynômes \(q\) pour \(1\le n\le 500\), le point \(n=0\),
-la récurrence (16) jusqu'à \(500\), et les quatre équations de parité.
-Le segment \(n\le 500\) n'est pas la preuve de B16.
+Sortie attendue : neuf lignes `PASS`. Elles couvrent l'identité
+\(3w/(1-w^3)\), le résidu \(-\lambda^\mu\) distinct du coefficient
+\(\lambda^{2\mu}\), le filtre \(j\equiv 1\pmod 3\), les coefficients
+de la forme multipliée par \(3z\) sur la suite \(a_j=j+1\), quatre
+termes de l'équation (21), la croissance jusqu'à \(2000\), les
+polynômes \(q\) pour \(1\le n\le 500\), le point \(n=0\), la récurrence
+(16) jusqu'à \(500\), et les quatre équations de parité.
+Le segment \(n\le 500\) n'est pas la preuve de B16. Le contrôle des
+coefficients jusqu'au degré indiqué n'est pas la preuve du §12.
+
+## 12. Revue `6082791301`
+
+Revue indépendante sur le SHA
+`ded6e1ce82163f68ba5a1611802f57d4a2b8bf92` (PR #27). B16 et X29 sont
+confirmés. Les quatre cas de parité et la queue \(1,2,1,2,\ldots\) sont
+ceux des §§3–4. Aucune correction de ces deux énoncés.
+
+**X30.** La première rédaction du §5 appelait \(\lambda^{2\mu}\) le
+résidu de \(3w/(1-w^3)\) en \(w=\lambda^{-\mu}\). Ce résidu vaut
+\(-\lambda^\mu\). En \(w=1\), il vaut \(-1\). La valeur \(\lambda^{2\mu}\)
+est la limite de \((1-\lambda^\mu w)\,3w/(1-w^3)\), donc le coefficient
+devant \((1-\lambda^\mu w)^{-1}\). L'identité
+\(\sum_{\nu}\lambda^{2\nu}/(1-\lambda^\nu w)=3w/(1-w^3)\) reste vraie.
+Sa preuve est le développement géométrique du §5. Les solutions
+\(h_0+h_1 z/(1-z)\) restent des solutions.
+
+**Coefficients de (18).** Soit \(h(z)=\sum_{j\ge 0}a_j z^j\), holomorphe
+pour \(|z|<1\). Pour \(|z|<1\), les arguments \(z^3\), \(z^6\) et
+\(\lambda^\nu z^2\) restent dans le disque, et la série de \(h\) y est
+absolument convergente. Alors
+\[
+\frac1{3z}\sum_{\nu=0}^{2}\lambda^\nu h(\lambda^\nu z^2)
+=\sum_{m\ge 0}a_{3m+2}z^{6m+3},
+\]
+car \(\sum_{\nu=0}^{2}\lambda^{\nu(j+1)}\) vaut \(3\) si \(j\equiv 2\pmod 3\)
+et \(0\) sinon. Le facteur \(1/z\) ne laisse pas de partie polaire. En
+identifiant les coefficients de \(z^{6m}\) et de \(z^{6m+3}\) dans (18),
+\[
+a_{2m}=a_m,\qquad a_{2m+1}=a_{3m+2}.
+\]
+Ce sont toutes les puissances qui apparaissent. Comme \(t(2m)=m\) et
+\(t(2m+1)=3m+2\), ces égalités sont \(a_n=a_{t(n)}\) pour tout \(n\ge 0\).
+La réciproque redonne (18) pour \(z\neq 0\), puis en \(0\) par continuité.
+
+**Équivalence.** Pour \(|z|<1\), les seules solutions holomorphes de (18)
+sont \(h(z)=h_0+h_1 z/(1-z)\) si et seulement si tout entier \(n\ge 1\)
+atteint \(1\) sous \(t\).
+
+Si tout \(n\ge 1\) atteint \(1\), l'orbite de \(n\) entre dans le cycle
+\(\{1,2\}\). Comme \(a_1=a_{t(1)}=a_2\), on a \(a_n=a_1\) pour tout
+\(n\ge 1\). La relation \(a_0=a_{t(0)}\) laisse \(a_0\) libre. Donc
+\(h(z)=a_0+a_1 z/(1-z)\), holomorphe sur le disque. Le point \(0\) reste
+hors de cette équivalence : \(t(0)=0\) et X29 ne change pas.
+
+Si un entier \(n\ge 1\) n'atteint pas \(1\), soit \(M\) l'ensemble de ces
+entiers. Posons \(a_0=0\), \(a_n=1\) pour \(n\in M\) et \(a_n=0\) sinon.
+Alors \(t(M)\subset M\) et \(t\) envoie le complémentaire dans lui-même,
+donc \(a_n=a_{t(n)}\). La série a des coefficients dans \(\{0,1\}\), donc
+elle est holomorphe pour \(|z|<1\) et satisfait (18). Elle n'est pas de
+la forme \(h_0+h_1 z/(1-z)\) : \(1\notin M\), donc \(a_1=0\), tandis que
+\(a_n=1\). L'indicateur complémentaire, celui qui vaut \(1\) sur le bassin
+de \(1\), donne le même écart.
+
+Ce témoin est celui du théorème 1 de Meinardus, *Some analytic aspects
+concerning the Collatz problem*, preprint Mannheim n° 261/2001, §2.
+PDF `https://madoc.bib.uni-mannheim.de/1608/1/261_2001.pdf`, SHA-256
+`08ebcc736ad2c72dad634394cdd9402f90f21a31af0fb77d6709bd8bf2ce297e`,
+15 pages, non redistribué. La couche texte est incomplète : les numéros
+d'équations (3) et (4) ne sont pas extraits. Le paragraphe de preuve lu
+donne l'énoncé adopté ici, et rien de plus. L'ensemble \(A\) est celui
+des suites bornées indexées par les entiers positifs. L'application (1)
+de cette note est \(t\). La conjecture est équivalente à : les seules
+suites bornées invariantes par \(t\) sont les suites constantes. La
+direction fausse utilise l'indicateur de l'ensemble des points qui
+n'atteignent pas \(1\). Les théorèmes 2 et suivants de ce PDF, séries de
+Dirichlet et noyau intégral, ne sont pas adoptés. Le préprint de 1987
+cité comme [7] n'a pas été lu. La phrase de la p. 4 qui renvoie les
+équivalences en séries entières aux articles de 1994 et de 1995 n'est
+pas une preuve.
+
+Pour une solution entière, les mêmes relations donnent \(a_n=a_{2^j n}\).
+L'estimation de Cauchy sur \(|z|=2\) donne
+\(|a_n|\le M(2)/2^{2^j n}\). Pour \(n\ge 1\), le membre de droite tend
+vers \(0\), donc \(a_n=0\). Cela relit le théorème 3 du §6. La preuve
+par le maximum du §6 n'est pas remplacée.
+
+Cet argument ne produit aucun temps de descente et n'exclut aucun
+entier. La conjecture 3 reste l'atteinte de \(1\) pour \(n\ge 1\), déjà
+annoncée en 1995. Ce n'est pas un théorème nouveau.
+
+La question du §10 n'est pas entamée. Ne pas ouvrir le cycle 012 avant
+la relecture de ce correctif. Ne pas rouvrir les conjectures 2 et 3
+pour y chercher une descente.
+
+Mises à jour de cette revue : X30 dans `counterexamples.md` ; B16 et
+l'équivalence du §12 dans `proved.md` ; Meinardus 2001 dans
+`prior_art.md` ; la ligne Berg–Meinardus de `abandoned.md` ; l'agenda,
+bloqué sur cette relecture ; `reviews.md`.

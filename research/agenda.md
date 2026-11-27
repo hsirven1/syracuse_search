@@ -10,10 +10,11 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Aucun. La revue `6082693818` a confirmé le correctif du cycle 010.
-Le cycle 011 est dans ce commit.
+La revue `6082791301` corrige le résidu du cycle 011 (X30) et écrit
+l'équivalence de la conjecture 3 au §12. Ce correctif n'est pas encore
+relu. Ne pas ouvrir le cycle 012 avant cette relecture.
 
-## 1. [A] Lyapunov $V=\log_2(n+1)+c\,v_2(n+1)$ — PROCHAINE QUESTION (cycle 012)
+## 1. [A] Lyapunov $V=\log_2(n+1)+c\,v_2(n+1)$ — PROCHAINE QUESTION (cycle 012), non entamée
 Pour tout réel $c$, $V$ est-elle une fonction de Lyapunov stricte le long
 des orbites positives de $T$ ? Le cas $c\le\beta$ est le premier pas impair
 d'un Mersenne : l'écart vaut $\beta-c$. Pour $c>\beta$, H7 observe que les
@@ -23,7 +24,7 @@ stricte hors du cycle. Dans ce second cas, ne pas en déduire Syracuse :
 il resterait à montrer que $V$ est propre et minorée. S'arrêter au premier
 témoin. Ne pas rouvrir B10, B13, X21, le signe moins, le mot du cycle 006,
 la famille $5\cdot2^k-1$, ni les théorèmes 4.2.7 et 4.3.10 de Mori.
-Ne pas reprendre Berg–Meinardus : c'est une reformulation (B16).
+Ne pas reprendre Berg–Meinardus : la conjecture 2 est B16, et la conjecture 3 est la même reformulation au cycle 011 §12.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -34,6 +35,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082791301` (27 nov. 2026, SHA `ded6e1ce`) : B16 et X29
+  confirmés. Le résidu du cycle 011 §5 vaut \(-\lambda^\mu\), pas
+  \(\lambda^{2\mu}\) (X30). L'identité de séries reste vraie. La
+  conjecture 3 équivaut à l'atteinte de \(1\) pour \(n\ge 1\) (§12),
+  via \(a_n=a_{t(n)}\) et le théorème 1 de Meinardus 2001, lu. Pas de
+  descente. Le cycle 012 n'est pas entamé. Détail : [reviews.md](reviews.md).
 - Cycle 011 (27 nov. 2026) : la conjecture 2 de Berg–Meinardus 1995 est
   l'atteinte de $1$ pour $n\ge 1$ (B16). Le point $0$ s'en sépare (X29).
   La conjecture 3 est globale. Le théorème 3 ne contraint pas les orbites.

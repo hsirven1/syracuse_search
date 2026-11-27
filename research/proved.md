@@ -338,10 +338,22 @@ $\{1,2\}$. Le point $n=0$ satisfait la forme rationnelle et n'atteint
 pas $1$ (X29). Ce n'est pas une descente, ni une contrainte au-delà de
 la conjecture dont B12 est la forme par premier retour. La conjecture 3
 de la même note, unicité holomorphe de (19) dans le disque, est un énoncé
-global ; sa preuve d'équivalence est renvoyée à l'article de 1994, non lu.
-Le théorème 3 de la note, toute solution entière est constante, est relu
+global. Le théorème 3 de la note, toute solution entière est constante, est relu
 et ne contraint aucune orbite : le disque $|w|<2/3$ de $g_n$ est
 inconditionnel.
+
+Revue indépendante `6082791301` (PR #27, SHA
+`ded6e1ce82163f68ba5a1611802f57d4a2b8bf92`) : B16 et X29 confirmés.
+Le résidu écrit au cycle 011 §5 était faux (X30) : en $w=\lambda^{-\mu}$
+il vaut $-\lambda^\mu$, et $\lambda^{2\mu}$ est le coefficient de
+$(1-\lambda^\mu w)^{-1}$. L'identité subsiste par séries géométriques.
+L'équivalence entre la conjecture 3 et l'atteinte de $1$ pour $n\ge 1$
+est prouvée au cycle 011 §12 : (18) équivaut à $a_n=a_{t(n)}$, et le
+témoin indicateur est celui du théorème 1 de Meinardus 2001, lu. Le
+point $0$ reste libre. Ce n'est pas une descente, ni un énoncé au-delà
+de la reformulation annoncée en 1995. L'article de 1994 reste non lu
+et n'est pas une prémisse. Ce n'est pas une seconde preuve de B16, ni
+le cycle suivant.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
