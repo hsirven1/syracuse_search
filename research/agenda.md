@@ -9,16 +9,16 @@ certificats de terminaison ; **B** intégralité réel ↔ 2-adique ; **C** opé
 analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypotheses.md) ·
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
-## 1. [B] Rationalité du signe moins au seuil $\log_2 3$ — PROCHAINE QUESTION (cycle 009)
-Mot du cycle 004 §8 : un zéro par bloc, $r_1=64$ et, pour $k\ge2$,
-$r_k=\lfloor\beta o_k\rfloor-\lfloor\sqrt{o_k}\rfloor$. On a $Q_k\to-\infty$,
-donc B7 ne s'applique pas. L'irrationalité 2-adique reste ouverte.
-Question : la série de réalisation est-elle rationnelle ? Chercher d'abord
-si une queue périodique est compatible avec ces longueurs. Si elle ne
-l'est pas, écrire la série et dire si elle se ramène à une valeur de
-Tschakaloff dont un théorème déjà lu dans ce dépôt exclut $\mathbb Q$.
-Ne pas réutiliser B7, ne pas rouvrir le mot du cycle 006, ne pas relancer
-B10, B13 ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
+## 1. [A] Descente accélérée de $5\cdot2^k-1$ — PROCHAINE QUESTION (cycle 010)
+Pour $k\ge2$, $n_k=5\cdot2^k-1\equiv3\pmod4$, donc le pas accéléré
+$U(n)=(3n+1)/2^{v_2(3n+1)}$ vérifie $U(n_k)>n_k$. Le temps
+$\tau(n_k)=\min\{t\ge1:U^t(n_k)<n_k\}$ admet-il une borne explicite en
+$k$, par une trajectoire en forme close ? Sinon, la montée dépasse-t-elle
+$2k$ pas accélérés pour des $k$ arbitrairement grands ? Écarter $a=1$
+(Mersenne) et la classe $n\equiv1\pmod4$. Porte d'antériorité d'abord.
+Si aucun mécanisme clos n'apparaît après un contre-exemple borné,
+s'arrêter. Ne pas rouvrir le signe moins, le mot du cycle 006, B10, B13
+ni X21. Conway 2000 et Kadison 1957 n'ont pas été lus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -29,6 +29,13 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6082253067` (27 nov. 2026, SHA `e7c52409`) : B13 confirmée.
+  Aucune correction. Cycle 009 ensuite : le signe moins n'est pas
+  périodique (X24), $o_j$ n'est pas polynomiale sur une progression
+  arithmétique (X25), et $\max(|a|,b)\ge(2^{66}+2)/3$ (B14).
+  L'irrationalité reste ouverte. Prochaine question : descente
+  accélérée de $5\cdot2^k-1$, non entamée.
+  Détail : [reviews.md](reviews.md).
 - Revue `6082191024` (27 nov. 2026, SHA `ff58fed`) : B13 confirmée.
   La définition de $t_*$ est corrigée pour $K\le1/2$. La constante $C$
   est $\log_2 K+J(\log_2 3)^2$. La forme uniforme de B10 n'est plus

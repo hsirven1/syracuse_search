@@ -33,6 +33,9 @@ en progression arithmétique de raison $\ge1$ (B2, via VW 1989) ; runs $2^k$ (B8
 runs $F_{k+2}$ (B9, élémentaire, via B7) ; plus généralement, un zéro par bloc et
 $r_{k+1}/r_k\to\lambda>\log_2 3$, y compris après un préfixe fini (cycle 004 §8, via B7) ;
 au seuil $\lambda=\log_2 3$, la seule famille de signe plus du même paragraphe.
+Le signe moins n'est pas ultimement périodique (X24) et ne se réduit pas
+terme à terme à la forme de B2 ou de B11 (X25). Si $\sigma=a/b$, alors
+$\max(|a|,b)\ge(2^{66}+2)/3$ (B14). L'irrationalité reste ouverte.
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
 Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,
@@ -49,7 +52,10 @@ $Q_m=r_m+m+1-\beta o_m-\log_2(1+G_m)$, alors $\xi_w\notin\mathbb Q$.
   familles $r_1=64$, $r_k=\lfloor\beta o_k\rfloor\pm\lfloor\sqrt{o_k}\rfloor$
   ($k\ge2$) ont le même rapport limite : $Q_k\to+\infty$ pour le signe plus,
   $Q_k\to-\infty$ pour le signe moins. L'irrationalité du signe moins reste
-  ouverte. Les placements de zéros non réductibles par un préfixe fini restent
+  ouverte : le cycle 009 donne seulement $\max(|a|,b)\ge(2^{66}+2)/3$
+  (B14), l'absence de queue périodique (X24) et l'absence de forme
+  polynomiale sur une progression arithmétique (X25). Ne pas la relancer
+  sans un outil qui ne soit ni B7 ni VW 1989. Les placements de zéros non réductibles par un préfixe fini restent
   ouverts. Les runs quasi linéaires restent H5 : la famille appariée est
   l'identité B11. Sur ce mot $\sup Q_m=Q_2=\log_2(2048/217)$, donc
   $\max(|a|,b)\ge10$, puis $Q_m\to-\infty$ : B7 ne tranche pas, et
@@ -106,5 +112,6 @@ adoptés. Leur nécessité cite Conway 2000, chapitre 2, proposition 13.3,
 non lu. L'esquisse d'orbite déjà fermée par Kadison 1957, signalée par la
 revue `6082060844`, n'est pas reproduite et n'est pas une prémisse. Ne pas
 relancer la lecture sans barres. L'implication globale de H6 est B13.
-La question suivante est la rationalité du signe moins au seuil
-$\log_2 3$, pas un nouveau lemme sur $\{e_{2^k}\}$.
+Le signe moins est traité au cycle 009 : hauteur B14, irrationalité
+ouverte. La question suivante est la descente accélérée de
+$5\cdot2^k-1$, pas un nouveau lemme sur $\{e_{2^k}\}$.
