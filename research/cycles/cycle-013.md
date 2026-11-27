@@ -34,8 +34,9 @@ V(n)=H(n)+\Phi\bigl(n\bmod M,\ v_2(n+1)\bigr)
 et \(U(n)=(3n+1)/2^{v_2(3n+1)}\). Ici \(\omega(1)=\Omega(1)=0\).
 
 **Obstacle.** B18 ferme la forme sans \(\omega\), \(\Omega\) ni \(R\).
-Le trajet \(123\to 139\) change \(\omega\) : un seul trajet ne règle
-pas les coefficients.
+Le trajet \(123\to 139\) change \(\omega\). Ce trajet-là ne règle pas
+un coefficient arbitraire. La phrase plus forte, « un seul trajet ne
+suffit jamais », est fausse (X33).
 
 **Intérêt.** Une fonction de Lyapunov stricte de cette forme, propre
 et minorée, prouverait la conjecture. Fermer la forme retire une
@@ -176,12 +177,17 @@ augmente donc \(V\). Si chaque pas au-dessus de \(X_0\) était
 décroissant au sens large, le bilan du trajet serait négatif ou nul.
 Contradiction.
 
-Le trajet qui augmente dépend de \(\beta\) et de \(\gamma\). Sur les
-témoins \(123\to 139\) et \(379\to 427\), avec \(H(n)=n\), les
+Le trajet qui augmente dépend de \(\beta\) et de \(\gamma\). L'exemple
+numérique est celui de \(M=1\). Les quatre extrémités
+\(123,139,379,427\) valent \(11\) modulo \(16\), et la valuation vaut
+\(2\), donc \(\Phi\) s'annule sur chaque trajet. Avec \(H(n)=n\), les
 accroissements de hauteur sont \(16\) et \(48\), et ceux de \(\omega\)
-sont \(-1\) et \(+1\). Pour \(\beta=100\) et \(\gamma=0\), le premier
-trajet baisse \(V\) de \(84\) et le second l'augmente. La somme
-pondérée reste \(64\). On ne désigne pas le pas fautif.
+sont \(-1\) et \(+1\). Pour \(\beta=100\) et \(\gamma=0\),
+\(123\to 139\) baisse \(V\) de \(84\) et \(379\to 427\) l'augmente de
+\(148\). La somme pondérée reste \(64\). On ne désigne pas le pas
+fautif. Pour \(M=24\), le couple \(123\to 139\) n'est pas un témoin :
+\(123\equiv 3\) et \(139\equiv 19\pmod{24}\). Un \(\Phi\) qui ajoute
+\(100\) sur ce trajet porte le bilan de \(-84\) à \(16\).
 
 Cette proposition ne produit pas les trajets. Elle dit seulement ce
 qu'une paire déjà factorisée interdit.
@@ -203,7 +209,26 @@ proposition du §2 s'applique sans crible.
 Pour \(M=1\), le même second trajet est l'orientation premier vers
 composé, au rang \(z=5\). L'orientation opposée est \(z=1\) :
 \(123=3\cdot 41\to 139\), premier. Les poids valent encore \(1\).
-Même conclusion, sans crible.
+Même conclusion, sans crible, et seulement sous le seuil du paragraphe
+suivant.
+
+Ces deux certificats sont bornés par leurs départs. Pour \(M=24\), les
+départs sont \(187\) et \(379\), donc la proposition du §2 s'applique
+lorsque \(X_0<187\). Pour \(M=1\), les départs sont \(123\) et \(379\),
+donc elle s'applique lorsque \(X_0<123\). Les états intermédiaires
+restent au-dessus du plus petit départ. La conclusion pour tout seuil,
+et pour les autres modules, vient des lemmes 3 et 4.
+
+**X33.** La phrase « un seul trajet ne suffit pas » est fausse. Le cas
+\(z=0\) du lemme 2 pour \(M=1\) est \(59\xrightarrow{1}89\xrightarrow{2}67\).
+Les deux extrémités sont premières, la valuation vaut \(2\), et
+\(59\equiv 67\equiv 3\pmod 8\). Tous les états sont au moins \(59\), et
+\(67>59\). Pour \(M=8\) et \(X_0<59\), les termes \(\Phi\), \(\omega\),
+\(\Omega\) et \(R\) s'annulent, donc tout potentiel de la forme du §2
+augmente de \(H(67)-H(59)\). La branche \((1,2)\) ne garantit pas cette
+annulation sur un trajet quelconque : \(187\to 211\) change \(\omega\).
+Ce trajet unique ne remplace pas le certificat à deux orientations de
+\(M=1\), qui couvre \(X_0<123\), ni l'existence au-dessus de tout seuil.
 
 ## 4. Existence pour chaque module
 
@@ -256,8 +281,14 @@ et cela ne touche pas une fonction qui séparerait \(\omega\) de
 \(\Omega\) hors de ces extrémités.
 
 B17 et B18 ne sont pas repris. Le trajet \(123\to 139\) reste le
-témoin qu'un seul chemin change \(\omega\). Le module \(35\) n'a pas
-de certificat factorisé dans ce cycle.
+témoin qu'un chemin peut changer \(\omega\). Il ne dit pas qu'aucun
+trajet unique ne suffit : X33 en donne un, sous un seuil fini et pour
+un module fixé. Le module \(35\) n'a pas de certificat factorisé dans
+ce cycle. La revue `6093000151` confirme le lemme 2, l'identité
+pondérée et la réduction des lemmes 3 et 4. Elle cite Thorner–Zaman,
+§1.2, et Ramaré, chapitre 16. Ces deux textes ne sont pas ouverts ici,
+et Montgomery–Vaughan reste non obtenu. Le statut analytique ne change
+pas. Le cycle 014 n'est pas ouvert : la fenêtre du §7 tient toujours.
 
 ## 6. Mises à jour de la mémoire
 
@@ -300,11 +331,14 @@ Le premier commit de ce cycle est `adf706a`, du 26 novembre 2026 à
 python3 research/checks/cycle013_two_path.py
 ```
 
-Sortie attendue : quatre lignes `PASS`. La première couvre le
+Sortie attendue : cinq lignes `PASS`. La première couvre le
 certificat \(187,211,379,427\), les valuations, le résidu \(19\)
 modulo \(24\), et le fait qu'un coefficient \(\beta=-10^6\) fait
 baisser un seul des deux trajets. La deuxième couvre le lemme 2 sur
 les douze modules, trois valeurs de \(z\) chacune. La troisième compte
 \(117\) proportions locales. La quatrième trouve les orientations de
-\(M=1\) aux rangs \(z=5\) et \(z=1\). Ces contrôles ne sont pas la
-preuve de l'existence pour chaque module.
+\(M=1\) aux rangs \(z=5\) et \(z=1\). La cinquième contrôle les bilans
+\(-84\) et \(148\) pour \(M=1\), le résidu distinct de \(123\) et
+\(139\) modulo \(24\), les seuils \(X_0<187\) et \(X_0<123\), et le
+trajet \(59\to 89\to 67\). Ces contrôles ne sont pas la preuve de
+l'existence pour chaque module.

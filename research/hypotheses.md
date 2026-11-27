@@ -117,8 +117,11 @@ toute hauteur strictement croissante (B18, X32). La forme qui ajoute
 $\beta\omega+\gamma\Omega+R(\Omega-\omega)$ est le théorème 1 de la
 note du 19 octobre 2026, vérifié au cycle 013 (B19) : la moitié
 élémentaire est prouvée, et l'existence pour chaque module est une
-réduction à deux théorèmes analytiques non relus. Ne pas relancer
-cette architecture, avec ou sans compteurs.
+réduction à deux théorèmes analytiques non relus. Les certificats
+affichés valent pour \(X_0<187\) (\(M=24\)) et \(X_0<123\) (\(M=1\)).
+X33 montre qu'un trajet premier vers premier suffit pour \(M=8\) et
+\(X_0<59\). Cela ne rouvre pas l'architecture. Ne pas la relancer,
+avec ou sans compteurs.
 
 ## H8 — Équivalences opératorielles de Mori 2024 (axe C) — FERMETURE RÉFUTÉE ; THÉORÈMES NON ADOPTÉS
 La réduction au premier retour est prouvée (B12). Elle n'est pas une preuve

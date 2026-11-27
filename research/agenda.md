@@ -43,12 +43,21 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093000151` (27 nov. 2026, SHA `9e26d12`) : lemme 2, identité
+  pondérée et réduction des lemmes 3 et 4 confirmés. Thorner–Zaman et
+  Ramaré, cités par la revue, ne sont pas ouverts ici.
+  Montgomery–Vaughan reste non obtenu. Correction : le bilan \(-84\)
+  et \(148\) est celui de \(M=1\) ; les certificats finis s'arrêtent à
+  \(X_0<187\) et \(X_0<123\) ; un trajet premier vers premier suffit
+  pour \(M=8\) et \(X_0<59\) (X33). Le cycle 014 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Cycle 013 (27 nov. 2026) : la porte sur les compteurs est NO-GO.
   Le théorème 1 de la note du 19 octobre 2026 est l'énoncé demandé.
   Le lemme 2 et l'identité pondérée sont réécrits (B19). Les lemmes 3
   et 4 réduisent l'existence pour chaque module au théorème des nombres
   premiers en progression fixe et à Brun–Titchmarsh ; les PDF ne sont
-  pas ouverts. Certificats élémentaires pour $M=1$ et $M=24$. Pas une
+  pas ouverts. Certificats élémentaires pour $M=24$ si $X_0<187$, et
+  pour $M=1$ si $X_0<123$. Pas une
   découverte, ni une contrainte sur une orbite divergente.
   [cycle-013](cycles/cycle-013.md)
 - Revue `6082966513` (27 nov. 2026, SHA `b033647`) : B18 confirmé.

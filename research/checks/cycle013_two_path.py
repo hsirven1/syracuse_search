@@ -297,10 +297,48 @@ def main():
             break
     if plus is None or minus is None:
         raise AssertionError((plus, minus))
+    scope_checks(plus, minus)
     print("PASS certificate (17) and one-sided cancellation")
     print("PASS lemma 2 on", ",".join(str(M) for M in moduli))
     print("PASS local densities", checked)
     print("PASS M=1 orientations", plus[0], minus[0])
+    print("PASS example scope and the single prime-to-prime path")
+
+
+def scope_checks(plus, minus):
+    """Review 6093000151: M=1 balances, X_0 bounds, and X33."""
+    if plus[:3] != (5, 379, 427) or minus[:3] != (1, 123, 139):
+        raise AssertionError((plus, minus))
+    beta = 100
+    # 123 -> 139 changes omega by -1; 379 -> 427 changes it by +1.
+    loss = (139 - 123) + beta * (omega(139) - omega(123))
+    gain = (427 - 379) + beta * (omega(427) - omega(379))
+    if (loss, gain, loss + gain) != (-84, 148, 64):
+        raise AssertionError((loss, gain))
+    ends = (123, 139, 379, 427)
+    if any(n % 16 != 11 or v2(n + 1) != 2 for n in ends):
+        raise AssertionError("M=1 features")
+    if 123 % 24 != 3 or 139 % 24 != 19 or loss + 100 != 16:
+        raise AssertionError("M=24 residue")
+    if min(plus[1], minus[1]) != 123:
+        raise AssertionError("M=1 threshold")
+    if min(187, 379) != 187:
+        raise AssertionError("M=24 threshold")
+    states = [59]
+    state = 59
+    for expected in (1, 2):
+        state, exponent = U_step(state)
+        if exponent != expected:
+            raise AssertionError((state, exponent))
+        states.append(state)
+    if states != [59, 89, 67]:
+        raise AssertionError(states)
+    if factorint(59) != [59] or factorint(67) != [67]:
+        raise AssertionError("primes")
+    if v2(59 + 1) != 2 or v2(67 + 1) != 2:
+        raise AssertionError("valuation")
+    if 59 % 8 != 3 or 67 % 8 != 3 or min(states) < 59 or 67 <= 59:
+        raise AssertionError("single path")
 
 
 if __name__ == "__main__":

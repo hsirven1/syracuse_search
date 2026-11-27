@@ -418,8 +418,21 @@ orientations premier vers composé et composé vers premier, admettent
 des poids entiers positifs qui annulent \(\omega\), \(\Omega\) et
 \(R\). Le bilan pondéré vaut celui de \(H\) et il est strictement
 positif. Pour \(M=24\), les trajets \(187\to 211\) et \(379\to 427\)
-suffisent. Pour \(M=1\), \(123\to 139\) et \(379\to 427\) suffisent.
-Le trajet qui augmente \(V\) dépend de \(\beta\).
+suffisent lorsque \(X_0<187\). Pour \(M=1\), \(123\to 139\) et
+\(379\to 427\) suffisent lorsque \(X_0<123\). Ces bornes sont les plus
+petits départs. Le trajet qui augmente \(V\) dépend de \(\beta\). Pour
+\(\beta=100\), \(\gamma=0\) et \(H(n)=n\), les bilans \(-84\) et
+\(148\) supposent que \(\Phi\) s'annule. C'est le cas pour \(M=1\), où
+les quatre extrémités valent \(11\) modulo \(16\). Pour \(M=24\),
+\(123\equiv 3\not\equiv 19\equiv 139\), et un \(\Phi\) qui ajoute
+\(100\) porte le premier bilan à \(16\).
+
+X33 : un seul trajet peut suffire. \(59\to 89\to 67\) a deux
+extrémités premières, la valuation \(2\) et le résidu \(3\) modulo
+\(8\). Pour \(M=8\) et \(X_0<59\), il augmente tout potentiel de cette
+forme. La branche \((1,2)\) ne garantit pas l'annulation des compteurs
+sur un trajet quelconque. L'existence au-dessus de tout seuil reste
+les lemmes 3 et 4.
 
 L'existence de telles paires pour chaque \(M\) est le lemme 2 de la
 note, réécrit au cycle 013 §1, suivi des lemmes 3 et 4. Ces deux
@@ -433,6 +446,16 @@ autonome du crible. Aucun trou précis n'est apparu dans l'argument
 B19 ne couvre pas une fonction jointe arbitraire de \(\omega\) et
 \(\Omega\), ni la dérive moyenne. Sur les extrémités sans facteur
 carré, \(\Omega=\omega\). Ce n'est pas une preuve de Syracuse.
+
+Revue indépendante `6093000151` (PR #27, SHA
+`9e26d12e7af7cf9b816904e6125130219fa3109b`) : le lemme 2, l'identité
+pondérée et la réduction des lemmes 3 et 4 sont confirmés. Les PDF
+analytiques ne sont pas ouverts dans ce correctif. La revue signale
+Thorner–Zaman, §1.2, et Ramaré, chapitre 16 ; ces lectures ne sont
+pas adoptées. Montgomery–Vaughan reste non obtenu. Les exemples sont
+corrigés : le bilan \(-84\) et \(148\) est celui de \(M=1\), les
+certificats finis s'arrêtent à \(X_0<187\) et \(X_0<123\), et X33
+retire la phrase « un seul trajet ne suffit pas ».
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
