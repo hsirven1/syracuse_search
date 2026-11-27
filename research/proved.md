@@ -576,6 +576,23 @@ entamé. Steiner (1977) n'est pas ouvert. Simons–de Weger,
 §§1.1–1.2, est cité par la revue et n'est pas ouvert ici. Le
 cycle 016 n'est pas ouvert.
 
+**Équivalence \(P(2)\), pas une résolution (B22, cycle 016).** Pour
+\(T\), un run impair a longueur au moins \(3\) si et seulement s'il
+contient un terme \(\equiv 7\pmod 8\). Depuis un impair \(m\),
+\(3m+1\not\equiv 7\pmod 8\), et \(C\) ne diffère de \(T\) que par ces
+termes. Les deux orbites rencontrent donc \(7\pmod 8\) ensemble, et
+l'une atteint \(1\) si et seulement si l'autre l'atteint. \(P(2)\)
+est la conjecture 4.13 de Yolcu, Aaronson et Heule,
+arXiv:2105.14697v3, page 34 du PDF lu. Elle reste ouverte. Le
+théorème 4.10, qui règle les résidus \(2,3,4,6\pmod 8\), n'est pas
+reproduit. Steiner (1977) n'est pas obtenu. Simons–de Weger, version
+1.44, §§1.1–1.4, lus, ne considèrent pas les suites non bornées.
+Aucune orbite divergente n'est exclue.
+
+Revue indépendante `6093952309` (PR #27, SHA
+`db5009a9c5b95b172b6bb43f0fa77d46a0f9c0d4`) : X40 et B21 confirmés.
+Aucune correction. Le cycle 016 vient ensuite.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

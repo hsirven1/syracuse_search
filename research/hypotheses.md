@@ -199,4 +199,17 @@ parités périodique dès le départ est un cycle. Ne pas relancer
 de \(1\) pour toute orbite dont chaque run impair a longueur au
 plus \(R\). L'existence d'un \(R\ge 2\) tel que \(P(R)\) équivaut à
 \(P(2)\). La lecture pour tout \(R\ge 2\) est plus forte et n'est
-pas ouverte. Steiner (1977) n'est pas lu.
+pas ouverte. Steiner (1977) n'est pas lu dans ce paragraphe : le cycle 016
+ne l'obtient pas.
+
+## H12 — Runs impairs de longueur au plus 2 — OUVERT, conjecture publiée (B22)
+\(P(2)\) est la conjecture 4.13 de Yolcu, Aaronson et Heule,
+arXiv:2105.14697v3 : toute trajectoire non convergente de \(C\)
+rencontre \(7\pmod 8\). L'équivalence avec les runs de \(T\) est B22.
+Le théorème 4.10 règle \(2,3,4,6\pmod 8\). Les conjectures 4.11,
+4.12 et 4.14 restent ouvertes dans le même texte. Steiner (1977)
+n'est pas obtenu. Simons–de Weger, version 1.44, ne traitent que
+les orbites périodiques, avec \(m\le 75\) minima. Le cycle
+\(-5\to-7\to-10\) évite \(7\pmod 8\) (X41) : une preuve doit utiliser
+la positivité. Ne pas relancer \(P(2)\) comme lemme frais, ni ces
+quatre conjectures, dans un cycle qui n'aurait pas d'autre outil.

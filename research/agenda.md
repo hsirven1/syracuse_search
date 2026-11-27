@@ -10,41 +10,25 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6093923797` confirme la formule du bloc impair initial,
-le cas \(R=1\), B21, la fenêtre de \(2911\) et la réduction à
-\(P(2)\). Une phrase était trop générale. Pour \(m=2\), le retour
-dans la classe a lieu au premier pas et peut être ascendant, par
-exemple \(3\to 5\). Il peut aussi descendre : \(U(9)=7\) (X40).
-B21 reste l'absence d'un horizon pour tous les départs. Ce
-correctif n'est pas encore relu. Ne pas ouvrir le cycle 016 avant
-cette relecture, ni avant le 27 novembre 2026 à 23:17 UTC. Le plus
-ancien cycle de la fenêtre reste le cycle 004 : le commit
-`8bc44f7` est du 26 novembre 2026 à 23:16:52 UTC.
+La revue `6093952309` confirme X40. Aucune correction. Le cycle 016
+identifie \(P(2)\) à la conjecture 4.13 de Yolcu–Aaronson–Heule et
+ne la démontre pas. Ne pas ouvrir le cycle 017 avant une relecture
+de ce cycle, ni avant le 28 novembre 2026 à 00:04 UTC. Le plus
+ancien cycle de la fenêtre est alors le cycle 005 : le commit
+`ebba330` est du 27 novembre 2026 à 00:03:27 UTC.
 
-## 1. [B] Runs impairs de longueur au plus 2 — PROCHAINE QUESTION (cycle 016), non entamée
-Ne pas rouvrir B21, Tao, les potentiels, le signe moins, le mot du
-cycle 006, \(5\cdot 2^k-1\), ni le cas \(R=1\). L'orbite
-\(1\to 2\to 1\) ne descend pas sous \(1\) (X38). Pour \(R=1\), tout
-départ \(n>1\) dont le premier run impair a longueur au plus \(1\)
-descend en au plus deux pas, et une orbite dont tous les runs
-impairs ont longueur au plus \(1\) atteint \(1\). La formule close
-s'arrête au premier pair. Le mot constant des longueurs de runs de
-\(5\) n'est pas un cycle (X39). Une suite de parités périodique dès
-le départ est un cycle, par le codage modulo \(2^k\).
+## 1. [C] La borne de Korec et les classes — PROCHAINE QUESTION (cycle 017), non entamée
+Ne pas rouvrir \(P(2)\), les conjectures 4.11 à 4.14, Steiner, les
+\(m\)-cycles, B21, Tao au-delà de B20, les potentiels, le signe
+moins, le mot du cycle 006, ni \(5\cdot 2^k-1\).
 
-Soit \(P(R)\) l'énoncé : toute orbite positive de \(T\) dont chaque
-run impair a une longueur au plus \(R\) atteint \(1\). Les familles
-sont emboîtées, donc l'existence d'un \(R\ge 2\) tel que \(P(R)\)
-équivaut à \(P(2)\). La lecture « pour tout \(R\ge 2\) » est plus
-forte et n'est pas la question.
-
-Lire d'abord l'énoncé primaire de Steiner (1977) sur l'absence de
-\(1\)-cycle non trivial. Si ce texte exclut déjà toute orbite de
-runs de longueur au plus \(2\), et pas seulement les cycles, ne pas
-le redémontrer. Ne pas chercher une suite de parités périodique par
-force brute. Simons–de Weger n'est pas lu : ne pas identifier leur
-entier \(m\) avec \(R\), et ne pas redémontrer leurs bornes si le
-texte lu les contient déjà. Ne pas ouvrir ce cycle avant la fin du
+Korec (1994) est une source secondaire, via Tao : une densité
+naturelle de départs dont le minimum passe sous \(n^\theta\), avec
+\(\theta>\log 3/\log 4\). Lire l'énoncé primaire, ou le passage exact
+où Tao l'énonce si le primaire manque. Décider seulement si cette
+borne force une classe de congruence entière à atteindre \(1\). Si
+elle ne donne qu'un comptage, la classer plus faible que B20 et X34,
+et ne pas la redémontrer. Ne pas ouvrir ce cycle avant la fin du
 blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
@@ -56,6 +40,18 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6093952309` (27 nov. 2026, SHA `db5009a`) : X40 et B21
+  confirmés. Aucune correction. Cycle 016 ensuite : \(P(2)\) est la
+  conjecture 4.13 de Yolcu–Aaronson–Heule, arXiv:2105.14697v3 (B22).
+  Elle reste ouverte. Steiner (1977) n'est pas obtenu.
+  Simons–de Weger, version 1.44, ne traitent que les orbites
+  périodiques. Détail : [reviews.md](reviews.md).
+- Cycle 016 (27 nov. 2026) : l'évitement des runs impairs de longueur
+  au moins \(3\) est l'évitement du résidu \(7\pmod 8\). Pour \(C\) et
+  pour \(T\), ce résidu est rencontré ensemble, car \(3m+1\) ne vaut
+  jamais \(7\pmod 8\). \(P(2)\) est donc la conjecture 4.13, non
+  résolue. Le cycle \(-5\to-7\to-10\) évite ce résidu (X41). Pas une
+  preuve de Syracuse. [cycle-016](cycles/cycle-016.md)
 - Revue `6093923797` (27 nov. 2026, SHA `2a6474b`) : formule du
   bloc initial, cas \(R=1\), B21 et réduction à \(P(2)\) confirmés.
   La phrase « le retour au premier pas n'est pas une descente » est
