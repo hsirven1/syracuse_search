@@ -229,7 +229,10 @@ n'inclut pas la classe. Le prédicat est un itéré \(<y^c\), pas
 l'atteinte de \(1\). La descente universelle sur tout entier positif,
 y compris \(1\), est fausse. L'équivalence avec la conjecture vaut
 pour les \(y\ge 2\) et ne la décide pas. Le certificat \(S_m<md\) rate
-\(y\equiv -1\pmod{2^m}\). Ne pas redémontrer ce théorème, ni abaisser
-l'exposant, ni relire Tao, Terras ou Everett pour en tirer une classe
-qui atteint \(1\). Inselmann (2024) reste non audité et n'est pas la
-prochaine question.
+\(y\equiv -1\pmod{2^m}\). La formule imprimée de \(d\) vaut
+\(c/\log_2 3+\tfrac14\) et ne satisfait pas \(d<c/\log_2 3\) (X45).
+La parenthèse \(\log_2 y\) n'est pas une borne de première descente
+pour tout \(y\in M_c\) (X46). Ne pas redémontrer ce théorème, ni
+abaisser l'exposant, ni relire Tao, Terras ou Everett pour en tirer
+une classe qui atteint \(1\). Inselmann (2024) reste non audité et
+n'est pas la prochaine question.

@@ -642,9 +642,24 @@ omettre une infinité d'éléments de chaque classe. L'appartenance à
 \(M_c\) n'est pas l'atteinte de \(1\). La phrase universelle de
 descente, y compris en \(y=1\), est fausse (X43) : l'orbite de \(1\)
 est \(\{1,2\}\). L'équivalence correcte porte sur les \(y\ge 2\), et
-elle ne décide pas la conjecture. La condition suffisante
+elle ne décide pas la conjecture. L'inégalité
 \(S_m(y)<md\), pour \(d<1\), rate la classe \(y\equiv -1\pmod{2^m}\)
-(X44). Le théorème 1 n'est pas redémontré. Aucune orbite n'est exclue.
+(X44). Pour \(y=2^m t-1\), \(T^i(y)=3^i 2^{m-i}t-1\) aux rangs
+\(0\le i\le m\), et les \(m\) termes comptés sont impairs. La formule
+imprimée de \(d\), page 87, vaut \(c/\log_2 3+\tfrac14\) : la
+comparaison \(d<c/\log_2 3\) est fausse (X45). La parenthèse de la
+page 86, qui borne \(n\) par \(\log_2 y\), ne vaut pas pour tout
+\(y\in M_c\) (X46) : \(T^{59}(27)=23\) et \(\log_2 27<5\). Pour
+\(y>1\), atteindre \(1\) implique l'appartenance à \(M_c\) ; en
+\(y=1\), \(T^0(1)=1\) mais \(1\notin M_c\). Le point \(0\) est fixe
+et hors de \(M_c\). Ces portées ne changent pas l'argument de
+densité relative. Le théorème 1 n'est pas redémontré. Aucune orbite
+n'est exclue.
+
+Revue indépendante `6094566180` (PR #27, SHA
+`5d4ba1bfd01c908a375345ad2c7caec0a5db305b`) : B23, l'égalité des
+minima sur les positifs, X43 et X44 confirmés. X45 et X46 sont les
+corrections ci-dessus. Le cycle 018 n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

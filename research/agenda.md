@@ -10,11 +10,14 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le cycle 017 est le douzième de la fenêtre dont le plus ancien est
-le cycle 006. Le commit `fcd6a00` est du 27 novembre 2026 à
-00:25:31 UTC. Ne pas ouvrir le cycle 018 avant le 28 novembre 2026
-à 00:26 UTC. La revue `6094283257` est enregistrée dans ce cycle :
-confirmation du cycle 016 §9, sans correction.
+La revue `6094566180`, sur le SHA `5d4ba1b`, confirme B23 et corrige
+la comparaison imprimée sur \(d\) (X45) ainsi que la lecture de la
+parenthèse en \(\log_2 y\) (X46). Ce correctif n'est pas encore relu.
+Ne pas ouvrir le cycle 018 avant cette relecture. Le correctif n'est
+pas un nouveau cycle. La fenêtre de douze cycles, dont le plus ancien
+est le cycle 006, a pour premier commit `fcd6a00`, du 27 novembre 2026
+à 00:25:31 UTC. Elle s'ouvre le 28 novembre 2026 à 00:26 UTC, sans
+lever l'attente de la relecture.
 
 ## 1. [A] La borne d'Eliahou et les trajectoires non périodiques — PROCHAINE QUESTION (cycle 018), non entamée
 Ne pas rouvrir Korec, Tao, Terras, Everett, Inselmann, la remarque
@@ -41,6 +44,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094566180` (28 nov. 2026, SHA `5d4ba1b`) : B23, l'égalité
+  des minima sur les positifs, X43 et X44 confirmés. La formule
+  imprimée de \(d\) vaut \(c/\log_2 3+\tfrac14\), donc
+  \(d<c/\log_2 3\) est faux (X45). Pour \(c=\tfrac45\), \(m=16\) et
+  \(k=8\), \(k/m=\tfrac12\) passe sous ce \(d\) et au-dessus de (4).
+  La parenthèse \(\log_2 y\) n'est pas une borne de première descente
+  pour tout \(y\in M_c\) : \(T^{59}(27)=23\) (X46). Pour \(y>1\)
+  seulement, atteindre \(1\) implique l'appartenance à \(M_c\). Le
+  cycle 018 n'est pas ouvert. Détail : [reviews.md](reviews.md).
 - Cycle 017 (28 nov. 2026) : le théorème 1 de Korec, lu, donne la
   densité naturelle de \(M_c\) pour \(c>\log_4 3\). La densité
   relative dans chaque classe vaut \(1\) (B23). X34 empêche l'inclusion,
