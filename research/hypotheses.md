@@ -41,6 +41,14 @@ $\max(|a|,b)\ge(2^{66}+2)/3$ (B14). Cette valuation de rang $1$ exclut
 $2+2^{67}$ (X27). La fraction $2+2^{66}$ satisfait le rang $1$ et la
 borne de hauteur ; elle est exclue au rang $2$, car $v_2(A_2)=74\neq96$.
 L'apériodicité ne réfute pas H3. L'irrationalité reste ouverte.
+Le cycle 019 a lu Bernstein–Lagarias 1996, (1.5) et (1.6), sur le PDF
+d'auteur. L'égalité imprimée
+\(\Phi(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\) est cet
+énoncé (B25). Le papier la laisse comme conjecture. L'inclusion
+opposée est donnée comme connue et n'est pas redémontrée. Pour chaque
+\(k\ge 1\), \(\Phi^k(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\)
+est la même conjecture, pas une forme plus faible. Ne pas la rouvrir
+depuis ces formules, ni depuis un itéré.
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
 Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,

@@ -693,15 +693,40 @@ Aucune orbite divergente n'est exclue.
 Revue indépendante `6094741450` (PR #27, SHA
 `8e1574c1f16b9969e2fdf71bc1b4ff212568f55e`) : B24 confirmé. Le retour
 depuis les parités est ajouté (X48). Le critère \(k(2^{40})\) est
-vérifié. La forme linéaire reste non adoptée. Le cycle 019 n'est pas
-ouvert.
+vérifié. La forme linéaire reste non adoptée.
 
 Revue indépendante `6094774532` (PR #27, SHA
 `0c4a251b62e376d1a63d20620e13642132f0828f`) : B24, X48 et le
 certificat \(k(2^{40})\) confirmés. L'exemple de \(5\) n'a pas son
 premier rang de période \(2\) au rang \(4\) (X49). Ce rang est \(3\),
 car \(T^3(5)=T^5(5)=2\), et \(s=4\) reste un choix. B24 est inchangé.
-La forme linéaire reste non adoptée. Le cycle 019 n'est pas ouvert.
+La forme linéaire reste non adoptée.
+
+Revue indépendante `6094790973` (PR #27, SHA
+`5944512e23964e259f6d72b05e03f4dec0a742d9`) : X49 confirmé. Aucune
+correction. B24 est inchangé. Le cycle 019 vient ensuite et n'est pas
+une réécriture de B24.
+
+**B25 — (1.5) et (1.6) sont H3** (PROUVÉ comme identification, cycle 019
+§2–§3). Bernstein–Lagarias, *Canad. J. Math.* 48 (1996), 1154–1169,
+PDF d'auteur SHA-256
+`476b0149d6d6f7944e9bf470a9347a14336547a116c5eb6877d020219a5b4c4e`,
+16 pages, non redistribué. (1.5) écrit \(\Phi^{-1}(x)\) comme la série
+des parités de l'orbite. (1.6) écrit \(\Phi\) sur les bits
+\(0\le d_1<d_2<\cdots\) par \(-\sum_l 3^{-l}2^{d_l}\). Le lemme
+classique du §2 dit qu'un 2-adique est rationnel si et seulement si
+ses chiffres sont ultimement périodiques. Donc l'itinéraire de \(x\)
+est ultimement périodique si et seulement si
+\(x\in\Phi(\mathbb Q\cap\mathbb Z_2)\). L'égalité imprimée
+\(\Phi(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\) est H3.
+Le papier la nomme conjecture et donne l'inclusion opposée comme
+connue, par (1.6) et Bernstein 1994, non rouvert. H3 n'est pas
+prouvée. Pour un entier positif, B24 ramène la restriction de H3 à
+la non-divergence, déjà enregistrée. Le papier dit que
+\(\Phi^k(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\) équivaut
+à la même conjecture pour chaque \(k\ge 1\). L'inclusion séparée
+\(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\) n'est pas identifiée
+ici à l'atteinte de \(1\). Aucune orbite divergente n'est exclue.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune

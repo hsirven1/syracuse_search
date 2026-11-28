@@ -10,32 +10,37 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif du cycle 018, revue `6094774532`, est écrit. Il attend
-sa relecture indépendante. Ne pas ouvrir le cycle 019 avant cette
-relecture. La fenêtre de douze cycles, au 28 novembre 2026 à
-00:59 UTC, contient les cycles 008 à 018, soit onze. Le plus ancien
-est le cycle 008, premier commit `ff58fed`, du 27 novembre 2026 à
-01:09:59 UTC. Le cycle 007, `a60a1a6`, du 27 novembre à 00:45:58 UTC,
-est sorti. La fenêtre ne bloque pas un cycle 019 et ne lève pas
-l'attente de la relecture. Ce correctif n'est pas un nouveau cycle.
+Le cycle 019 est écrit. Il attend sa relecture indépendante. Ne pas
+ouvrir le cycle 020 avant cette relecture. Au 28 novembre 2026 à
+01:02 UTC, la fenêtre contenait les cycles 008 à 018, soit onze, et
+ce cycle est le douzième. Le plus ancien est le cycle 008, premier
+commit `ff58fed`, du 27 novembre 2026 à 01:09:59 UTC. Il sort à
+01:09:59 UTC le 28 novembre. Cette sortie ne lève pas l'attente de
+la relecture. Recompter la fenêtre au cycle suivant.
 
-## 1. [B] Bernstein–Lagarias 1996, §1, (1.5)–(1.6) — PROCHAINE QUESTION (cycle 019), non entamée
-Ne pas rouvrir les densités, les bornes de longueur de cycle,
-Crandall, le reste de Halbeisen–Hungerbühler, Simons–de Weger,
-Hercher, \(P(2)\), les conjectures 4.11 à 4.14, le signe moins, ni
-la famille appariée. Ne pas réécrire B24.
+## 1. [A] Famille à horizon logarithmique hors cylindre fixe — PROCHAINE QUESTION (cycle 020), non entamée
+Les cycles 016 à 019 ont retrouvé des énoncés publiés. Ne pas ouvrir
+un nouveau cycle dont le travail est de lire un théorème classique
+pour décider s'il exclut une orbite divergente. Ne pas ouvrir
+Lagarias 1985, Bernstein 1994, Lagarias 1990, ni les sections 2 à 6
+de Bernstein–Lagarias 1996. Ne pas rouvrir H3, la conjugaison,
+\(\Phi^k\), les densités, les bornes de longueur de cycle, Crandall,
+Simons–de Weger, Hercher, \(P(2)\), les conjectures 4.11 à 4.14, le
+signe moins, la famille appariée, ni B24.
 
-Bernstein–Lagarias, *Canad. J. Math.* 48 (1996), est cité par les
-revues `6082358798` et `6082438456` pour le §1, (1.5)–(1.6). Le PDF
-n'a pas été ouvert. Le lire seulement pour ces deux affichages.
-Décider s'ils prouvent que tout rationnel de \(\mathbb Z_2\) a un
-itinéraire ultimement périodique, ou s'ils laissent cette direction
-comme conjecture. Si ce n'est que H3, NO-GO, et ne pas redémontrer
-la conjugaison. B24 dit déjà qu'un entier positif a un itinéraire
-ultimement périodique si et seulement si son orbite est bornée. Les
-affichages (1.3) et (1.5), cités par la revue `6094741450`, ne sont
-pas ouverts : ils ne sont pas une prémisse du chaînon de parité. Ne
-pas ouvrir ce cycle avant la fin du blocage ci-dessus.
+A3 donne, pour chaque \(m\) fixé, une classe modulo \(2^{2m+1}\) sur
+laquelle \(\tau_U=m\). C'est un cylindre de Terras, à horizon
+constant. B13 interdit un horizon \(o(\log n)\) pour tous les grands
+\(n\), sous un poids borné. La question est ailleurs : existe-t-il
+une famille infinie explicite d'impairs \(n>1\), non contenue dans un
+cylindre de Terras de longueur bornée, pour laquelle une trajectoire
+close prouve \(\tau_U(n)\le C\log_2(n+1)\) avec \(C\) absolu ? Si la
+famille est une classe d'A3, le cas \(n\equiv 1\pmod 4\) de X40, un
+nombre de Mersenne, ou \(5\cdot 2^k-1\), NO-GO. Ne pas chercher
+au-delà de ces familles et d'une progression arithmétique simple. Si
+aucun mécanisme clos n'apparaît, s'arrêter sans lemme de remplacement.
+Un préfixe sans pas pair ne prouve ni ne réfute (C). Ne pas ouvrir
+ce cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -46,6 +51,14 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 019 (28 nov. 2026) : (1.5) et (1.6) de Bernstein–Lagarias 1996
+  identifient la conjecture de périodicité imprimée à H3 (B25). Ils
+  ne la prouvent pas. L'itéré \(\Phi^k\) est équivalent, pas plus
+  faible. Le PDF d'auteur est lu pour ces deux affichages seulement.
+  [cycle-019](cycles/cycle-019.md)
+- Revue `6094790973` (28 nov. 2026, SHA `5944512`) : X49 confirmé.
+  Aucune correction. Le cycle 018 n'est pas réécrit. Cycle 019
+  ensuite. Détail : [reviews.md](reviews.md).
 - Revue `6094774532` (28 nov. 2026, SHA `0c4a251`) : B24, X48 et
   \(k(2^{40})\) confirmés. L'exemple de \(5\) a son premier rang de
   période \(2\) en \(s=3\), pas en \(4\) (X49). Le choix \(s=4\)
