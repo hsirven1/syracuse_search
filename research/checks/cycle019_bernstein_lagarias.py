@@ -1,0 +1,372 @@
+#!/usr/bin/env python3
+"""Contrôles du cycle 019.
+
+Ils vérifient les formules (1.5) et (1.6) de Bernstein–Lagarias 1996
+sur des représentants 2-adiques, l'identité exacte des sommes partielles
+de Φ(-1/3), les noms Φ(5) et Φ^{-1}(5), le signe de Φ sur les entiers,
+l'erreur de la queue des bits 1, les cycles des restes de
+dénominateur 3, et les termes impairs communs de C et de T. Ils ne
+démontrent pas la conjecture de périodicité.
+
+Usage : python3 research/checks/cycle019_bernstein_lagarias.py
+"""
+
+from __future__ import annotations
+
+from fractions import Fraction
+
+
+N = 64
+MOD = 1 << N
+
+
+def T(n: int) -> int:
+    if n % 2 == 0:
+        return n // 2
+    q, r = divmod(3 * n + 1, 2)
+    if r != 0:
+        raise RuntimeError(f"3n+1 impair pour n={n}")
+    return q
+
+
+def S(y: int) -> int:
+    if y % 2 == 0:
+        return y // 2
+    return (y - 1) // 2
+
+
+def phi_inv(x: int, bits: int = N) -> int:
+    """Somme partielle de (1.5), dans 0 .. 2^bits - 1."""
+    total = 0
+    n = x
+    for i in range(bits):
+        total += (n & 1) << i
+        n = T(n)
+    return total
+
+
+def phi_from_positive(x: int, mod: int = MOD) -> int:
+    """(1.6) pour un entier x ≥ 0, dont l'écriture binaire est finie.
+
+    Les positions vérifient 0 ≤ d_1 < d_2 < … et l'indice l commence à 1.
+    """
+    if x < 0:
+        raise ValueError(x)
+    positions = [i for i in range(x.bit_length()) if (x >> i) & 1]
+    inv3 = pow(3, -1, mod)
+    inv_l = inv3
+    total = 0
+    for d in positions:
+        total = (total + (pow(2, d, mod) * inv_l)) % mod
+        inv_l = (inv_l * inv3) % mod
+    return (-total) % mod
+
+
+def series_phi_of_neg_one_third(mod: int = MOD) -> int:
+    """(1.6) sur les bits de -1/3 = Σ_{k≥0} 4^k."""
+    inv3 = pow(3, -1, mod)
+    inv_l = inv3
+    total = 0
+    power = 1  # 4^0 at l=1, position d_1=0
+    # l runs until 2^{d_l} ≡ 0, i.e. d_l = 2(l-1) ≥ valuation of the modulus.
+    for _ in range(mod.bit_length()):
+        total = (total + power * inv_l) % mod
+        if power % mod == 0:
+            break
+        power = (power * 4) % mod
+        inv_l = (inv_l * inv3) % mod
+    return (-total) % mod
+
+
+def b1_on_orbit_of_one(mod: int = MOD) -> int:
+    """Série de B1 pour l'itinéraire 1,0,1,0,... : ξ+1 = -1/2 Σ_{j≥1} (4/3)^j."""
+    inv3 = pow(3, -1, mod * 2)
+    total = 0
+    term = 1
+    wide = mod * 2
+    for _j in range(1, mod.bit_length()):
+        term = (term * 4 * inv3) % wide
+        total = (total + term) % wide
+        if term == 0:
+            break
+    if total % 2 != 0:
+        raise RuntimeError("la somme de B1 n'est pas paire")
+    xi_plus = (-(total // 2)) % mod
+    return (xi_plus - 1) % mod
+
+
+def main() -> None:
+    inv3 = pow(3, -1, MOD)
+    minus_one_third = (-inv3) % MOD
+
+    got = phi_inv(1)
+    if got != minus_one_third:
+        raise SystemExit(f"FAIL (1.5) sur 1: {got} != {-inv3}")
+    print("PASS (1.5) : Φ^{-1}(1) ≡ -1/3 (mod 2^64)")
+
+    if phi_from_positive(1) != minus_one_third:
+        raise SystemExit("FAIL (1.6) sur 1")
+    print("PASS (1.6) : Φ(1) ≡ -1/3 (mod 2^64)")
+
+    if phi_from_positive(2) != (-2 * inv3) % MOD:
+        raise SystemExit("FAIL (1.6) sur 2")
+    if phi_inv(2) != (-2 * inv3) % MOD:
+        raise SystemExit("FAIL (1.5) sur 2")
+    print("PASS (1.5) et (1.6) : Φ(2) ≡ Φ^{-1}(2) ≡ -2/3 (mod 2^64)")
+
+    # 5 = 2^0+2^2, donc (1.6) donne -(1/3 + 4/9) = -7/9.
+    inv9 = pow(9, -1, MOD)
+    phi5 = (-(inv3 + 4 * inv9)) % MOD
+    if phi_from_positive(5) != phi5:
+        raise SystemExit("FAIL (1.6) sur 5")
+    # Itinéraire 5,8,4,2,1,2,1,... : bits 1,0,0,0 puis 1,0,1,0,...
+    # Φ^{-1}(5) = 1 + 16 Σ_{k≥0} 4^k = 1 + 16(-1/3) = -13/3.
+    phi_inv5 = (1 + 16 * minus_one_third) % MOD
+    if phi_inv(5) != phi_inv5:
+        raise SystemExit(f"FAIL (1.5) sur 5: {phi_inv(5)} != {phi_inv5}")
+    if phi5 == phi_inv5:
+        raise SystemExit("FAIL : Φ(5) et Φ^{-1}(5) ne doivent pas coïncider")
+    print("PASS : Φ(5) ≡ -7/9 et Φ^{-1}(5) ≡ -13/3 sont distincts")
+
+    if series_phi_of_neg_one_third() != 1:
+        raise SystemExit("FAIL (1.6) sur -1/3")
+    print("PASS (1.6) : Φ(-1/3) ≡ 1 (mod 2^64), contrôle seulement")
+
+    def partial_phi(length: int) -> Fraction:
+        """Somme partielle de (1.6) sur d_l = 2(l-1)."""
+        total = Fraction(0)
+        for ell in range(1, length + 1):
+            total -= Fraction(4 ** (ell - 1), 3 ** ell)
+        return total
+
+    for length in range(1, 9):
+        expected = 1 - Fraction(4 ** length, 3 ** length)
+        if partial_phi(length) != expected:
+            raise SystemExit(f"FAIL somme partielle N={length}")
+        error = Fraction(4 ** length, 3 ** length)
+        if error.denominator % 2 == 0 or error.numerator != 4 ** length:
+            raise SystemExit(f"FAIL valuation N={length}")
+        if (error.numerator).bit_length() - 1 != 2 * length:
+            raise SystemExit(f"FAIL exposant N={length}")
+    if partial_phi(32) != 1 - Fraction(4 ** 32, 3 ** 32):
+        raise SystemExit("FAIL somme partielle N=32")
+    if (4 ** 32).bit_length() - 1 != 64 or 3 ** 32 % 2 == 0:
+        raise SystemExit("FAIL valuation N=32")
+    print("PASS : la somme partielle vaut 1-(4/3)^N, et l'erreur a la valuation 2N")
+
+    if -(Fraction(1, 3) + Fraction(4, 9)) != Fraction(-7, 9):
+        raise SystemExit("FAIL Φ(5) exact")
+    if 1 + 16 * Fraction(-1, 3) != Fraction(-13, 3):
+        raise SystemExit("FAIL Φ^{-1}(5) exact")
+    print("PASS : Φ(5)=-7/9 et Φ^{-1}(5)=-13/3 exactement")
+
+    # T(-1/3) = 0 dans Z_2, donc Φ^{-1}(Φ(1)) = 1.
+    image = (3 * minus_one_third + 1) % MOD
+    if image % 2 != 0 or (image // 2) % (MOD // 2) != 0:
+        raise SystemExit("FAIL T(-1/3) = 0")
+    print("PASS : T(-1/3) ≡ 0, et l'itinéraire vaut 1,0,0,...")
+
+    # (1.5) implique Φ^{-1} ∘ T = S ∘ Φ^{-1}, et le bit bas est la parité.
+    samples = [1, 2, 3, 4, 5, 7, 27, -1, -5, minus_one_third]
+    for x in samples:
+        left = phi_inv(T(x), bits=N - 1)
+        right = S(phi_inv(x)) % (1 << (N - 1))
+        if left != right:
+            raise SystemExit(f"FAIL conjugaison sur {x}: {left} != {right}")
+        if phi_inv(x) % 2 != x % 2:
+            raise SystemExit(f"FAIL parité (1.5) sur {x}")
+        if x >= 0 and phi_from_positive(x) % 2 != x % 2:
+            raise SystemExit(f"FAIL parité (1.6) sur {x}")
+    print("PASS : Φ^{-1}∘T = S∘Φ^{-1} (mod 2^63) sur 10 valeurs")
+    print("PASS : bit bas de (1.5) sur les 10 valeurs, et de (1.6) sur les x ≥ 0")
+
+    # B1 sur l'orbite de 1 redonne 1. La division par 2 est exacte.
+    recovered = b1_on_orbit_of_one()
+    if recovered != 1:
+        raise SystemExit(f"FAIL B1 sur 1: {recovered}")
+    print("PASS B1 : la série de l'itinéraire de 1 redonne ξ ≡ 1")
+
+    # Un développement ultimement périodique est rationnel : période 2, bits 1,0.
+    # Σ_{k≥0} 4^k = -1/3. Déjà utilisé ci-dessus.
+    if minus_one_third != sum(pow(4, k, MOD) for k in range(N)) % MOD:
+        raise SystemExit("FAIL série géométrique")
+    print("PASS : Σ_{k≥0} 4^k ≡ -1/3 (mod 2^64)")
+
+    def digits_from_fraction(c: int, d: int, count: int) -> list[int]:
+        """Récurrence du lemme : t_{n+1} = (t_n + d b_n)/2, b_n ≡ t_n (mod 2)."""
+        if d % 2 == 0:
+            raise ValueError(d)
+        bits = []
+        # s_0 = 0, t_0 = -c. Ensuite la borne place t_n dans un ensemble fini.
+        t = -c
+        for _ in range(count):
+            b = t & 1
+            bits.append(b)
+            nxt = t + d * b
+            if nxt % 2 != 0:
+                raise RuntimeError((c, d, t))
+            t = nxt // 2
+        return bits
+
+    if digits_from_fraction(-1, 3, 8) != [1, 0, 1, 0, 1, 0, 1, 0]:
+        raise SystemExit("FAIL chiffres de -1/3")
+    if digits_from_fraction(1, 1, 8) != [1, 0, 0, 0, 0, 0, 0, 0]:
+        raise SystemExit("FAIL chiffres de 1")
+    print("PASS : la récurrence des restes redonne les chiffres de -1/3 et de 1")
+
+    def next_state(t: int) -> int:
+        bit = t & 1
+        nxt = t + 3 * bit
+        if nxt % 2 != 0:
+            raise RuntimeError(t)
+        return nxt // 2
+
+    if next_state(0) != 0 or next_state(3) != 3:
+        raise SystemExit("FAIL cycles absorbants")
+    if next_state(1) != 2 or next_state(2) != 1:
+        raise SystemExit("FAIL cycle 1-2")
+    print("PASS : pour le dénominateur 3, les cycles des restes sont 0, 3 et 1↔2")
+
+    def odd_terms(step, start: int, limit: int = 500) -> list[int]:
+        odds = []
+        x = start
+        for _ in range(limit):
+            if x % 2 == 1:
+                odds.append(x)
+                if x == 1:
+                    return odds
+            x = step(x)
+        raise RuntimeError(start)
+
+    def classical(n: int) -> int:
+        if n % 2 == 0:
+            return n // 2
+        return 3 * n + 1
+
+    for start in (1, 2, 3, 5, 6, 7, 9, 27, 100):
+        if odd_terms(T, start) != odd_terms(classical, start):
+            raise SystemExit(f"FAIL termes impairs de {start}")
+    print("PASS : C et T ont les mêmes termes impairs sur 9 départs")
+
+    shifted = Fraction(0)
+    for j in range(8):
+        shifted -= Fraction(2 ** (5 + 2 * j), 3 ** (j + 1))
+    expected_shift = 32 * (1 - Fraction(4 ** 8, 3 ** 8))
+    if shifted != expected_shift:
+        raise SystemExit("FAIL somme partielle de -32/3")
+    value = 32
+    for _ in range(5):
+        value = classical(value)
+    if value != 1:
+        raise SystemExit(f"FAIL C^5(32)={value}")
+    print("PASS : huit termes sur les bits de -32/3 valent 32(1-(4/3)^8), et C^5(32)=1")
+
+    def phi_rational(q: int) -> Fraction:
+        """Valeur rationnelle de (2) : somme finie si q≥0, queue -2^D/3^m si q<0."""
+        if q == 0:
+            return Fraction(0)
+        if q > 0:
+            total = Fraction(0)
+            ell = 0
+            for d in range(q.bit_length()):
+                if (q >> d) & 1:
+                    ell += 1
+                    total -= Fraction(1 << d, 3**ell)
+            return total
+        D = (-q - 1).bit_length()
+        prefix = [d for d in range(D) if ((-q - 1) >> d) & 1 == 0]
+        total = Fraction(0)
+        for ell, d in enumerate(prefix, start=1):
+            total -= Fraction(1 << d, 3**ell)
+        total -= Fraction(1 << D, 3 ** len(prefix))
+        return total
+
+    def reduced_denominator_is_power_of_three(value: Fraction) -> bool:
+        d = value.denominator
+        while d % 3 == 0:
+            d //= 3
+        return d == 1
+
+    witnesses = {
+        0: Fraction(0),
+        1: Fraction(-1, 3),
+        6: Fraction(-10, 9),
+        -1: Fraction(-1),
+        -2: Fraction(-2),
+        -3: Fraction(-5, 3),
+        -5: Fraction(-13, 9),
+    }
+    for q, expected in witnesses.items():
+        if phi_rational(q) != expected:
+            raise SystemExit(f"FAIL Φ({q})={phi_rational(q)} != {expected}")
+    for q in range(-500, 501):
+        value = phi_rational(q)
+        if q == 0:
+            if value != 0:
+                raise SystemExit("FAIL Φ(0)")
+            continue
+        if value >= 0:
+            raise SystemExit(f"FAIL signe Φ({q})={value}")
+        if not reduced_denominator_is_power_of_three(value):
+            raise SystemExit(f"FAIL dénominateur Φ({q})={value}")
+    print("PASS : Φ(0)=0, et Φ(Q)<0 pour chaque entier Q de -500 à 500, Q≠0")
+
+    def tail_sum(q: int, terms: int) -> tuple[Fraction, Fraction, int, int]:
+        """Somme P_J des J premiers termes de la queue, et sa limite L."""
+        D = (-q - 1).bit_length()
+        m = sum(1 for d in range(D) if ((-q - 1) >> d) & 1 == 0)
+        limit = -Fraction(1 << D, 3**m)
+        partial = Fraction(0)
+        for j in range(terms):
+            partial -= Fraction(1 << (D + j), 3 ** (m + 1 + j))
+        return partial, limit, D, m
+
+    for terms in range(1, 9):
+        geometric = sum((Fraction(2**j, 3**j) for j in range(terms)), Fraction(0))
+        if geometric - 3 != -Fraction(2**terms, 3 ** (terms - 1)):
+            raise SystemExit(f"FAIL S_J-3 pour J={terms}")
+        if 3 - geometric != Fraction(2**terms, 3 ** (terms - 1)):
+            raise SystemExit(f"FAIL 3-S_J pour J={terms}")
+        if (3 - geometric).numerator.bit_length() - 1 != terms:
+            raise SystemExit(f"FAIL valuation géométrique J={terms}")
+    partial_one, limit_one, depth_one, ones_before = tail_sum(-1, 1)
+    if (partial_one, limit_one, depth_one, ones_before) != (
+        Fraction(-1, 3),
+        Fraction(-1),
+        0,
+        0,
+    ):
+        raise SystemExit(
+            f"FAIL témoin Q=-1, J=1 : {partial_one}, {limit_one}, {depth_one}, {ones_before}"
+        )
+    if partial_one - limit_one != Fraction(2, 3):
+        raise SystemExit("FAIL P_1-L pour Q=-1")
+    if limit_one - partial_one != Fraction(-2, 3):
+        raise SystemExit("FAIL L-P_1 pour Q=-1")
+    for q in range(-64, 0):
+        for terms in range(1, 7):
+            partial, limit, depth, ones = tail_sum(q, terms)
+            positive = Fraction(1 << (depth + terms), 3 ** (ones + terms))
+            if partial - limit != positive or limit - partial != -positive:
+                raise SystemExit(f"FAIL écart de queue Q={q}, J={terms}")
+            if positive.numerator != 1 << (depth + terms):
+                raise SystemExit(f"FAIL numérateur Q={q}, J={terms}")
+            if positive.numerator.bit_length() - 1 != depth + terms:
+                raise SystemExit(f"FAIL valuation Q={q}, J={terms}")
+            prefix = [d for d in range(depth) if ((-q - 1) >> d) & 1 == 0]
+            with_prefix = sum(
+                (-Fraction(1 << d, 3**ell) for ell, d in enumerate(prefix, start=1)),
+                Fraction(0),
+            )
+            closed = phi_rational(q)
+            if with_prefix + limit != closed:
+                raise SystemExit(f"FAIL queue fermée Q={q}")
+            if (with_prefix + partial) - closed != positive:
+                raise SystemExit(f"FAIL somme avec préfixe Q={q}, J={terms}")
+    print("PASS : P_J-L = +2^{D+J}/3^{m+J}, et pour Q=-1, J=1, cet écart vaut +2/3")
+
+    print("18 contrôles PASS")
+
+
+if __name__ == "__main__":
+    main()
