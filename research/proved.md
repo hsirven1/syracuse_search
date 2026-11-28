@@ -782,20 +782,32 @@ l'écart vaut \(+2/3\). Aucune correction. L'inclusion n'est pas
 prouvée. Le cycle 020 vient ensuite.
 
 **B27 — Progression de raison fixe** (PROUVÉ comme corollaire du
-codage, cycle 020 §1). Soient \(a\) impair, \(d\) pair non nul et
-\(r=v_2(d)\). Si les termes \(n=a+kd>1\) partagent les \(L\) premières
-parités sous \(T\), alors \(L\le r\), par le cycle 015 §10. Si
-\(s=v_2(3a+1)<r\), la valuation extraite par \(U\) vaut \(s\) pour
-tout terme : c'est une descente et \(\tau_U=1\) lorsque \(s\ge 2\), ou
-une montée vers la progression de raison \(3d/2\) lorsque \(s=1\). On
-enchaîne au plus \(r-1\) montées de valuation \(1\). Une suite de
-valuations commune jusqu'à la descente a donc une longueur au plus
-\(r\). Elle ne peut pas être non bornée. La longueur exactement \(r\)
-est la moitié déjà lue du théorème 1.2 de Terras ; elle n'est pas
-redémontrée. Ce n'est pas une nouveauté, ni une contrainte hors de la
-progression. La diagonale \(n_m=2^m q_m-1\) satisfait
+codage, cycle 020 §1, corrigé au §6). Soient \(a>1\) impair, \(d>0\)
+pair et \(r=v_2(d)\). Le rayon \(n=a+kd\), \(k\ge 0\), partage
+exactement \(r\) parités sous \(T\). Le sens direct est le cycle 015
+§10. Le sens inverse est la même baisse de valuation ; le PDF de Terras
+n'est pas rouvert. Un mot commun d'exposants exacts de \(U\) a une
+somme au plus \(r-1\). Si le premier exposant commun vérifie \(s\ge 2\),
+alors \(\tau_U=1\). Un exposant commun au moins \(2\) apparu plus tard
+descend sous l'itéré précédent, pas forcément sous le départ, et le mot
+peut continuer (X53). Une suite commune jusqu'à la première descente a
+donc une longueur au plus \(r-1\), la même pour tout le rayon. Elle est
+incompatible avec un \(\tau_U\) non borné. Elle ne borne pas \(\tau_U\)
+sans cette comparaison au départ. Ce n'est pas une nouveauté, ni une
+contrainte hors du rayon. La diagonale \(n_m=2^m q_m-1\) satisfait
 \(\tau_U=m\le\log_2(n_m+1)\) par A3 et \(q_m\ge 1\) : corollaire direct,
 non adopté.
+
+Revue indépendante `6095039362` (PR #27, SHA
+`b2d466a95ecd5347bcd6620851eb7caabac2dee0`) : l'obstruction par l'écart
+et le corollaire d'A3 confirmés. Correction : la chute locale ne donne
+pas \(\tau_U\le r\) (X53). Sur \(11+16k\), le mot \((1,2)\) laisse
+\(13+18k\) au-dessus du départ, et \(\tau_U(27)=37\). Sur \(27+32k\),
+le mot \((1,2,1)\) continue après la chute et laisse \(47+54k\)
+au-dessus du départ. L'union finie de raisons fixes peut couvrir les
+impairs (X54) : \(1+4k\) et \(3+4k\). Le certificat de première
+descente reste nécessaire pour borner \(\tau_U\). Le quantificateur est
+le rayon de raison positive (X55). Le cycle 021 n'est pas ouvert.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune

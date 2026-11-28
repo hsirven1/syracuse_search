@@ -10,10 +10,11 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le cycle 020 est écrit. Il attend sa relecture indépendante. Ne pas
-ouvrir le cycle 021 avant cette relecture. Recompter la fenêtre à ce
-moment-là. Au début du cycle 020, le plus ancien cycle de la fenêtre
-était le cycle 010, commit `462014b`, du 27 novembre 2026 à 02:11:58 UTC.
+La correction du cycle 020, après la revue `6095039362`, attend sa
+relecture indépendante. Ne pas ouvrir le cycle 021 avant cette
+relecture. Recompter la fenêtre à ce moment-là. Au début du cycle 020,
+le plus ancien cycle de la fenêtre était le cycle 010, commit
+`462014b`, du 27 novembre 2026 à 02:11:58 UTC.
 
 ## 1. [B] Porte sur le reste \(R(t)\) de B6 — PROCHAINE QUESTION (cycle 021), non entamée
 Les cycles 016 à 020 ont produit des identifications publiées ou des
@@ -41,11 +42,17 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
-- Cycle 020 (28 nov. 2026) : une progression de raison fixe n'a pas de
-  suite de valuations commune et de \(\tau_U\) non borné (B27). La
-  longueur commune est au plus \(v_2(d)\). La diagonale d'A3 satisfait
+- Revue `6095039362` (28 nov. 2026, SHA `b2d466a`) : l'obstruction de
+  B27 et le corollaire d'A3 confirmés. La chute locale ne donne pas
+  \(\tau_U\le r\) (X53). L'union \(1+4k\) et \(3+4k\) couvre les
+  impairs (X54). Le quantificateur est le rayon de raison positive
+  (X55). Le cycle 021 n'est pas ouvert. Détail : [reviews.md](reviews.md).
+- Cycle 020 (28 nov. 2026) : un rayon de raison positive n'a pas de
+  mot de valuations commun jusqu'à la première descente et de
+  \(\tau_U\) non borné (B27). La somme des exposants communs est au
+  plus \(v_2(d)-1\). La diagonale d'A3 satisfait
   \(m\le\log_2(n_m+1)\) et reste le certificat déjà prouvé. Pas une
-  contrainte hors de la progression.
+  contrainte hors du rayon.
   [cycle-020](cycles/cycle-020.md)
 - Revue `6094936782` (28 nov. 2026, SHA `5faae418`) : X52 confirmé.
   \(P_J-L=+2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\), l'écart vaut

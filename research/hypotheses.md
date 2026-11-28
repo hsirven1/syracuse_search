@@ -272,14 +272,17 @@ ne pas réécrire B24, et ne pas importer une vérification machine. Ne
 pas rouvrir Crandall ni les théorèmes 3 et 4.
 
 ## H15 — Progression de raison fixe et horizon non borné (axe A) — FERMÉ (B27)
-Pour \(a\) impair et \(d\) pair non nul, un mot de parités commun aux
-termes \(n=a+kd>1\) a une longueur au plus \(v_2(d)\) (B27). Une suite
-de valuations commune jusqu'à la première descente accélérée a la même
-borne. Elle est incompatible avec un \(\tau_U\) non borné. Le cas
-\(n\equiv 1\pmod 4\) reste \(\tau_U=1\) (X40), même si l'exposant n'est
-pas constant. Les classes d'A3, leur diagonale \(n_m=2^m q_m-1\), les
-Mersenne et \(5\cdot 2^k-1\) ne sont pas une autre réponse : la
-diagonale est le certificat déjà prouvé, et les deux dernières
-familles n'ont pas de formule jusqu'à la descente. Ne pas relancer
-cette recherche. Une union finie de raisons fixes ne couvre pas les
-impairs.
+Pour \(a>1\) impair et \(d>0\) pair, le rayon \(n=a+kd\) partage
+exactement \(v_2(d)\) parités (B27). Un mot commun d'exposants de \(U\)
+a une somme au plus \(v_2(d)-1\). S'il décrit la première descente de
+chaque terme, \(\tau_U\) est constant et au plus \(v_2(d)-1\). Sans
+cette comparaison au départ, un exposant au moins \(2\) ne donne pas
+\(\tau_U\le v_2(d)\) (X53). Le cas \(n\equiv 1\pmod 4\) reste
+\(\tau_U=1\) (X40), même si l'exposant n'est pas constant. Les classes
+d'A3, leur diagonale \(n_m=2^m q_m-1\), les Mersenne et
+\(5\cdot 2^k-1\) ne sont pas une autre réponse : la diagonale est le
+certificat déjà prouvé, et les deux dernières familles n'ont pas de
+formule jusqu'à la descente. Ne pas relancer cette recherche. Une union
+finie de raisons fixes peut couvrir les impairs (X54). Ce qui est fermé
+est une couverture dont chaque pièce a un mot commun de première
+descente. Le quantificateur est le rayon de raison positive (X55).
