@@ -11,11 +11,12 @@ $\forall N>0$ : orbite non bornée ⇒ $\eta_N:=\liminf_tE(t)/t>0$.
 - Toujours $\eta_N\le\beta/\delta$ pour une orbite non bornée (B6 : $H\ge0$ et $R=o(E)$).
 - Garcia–Tal 1999, lu au cycle 021, donne la densité de Banach nulle.
   L'inégalité (6) implique la sommabilité des réciproques, et B28 la
-  prouve pour \(T\) sans Heppner : \(R(t)\) converge. La constante
-  \(61344/65\) reste non validée (X57, X58). Même alors,
+  prouve pour \(T\) sans Heppner : \(R(t)\) converge, et le comptage
+  donne \(\sum 1/n<394<61344/65\) (X61). L'attribution de cette
+  constante à Garcia–Tal reste fausse (X57). Même alors,
   \(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
   Cela ne donne pas H1. Ne pas reprendre cette lecture pour un gain
-  logarithmique, ni pour calculer la constante de C3.
+  logarithmique, ni pour attribuer la constante de C3 au PDF.
 - Obstacle : les bornes archimédiennes seules ne suffisent pas (X15) ; il faut l'intégralité.
 - Non attaqué directement tant qu'aucun mécanisme nouveau n'est identifié.
 

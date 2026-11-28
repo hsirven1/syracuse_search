@@ -42,6 +42,8 @@ $(A,B)$ échoue. Les Mersenne $M=2^h-1$ donnent $B\ge1$ ($k=1$). Pour $B\le1$, l
 modulo $2^m$ ($m\ge3$) fournit $r$ avec $v_2(5\cdot3^r+1)\ge m$ ; la fenêtre $M=5\cdot2^r-1$
 a deux runs de somme $\ge r+m-1$, tandis que $x(M)<r+3$. Choisir $m>2A+4$. Témoin :
 $r=757$, $v_2(5\cdot3^{757}+1)=16$, somme 772, et $5^3<2^7$ tue aussi $A\le6$ à pente 1.
+L'identité $v_2(3^{2^{m-3}}-1)=m-1$ ne vaut que pour $m\ge4$ (X63). Pour $m=3$, l'ordre
+modulo $8$ vaut $2$ par lecture directe. L'ordre $2^{m-2}$ pour $m\ge3$ reste vrai.
 Preuve autonome (n'invoque pas C8).
 
 **B5 — Fenêtres de longueur $\le K$** (PROUVÉ, cycle 002 §3). $x(M_{j+1})\le\delta\,x(M_j)$ et
@@ -833,20 +835,35 @@ l'orbite. Le reste \(R(t)\) de B6 converge vers une limite finie. Preuve
 autonome : les \(2^k\) mots de longueur \(k\) sur \(\{1,\ldots,2^k\}\)
 sont distincts, \(T^k(n)<2\cdot 3^s\), et le partage \(3k/5\) donne
 \(A(2^k)=O(\lambda^k)\) avec \(\lambda<2\), car \(27<32\) et
-\(3125<3456\). Les blocs dyadiques sont géométriques. Pour l'application
+\(3125<3456\). Le même comptage donne la borne uniforme
+\(\sum 1/n<394\), donc \(\sum_t 1/n_t<394<61344/65\), et
+\(R(\infty)<394/\ln 2\) (X61). Les blocs dyadiques sont géométriques. Pour l'application
 de Hasse du texte, la même somme suit de (6) dès que
 \(\delta_1,\delta_2\in(0,1)\), sans valeur numérique ; la preuve de
-Heppner n'est pas lue. Ce n'est pas \(61344/65\). La limite de B6 est
+Heppner n'est pas lue. Le nombre \(61344/65\) n'est pas lu dans le PDF.
+La limite de B6 est
 inchangée :
 \(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
 Aucune orbite divergente n'est exclue. Pour \(T\),
 \(\limsup n_t/t=\infty\).
 
+Revue indépendante `6095232407` (PR #27, SHA
+`39fa8067bfc7cf40133fc3808e54a170dc6f71ae`) : B28, la conséquence de
+(6), la formule de B6 et l'ordre confirmés. Correction : le comptage
+donne \(\sum 1/n<394<61344/65\) (X61). L'attribution de la constante à
+Garcia–Tal reste fausse (X57). Les autres clauses de C3 ne sont pas
+validées. Le rapport au temps \(1\) ne décide pas de la limite ; au
+temps \(2^{3j}+1\), le rapport dépasse \(2^{2^{3j+1}-5j}\) (X59). À
+\(t=0\), l'écart de \(\lfloor(3/2)^t\rfloor\) vaut \(1\) (X62).
+L'identité \(v_2(3^{2^{m-3}}-1)=m-1\) vaut pour \(m\ge 4\) seulement ;
+modulo \(8\), l'ordre vaut \(2\) (X63). Le cycle 022 n'est pas ouvert.
+
 Revue indépendante `6095181058` (PR #27, SHA
 `ede0b2d054bbf802eb4a1b6fdc2f05779304169d`) : les hypothèses classiques,
 le corollaire 1 et la formule de limite confirmés. Correction : (6)
-implique la sommabilité (X58), et B28 la prouve pour \(T\). La constante
-de C3 reste non validée. L'inégalité numérique du cycle 021 §3 suppose
+implique la sommabilité (X58), et B28 la prouve pour \(T\). La phrase
+alors écrite laissait la constante de C3 non validée. La revue
+`6095232407` en tire \(\sum 1/n<394\) (X61). L'inégalité numérique du cycle 021 §3 suppose
 \(t\ge 24\). La suite synthétique n'a qu'un liminf nul (X59). L'ordre
 modulo \(4\) vaut \(2\) (X60) et n'implique pas \(r(m)\ge 2^{m/2}\).
 Le cycle 022 n'est pas ouvert.
@@ -864,7 +881,7 @@ Les relectures de l'initialisation n'ont pas trouvé d'erreur, sans vérificatio
 |---|---|---|---|
 | C1 | Orbite non bornée ⇒ $p_N(L)\ge1+\lfloor(L-K)/\beta\rfloor$ ($N+1\le2^K$) | PR [#21](https://github.com/hsirven1/syracuse_search/pull/21) | Pente $1/\beta$ **déjà publiée** : Dubickas 2009, thm 5 |
 | C2 | Pour tout $N$ : $E(t)\ge\log_2t/\log_2\delta-O_N(1)$ ; identité $H(t)=H(0)+\beta t-\delta E(t)+R(t)$ ; gain conditionnel $\liminf(p_N(L)-L/\beta)/\log_2L\ge\delta/(\beta\log_2\delta)$ | PR [#22](https://github.com/hsirven1/syracuse_search/pull/22) | Divisibilité $2^r\mid n+1$ pour un run de $r$ impairs |
-| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | Le PDF n'écrit pas la somme (X57). (6) l'implique dès que les exposants sont dans $(0,1)$, et B28 prouve la somme et la convergence de $R$ pour $T$ sans la constante $61344/65$. Le reste de C3 n'est pas validé et n'est pas une prémisse |
+| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | Pour $T$, B28 donne $\sum_t 1/n_t<394<61344/65$ et $R(\infty)<394/\ln 2$ (X61). Le PDF n'écrit pas cette constante (X57). Les autres clauses restent non validées et ne sont pas une prémisse |
 | C4 | Mot triangulaire : $p_w(L)=\lfloor(L+1)^2/4\rfloor$ ($L\ge3$) ; congruence (14) ; réalisation 2-adique (B) | PR [#23](https://github.com/hsirven1/syracuse_search/pull/23) | (B) re-dérivée en B1–B2 |
 | C5 | $2S+1=f_{3/2}(2)$ ; exclusion du mot triangulaire **conditionnelle** à VW 1989 | PR [#24](https://github.com/hsirven1/syracuse_search/pull/24) | Condition levée par B2 (énoncé primaire lu) |
 | C6 | Récurrence des runs $r_{i+1}+1=v_2(3^{r_i}a_i+1)$, $M_i+1=2^{r_i}a_i$ ; (V) ⇒ gain log-log | branche `research/padic-successive-runs` (base de #25) | — |

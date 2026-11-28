@@ -35,10 +35,14 @@ survit à ce test.
 Elle ne survit pas à deux runs.
 
 **Ordre de 3.** Pour $m\ge3$, $v_2(3^2-1)=3$, et $v_2(3^{2^j}+1)=1$ dès que $j\ge1$, donc
-$v_2(3^{2^{j+1}}-1)=v_2(3^{2^j}-1)+1$. On obtient $v_2(3^{2^{m-2}}-1)=m$ et
-$v_2(3^{2^{m-3}}-1)=m-1$. L'ordre de 3 modulo $2^m$ est donc $2^{m-2}$. Le sous-groupe
+$v_2(3^{2^{j+1}}-1)=v_2(3^{2^j}-1)+1$. On obtient $v_2(3^{2^{m-2}}-1)=m$. La seconde
+identité écrite ici, $v_2(3^{2^{m-3}}-1)=m-1$, ne vaut que pour $m\ge4$ (X63). Pour
+$m=3$, l'exposant $2^{0}$ donne $v_2(3-1)=1$, pas $2$. L'ordre modulo $8$ se lit
+directement : $3^2\equiv1\pmod8$ et $3\not\equiv1\pmod8$, donc il vaut $2=2^{3-2}$.
+Pour $m\ge4$, la remontée depuis $v_2(3^2-1)=3$ donne les deux valuations, et l'ordre
+modulo $2^m$ vaut $2^{m-2}$. Cet ordre reste vrai pour tout $m\ge3$. Le sous-groupe
 engendré est contenu dans les unités $\equiv1$ ou $3\pmod8$, qui ont le même cardinal, donc
-il coïncide avec elles.
+il coïncide avec elles. B4 n'utilise pas l'égalité fausse au bord.
 
 Comme $5\cdot5\equiv1\pmod8$, on a $5^{-1}\equiv5\pmod8$ et $-5^{-1}\equiv3\pmod8$. Il existe
 donc un entier $r$, $1\le r<2^{m-2}$, tel que $5\cdot3^r\equiv-1\pmod{2^m}$, c'est-à-dire

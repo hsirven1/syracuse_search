@@ -11,9 +11,12 @@ la convergence de \(R(t)\) sont prouvées sans Heppner (B28). Même
 borné, \(R\) laisse
 \(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
 Aucune minoration strictement positive de cette limite inférieure n'en
-sort. La constante \(61344/65\) et le reste de C3 restent non validés.
+sort. Le comptage de B28 donne
+\(\sum 1/n<394<61344/65\) (X61). L'attribution de cette constante à
+Garcia–Tal, et le reste de C3, restent non validés.
 NO-GO pour un resserrement de la limite. L'ordre de \(3\) n'implique
-pas \(r(m)\ge 2^{m/2}\).
+pas \(r(m)\ge 2^{m/2}\). L'identité
+\(v_2(3^{2^{m-3}}-1)=m-1\) ne vaut que pour \(m\ge 4\) (X63).
 
 La première rédaction titrait que l'article ne donne pas \(R(t)=O(1)\).
 Cette lecture confondait « non écrit » et « pas une conséquence ». Elle
@@ -73,7 +76,9 @@ le §8 pour l'énoncé général. Elle ne change pas la limite de B6.
 haute : les six pages sont lues. « (6) ne implique pas la sommabilité
 sans les valeurs numériques des exposants » est faux (X58), confiance
 haute. « \(R=O(1)\) change la limite » est faux pour l'identité déjà
-prouvée, confiance haute. La constante de C3 reste non vérifiée.
+prouvée, confiance haute. La borne \(\sum 1/n<394\) est prouvée
+au §9. L'attribution de \(61344/65\) au PDF reste non vérifiée, et elle
+est fausse (X57).
 
 **Décision.** NO-GO pour un lemme qui resserrerait
 \(\limsup E(t)/t\). La sommabilité elle-même est prouvée au §8, parce
@@ -166,17 +171,29 @@ Deux suites, qui ne sont pas des orbites, séparent ces lectures.
   vaut \(2^{-j}\). Les autres temps reçoivent, dans l'ordre,
   \(2^1,2^3,2^5,\ldots\). Les valeurs sont des puissances de \(2\)
   distinctes. Le rapport prescrit tend vers \(0\), donc
-  \(\liminf n_t/t=0\). Au temps \(1\), la valeur est \(2\) et le
-  rapport vaut \(2\) : la suite complète ne tend pas vers \(0\). La
+  \(\liminf n_t/t=0\). La valeur au temps \(1\) est \(2\), de rapport
+  \(2\). Ce seul terme ne décide pas de la limite. Au temps non
+  réservé \(t=2^{3j}+1\), les temps réservés qui précèdent sont
+  exactement \(j\), donc le rang de remplissage est \(t-j\) et la
+  valeur est \(2^{2(t-j)-1}\). Comme \(t<2^{3j+1}\),
+  \[
+  \frac{n_t}{t}>2^{2^{3j+1}-5j}.
+  \]
+  L'exposant vaut au moins \(11\) pour \(j\ge 1\) et tend vers
+  l'infini, donc \(\limsup n_t/t=\infty\). La suite complète ne tend
+  pas vers \(0\) (X59). La
   formule \(n_{4^j}=2^{2j+1}\) a, elle, le rapport \(2\), pas
-  \(2^{1-j}\) (X59). Un intervalle de \(n\) entiers consécutifs
+  \(2^{1-j}\). Un intervalle de \(n\) entiers consécutifs
   contient au plus \(\lfloor\log_2 n\rfloor+1\) puissances de \(2\) :
   \(r\) termes \(2^u,\ldots,2^{u+r-1}\) vérifient
   \(2^u(2^{r-1}-1)<n\), donc \(2^{r-1}\le n\). La densité de Banach
   est nulle. Le script le vérifie pour \(1\le n\le 32\).
-- \(m_t=\lfloor(3/2)^t\rfloor\) vérifie
+- Pour \(t\ge 1\), \(m_t=\lfloor(3/2)^t\rfloor\) vérifie
   \(0<\log_2(m_t+1)-\beta t<1\), parce que
-  \(3^t<2^t(m_t+1)<2\cdot 3^t\). Donc
+  \(3^t<2^t(m_t+1)<2\cdot 3^t\). À \(t=0\), \(m_0=1\) et
+  \(2^0(m_0+1)=2=2\cdot 3^0\), donc l'écart vaut \(1\) (X62).
+  Pour \(t\ge 1\), \((3/2)^t>1\) et \(3^t\) n'est pas une puissance de
+  \(2\), donc les deux inégalités sont strictes. Donc
   \(\log_2(m_t+1)/t\to\beta\). Les valeurs jusqu'à \(x\) n'occupent
   que \(O(\log x)\) temps. Ce n'est pas une orbite :
   \(T(2)=1\neq 3\). Le comptage de B28 autorise donc la croissance
@@ -186,9 +203,11 @@ Deux suites, qui ne sont pas des orbites, séparent ces lectures.
 ## 4. Ce que ce cycle ne montre pas
 
 Il prouve la sommabilité et \(R(t)=O(1)\) pour toute orbite positive
-non bornée de \(T\) (B28). Il ne calcule pas \(61344/65\), ni aucune
-autre constante numérique uniforme. Il ne resserre pas la limite de
-B6 et n'exclut aucune orbite divergente. Il ne valide pas C3. Il ne
+non bornée de \(T\) (B28). Le même comptage donne la borne uniforme
+\(\sum 1/n<394\), donc aussi \(\sum_t 1/n_t\le 61344/65\) (X61). Il
+n'attribue pas \(61344/65\) à Garcia–Tal et ne valide pas les autres
+clauses de C3. Il ne resserre pas la limite de
+B6 et n'exclut aucune orbite divergente. Il ne
 démontre pas la proposition 1 de Heppner. Il ne prouve pas
 \(\liminf\log_2(n_t+1)/t>0\), ni l'inégalité stricte opposée. Les
 cycles 016 à 021 sont six cycles d'identification ou de portée. La
@@ -200,14 +219,14 @@ septième lecture.
 
 - `prior_art.md` : Garcia–Tal est lu. (6) implique la sommabilité ;
   le PDF ne l'écrit pas.
-- `proved.md` : B28. La remarque de C3 sépare la conséquence de (6),
-  la preuve autonome pour \(T\), et la constante non validée.
-- `counterexamples.md` : X57 rétréci ; X58, X59, X60.
+- `proved.md` : B28, avec la borne \(394\). La remarque de C3 sépare
+  cette inégalité, l'attribution non lue, et les autres clauses.
+- `counterexamples.md` : X57 rétréci ; X58, X59, X60, X61, X62, X63.
 - `abandoned.md` : ne pas rouvrir cette lecture pour resserrer la
-  limite, ni pour calculer \(61344/65\).
+  limite, ni pour attribuer \(61344/65\) au PDF.
 - `hypotheses.md` : H1 inchangée dans son statut. B28 ne la donne pas.
-- `agenda.md` : le cycle 022 attend la relecture de ce correctif.
-- `reviews.md` : revues `6095141976` et `6095181058`.
+- `agenda.md` : le cycle 022 attend la relecture du §9.
+- `reviews.md` : revues `6095141976`, `6095181058` et `6095232407`.
 
 ## 6. Prochaine question
 
@@ -229,9 +248,9 @@ suite n'est pas une orbite. La question n'est pas H1 : H1 est
 lemme. Ne pas rouvrir Garcia–Tal, Heppner, la constante de C3, l'ordre
 de \(3\), ni les cylindres.
 
-Ne pas ouvrir ce cycle avant la relecture indépendante du présent
-correctif. La fenêtre, au début du cycle 021, contient encore le cycle
-011. Elle ne lève pas cette attente.
+Ne pas ouvrir ce cycle avant la relecture indépendante du §9.
+La fenêtre, au début du cycle 021, contient encore le cycle
+011. Elle ne lève pas cette attente. Le §9 n'est pas un nouveau cycle.
 
 ## 7. Reproduire
 
@@ -239,7 +258,7 @@ correctif. La fenêtre, au début du cycle 021, contient encore le cycle
 python3 research/checks/cycle021_garcia_tal_gate.py
 ```
 
-Sortie attendue : 13 lignes `PASS`.
+Sortie attendue : 18 lignes `PASS`.
 
 ## 8. Correction après la revue `6095181058`
 
@@ -252,7 +271,8 @@ distinctes, \(\sum_{n\in\mathcal O}1/n<\infty\), et le reste
 R(t)=\sum_{\substack{s<t\\ n_s\text{ pair}}}\log_2\bigl(1+1/(n_s+1)\bigr)
 \]
 converge vers une limite finie. La majoration est uniforme en l'orbite.
-Ce n'est pas la constante \(61344/65\).
+Le §9 en tire \(\sum 1/n<394\), donc aussi
+\(\sum_t 1/n_t\le 61344/65\). Cette constante n'est pas lue dans le PDF.
 
 **Mots.** Si \(1\le n<m\le 2^k\) ont les mêmes \(k\) premières parités,
 alors \(v_2(T^j(m)-T^j(n))=v_2(m-n)-j\) tant que l'écart est non nul :
@@ -334,6 +354,9 @@ Pour \(T\), le §8.1 rend la même conclusion indépendante de cet énoncé.
 Le cycle 002 §2 prouve que l'ordre de \(3\) modulo \(2^m\) vaut
 \(2^{m-2}\) pour \(m\ge 3\). Pour \(m=2\), \(3^1\equiv 3\pmod 4\) et
 \(3^2\equiv 1\pmod 4\), donc l'ordre vaut \(2\), pas \(2^{0}=1\) (X60).
+L'identité \(v_2(3^{2^{m-3}}-1)=m-1\) ne vaut que pour \(m\ge 4\). Pour
+\(m=3\), \(v_2(3-1)=1\) (X63). L'ordre modulo \(8\) se lit directement
+et vaut \(2\). Le §9 donne la remontée.
 
 Cet ordre est la période exacte des solutions de \(3^r\equiv c\pmod{2^m}\)
 lorsqu'une solution existe. Il ne minore pas le plus petit \(r>0\).
@@ -343,3 +366,115 @@ vaut pour \(c=-5^{-1}\). Il n'implique donc pas
 \(r(m)\ge 2^{m/2}\). C'est le cas NO-GO déjà écrit : on n'obtient que
 l'espacement. Le calcul au-delà de \(m=40\) n'est pas repris, et (H)
 n'est pas réfutée.
+
+## 9. Correction après la revue `6095232407`
+
+La revue `6095232407` porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW`
+et le SHA `39fa8067bfc7cf40133fc3808e54a170dc6f71ae`, tête de la PR #27
+au moment de cette relecture. Elle confirme B28, la conséquence de (6),
+la formule de B6, les hypothèses classiques et le fait que l'ordre
+n'implique pas \(r(m)\ge 2^{m/2}\). Trois phrases écrites étaient trop
+fortes. Le cycle 022 n'est pas ouvert.
+
+### 9.1. Borne uniforme (X61)
+
+**Énoncé.** Pour toute orbite positive non bornée de \(T\),
+\[
+\sum_{n\in\mathcal O}\frac1n<394<61344/65.
+\]
+Les valeurs sont distinctes, donc la somme en temps est la même. Le
+reste de B6 satisfait \(0\le R(\infty)<394/\ln 2\).
+
+**Preuve.** Soient \(\alpha=3^{3/5}\) et
+\(\gamma=(5/2)/(3/2)^{3/5}\). Alors \(\alpha^5=27\) et
+\[
+\gamma^5=\frac{(5/2)^5}{(3/2)^3}=\frac{3125}{108}.
+\]
+Les produits \(27\cdot 100^5<197^5\) et
+\(3125\cdot 100^5<108\cdot 197^5\) donnent
+\(\alpha<197/100\) et \(\gamma<197/100\). Poser \(\lambda=197/100\).
+
+Pour \(k\ge 1\), le partage du §8.1 donne
+\(A(2^k)<2\alpha^k+\gamma^k\). Les départs à au plus
+\(\lfloor 3k/5\rfloor\) pas impairs ont des images distinctes dans
+\(\{1,\ldots,2\cdot 3^{\lfloor 3k/5\rfloor}-1\}\), donc sont en nombre
+strictement inférieur à \(2\alpha^k\). Les autres sont en nombre au
+plus \(\gamma^k\). Comme \(\alpha<\lambda\) et \(\gamma<\lambda\),
+\[
+A(2^k)<3\lambda^k.
+\]
+Dans le bloc \([2^j,2^{j+1})\), \(j\ge 0\),
+\[
+\sum\frac1n\le\frac{A(2^{j+1})}{2^j}<3\lambda\Bigl(\frac\lambda2\Bigr)^j.
+\]
+La somme de ces majorants vaut
+\[
+\frac{3\lambda}{1-\lambda/2}
+=\frac{3\cdot(197/100)}{3/200}=394,
+\]
+car \(1-\lambda/2=3/200\). Le premier bloc est strictement sous
+\(3\lambda\), donc la somme de l'orbite est strictement inférieure à
+\(394\). Enfin \(394\cdot 65=25610<61344\).
+
+Pour \(x>0\), \(\ln(1+x)\le x\), donc
+\(\log_2(1+1/(n+1))\le 1/((n+1)\ln 2)\le 1/(n\ln 2)\). La série des
+accroissements de \(R\) est majorée par \(1/\ln 2\) fois la somme des
+réciproques.
+
+Cette borne est celle du comptage de B28. Elle ne figure pas dans le
+PDF de Garcia–Tal (X57). Elle valide, pour \(T\) et les orbites
+positives non bornées, l'inégalité numérique
+\(\sum_t 1/n_t\le 61344/65\) et la convergence de \(R\) déjà écrite.
+Elle ne valide pas les autres clauses de C3 : la minoration
+logarithmique de \(p_N\), la formule \(\limsup H/t=\beta-\delta\eta_N\),
+l'exclusion d'un mot à runs presque maximaux, ni le modèle réel.
+
+### 9.2. La valeur au temps \(1\) (X59)
+
+La suite du §3 place \(2^{2j}\) au temps \(2^{3j}\), \(j\ge 1\), et
+range \(2^1,2^3,2^5,\ldots\) aux autres temps, dans cet ordre. Le
+rapport aux temps réservés vaut \(2^{-j}\), donc le liminf est nul.
+La valeur au temps \(1\) est \(2\). Un terme isolé ne décide pas si
+\(n_t/t\) tend vers \(0\).
+
+Le temps \(t=2^{3j}+1\) est impair, donc il n'est pas réservé. Les
+temps réservés \(2^{3},\ldots,2^{3j}\) sont exactement les \(j\) entiers
+de \(\{1,\ldots,t-1\}\) de cette forme. Le rang de remplissage est
+\(t-j\), et la valeur est \(2^{2(t-j)-1}\). Comme
+\(t=2^{3j}+1<2^{3j+1}\),
+\[
+\frac{n_t}{t}>2^{2^{3j+1}-5j}.
+\]
+Pour \(j=1\), l'exposant vaut \(11\). De \(j\) à \(j+1\), il augmente de
+\(7\cdot 2^{3j+1}-5>0\). Il tend donc vers l'infini, \(n_t/t\to\infty\)
+le long de cette sous-suite, et la suite complète ne tend pas vers \(0\).
+
+### 9.3. L'écart à \(t=0\) (X62)
+
+Pour \(t\ge 1\), \((3/2)^t>1\) et \(3^t\) n'est pas une puissance de
+\(2\). Si \(m_t=\lfloor(3/2)^t\rfloor\), alors
+\(3^t<2^t(m_t+1)\le 3^t+2^t<2\cdot 3^t\), donc
+\(0<\log_2(m_t+1)-\beta t<1\). À \(t=0\), \(m_0=1\) et les deux membres
+\(2^t(m_t+1)\) et \(2\cdot 3^t\) valent \(2\). L'écart logarithmique
+vaut exactement \(1\).
+
+### 9.4. L'identité de valuation (X63)
+
+Pour \(j\ge 1\), \(3^2\equiv 1\pmod 8\), donc
+\(3^{2^j}\equiv 1\pmod 8\) et \(v_2(3^{2^j}+1)=1\). La factorisation
+\(3^{2^{j+1}}-1=(3^{2^j}-1)(3^{2^j}+1)\) donne
+\(v_2(3^{2^{j+1}}-1)=v_2(3^{2^j}-1)+1\). Avec \(v_2(3^2-1)=3\), on
+obtient \(v_2(3^{2^j}-1)=j+2\) pour tout \(j\ge 1\).
+
+Pour \(m\ge 4\), \(j=m-3\ge 1\), donc
+\(v_2(3^{2^{m-3}}-1)=m-1\). Pour \(m\ge 3\), \(j=m-2\ge 1\), donc
+\(v_2(3^{2^{m-2}}-1)=m\). Ainsi \(3^{2^{m-2}}\equiv 1\pmod{2^m}\), et
+pour \(m\ge 4\) la valuation précédente est \(m-1<m\). L'ordre divise
+donc \(2^{m-2}\) et ne divise pas \(2^{m-3}\), donc il vaut
+\(2^{m-2}\).
+
+Pour \(m=3\), \(2^{m-3}=1\) et \(v_2(3-1)=1\), pas \(2\). L'ordre modulo
+\(8\) se lit directement : \(3^2\equiv 1\pmod 8\) et \(3\not\equiv 1\pmod 8\),
+donc il vaut \(2\). L'énoncé d'ordre pour \(m\ge 3\) reste vrai. B4
+n'utilise pas l'égalité fausse au bord. Pour \(c=3\), la plus petite
+solution reste \(r=1\), malgré la même période.

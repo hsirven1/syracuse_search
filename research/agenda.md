@@ -10,19 +10,21 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif du cycle 021 attend sa relecture indépendante. Ne pas
-ouvrir le cycle 022 avant cette relecture. Au début du cycle 021, les
-cycles 011 à 020 étaient dans la fenêtre. Le plus ancien est le cycle
-011, commit `ded6e1c`, du 27 novembre 2026 à 02:40:03 UTC. Le correctif
-n'est pas un nouveau cycle. La fenêtre ne lève pas l'attente de
-relecture.
+Le correctif du cycle 021, revue `6095232407`, attend sa relecture
+indépendante. Ne pas ouvrir le cycle 022 avant cette relecture. Au
+début du cycle 021, les cycles 011 à 020 étaient dans la fenêtre. Le
+plus ancien est le cycle 011, commit `ded6e1c`, du 27 novembre 2026 à
+02:40:03 UTC. Le correctif n'est pas un nouveau cycle. La fenêtre ne
+lève pas l'attente de relecture.
 
 ## 1. [B] Limite inférieure de la hauteur sur une orbite non bornée — PROCHAINE QUESTION (cycle 022), non entamée
 Les cycles 016 à 021 sont des identifications ou des lectures de
 portée, et B28 est la correction de la sommabilité, pas une septième
 lecture. Ne pas rouvrir H1 comme petit lemme, la densité de Banach,
-Heppner, la constante \(61344/65\), l'ordre de \(3\), les cylindres,
+Heppner, l'attribution de \(61344/65\) à Garcia–Tal, les autres clauses
+de C3, l'ordre de \(3\), les cylindres,
 les progressions de raison fixe, H3, \(P(2)\), le signe moins, ni B27.
+La borne \(\sum 1/n<394\) est prouvée (X61). Ne pas la recalculer.
 
 Pour une orbite positive non bornée de \(T\), B28 et l'identité de B6
 donnent
@@ -34,8 +36,10 @@ suite n'est pas une orbite. H1 est l'autre bout de l'identité,
 \(\limsup\log_2(n_t+1)/t<\beta\). Ne pas l'attaquer ici. Ne pas ouvrir
 ce cycle avant la fin du blocage ci-dessus.
 
-L'ordre de \(3\) modulo \(2^m\) vaut \(2^{m-2}\) seulement pour
-\(m\ge 3\). Modulo \(4\), il vaut \(2\) (X60). Il espace les solutions
+L'ordre de \(3\) modulo \(2^m\) vaut \(2^{m-2}\) pour
+\(m\ge 3\). L'identité \(v_2(3^{2^{m-3}}-1)=m-1\) ne vaut que pour
+\(m\ge 4\) (X63) ; modulo \(8\), l'ordre se lit directement et vaut \(2\).
+Modulo \(4\), il vaut \(2\) (X60). Il espace les solutions
 et ne minore pas le plus petit \(r\). Cette question est fermée.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
@@ -47,10 +51,18 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Correctif du cycle 021 (28 nov. 2026, revue `6095232407`) : le
+  comptage de B28 donne \(\sum 1/n<394<61344/65\) (X61). Le rapport au
+  temps \(1\) ne décide pas de la limite (X59). À \(t=0\), l'écart de
+  \(\lfloor(3/2)^t\rfloor\) vaut \(1\) (X62). L'identité
+  \(v_2(3^{2^{m-3}}-1)=m-1\) vaut pour \(m\ge 4\) (X63). Le cycle 022
+  n'est pas ouvert.
+  [cycle-021](cycles/cycle-021.md)
 - Correctif du cycle 021 (28 nov. 2026, revue `6095181058`) : (6)
   implique la sommabilité dès que \(\delta_1,\delta_2\in(0,1)\) (X58).
   Pour \(T\), B28 prouve la somme et la convergence de \(R\) sans
-  Heppner. La constante \(61344/65\) reste non validée. La limite de
+  Heppner. La phrase alors écrite laissait \(61344/65\) non validée ;
+  la revue `6095232407` donne ensuite \(\sum 1/n<394\) (X61). La limite de
   B6 ne change pas. L'ordre modulo \(4\) vaut \(2\) (X60) et n'implique
   pas \(r(m)\ge 2^{m/2}\). Le cycle 022 n'est pas ouvert.
   [cycle-021](cycles/cycle-021.md)
