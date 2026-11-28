@@ -10,30 +10,27 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6094246430` confirme B22, la valuation et l'implication
-directe de X42. Elle retire « 4.14 n'implique pas \(P(2)\) » :
-l'inclusion stricte et l'orbite convergente de \(5\) séparent les
-hypothèses, pas les deux conjectures. Pour déduire \(P(2)\) de
-4.14, il reste la queue issue du premier terme \(\equiv 5\pmod 8\)
-(cycle 016 §9). Cette réduction ne résout ni 4.13 ni 4.14. Ne pas
-ouvrir le cycle 017 avant une relecture de ce correctif, ni avant
-le 28 novembre 2026 à 00:04 UTC. Le plus ancien cycle de la fenêtre
-est le cycle 005 : le commit `ebba330` est du 27 novembre 2026 à
-00:03:27 UTC.
+Le cycle 017 est le douzième de la fenêtre dont le plus ancien est
+le cycle 006. Le commit `fcd6a00` est du 27 novembre 2026 à
+00:25:31 UTC. Ne pas ouvrir le cycle 018 avant le 28 novembre 2026
+à 00:26 UTC. La revue `6094283257` est enregistrée dans ce cycle :
+confirmation du cycle 016 §9, sans correction.
 
-## 1. [C] La borne de Korec et les classes — PROCHAINE QUESTION (cycle 017), non entamée
-Ne pas rouvrir \(P(2)\), les conjectures 4.11 à 4.14, Steiner, les
-\(m\)-cycles, B21, Tao au-delà de B20, les potentiels, le signe
-moins, le mot du cycle 006, ni \(5\cdot 2^k-1\).
+## 1. [A] La borne d'Eliahou et les trajectoires non périodiques — PROCHAINE QUESTION (cycle 018), non entamée
+Ne pas rouvrir Korec, Tao, Terras, Everett, Inselmann, la remarque
+1.4, \(P(2)\), les conjectures 4.11 à 4.14, Steiner, ni les
+\(m\)-cycles. Ne pas redémontrer une densité.
 
-Korec (1994) est une source secondaire, via Tao : une densité
-naturelle de départs dont le minimum passe sous \(n^\theta\), avec
-\(\theta>\log 3/\log 4\). Lire l'énoncé primaire, ou le passage exact
-où Tao l'énonce si le primaire manque. Décider seulement si cette
-borne force une classe de congruence entière à atteindre \(1\). Si
-elle ne donne qu'un comptage, la classer plus faible que B20 et X34,
-et ne pas la redémontrer. Ne pas ouvrir ce cycle avant la fin du
-blocage ci-dessus.
+Eliahou, *Discrete Math.* 118 (1993), est une source secondaire :
+une borne de longueur d'un cycle non trivial, par les fractions
+continues de \(\log_2 3\). Lire l'énoncé primaire. Décider seulement
+s'il exclut une trajectoire non périodique, ou seulement un cycle
+dont le minimum est dans une plage écrite. S'il ne borne que le
+nombre d'éléments d'un cycle, le classer hors des trajectoires
+divergentes et ne pas redémontrer l'estimation. Ne pas importer une
+vérification machine. Le paramètre \(m\) de Simons–de Weger et de
+Hercher compte des minima, pas cette longueur. Ne pas ouvrir ce
+cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -44,6 +41,18 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 017 (28 nov. 2026) : le théorème 1 de Korec, lu, donne la
+  densité naturelle de \(M_c\) pour \(c>\log_4 3\). La densité
+  relative dans chaque classe vaut \(1\) (B23). X34 empêche l'inclusion,
+  et le prédicat n'est pas l'atteinte de \(1\). La phrase universelle
+  de descente est fausse en \(y=1\) (X43). Le certificat \(S_m<md\)
+  manque la classe \(-1\pmod{2^m}\) (X44). Pas une découverte, ni une
+  contrainte sur une orbite. [cycle-017](cycles/cycle-017.md)
+- Revue `6094283257` (27 nov. 2026, SHA `c3b02198`) : confirmation de
+  la réduction du cycle 016 §9. \(P(2)\) équivaut à la conjecture
+  4.14 et à la queue issue du premier \(5\pmod 8\). Aucune correction.
+  Aucune des deux conjectures n'est résolue. Cycle 017 ensuite.
+  Détail : [reviews.md](reviews.md).
 - Revue `6094246430` (27 nov. 2026, SHA `6bd08925`) : B22, la
   valuation et l'implication directe de X42 confirmées. La
   formulation catégorique « 4.14 n'implique pas \(P(2)\) » est

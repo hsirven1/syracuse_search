@@ -617,6 +617,35 @@ l'atteinte de \(1\) se transmet. Cette queue commence par
 \(5\pmod 8\), donc 4.14 ne s'y applique pas directement. Aucune des
 deux conjectures n'est résolue. Le cycle 017 n'est pas ouvert.
 
+Revue indépendante `6094283257` (PR #27, SHA
+`c3b0219856c3a13bc003e5f09671a30319bc95d2`) : cette réduction est
+confirmée. Aucune correction. Le cycle 016 n'est pas réécrit.
+
+**B23 — La densité de Korec ne force aucune classe à atteindre \(1\)**
+(cycle 017). Corollaire du théorème publié, pas une découverte.
+
+Korec, *Math. Slovaca* 44 (1994), théorème 1, lu : pour
+\(c>\log_4 3\), l'ensemble \(M_c\) des \(y\) dont un itéré de \(T\)
+est strictement inférieur à \(y^c\) a une densité asymptotique égale
+à \(1\). Les chiffres imprimés \(0{,}79248125\ldots\) commencent le
+développement de \(\log_4 3=0{,}7924812503\ldots\). Ils ne remplacent
+pas l'inégalité stricte. L'application \(T\) est celle de cette
+mémoire. Pour \(N\ge 1\), le minimum de l'orbite classique est le
+même, car les impairs coïncident et chaque pair est suivi d'un impair
+strictement plus petit.
+
+Pour tout module \(m\ge 1\) et tout résidu \(a\), la densité relative
+de \(M_c\) dans la classe vaut \(1\). Une classe de densité \(1/m\)
+n'est pas contenue dans le complémentaire, qui a densité \(0\). X34
+empêche l'inclusion : un ensemble de densité naturelle \(1\) peut
+omettre une infinité d'éléments de chaque classe. L'appartenance à
+\(M_c\) n'est pas l'atteinte de \(1\). La phrase universelle de
+descente, y compris en \(y=1\), est fausse (X43) : l'orbite de \(1\)
+est \(\{1,2\}\). L'équivalence correcte porte sur les \(y\ge 2\), et
+elle ne décide pas la conjecture. La condition suffisante
+\(S_m(y)<md\), pour \(d<1\), rate la classe \(y\equiv -1\pmod{2^m}\)
+(X44). Le théorème 1 n'est pas redémontré. Aucune orbite n'est exclue.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

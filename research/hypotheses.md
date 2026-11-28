@@ -219,3 +219,17 @@ les orbites périodiques, avec \(m\le 75\) minima. Le cycle
 \(-5\to-7\to-10\) évite \(7\pmod 8\) (X41) : une preuve doit utiliser
 la positivité. Ne pas relancer \(P(2)\) comme lemme frais, ni ces
 quatre conjectures, dans un cycle qui n'aurait pas d'autre outil.
+
+## H13 — Korec 1994 et les classes de congruence (axe C) — FERMÉ (B23, X43, X44)
+Le théorème 1, lu sur le PDF de *Math. Slovaca* 44 (1994), 85–89, dit
+que \(M_c\) a une densité asymptotique \(1\) pour \(c>\log_4 3\). La
+densité relative dans chaque classe vaut \(1\). Aucune classe n'est
+entièrement hors de \(M_c\). X34 montre qu'une densité naturelle \(1\)
+n'inclut pas la classe. Le prédicat est un itéré \(<y^c\), pas
+l'atteinte de \(1\). La descente universelle sur tout entier positif,
+y compris \(1\), est fausse. L'équivalence avec la conjecture vaut
+pour les \(y\ge 2\) et ne la décide pas. Le certificat \(S_m<md\) rate
+\(y\equiv -1\pmod{2^m}\). Ne pas redémontrer ce théorème, ni abaisser
+l'exposant, ni relire Tao, Terras ou Everett pour en tirer une classe
+qui atteint \(1\). Inselmann (2024) reste non audité et n'est pas la
+prochaine question.
