@@ -199,7 +199,8 @@ B25 n'est pas réécrit.
 - `abandoned.md` : ne pas prouver H3 depuis ces formules, ni ouvrir \(\Phi_n\).
 - `agenda.md` : arrêt des lectures de portée ; question suivante sur l'axe A.
 - `reviews.md` : revue `6094790973`. La revue `6094848516` est au §8.
-  La revue `6094889764` est au §9.
+  La revue `6094889764` est au §9. La revue `6094917206` est au §10.
+- `counterexamples.md` : X52, signe de l'écart de troncature.
 
 ## 6. Prochaine question
 
@@ -324,14 +325,29 @@ est \(-\sum_{i=0}^{m-1}2^{e_i}/3^{i+1}\le 0\). La queue est
 -\sum_{j\ge 0}\frac{2^{D+j}}{3^{m+1+j}}
 =-\frac{2^D}{3^{m+1}}\sum_{j\ge 0}\Bigl(\frac23\Bigr)^j.
 \]
-Pour \(J\ge 1\), la somme partielle géométrique d'ordre \(J\) vaut
-\(3-2^J/3^{J-1}\). Elle diffère de \(3\) par \(-2^J/3^{J-1}\), de
-valuation \(J\). Comme \(\lvert 2/3\rvert_2=1/2<1\), la série converge
-dans \(\mathbb Z_2\) vers \(3\). Elle converge aussi dans \(\mathbb R\),
-vers le même rationnel. La queue vaut donc \(-2^D/3^m\), et la somme
-partielle qui en retient \(J\) termes diffère de cette valeur par
-\(-2^{D+J}/3^{m+J}\), de valuation \(D+J\). Le préfixe est non positif
-et la queue est strictement négative, donc \(\Phi(Q)\) est un
+Pour \(J\ge 1\), notons \(S_J=\sum_{j=0}^{J-1}(2/3)^j\). Alors
+\(S_J=3-2^J/3^{J-1}\), donc
+\[
+S_J-3=-\frac{2^J}{3^{J-1}},\qquad
+3-S_J=\frac{2^J}{3^{J-1}}.
+\]
+La valuation de ces deux écarts est \(J\). Comme
+\(\lvert 2/3\rvert_2=1/2<1\), la série converge dans \(\mathbb Z_2\)
+vers \(3\). Elle converge aussi dans \(\mathbb R\), vers le même
+rationnel. La queue vaut donc \(L=-2^D/3^m\). Soit \(P_J\) la somme
+des \(J\) premiers termes de cette queue. Alors
+\[
+P_J=-\frac{2^D}{3^{m+1}}S_J=L+\frac{2^{D+J}}{3^{m+J}},
+\]
+donc
+\[
+P_J-L=\frac{2^{D+J}}{3^{m+J}},\qquad
+L-P_J=-\frac{2^{D+J}}{3^{m+J}}.
+\]
+La valuation est \(D+J\). Pour \(Q=-1\) et \(J=1\), on a \(D=0\),
+\(m=0\), \(P_1=-1/3\) et \(L=-1\), donc \(P_1-L=+2/3\). Le préfixe
+est non positif et la queue est strictement négative, donc
+\(\Phi(Q)\) est un
 rationnel strictement négatif. Ainsi \(\Phi(-1)=-1\), \(\Phi(-2)=-2\),
 \(\Phi(-3)=-1/3-4/3=-5/3\) et \(\Phi(-5)=-1/3-2/9-8/9=-13/9\).
 
@@ -404,3 +420,36 @@ est inchangée. Le théorème 3 dit : si \(N\in\mathbb Z^+\) et
 \(N\in\Phi(\tfrac13\mathbb Z)\), alors \(C^k(N)=1\) pour un certain
 \(k\), et la preuve pose \(Q=\Phi^{-1}(N)\). Le corollaire 1 et la fin
 de la page 3 ne sont pas rouverts.
+
+## 10. Revue `6094917206`
+
+La revue porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW` et le SHA
+`8d0eb70e6d4d75f303511a76c2f160c7fd20a06c`, tête de la PR #27. Elle
+confirme B26 et l'exclusion des préimages entières. Elle réfute le
+signe de l'écart de troncature lorsque cet écart est lu comme somme
+partielle moins limite (X52).
+
+La phrase du §8 disait que la somme partielle de la queue « diffère
+de cette valeur par \(-2^{D+J}/3^{m+J}\) ». Le sujet de la phrase est
+la somme partielle. Pour la série géométrique, la même tournure donne
+déjà \(S_J-3=-2^J/3^{J-1}\). Appliquée à la queue, elle donnerait
+\(P_J-L=-2^{D+J}/3^{m+J}\). Le calcul donne l'ordre inverse :
+\[
+P_J=L+\frac{2^{D+J}}{3^{m+J}}.
+\]
+Ainsi \(P_J-L=+2^{D+J}/3^{m+J}\) et
+\(L-P_J=-2^{D+J}/3^{m+J}\). Le contrôle précédent calculait
+\(L-P_J\), puisque le préfixe s'annule entre la valeur fermée et la
+somme tronquée. Pour \(Q=-1\) et \(J=1\), les bits valent tous \(1\),
+donc \(D=0\) et \(m=0\). La limite est \(L=-1\) et le premier terme
+est \(P_1=-1/3\). L'écart \(P_1-L\) vaut \(+2/3\). La valuation
+\(D+J\) reste celle du numérateur \(2^{D+J}\). L'exclusion des
+préimages entières n'utilise que le signe de \(\Phi(Q)\), pas celui
+de cet écart : le préfixe est non positif et \(L<0\).
+
+L'énoncé de B26 ne change pas. L'inclusion séparée reste l'atteinte
+de \(1\), et elle n'est pas prouvée. Aucune orbite divergente n'est
+exclue. Le PDF de 1994 n'est pas rouvert : la revue confirme que les
+hypothèses utilisées sont celles du théorème 3, et le signe corrigé
+est un calcul de série géométrique, déjà écrit au §8. Le cycle 020
+n'est pas ouvert. Cette correction n'est pas un nouveau cycle.

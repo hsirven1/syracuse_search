@@ -10,13 +10,14 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La correction du cycle 019, après la revue `6094889764`, est écrite.
-Le sens réciproque de B26 exclut maintenant les préimages entières :
-\(\Phi(0)=0\), et \(\Phi(Q)\) est un rationnel strictement négatif
-pour tout autre entier, avec queue \(-2^D/3^m\) si \(Q<0\). Elle
-attend sa relecture indépendante. Ne pas ouvrir le cycle 020 avant
-cette relecture. Cette correction n'est pas un nouveau cycle.
-Recompter la fenêtre au cycle suivant, après la relecture.
+La revue `6094917206` a confirmé l'exclusion des préimages entières
+de B26 et a réfuté le signe de l'écart de troncature (X52). La
+correction est écrite : \(P_J-L=+2^{D+J}/3^{m+J}\), et
+\(L-P_J=-2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\), cet écart vaut
+\(+2/3\). Elle attend sa relecture indépendante. Ne pas ouvrir le
+cycle 020 avant cette relecture. Cette correction n'est pas un
+nouveau cycle. Recompter la fenêtre au cycle suivant, après la
+relecture.
 
 ## 1. [A] Famille à horizon logarithmique non borné — PROCHAINE QUESTION (cycle 020), non entamée
 Les cycles 016 à 019 ont retrouvé des énoncés publiés. Ne pas ouvrir
@@ -54,6 +55,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094917206` (28 nov. 2026, SHA `8d0eb70`) : B26 et
+  l'exclusion des préimages entières confirmées. L'écart de
+  troncature lu comme \(P_J-L\) vaut \(+2^{D+J}/3^{m+J}\) (X52).
+  Pour \(Q=-1\) et \(J=1\), il vaut \(+2/3\). L'inclusion séparée
+  n'est pas prouvée. Le cycle 020 n'est pas ouvert. Détail :
+  [reviews.md](reviews.md).
 - Revue `6094889764` (28 nov. 2026, SHA `8ec25d7`) : X50, B25, X51 et
   le résultat de B26 confirmés. Le sens réciproque partait d'un
   non-entier sans l'avoir déduit. La preuve du théorème 3 de Bernstein

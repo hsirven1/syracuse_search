@@ -767,6 +767,14 @@ cette exclusion. Elle est écrite,
 avec la queue \(-2^D/3^m\). L'inclusion n'est pas prouvée. Le cycle
 020 n'est pas ouvert.
 
+Revue indépendante `6094917206` (PR #27, SHA
+`8d0eb70e6d4d75f303511a76c2f160c7fd20a06c`) : B26 et l'exclusion des
+préimages entières confirmés. L'écart de troncature est
+\(P_J-L=+2^{D+J}/3^{m+J}\) (X52). L'ordre inverse est
+\(L-P_J=-2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\),
+\(P_1-L=+2/3\). La valuation \(D+J\) reste. L'inclusion n'est pas
+prouvée. Le cycle 020 n'est pas ouvert.
+
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
 correction du cycle 017. Le cycle 018 vient ensuite.

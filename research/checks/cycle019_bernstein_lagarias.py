@@ -311,34 +311,59 @@ def main() -> None:
             raise SystemExit(f"FAIL dénominateur Φ({q})={value}")
     print("PASS : Φ(0)=0, et Φ(Q)<0 pour chaque entier Q de -500 à 500, Q≠0")
 
-    def tail_error(q: int, terms: int) -> tuple[Fraction, Fraction]:
+    def tail_sum(q: int, terms: int) -> tuple[Fraction, Fraction, int, int]:
+        """Somme P_J des J premiers termes de la queue, et sa limite L."""
         D = (-q - 1).bit_length()
-        prefix = [d for d in range(D) if ((-q - 1) >> d) & 1 == 0]
+        m = sum(1 for d in range(D) if ((-q - 1) >> d) & 1 == 0)
+        limit = -Fraction(1 << D, 3**m)
         partial = Fraction(0)
-        for ell, d in enumerate(prefix, start=1):
-            partial -= Fraction(1 << d, 3**ell)
-        m = len(prefix)
         for j in range(terms):
             partial -= Fraction(1 << (D + j), 3 ** (m + 1 + j))
-        closed = phi_rational(q)
-        return closed - partial, -Fraction(1 << (D + terms), 3 ** (m + terms))
+        return partial, limit, D, m
 
     for terms in range(1, 9):
-        geometric = sum(Fraction(2**j, 3**j) for j in range(terms))
-        if geometric != 3 - Fraction(2**terms, 3 ** (terms - 1)):
-            raise SystemExit(f"FAIL somme géométrique J={terms}")
-    for q in (-1, -2, -3, -5, -8, -13, -32, -500):
+        geometric = sum((Fraction(2**j, 3**j) for j in range(terms)), Fraction(0))
+        if geometric - 3 != -Fraction(2**terms, 3 ** (terms - 1)):
+            raise SystemExit(f"FAIL S_J-3 pour J={terms}")
+        if 3 - geometric != Fraction(2**terms, 3 ** (terms - 1)):
+            raise SystemExit(f"FAIL 3-S_J pour J={terms}")
+        if (3 - geometric).numerator.bit_length() - 1 != terms:
+            raise SystemExit(f"FAIL valuation géométrique J={terms}")
+    partial_one, limit_one, depth_one, ones_before = tail_sum(-1, 1)
+    if (partial_one, limit_one, depth_one, ones_before) != (
+        Fraction(-1, 3),
+        Fraction(-1),
+        0,
+        0,
+    ):
+        raise SystemExit(
+            f"FAIL témoin Q=-1, J=1 : {partial_one}, {limit_one}, {depth_one}, {ones_before}"
+        )
+    if partial_one - limit_one != Fraction(2, 3):
+        raise SystemExit("FAIL P_1-L pour Q=-1")
+    if limit_one - partial_one != Fraction(-2, 3):
+        raise SystemExit("FAIL L-P_1 pour Q=-1")
+    for q in range(-64, 0):
         for terms in range(1, 7):
-            got, expected = tail_error(q, terms)
-            if got != expected:
-                raise SystemExit(f"FAIL erreur de queue Q={q}, J={terms}")
-            D = (-q - 1).bit_length()
-            error = -got
-            if error.numerator != 1 << (D + terms):
+            partial, limit, depth, ones = tail_sum(q, terms)
+            positive = Fraction(1 << (depth + terms), 3 ** (ones + terms))
+            if partial - limit != positive or limit - partial != -positive:
+                raise SystemExit(f"FAIL écart de queue Q={q}, J={terms}")
+            if positive.numerator != 1 << (depth + terms):
                 raise SystemExit(f"FAIL numérateur Q={q}, J={terms}")
-            if (error.numerator).bit_length() - 1 != D + terms:
+            if positive.numerator.bit_length() - 1 != depth + terms:
                 raise SystemExit(f"FAIL valuation Q={q}, J={terms}")
-    print("PASS : l'erreur de queue vaut -2^{D+J}/3^{m+J}, de valuation D+J")
+            prefix = [d for d in range(depth) if ((-q - 1) >> d) & 1 == 0]
+            with_prefix = sum(
+                (-Fraction(1 << d, 3**ell) for ell, d in enumerate(prefix, start=1)),
+                Fraction(0),
+            )
+            closed = phi_rational(q)
+            if with_prefix + limit != closed:
+                raise SystemExit(f"FAIL queue fermée Q={q}")
+            if (with_prefix + partial) - closed != positive:
+                raise SystemExit(f"FAIL somme avec préfixe Q={q}, J={terms}")
+    print("PASS : P_J-L = +2^{D+J}/3^{m+J}, et pour Q=-1, J=1, cet écart vaut +2/3")
 
     print("18 contrôles PASS")
 
