@@ -10,41 +10,27 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6094917206` a confirmé l'exclusion des préimages entières
-de B26 et a réfuté le signe de l'écart de troncature (X52). La
-correction est écrite : \(P_J-L=+2^{D+J}/3^{m+J}\), et
-\(L-P_J=-2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\), cet écart vaut
-\(+2/3\). Elle attend sa relecture indépendante. Ne pas ouvrir le
-cycle 020 avant cette relecture. Cette correction n'est pas un
-nouveau cycle. Recompter la fenêtre au cycle suivant, après la
-relecture.
+Le cycle 020 est écrit. Il attend sa relecture indépendante. Ne pas
+ouvrir le cycle 021 avant cette relecture. Recompter la fenêtre à ce
+moment-là. Au début du cycle 020, le plus ancien cycle de la fenêtre
+était le cycle 010, commit `462014b`, du 27 novembre 2026 à 02:11:58 UTC.
 
-## 1. [A] Famille à horizon logarithmique non borné — PROCHAINE QUESTION (cycle 020), non entamée
-Les cycles 016 à 019 ont retrouvé des énoncés publiés. Ne pas ouvrir
-un nouveau cycle dont le travail est de lire un théorème classique
-pour décider s'il exclut une orbite divergente. Ne pas rouvrir
-Lagarias 1985, Bernstein 1994, Lagarias 1990, ni les sections 2 à 6
-de Bernstein–Lagarias 1996. Ne pas rouvrir H3, la conjugaison,
-\(\Phi^k\), B26, les densités, les bornes de longueur de cycle,
-Crandall, Simons–de Weger, Hercher, \(P(2)\), les conjectures 4.11 à
-4.14, le signe moins, la famille appariée, ni B24.
+## 1. [B] Porte sur le reste \(R(t)\) de B6 — PROCHAINE QUESTION (cycle 021), non entamée
+Les cycles 016 à 020 ont produit des identifications publiées ou des
+corollaires immédiats. Ne pas ouvrir une sixième lecture de portée, ni
+un cylindre, ni une progression de raison fixe. Ne pas rouvrir H1, H2,
+H3, \(P(2)\), le signe moins, la famille appariée, B26, ni B27.
 
-A3 donne, pour chaque \(m\) fixé, une classe modulo \(2^{2m+1}\) sur
-laquelle \(\tau_U=m\). Ce cylindre fixe le premier temps de descente.
-Tout impair est déjà dans le cylindre \(n\equiv 1\pmod 2\), donc
-« hors de tout cylindre de longueur bornée » est vide (X51). B13
-interdit un horizon \(o(\log n)\) pour tous les grands \(n\), sous un
-poids borné. La question corrigée demande les deux exigences :
-existe-t-il une famille infinie explicite d'impairs \(n>1\), avec une
-trajectoire close, telle que \(\tau_U(n)\le C\log_2(n+1)\) pour une
-constante absolue \(C\), et telle que \(\tau_U\) soit non bornée sur
-la famille ? Si la famille est une classe d'A3, le cas
-\(n\equiv 1\pmod 4\) de X40, un nombre de Mersenne, ou
-\(5\cdot 2^k-1\), NO-GO. Ne pas chercher au-delà de ces familles et
-d'une progression arithmétique simple. Si aucun mécanisme clos
-n'apparaît, s'arrêter sans lemme de remplacement. Un préfixe sans pas
-pair ne prouve ni ne réfute (C). Ne pas ouvrir ce cycle avant la fin
-du blocage ci-dessus.
+B6 prouve, sur une orbite positive non bornée,
+\(R(t)=O(\log E(t))\) et
+\(\limsup_t E(t)/t\le\beta/\delta\). Le dossier non validé C3 attribue
+une somme des réciproques bornée à Garcia–Tal 1999. Ce texte n'a pas
+été lu. La question est la porte d'antériorité, pas une seconde preuve
+de B6 : le texte primaire donne-t-il \(R(t)=O(1)\), et cette borne
+exclut-elle une orbite que la limite de B6 n'exclut pas ? Si elle ne
+change pas \(\limsup E(t)/t\), ou si le PDF n'est pas obtenu, NO-GO.
+S'arrêter sans lemme de remplacement. Ne pas invoquer C3 comme
+prémisse. Ne pas ouvrir ce cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -55,6 +41,16 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 020 (28 nov. 2026) : une progression de raison fixe n'a pas de
+  suite de valuations commune et de \(\tau_U\) non borné (B27). La
+  longueur commune est au plus \(v_2(d)\). La diagonale d'A3 satisfait
+  \(m\le\log_2(n_m+1)\) et reste le certificat déjà prouvé. Pas une
+  contrainte hors de la progression.
+  [cycle-020](cycles/cycle-020.md)
+- Revue `6094936782` (28 nov. 2026, SHA `5faae418`) : X52 confirmé.
+  \(P_J-L=+2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\), l'écart vaut
+  \(+2/3\). Aucune correction. Cycle 020 ensuite. Détail :
+  [reviews.md](reviews.md).
 - Revue `6094917206` (28 nov. 2026, SHA `8d0eb70`) : B26 et
   l'exclusion des préimages entières confirmées. L'écart de
   troncature lu comme \(P_J-L\) vaut \(+2^{D+J}/3^{m+J}\) (X52).

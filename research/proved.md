@@ -773,7 +773,29 @@ préimages entières confirmés. L'écart de troncature est
 \(P_J-L=+2^{D+J}/3^{m+J}\) (X52). L'ordre inverse est
 \(L-P_J=-2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\),
 \(P_1-L=+2/3\). La valuation \(D+J\) reste. L'inclusion n'est pas
-prouvée. Le cycle 020 n'est pas ouvert.
+prouvée. Le cycle 020 n'est pas ouvert par cette revue.
+
+Revue indépendante `6094936782` (PR #27, SHA
+`5faae4186f7f35921b4e9aad3d70ef475582a6ef`) : X52 et la portée de B26
+confirmés. \(P_J-L=+2^{D+J}/3^{m+J}\). Pour \(Q=-1\) et \(J=1\),
+l'écart vaut \(+2/3\). Aucune correction. L'inclusion n'est pas
+prouvée. Le cycle 020 vient ensuite.
+
+**B27 — Progression de raison fixe** (PROUVÉ comme corollaire du
+codage, cycle 020 §1). Soient \(a\) impair, \(d\) pair non nul et
+\(r=v_2(d)\). Si les termes \(n=a+kd>1\) partagent les \(L\) premières
+parités sous \(T\), alors \(L\le r\), par le cycle 015 §10. Si
+\(s=v_2(3a+1)<r\), la valuation extraite par \(U\) vaut \(s\) pour
+tout terme : c'est une descente et \(\tau_U=1\) lorsque \(s\ge 2\), ou
+une montée vers la progression de raison \(3d/2\) lorsque \(s=1\). On
+enchaîne au plus \(r-1\) montées de valuation \(1\). Une suite de
+valuations commune jusqu'à la descente a donc une longueur au plus
+\(r\). Elle ne peut pas être non bornée. La longueur exactement \(r\)
+est la moitié déjà lue du théorème 1.2 de Terras ; elle n'est pas
+redémontrée. Ce n'est pas une nouveauté, ni une contrainte hors de la
+progression. La diagonale \(n_m=2^m q_m-1\) satisfait
+\(\tau_U=m\le\log_2(n_m+1)\) par A3 et \(q_m\ge 1\) : corollaire direct,
+non adopté.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
