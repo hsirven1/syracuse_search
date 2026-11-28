@@ -57,8 +57,11 @@ expérience :
    égalité pour chaque \(k\ge 1\). NO-GO : ce n'est pas plus faible.
 2. Lire la conjecture imprimée \(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\)
    comme un théorème déduit de (1.5) et (1.6). Elle est énoncée à part,
-   avec renvoi à [2] et [8], non ouverts. NO-GO. Le cycle ne l'identifie
-   pas à l'atteinte de \(1\).
+   avec renvoi à [2] et [8], non ouverts au moment de cette porte.
+   NO-GO pour la déduire de ces deux affichages. Le §8, après la revue
+   `6094848516`, lit Bernstein 1994 : les théorèmes 2 et 3 l'identifient
+   à l'atteinte de \(1\) sous \(C\), et les termes impairs la transportent
+   à \(T\). L'inclusion elle-même reste ouverte.
 
 ## 1. Source lue
 
@@ -174,29 +177,19 @@ La même page dit que la conjecture équivaut, pour chaque \(k\ge 1\), à
 à un itéré ne l'affaiblit pas.
 
 La conjecture séparée \(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\)
-n'est pas déduite de (1.5) ni de (1.6). Le contrôle
-\(\Phi(-1/3)\equiv 1\pmod{2^{64}}\), avec \(-1/3\in\tfrac13\mathbb Z\),
-montre seulement que \(1\) appartient à l'ensemble de droite. Il ne
-montre pas l'inclusion, ni l'atteinte de \(1\).
-
-La ligne secondaire de `prior_art.md` attribuait à Bernstein 1994 la
-série \(-\sum 2^{d_i}/3^{i+1}\) comme valeur de \(\Phi^{-1}\). La
-forme (1.6), avec \(l\) commençant à \(1\), est la même série, et le
-papier de 1996 l'attribue à [2] comme formule de \(\Phi\). L'article
-de 1994 n'est pas ouvert : le nom \(\Phi^{-1}\) de la ligne secondaire
-n'est pas une prémisse, et il n'est pas corrigé ici. B1 n'est pas
-redérivé. Sur l'itinéraire de \(1\), la série de B1 redonne
-\(\xi\equiv 1\pmod{2^{64}}\), et (1.6) appliqué aux bits de \(-1/3\)
-redonne aussi \(1\). Les deux formules calculent le point, dans cet
-exemple. Cela ne tranche pas le nom porté par la ligne secondaire.
+n'est pas déduite de (1.5) ni de (1.6). Son identification avec
+l'atteinte de \(1\), et le nom porté par la série, sont le §8. La
+congruence modulo \(2^{64}\) n'est pas cette identification.
 
 ## 4. Ce que ce cycle ne montre pas
 
 H3 reste ouverte. Aucun rationnel à itinéraire apériodique n'est
 produit. Aucune orbite divergente n'est exclue. Les sections 2 à 6,
-l'ordre annoncé \(2^{n-4}\) et les appendices ne sont pas des
-prémisses. [2], [8] et [9] ne sont pas lus. La forme linéaire
-d'Eliahou reste non adoptée. B24 n'est pas réécrit.
+l'ordre annoncé \(2^{n-4}\) et les appendices de 1996 ne sont pas des
+prémisses. Lagarias 1985 et Lagarias 1990 ne sont pas lus. Bernstein
+1994 est lu au §8 pour (1), (2), (3) et les théorèmes 1 à 3 seulement.
+La forme linéaire d'Eliahou reste non adoptée. B24 n'est pas réécrit.
+B25 n'est pas réécrit.
 
 ## 5. Mises à jour de la mémoire
 
@@ -205,16 +198,16 @@ d'Eliahou reste non adoptée. B24 n'est pas réécrit.
 - `prior_art.md` : Bernstein–Lagarias passe de [S] à [P] pour (1.5), (1.6) et la conjecture imprimée.
 - `abandoned.md` : ne pas prouver H3 depuis ces formules, ni ouvrir \(\Phi_n\).
 - `agenda.md` : arrêt des lectures de portée ; question suivante sur l'axe A.
-- `reviews.md` : revue `6094790973`.
+- `reviews.md` : revue `6094790973`. La revue `6094848516` est au §8.
 
 ## 6. Prochaine question
 
 Les cycles 016 à 019 ont retrouvé des énoncés publiés. Cette direction
 s'arrête. Ne pas ouvrir un cycle dont le travail est de lire un
 théorème classique pour décider s'il exclut une orbite divergente. En
-particulier, ne pas ouvrir Lagarias 1985, Bernstein 1994, le
+particulier, ne pas rouvrir Lagarias 1985, Bernstein 1994, le
 corollaire 2.1b de Lagarias 1990, ni les sections 2 à 6 du papier de
-1996. Ne pas rouvrir H3, la conjugaison, \(\Phi^k\), Tao, Korec,
+1996. Ne pas rouvrir H3, la conjugaison, \(\Phi^k\), B26, Tao, Korec,
 Eliahou, \(P(2)\), le signe moins, la famille appariée, ni B24.
 
 Axe **A**. A3 donne, pour chaque \(m\) fixé, une classe modulo
@@ -222,10 +215,16 @@ Axe **A**. A3 donne, pour chaque \(m\) fixé, une classe modulo
 classe est un cylindre de Terras. B13 interdit un horizon \(o(\log n)\)
 valable pour tous les grands \(n\), sous un poids borné.
 
-La question est la suivante. Existe-t-il une famille infinie explicite
-d'impairs \(n>1\), non contenue dans un cylindre de Terras de longueur
-bornée, pour laquelle une trajectoire close prouve
-\(\tau_U(n)\le C\log_2(n+1)\) avec une constante \(C\) absolue ?
+La première rédaction demandait une famille non contenue dans un
+cylindre de Terras de longueur bornée. Cette condition est vide (X51) :
+tout impair appartient au cylindre \(n\equiv 1\pmod 2\), de longueur \(1\).
+Le cylindre visé est celui qui fixe le premier temps de descente de
+\(U\). La question corrigée demande les deux exigences à la fois.
+
+Existe-t-il une famille infinie explicite d'impairs \(n>1\), avec une
+trajectoire close, telle que \(\tau_U(n)\le C\log_2(n+1)\) pour une
+constante absolue \(C\), et telle que \(\tau_U\) soit non bornée sur
+cette famille ?
 
 Si la famille est une classe d'A3, le cas \(n\equiv 1\pmod 4\) de X40,
 un nombre de Mersenne, ou \(5\cdot 2^k-1\), NO-GO. Ne pas chercher
@@ -233,9 +232,9 @@ au-delà de ces familles et d'une progression arithmétique simple. Si
 aucun mécanisme clos n'apparaît, s'arrêter sans lemme de remplacement.
 Ne pas relancer H1 par une campagne : un préfixe sans pas pair, comme
 la montée de Mersenne, ne prouve ni ne réfute (C). Ne pas ouvrir ce
-cycle avant la relecture indépendante du présent cycle. La fenêtre
-devra être recomptée : le cycle 008 sort à 01:09:59 UTC le 28 novembre
-2026, et cette attente de relecture reste même après cette sortie.
+cycle avant la relecture indépendante de la correction du §8. La
+fenêtre devra être recomptée à ce moment-là. La sortie du cycle 008,
+à 01:09:59 UTC le 28 novembre 2026, ne lève pas cette attente.
 
 ## 7. Reproduire
 
@@ -243,4 +242,99 @@ devra être recomptée : le cycle 008 sort à 01:09:59 UTC le 28 novembre
 python3 research/checks/cycle019_bernstein_lagarias.py
 ```
 
-Sortie attendue : 11 lignes `PASS`.
+Sortie attendue : 16 lignes `PASS`.
+
+## 8. Revue `6094848516`
+
+La revue porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW` et le SHA
+`915d6a1bde13cb35c3c6024605e01879f18536da`, tête de la PR #27. Elle
+confirme B25, y compris la chaîne
+\(\Phi^k(R)\subseteq\Phi(R)\subseteq R\) : l'égalité pour un seul
+\(k\ge 1\) redonne celle pour \(k=1\). H3 reste ouverte. B25 n'est pas
+réécrit.
+
+**X50.** La ligne secondaire attribuait la série
+\(-\sum_i 2^{d_i}/3^{i+1}\) à \(\Phi^{-1}\). Bernstein 1994, équation
+(2), écrit \(N=\Phi(Q)\) pour cette série, avec \(i\) commençant à \(0\).
+La même page dit ensuite que \(\Phi=Q_\infty^{-1}\). Dans la notation
+de 1996, (1.6) est \(\Phi\) et (1.5) est \(\Phi^{-1}\). Pour
+\(Q=5=2^0+2^2\),
+\[
+\Phi(5)=-\frac13-\frac49=-\frac79,
+\qquad
+\Phi^{-1}(5)=1+16\sum_{k\ge0}4^k=1+\frac{16}{-3}=-\frac{13}3.
+\]
+Ces deux valeurs sont distinctes. B1 n'est pas redérivé : le cycle 001
+le présente comme un analogue indexé par les positions des zéros, pas
+comme une lecture du texte de 1994.
+
+La même première rédaction disait que
+\(\Phi(-1/3)\equiv 1\pmod{2^{64}}\) montre l'appartenance de \(1\) à
+l'image. Une congruence ne donne pas l'égalité dans \(\mathbb Z_2\).
+Les bits de \(-1/3=\sum_{k\ge0}4^k\) sont \(d_l=2(l-1)\). La somme
+partielle de (1.6) est, dans \(\mathbb Q\),
+\[
+-\sum_{l=1}^{N}3^{-l}4^{l-1}
+=-\frac13\sum_{j=0}^{N-1}\Bigl(\frac43\Bigr)^j
+=1-\Bigl(\frac43\Bigr)^N.
+\]
+Comme \(3^N\) est impair, la valuation 2-adique de l'erreur est
+\(v_2(4^N)=2N\). La limite dans \(\mathbb Z_2\) est donc \(1\). C'est
+l'équation (3) de Bernstein 1994. Ainsi \(1=\Phi(-1/3)\), et
+\(1\in\Phi(\tfrac13\mathbb Z)\). Le contrôle modulo \(2^{64}\) est le
+cas \(N\ge 32\) de cette identité, pas sa preuve.
+
+**B26.** Les théorèmes 2 et 3 du même article, lus sur les pages 1–2,
+disent qu'un entier positif appartient à \(\Phi(\tfrac13\mathbb Z)\) si
+et seulement si un itéré de \(C\) vaut \(1\). Ici \(C(N)=N/2\) si \(N\)
+est pair et \(C(N)=3N+1\) si \(N\) est impair. \(H(Q)=Q/2\) si \(Q\) est
+pair et \(H(Q)=Q-1\) si \(Q\) est impair. Le théorème 1, lu, est
+\(C(\Phi(Q))=\Phi(H(Q))\). Ses deux cas sont la division de (2) par \(2\)
+lorsque \(d_0>0\), et \(3\Phi(Q)+1=\Phi(Q-2^{d_0})\) lorsque \(d_0=0\).
+La représentation (2) est unique : \(v_2(-3N)=d_0\), puis on retire le
+premier terme. Donc \(\Phi^{-1}(1)=-1/3\).
+
+Si \(H(x)\in\tfrac13\mathbb Z\), alors \(x\in\tfrac13\mathbb Z\) : le
+cas pair multiplie par \(2\), le cas impair ajoute \(1\). Le théorème 2
+en déduit le sens « un itéré vaut \(1\) ».
+
+Pour l'autre sens, soit \(Q=c/3\) non entier. Le lemme du §2 place les
+restes tardifs dans \(\{0,1,2,3\}\). La récurrence
+\(t\mapsto(t+3(t\bmod 2))/2\) fixe \(0\) et \(3\), et échange \(1\) et
+\(2\). Les restes \(0\) et \(3\) donnent une queue de bits nuls ou de
+bits égaux à \(1\), donc un entier. Comme \(Q\) n'est pas entier, la
+queue est dans le cycle \(1\leftrightarrow 2\), et les positions des
+bits \(1\) vérifient \(d_{i+1}=d_i+2\) à partir d'un rang \(m\). Sur une
+telle suite, \(H\) diminue de \(1\) la quantité \(d_m+m\) : soustraire
+\(1\) à chaque position si le premier bit est nul, ou effacer ce premier
+bit s'il vaut \(1\). On atteint \((0,2,4,\ldots)\), c'est-à-dire
+\(-1/3\), en exactement \(d_m+m\) pas. Le théorème 1 itéré et l'équation
+(3) donnent alors un itéré de \(C\) égal à \(1\).
+
+\(C\) et \(T\) n'ont pas les mêmes termes pairs. Ils ont les mêmes
+termes impairs. Sur un impair \(n\), \(C(n)=3n+1\), puis \(C\) divise
+par \(2\) exactement \(v_2(3n+1)\) fois et atteint
+\((3n+1)/2^{v_2(3n+1)}\). C'est le prochain impair de \(T\), et de
+\(U\). Un départ pair est d'abord réduit à sa partie impaire par les
+deux applications. Comme \(1\) est impair, atteindre \(1\) sous \(C\)
+équivaut à l'atteindre sous \(T\).
+
+Ainsi \(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\) est l'atteinte de
+\(1\) par tout entier positif, sous \(C\) et sous \(T\). Ce n'est pas
+une contrainte nouvelle, et ce n'est pas une preuve. Le corollaire 1 de
+la page 3 énonce
+\(\Phi(\mathbb Q\cap\mathbb Z_2)\subseteq\mathbb Q\cap\mathbb Z_2\).
+Sa preuve n'est pas recopiée. Le reste de la page 3, y compris le
+corollaire 2, n'est pas une prémisse. PDF
+`https://cr.yp.to/papers/231.pdf`, SHA-256
+`c0b063872fc36411218831742adedecdec0b6e84a047dc083abf0ff68ae6c2f8`,
+4 pages, non redistribué. Les polices de type 3 n'ont pas de carte
+Unicode : les pages 1 à 3 ont été lues sur le rendu.
+
+**X51.** Tout ensemble d'impairs est contenu dans le cylindre de
+longueur \(1\) défini par \(n\equiv 1\pmod 2\). Demander une famille
+d'impairs hors de tout cylindre de Terras de longueur bornée est donc
+impossible. Le §6 et l'agenda demandent maintenant une majoration
+\(\tau_U(n)\le C\log_2(n+1)\) et, séparément, un horizon \(\tau_U\) non
+borné sur la famille. Un cylindre d'A3 fixe cet horizon. Le cycle 020
+n'est pas ouvert : cette correction attend sa relecture.

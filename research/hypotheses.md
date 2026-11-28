@@ -47,8 +47,11 @@ d'auteur. L'égalité imprimée
 énoncé (B25). Le papier la laisse comme conjecture. L'inclusion
 opposée est donnée comme connue et n'est pas redémontrée. Pour chaque
 \(k\ge 1\), \(\Phi^k(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\)
-est la même conjecture, pas une forme plus faible. Ne pas la rouvrir
-depuis ces formules, ni depuis un itéré.
+est la même conjecture, pas une forme plus faible. L'inclusion
+séparée \(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\) est l'atteinte
+de \(1\) sous \(C\) et sous \(T\) (B26). Elle reste ouverte. Ne pas la
+rouvrir depuis ces formules, ni depuis un itéré, ni depuis Bernstein
+1994.
 
 ## H4 — Critère de type Liouville — PROUVÉ (B7, cycle 003)
 Mot $w$ avec une infinité de $0$, $o_j$ comme en B1, $r_m=o_{m+1}-o_m$,

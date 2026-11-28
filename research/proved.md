@@ -24,7 +24,7 @@ facteurs de longueur $L$ de l'itinéraire infini de $N$.
 **B1 — Formule de réalisation 2-adique** (PROUVÉ, cycle 001 §3 étape 1). Si $\xi\in\mathbb Z_2$ a
 l'itinéraire $w$, avec $j$-ième pas pair en $e_j$ et $o_j=e_j-(j-1)$ pas impairs avant lui :
 $\xi+1=-\tfrac12\sum_{j\ge1}2^j(2/3)^{o_j}$ (somme finie si $w$ n'a qu'un nombre fini de 0).
-Équivalente à la formule de Bernstein (1994). Contrôlé sur 3 000 mots aléatoires.
+Analogue, indexé par les zéros, de la série de Bernstein (1994). Cette série, lue ensuite, est \(\Phi\) et non \(\Phi^{-1}\) (X50). L'équivalence n'est pas redérivée. Contrôlé sur 3 000 mots aléatoires.
 
 **B2 — Lemme C1 : runs en progression arithmétique** (PROUVÉ via PUBLIÉ, cycle 001).
 Pour $c\ge1$, $d\ge-c$, $u$ fini : $w=u\,(1^{cj+d}0)_{j\ge1}$ n'est l'itinéraire d'aucun rationnel
@@ -720,13 +720,38 @@ est ultimement périodique si et seulement si
 \(x\in\Phi(\mathbb Q\cap\mathbb Z_2)\). L'égalité imprimée
 \(\Phi(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\) est H3.
 Le papier la nomme conjecture et donne l'inclusion opposée comme
-connue, par (1.6) et Bernstein 1994, non rouvert. H3 n'est pas
+connue, par (1.6) et le corollaire 1 de Bernstein 1994. H3 n'est pas
 prouvée. Pour un entier positif, B24 ramène la restriction de H3 à
 la non-divergence, déjà enregistrée. Le papier dit que
 \(\Phi^k(\mathbb Q\cap\mathbb Z_2)=\mathbb Q\cap\mathbb Z_2\) équivaut
-à la même conjecture pour chaque \(k\ge 1\). L'inclusion séparée
-\(\mathbb Z^+\subseteq\Phi(\tfrac13\mathbb Z)\) n'est pas identifiée
-ici à l'atteinte de \(1\). Aucune orbite divergente n'est exclue.
+à la même conjecture pour chaque \(k\ge 1\). L'inclusion connue
+\(\Phi(R)\subseteq R\) donne
+\(\Phi^k(R)\subseteq\Phi(R)\subseteq R\), donc l'égalité pour un seul
+\(k\) redonne celle de \(k=1\). Aucune orbite divergente n'est exclue.
+
+Revue indépendante `6094848516` (PR #27, SHA
+`915d6a1bde13cb35c3c6024605e01879f18536da`) : B25 confirmé. La série
+de 1994 est \(\Phi\), pas \(\Phi^{-1}\) (X50). L'appartenance
+\(1=\Phi(-1/3)\) est la somme géométrique, pas la congruence modulo
+\(2^{64}\).
+
+**B26 — L'inclusion séparée est l'atteinte de \(1\)** (PROUVÉ via
+PUBLIÉ, cycle 019 §8). Bernstein, *Proc. AMS* 121 (1994), 405–408,
+PDF SHA-256
+`c0b063872fc36411218831742adedecdec0b6e84a047dc083abf0ff68ae6c2f8`,
+4 pages, non redistribué. Les théorèmes 2 et 3, lus, disent qu'un
+entier positif est dans \(\Phi(\tfrac13\mathbb Z)\) si et seulement si
+un itéré de \(C\) vaut \(1\), avec \(C(N)=N/2\) ou \(3N+1\). Le
+théorème 1, \(C\circ\Phi=\Phi\circ H\), est lu et ses deux cas suivent
+de (2). La représentation est unique par la valuation du premier
+terme. Pour \(Q=c/3\) non entier, les restes du §2 n'ont que le cycle
+\(1\leftrightarrow 2\) hors des entiers, donc les bits \(1\) sont
+ultimement de pas \(2\). \(H\) atteint alors \(-1/3\) en \(d_m+m\) pas,
+et (3) donne l'itéré \(1\). \(C\) et \(T\) ont les mêmes termes
+impairs, donc la même atteinte de \(1\). L'équation (3),
+\(\Phi(-1/3)=1\), est la limite des sommes partielles
+\(1-(4/3)^N\), de valuation d'erreur \(2N\). L'inclusion elle-même
+reste la conjecture. Aucune orbite divergente n'est exclue.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune

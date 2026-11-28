@@ -2,15 +2,17 @@
 """Contrôles du cycle 019.
 
 Ils vérifient les formules (1.5) et (1.6) de Bernstein–Lagarias 1996
-sur des représentants 2-adiques, le lien avec l'orbite de 1, le calcul
-de B1 sur cette même orbite, et la récurrence des restes du lemme sur
-les développements binaires. Ils ne démontrent pas la conjecture de
-périodicité.
+sur des représentants 2-adiques, l'identité exacte des sommes partielles
+de Φ(-1/3), les noms Φ(5) et Φ^{-1}(5), les cycles des restes de
+dénominateur 3, et les termes impairs communs de C et de T. Ils ne
+démontrent pas la conjecture de périodicité.
 
 Usage : python3 research/checks/cycle019_bernstein_lagarias.py
 """
 
 from __future__ import annotations
+
+from fractions import Fraction
 
 
 N = 64
@@ -127,7 +129,35 @@ def main() -> None:
 
     if series_phi_of_neg_one_third() != 1:
         raise SystemExit("FAIL (1.6) sur -1/3")
-    print("PASS (1.6) : Φ(-1/3) ≡ 1 (mod 2^64)")
+    print("PASS (1.6) : Φ(-1/3) ≡ 1 (mod 2^64), contrôle seulement")
+
+    def partial_phi(length: int) -> Fraction:
+        """Somme partielle de (1.6) sur d_l = 2(l-1)."""
+        total = Fraction(0)
+        for ell in range(1, length + 1):
+            total -= Fraction(4 ** (ell - 1), 3 ** ell)
+        return total
+
+    for length in range(1, 9):
+        expected = 1 - Fraction(4 ** length, 3 ** length)
+        if partial_phi(length) != expected:
+            raise SystemExit(f"FAIL somme partielle N={length}")
+        error = Fraction(4 ** length, 3 ** length)
+        if error.denominator % 2 == 0 or error.numerator != 4 ** length:
+            raise SystemExit(f"FAIL valuation N={length}")
+        if (error.numerator).bit_length() - 1 != 2 * length:
+            raise SystemExit(f"FAIL exposant N={length}")
+    if partial_phi(32) != 1 - Fraction(4 ** 32, 3 ** 32):
+        raise SystemExit("FAIL somme partielle N=32")
+    if (4 ** 32).bit_length() - 1 != 64 or 3 ** 32 % 2 == 0:
+        raise SystemExit("FAIL valuation N=32")
+    print("PASS : la somme partielle vaut 1-(4/3)^N, et l'erreur a la valuation 2N")
+
+    if -(Fraction(1, 3) + Fraction(4, 9)) != Fraction(-7, 9):
+        raise SystemExit("FAIL Φ(5) exact")
+    if 1 + 16 * Fraction(-1, 3) != Fraction(-13, 3):
+        raise SystemExit("FAIL Φ^{-1}(5) exact")
+    print("PASS : Φ(5)=-7/9 et Φ^{-1}(5)=-13/3 exactement")
 
     # T(-1/3) = 0 dans Z_2, donc Φ^{-1}(Φ(1)) = 1.
     image = (3 * minus_one_third + 1) % MOD
@@ -183,7 +213,54 @@ def main() -> None:
         raise SystemExit("FAIL chiffres de 1")
     print("PASS : la récurrence des restes redonne les chiffres de -1/3 et de 1")
 
-    print("11 contrôles PASS")
+    def next_state(t: int) -> int:
+        bit = t & 1
+        nxt = t + 3 * bit
+        if nxt % 2 != 0:
+            raise RuntimeError(t)
+        return nxt // 2
+
+    if next_state(0) != 0 or next_state(3) != 3:
+        raise SystemExit("FAIL cycles absorbants")
+    if next_state(1) != 2 or next_state(2) != 1:
+        raise SystemExit("FAIL cycle 1-2")
+    print("PASS : pour le dénominateur 3, les cycles des restes sont 0, 3 et 1↔2")
+
+    def odd_terms(step, start: int, limit: int = 500) -> list[int]:
+        odds = []
+        x = start
+        for _ in range(limit):
+            if x % 2 == 1:
+                odds.append(x)
+                if x == 1:
+                    return odds
+            x = step(x)
+        raise RuntimeError(start)
+
+    def classical(n: int) -> int:
+        if n % 2 == 0:
+            return n // 2
+        return 3 * n + 1
+
+    for start in (1, 2, 3, 5, 6, 7, 9, 27, 100):
+        if odd_terms(T, start) != odd_terms(classical, start):
+            raise SystemExit(f"FAIL termes impairs de {start}")
+    print("PASS : C et T ont les mêmes termes impairs sur 9 départs")
+
+    shifted = Fraction(0)
+    for j in range(8):
+        shifted -= Fraction(2 ** (5 + 2 * j), 3 ** (j + 1))
+    expected_shift = 32 * (1 - Fraction(4 ** 8, 3 ** 8))
+    if shifted != expected_shift:
+        raise SystemExit("FAIL somme partielle de -32/3")
+    value = 32
+    for _ in range(5):
+        value = classical(value)
+    if value != 1:
+        raise SystemExit(f"FAIL C^5(32)={value}")
+    print("PASS : huit termes sur les bits de -32/3 valent 32(1-(4/3)^8), et C^5(32)=1")
+
+    print("16 contrôles PASS")
 
 
 if __name__ == "__main__":
