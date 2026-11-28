@@ -278,7 +278,12 @@ a une somme au plus \(v_2(d)-1\). S'il décrit la première descente de
 chaque terme, \(\tau_U\) est constant et au plus \(v_2(d)-1\). Sans
 cette comparaison au départ, un exposant au moins \(2\) ne donne pas
 \(\tau_U\le v_2(d)\) (X53). Le cas \(n\equiv 1\pmod 4\) reste
-\(\tau_U=1\) (X40), même si l'exposant n'est pas constant. Les classes
+\(\tau_U=1\) (X40), même si l'exposant n'est pas constant. C'est le
+contre-exemple de la réciproque (X56) : sur \(5+4k\), \(\tau_U=1\),
+\(v_2(3\cdot 5+1)=4\) et \(v_2(3\cdot 9+1)=2\). La progression
+\(3+4k\) illustre l'implication directe. Une classe à indices
+entiers et raison négative se réécrit par le plus petit terme
+\(>1\), pas par le plus petit terme positif. Les classes
 d'A3, leur diagonale \(n_m=2^m q_m-1\), les Mersenne et
 \(5\cdot 2^k-1\) ne sont pas une autre réponse : la diagonale est le
 certificat déjà prouvé, et les deux dernières familles n'ont pas de

@@ -809,6 +809,16 @@ impairs (X54) : \(1+4k\) et \(3+4k\). Le certificat de première
 descente reste nécessaire pour borner \(\tau_U\). Le quantificateur est
 le rayon de raison positive (X55). Le cycle 021 n'est pas ouvert.
 
+Revue indépendante `6095114517` (PR #27, SHA
+`dd273d5660767bdfbe55917bb0125328914029f2`) : B27, X53, X54, X55 et
+le corollaire d'A3 confirmés. Le témoin de la réciproque est
+\(5+4k\) (X56). Sur ce rayon, \(\tau_U=1\), et les exposants de \(5\)
+et de \(9\) valent \(4\) et \(2\). La progression \(3+4k\) illustre
+l'implication directe. Une classe à indices entiers se réécrit par
+le plus petit terme strictement supérieur à \(1\). Retourner le
+signe ne réindexe pas le rayon tronqué : \(\{3\}\) n'est pas
+\(3+4k\). B27 est inchangé. Le cycle 021 n'est pas ouvert.
+
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
 correction du cycle 017. Le cycle 018 vient ensuite.

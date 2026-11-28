@@ -10,7 +10,7 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La correction du cycle 020, après la revue `6095039362`, attend sa
+La correction du cycle 020, après la revue `6095114517`, attend sa
 relecture indépendante. Ne pas ouvrir le cycle 021 avant cette
 relecture. Recompter la fenêtre à ce moment-là. Au début du cycle 020,
 le plus ancien cycle de la fenêtre était le cycle 010, commit
@@ -42,6 +42,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6095114517` (28 nov. 2026, SHA `dd273d56`) : B27, X53, X54,
+  X55 et le corollaire d'A3 confirmés. Le témoin de la réciproque est
+  \(5+4k\) (X56) : \(\tau_U=1\), et les exposants de \(5\) et de \(9\)
+  valent \(4\) et \(2\). La progression \(3+4k\) illustre l'implication
+  directe. La réindexation prend le plus petit terme \(>1\). Le cycle
+  021 n'est pas ouvert. Détail : [reviews.md](reviews.md).
 - Revue `6095039362` (28 nov. 2026, SHA `b2d466a`) : l'obstruction de
   B27 et le corollaire d'A3 confirmés. La chute locale ne donne pas
   \(\tau_U\le r\) (X53). L'union \(1+4k\) et \(3+4k\) couvre les

@@ -7,7 +7,9 @@ Script : [`../checks/cycle020_arithmetic_progression.py`](../checks/cycle020_ari
 aucun rayon de raison positive n'a à la fois un mot de valuations
 commun jusqu'à la première descente et un \(\tau_U\) non borné (B27).
 La revue `6095039362` retire l'inférence \(\tau_U\le r\) et la phrase
-sur l'union finie ; le détail est au §6. La diagonale des cylindres
+sur l'union finie ; le détail est au §6. La revue `6095114517`
+confirme cette correction et replace le témoin de la réciproque :
+le détail est au §7. La diagonale des cylindres
 d'A3 satisfait la borne logarithmique, et c'est déjà le certificat de
 `EXACT_STOPPING_TIME_BASELINE.md`. Aucune orbite divergente n'est
 exclue. Aucune preuve de Syracuse.
@@ -145,11 +147,15 @@ pour chercher une quatrième famille.
 
 Soient \(a>1\) un entier impair et \(d\) un entier pair strictement
 positif. Soit \(r=v_2(d)\). Les termes \(n(k)=a+kd\), \(k\ge 0\),
-forment un rayon infini d'impairs supérieurs à \(1\). Si l'on part
-d'une raison paire négative, on la remplace par sa valeur absolue et
-l'on prend le plus petit terme positif : ce rayon est le seul
-quantificateur du théorème. La lecture \(k\ge 0\) avec une raison
-négative est X55.
+forment un rayon infini d'impairs supérieurs à \(1\). Une classe
+indexée par tous les entiers, avec une raison paire négative, se
+réécrit en prenant le plus petit terme strictement supérieur à \(1\)
+et la raison positive. Ce rayon est le seul quantificateur du
+théorème. Retourner le signe ne réindexe pas le rayon \(k\ge 0\)
+tronqué par \(n>1\). Pour \(a=3\) et \(d=-4\), ce tronqué est
+\(\{3\}\), et \(3+4k\) est un autre ensemble (X55, X56). Le plus
+petit terme positif de la classe \(1\pmod 4\) est \(1\), exclu par
+\(a>1\). Le plus petit terme strictement supérieur à \(1\) est \(5\).
 
 **(Longueur des parités.)** Ces termes partagent exactement les \(r\)
 premières parités sous \(T\).
@@ -221,19 +227,25 @@ Si \(\tau_U\) n'est pas borné sur le rayon, les mots de première
 descente ne sont pas communs.
 
 La réciproque est fausse, et ce n'est pas une nouvelle obstruction.
-Pour \(m\ge 2\), le représentant \(n_m\) d'A3 est congru à \(3\pmod 4\),
-et la classe entière de niveau \(m\) aussi, parce que \(2^m q\) est
-divisible par \(4\). La progression \(3+4k\) contient donc, pour chaque
+Le témoin est le rayon \(5+4k\), \(k\ge 0\), soit \(1+4k\) privé de
+\(1\) (X56). Chaque terme vérifie \(n\equiv 1\pmod 4\) et \(n>1\),
+donc \(v_2(3n+1)\ge 2\) et \(U(n)\le(3n+1)/4<n\). Ainsi \(\tau_U=1\).
+Les exposants initiaux ne sont pas communs :
+\(v_2(3\cdot 5+1)=4\) et \(v_2(3\cdot 9+1)=2\). Un temps borné, même
+constant, n'impose pas un mot d'exposants commun. C'est X40. B27
+n'étend pas X40.
+
+La progression \(3+4k\) illustre l'implication directe, pas cette
+réciproque. Pour \(m\ge 2\), le représentant \(n_m\) d'A3 est congru à
+\(3\pmod 4\), et la classe entière de niveau \(m\) aussi, parce que
+\(2^m q\) est divisible par \(4\). Elle contient donc, pour chaque
 \(m\ge 2\), une sous-progression de raison \(2^{2m+1}\) sur laquelle
 \(\tau_U=m\). C'est A3, pas une trajectoire commune. Le témoin local
 est indépendant de cette infinité : \(\tau(3)=2\) et \(\tau(7)=4\),
 alors que le seul pas accéléré commun est la valuation \(1\), et
-\(r=2\).
-
-Le cas \(n\equiv 1\pmod 4\) reste X40. Sur \(1+4k\), pour les termes
-\(n>1\), l'exposant \(v_2(3n+1)\) n'est pas constant, et \(\tau_U=1\)
-quand même, parce que cet exposant vaut au moins \(2\). B27 n'étend
-pas X40.
+\(r=2\). Ces deux temps montrent que les mots de descente diffèrent.
+L'infinité des valeurs vient d'A3, donc cet exemple n'est pas un temps
+borné.
 
 La longueur d'un préfixe commun peut différer de \(\tau_U\). Sur
 \(9+16k\), le premier exposant vaut \(2\), donc \(\tau_U=1\), et le
@@ -270,8 +282,8 @@ théorème classique.
 - `prior_art.md` : Terras 1.2 n'est pas relu ; les deux sens de la baisse de valuation sont écrits au §1.
 - `abandoned.md` : ne pas relancer la recherche de famille close dans une raison fixe.
 - `agenda.md` : le cycle 021 attend la relecture de la correction.
-- `reviews.md` : revues `6094936782` et `6095039362`.
-- `counterexamples.md` : X53, X54, X55.
+- `reviews.md` : revues `6094936782`, `6095039362` et `6095114517`.
+- `counterexamples.md` : X53, X54, X55, X56.
 
 ## 4. Prochaine question
 
@@ -291,9 +303,11 @@ prémisse. Ne pas rouvrir les cylindres, les progressions de raison
 fixe, H1, H2, H3, \(P(2)\), le signe moins, ni les lectures de portée
 des cycles 016 à 019.
 
-Ne pas ouvrir le cycle 021 avant la relecture indépendante de la
-correction du §6. Recompter la fenêtre à ce moment-là. Le plus ancien
-cycle encore dans la fenêtre au début de celui-ci est le cycle 010.
+La revue `6095114517` a relu la correction du §6. Elle demande le
+témoin du §7. Ne pas ouvrir le cycle 021 avant la relecture
+indépendante de cette correction. Recompter la fenêtre à ce
+moment-là. Le plus ancien cycle encore dans la fenêtre au début de
+celui-ci est le cycle 010.
 
 ## 5. Reproduire
 
@@ -301,7 +315,7 @@ cycle encore dans la fenêtre au début de celui-ci est le cycle 010.
 python3 research/checks/cycle020_arithmetic_progression.py
 ```
 
-Sortie attendue : 10 lignes `PASS`.
+Sortie attendue : 11 lignes `PASS`.
 
 ## 6. Revue `6095039362`
 
@@ -356,13 +370,64 @@ de \(3\) commence par les parités \(1,1,0\), et \(r=2\). Sur ce
 singleton, \(s=v_2(10)=1<2\), donc la biconditionnelle de valuation
 reste vraie. Elle échoue pour \(a=5\) et \(d=-4\) : le seul terme
 supérieur à \(1\) est \(5\), \(s=v_2(16)=4\ge 2=r\), et un ensemble à
-un point a une valuation constante. Lu sur tous les termes positifs,
-\(d=-4\) redonne le rayon \(3+4k\) ou \(5+4k\), déjà couvert par \(d>0\).
+un point a une valuation constante. Sur tous les entiers de la
+classe strictement supérieurs à \(1\), \(d=-4\) redonne le rayon
+\(3+4k\) ou \(5+4k\), déjà couvert par \(d>0\). Les termes positifs
+de la classe \(1\pmod 4\) contiennent \(1\), qui n'est pas dans
+\(5+4k\). Le détail est X56.
 
 L'obstruction conservée est celle de l'écart : un mot commun jusqu'à
 la première descente a une somme d'exposants au plus \(r-1\). Ce n'est
 pas une nouveauté, ni une contrainte hors du rayon. Les contrôles
 \(\tau_U(3)=2\), \(\tau_U(7)=4\) et \(\tau_U(31)=35\) répètent des
 témoins déjà écrits. Ne pas rouvrir B27 pour chercher une autre
-famille. Ne pas ouvrir le cycle 021 avant la relecture indépendante
-de cette correction.
+famille. La revue `6095114517` relit cette correction ; le témoin
+de la réciproque est corrigé au §7. Ne pas ouvrir le cycle 021
+avant la relecture indépendante de ce §7.
+
+## 7. Revue `6095114517`
+
+La revue porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW` et le SHA
+`dd273d5660767bdfbe55917bb0125328914029f2`, tête de la PR #27 au moment
+de la relecture. Elle confirme B27, la borne de somme, X53, X54, X55
+et le corollaire d'A3. Elle demande deux précisions du §1. Les
+contrôles sont indépendants de son arithmétique JavaScript. Le PDF de
+Terras n'est pas rouvert.
+
+**X56.** La phrase « la réciproque est fausse » était suivie de
+\(3+4k\). Cet exemple illustre l'implication directe : \(\tau(3)=2\),
+\(\tau(7)=4\), et le seul pas accéléré commun est la valuation \(1\).
+A3 rend \(\tau_U\) non borné sur cette progression. Ce n'est pas un
+temps borné, donc ce n'est pas un contre-exemple de la réciproque.
+
+La réciproque dit qu'un \(\tau_U\) borné forcerait un mot d'exposants
+commun jusqu'à la première descente. Elle est fausse sur \(5+4k\),
+\(k\ge 0\). Ce rayon est \(1+4k\) privé de \(1\). Pour \(n=5+4k\),
+\(n\equiv 1\pmod 4\) et \(n>1\), donc \(v_2(3n+1)\ge 2\) et
+\(U(n)\le(3n+1)/4<n\). Ainsi \(\tau_U(n)=1\). Les exposants initiaux
+de \(5\) et de \(9\) valent \(v_2(16)=4\) et \(v_2(28)=2\). Le mot de
+descente est l'exposant seul, et il n'est pas commun. C'est X40, pas
+une obstruction nouvelle. B27 est inchangé.
+
+La seconde précision porte sur la réindexation. Pour une classe
+parcourue par tous les indices entiers et une raison paire négative,
+on prend le plus petit terme strictement supérieur à \(1\), puis la
+raison positive. Le plus petit terme positif de \(1\pmod 4\) est \(1\).
+L'hypothèse \(a>1\) l'exclut. Le plus petit terme \(>1\) est \(5\), et
+le rayon est \(5+4k\).
+
+Retourner le signe d'une raison négative ne réindexe pas le rayon
+\(k\ge 0\) tronqué par \(n>1\). Pour \(a=3\) et \(d=-4\), les termes
+\(k\ge 0\) supérieurs à \(1\) sont \(\{3\}\). Le rayon \(3+4k\) en est
+distinct. X55 reste : la biconditionnelle échoue sur le singleton
+\(\{5\}\). La phrase du §6 sur les termes positifs est remplacée par
+la condition \(n>1\), car \(1\) est positif et n'appartient pas à
+\(5+4k\).
+
+L'obstruction conservée est celle de l'écart. Ce n'est pas une
+nouveauté, ni une contrainte hors du rayon. Ne pas rouvrir B27 pour
+chercher une autre famille. Ne pas ouvrir le cycle 021 avant la
+relecture indépendante de cette correction. Recompter la fenêtre à
+ce moment-là. Le plus ancien cycle de la fenêtre au début du cycle
+020 est le cycle 010, commit `462014b`, du 27 novembre 2026 à
+02:11:58 UTC.

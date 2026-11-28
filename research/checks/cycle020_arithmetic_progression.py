@@ -4,7 +4,8 @@
 Ils vérifient, sur un rayon de raison positive, que le préfixe commun de
 parités a la longueur v_2(d), que la somme d'un mot commun d'exposants
 vaut au plus v_2(d)-1, qu'une chute locale ne force pas la première
-descente, et que les représentants d'A3 satisfont τ_U(n)=m ≤ log2(n+1).
+descente, que la réciproque échoue sur 5+4k, et que les représentants
+d'A3 satisfont τ_U(n)=m ≤ log2(n+1).
 Ils ne prouvent pas Syracuse et ne cherchent pas de formule de τ pour
 les Mersenne ni pour 5·2^k-1.
 
@@ -303,6 +304,27 @@ def main() -> None:
     assert [5 - 4 * k for k in range(8) if 5 - 4 * k > 1] == [5]
     assert v2(16) == 4 and v2(4) == 2
     print("PASS k≥0 with a negative step can leave the singletons {3} and {5}")
+
+    # X56 : la réciproque échoue sur 5+4k. 3+4k n'est pas ce témoin.
+    assert tau(3) == 2 and tau(7) == 4
+    assert [5 + 4 * k for k in range(8)] == [1 + 4 * k for k in range(1, 9)]
+    assert v2(3 * 5 + 1) == 4 and v2(3 * 9 + 1) == 2
+    exponents = []
+    for k in range(8):
+        n = 5 + 4 * k
+        image, s = U(n)
+        assert n % 4 == 1 and n > 1 and s >= 2 and image < n and tau(n) == 1
+        exponents.append(s)
+    assert exponents[0] == 4 and exponents[1] == 2 and len(set(exponents)) > 1
+    assert min(n for n in range(1, 40) if n % 4 == 1) == 1
+    assert min(n for n in range(1, 40) if n % 4 == 1 and n > 1) == 5
+    truncated = [3 + k * (-4) for k in range(8) if 3 + k * (-4) > 1]
+    flipped = [truncated[0] + k * 4 for k in range(4)]
+    assert truncated == [3] and flipped == [3, 7, 11, 15] and truncated != flipped
+    above = sorted(5 + k * (-4) for k in range(-12, 13) if 5 + k * (-4) > 1)
+    assert above[:4] == [5, 9, 13, 17]
+    assert 1 not in above
+    print("PASS the converse fails on 5+4k, where τ=1 and the exponents of 5 and 9 differ")
 
 
 if __name__ == "__main__":
