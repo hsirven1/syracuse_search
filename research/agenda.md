@@ -10,37 +10,30 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif du cycle 021, revue `6095232407`, attend sa relecture
-indépendante. Ne pas ouvrir le cycle 022 avant cette relecture. Au
-début du cycle 021, les cycles 011 à 020 étaient dans la fenêtre. Le
-plus ancien est le cycle 011, commit `ded6e1c`, du 27 novembre 2026 à
-02:40:03 UTC. Le correctif n'est pas un nouveau cycle. La fenêtre ne
-lève pas l'attente de relecture.
+Le cycle 022, revue à venir sur son commit, attend sa relecture
+indépendante. Ne pas ouvrir le cycle 023 avant cette relecture. Au
+début du cycle 022, après 03:01 UTC le 28 novembre 2026, les cycles
+013 à 021 étaient dans la fenêtre : neuf cycles. Le cycle 012, commit
+`41cced5`, du 27 novembre 2026 à 02:59:54 UTC, était sorti. Le plus
+ancien encore dans la fenêtre est le cycle 013, commit `9e26d12`, du
+27 novembre 2026 à 20:16:39 UTC. La fenêtre ne lève pas l'attente de
+relecture.
 
-## 1. [B] Limite inférieure de la hauteur sur une orbite non bornée — PROCHAINE QUESTION (cycle 022), non entamée
-Les cycles 016 à 021 sont des identifications ou des lectures de
-portée, et B28 est la correction de la sommabilité, pas une septième
-lecture. Ne pas rouvrir H1 comme petit lemme, la densité de Banach,
-Heppner, l'attribution de \(61344/65\) à Garcia–Tal, les autres clauses
-de C3, l'ordre de \(3\), les cylindres,
-les progressions de raison fixe, H3, \(P(2)\), le signe moins, ni B27.
-La borne \(\sum 1/n<394\) est prouvée (X61). Ne pas la recalculer.
+## 1. [C] Chamberland 2010, trajectoires divergentes — PROCHAINE QUESTION (cycle 023), non entamée
+Obtenir Marc Chamberland, « A \(3x+1\) survey: number theory and
+dynamical systems », dans Lagarias (éd.), *The Ultimate Challenge: the
+\(3x+1\) Problem*, AMS, 2010, pp. 57–78, et lire seulement les
+paragraphes sur les trajectoires divergentes et leur croissance. Si ce
+texte énonce déjà \(\liminf_k\log|T^{(k)}(n)|/k=0\) pour une
+trajectoire divergente, reclasser H16 comme déjà connue. S'il ne
+l'énonce pas, H16 reste PRIOR ART UNVERIFIED hors de (2.30)–(2.32).
+Si le chapitre n'est pas obtenu, le consigner comme non obtenu et ne pas en deviner le contenu.
 
-Pour une orbite positive non bornée de \(T\), B28 et l'identité de B6
-donnent
-\(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
-La question est la porte : cette limite inférieure est-elle nulle pour
-toute orbite positive non bornée ? Si un théorème publié le donne
-déjà, ou si l'on ne produit que la suite du cycle 021 §3, NO-GO. Cette
-suite n'est pas une orbite. H1 est l'autre bout de l'identité,
-\(\limsup\log_2(n_t+1)/t<\beta\). Ne pas l'attaquer ici. Ne pas ouvrir
-ce cycle avant la fin du blocage ci-dessus.
-
-L'ordre de \(3\) modulo \(2^m\) vaut \(2^{m-2}\) pour
-\(m\ge 3\). L'identité \(v_2(3^{2^{m-3}}-1)=m-1\) ne vaut que pour
-\(m\ge 4\) (X63) ; modulo \(8\), l'ordre se lit directement et vaut \(2\).
-Modulo \(4\), il vaut \(2\) (X60). Il espace les solutions
-et ne minore pas le plus petit \(r\). Cette question est fermée.
+Ne pas rouvrir le nœud 9 de Lagarias, le théorème F, H1, la suite
+synthétique du cycle 021, Garcia–Tal, Heppner, \(61344/65\), l'ordre
+de \(3\), les cylindres, les progressions de raison fixe, H3,
+\(P(2)\), le signe moins, ni B27. Ne pas refaire la preuve de B29.
+Ne pas ouvrir ce cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -51,6 +44,14 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 022 (28 nov. 2026) : la revue `6095268526` confirme B28, X59,
+  X61, X62 et X63. Aucune correction. B29 est l'équivalence entre
+  \(\liminf\log_2(n_t+1)/t=0\), \(\limsup E(t)/t=\beta/\delta\) et
+  \(\liminf N^*(k)/k=(\log_2 3)^{-1}\). (2.31) est l'inégalité. (2.32)
+  ne l'énonce pas (X64). L'égalité reste H16, INCONCLUSIVE, et son
+  antériorité hors de ces équations est PRIOR ART UNVERIFIED. Le cycle
+  023 n'est pas ouvert.
+  [cycle-022](cycles/cycle-022.md)
 - Correctif du cycle 021 (28 nov. 2026, revue `6095232407`) : le
   comptage de B28 donne \(\sum 1/n<394<61344/65\) (X61). Le rapport au
   temps \(1\) ne décide pas de la limite (X59). À \(t=0\), l'écart de

@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Contrôles du cycle 022.
+
+L'identité β + 1 = δ est la relation 2·(3/2) = 3. Pour x ≥ 64, la chaîne
+entière log2(x+1) ≤ k+1 ≤ 2^{k/2} ≤ sqrt(x), avec k = floor(log2 x),
+repose sur (k+1)^2 ≤ 2^k. Une suite injective a_t = 2^t - 1 vérifie
+liminf log2(a_t+1)/t = 1 et possède au plus floor(log2(x+1)) termes ≤ x.
+Sur l'orbite de 27, la forme multiplicative de l'identité de B6 est
+exacte, et N*(k) compte les impairs parmi les k+1 premiers états.
+
+Usage : python3 research/checks/cycle022_liminf_height.py
+"""
+
+from __future__ import annotations
+
+from fractions import Fraction
+
+
+def T(n: int) -> int:
+    if n % 2:
+        return (3 * n + 1) // 2
+    return n // 2
+
+
+def passes() -> list[str]:
+    out: list[str] = []
+
+    if (3 * 2) == (2 * 3):
+        out.append("PASS relation 2*(3/2)=3")
+    else:
+        out.append("FAIL relation 2*(3/2)=3")
+
+    for k in range(6, 81):
+        if (k + 1) ** 2 > 2**k:
+            out.append(f"FAIL (k+1)^2<=2^k a k={k}")
+            break
+    else:
+        out.append("PASS (k+1)^2<=2^k pour 6<=k<=80")
+
+    bad = 0
+    for x in range(64, 4001):
+        k = x.bit_length() - 1
+        if not (2**k <= x < 2 ** (k + 1)):
+            bad += 1
+        if x + 1 > 2 ** (k + 1):
+            bad += 1
+        if (k + 1) ** 2 > 2**k:
+            bad += 1
+    if bad == 0:
+        out.append("PASS chaine log2(x+1)<=sqrt(x) pour 64<=x<=4000")
+    else:
+        out.append(f"FAIL chaine sqrt, cas={bad}")
+
+    # a_t = 2^t - 1. Alors a_t <= x ssi t <= floor(log2(x+1)).
+    count_bad = 0
+    for k in range(1, 41):
+        x = 2**k
+        terms = [t for t in range(1, k + 3) if 2**t - 1 <= x]
+        if terms != list(range(1, k + 1)):
+            count_bad += 1
+        if len(terms) > 1 + k:
+            count_bad += 1
+    if count_bad == 0:
+        out.append("PASS compte de 2^t-1 : t<=k pour x=2^k, 1<=k<=40")
+    else:
+        out.append(f"FAIL compte exponentiel, cas={count_bad}")
+
+    n = 27
+    orbit = [n]
+    for _ in range(220):
+        n = T(n)
+        orbit.append(n)
+    # Forme multiplicative de l'identite de B6 :
+    # pair : (T+1) = (n+1)/2 * (n+2)/(n+1) ; impair : (T+1) = 3(n+1)/2.
+    height = Fraction(orbit[0] + 1)
+    identity_bad = 0
+    for t, current in enumerate(orbit[:-1]):
+        if current % 2 == 0:
+            height *= Fraction(current + 2, current + 1) / 2
+        else:
+            height *= Fraction(3, 2)
+        if height != orbit[t + 1] + 1:
+            identity_bad += 1
+    align_bad = 0
+    for k in range(0, 200):
+        n_star = sum(1 for j in range(k + 1) if orbit[j] % 2 == 1)
+        evens = sum(1 for j in range(k + 1) if orbit[j] % 2 == 0)
+        if n_star + evens != k + 1:
+            align_bad += 1
+    hit = orbit.index(1)
+    tail_ok = all(v in (1, 2) for v in orbit[hit:])
+    # 3^10 = 59049 < 65536 = 2^16. Sur la queue, n in {1,2} et t>=70,
+    # donc log2(n+1) <= t/10.
+    ratio_ok = all((v + 1) ** 10 < 2**t for t, v in enumerate(orbit) if t >= hit)
+    if identity_bad == 0 and align_bad == 0 and hit == 70 and tail_ok and ratio_ok:
+        out.append("PASS identite B6 sur 27, T^70(27)=1, rapport <=1/10")
+    else:
+        out.append(
+            f"FAIL orbite 27, identite={identity_bad}, align={align_bad}, "
+            f"hit={hit}, tail={tail_ok}, ratio={ratio_ok}"
+        )
+
+    return out
+
+
+def main() -> None:
+    rows = passes()
+    for row in rows:
+        print(row)
+    if any(row.startswith("FAIL") for row in rows):
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

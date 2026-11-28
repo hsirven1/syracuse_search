@@ -15,7 +15,9 @@ $\forall N>0$ : orbite non bornée ⇒ $\eta_N:=\liminf_tE(t)/t>0$.
   donne \(\sum 1/n<394<61344/65\) (X61). L'attribution de cette
   constante à Garcia–Tal reste fausse (X57). Même alors,
   \(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
-  Cela ne donne pas H1. Ne pas reprendre cette lecture pour un gain
+  Cela ne donne pas H1. B29 identifie l'annulation de cette limite
+  inférieure au cas d'égalité dans (2.31) ; ce cas reste H16. Ne pas
+  reprendre cette lecture pour un gain
   logarithmique, ni pour attribuer la constante de C3 au PDF.
 - Obstacle : les bornes archimédiennes seules ne suffisent pas (X15) ; il faut l'intégralité.
 - Non attaqué directement tant qu'aucun mécanisme nouveau n'est identifié.
@@ -299,3 +301,16 @@ formule jusqu'à la descente. Ne pas relancer cette recherche. Une union
 finie de raisons fixes peut couvrir les impairs (X54). Ce qui est fermé
 est une couverture dont chaque pièce a un mot commun de première
 descente. Le quantificateur est le rayon de raison positive (X55).
+
+## H16 — Limite inférieure logarithmique nulle (axe B) — OUVERT
+Pour toute orbite positive non bornée de \(T\),
+\(\liminf_t\log_2(n_t+1)/t=0\). Par B29, cela équivaut à
+\(\limsup E(t)/t=\beta/\delta\) et à
+\(\liminf N^*(k)/k=(\log_2 3)^{-1}\). L'équation (2.31), lue, est
+l'inégalité \(\ge\), déjà dans B6. L'équation (2.32) ne l'énonce pas
+(X64). Ce n'est pas H1 : H1 est \(\limsup\log_2(n_t+1)/t<\beta\).
+L'égalité n'est ni prouvée ni réfutée. Une réfutation serait une
+orbite divergente. Le PDF du Monthly 1985 et le chapitre de
+Chamberland 2010, pp. 57–78, ne sont pas obtenus. Hors de
+(2.30)–(2.32), l'antériorité est PRIOR ART UNVERIFIED. Ne pas la
+tenir pour un théorème nouveau.

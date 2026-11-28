@@ -868,6 +868,26 @@ alors écrite laissait la constante de C3 non validée. La revue
 modulo \(4\) vaut \(2\) (X60) et n'implique pas \(r(m)\ge 2^{m/2}\).
 Le cycle 022 n'est pas ouvert.
 
+Revue indépendante `6095268526` (PR #27, SHA
+`0c1b3eb260b40ff88d889e388dc35a770bae2cd9`) : B28, X59, X61, X62 et X63
+confirmés. Aucune correction. Le cycle 022 vient ensuite.
+
+**B29 — Équivalence de la limite inférieure logarithmique** (PROUVÉ,
+cycle 022 §3). Pour une orbite positive non bornée de \(T\), les trois
+phrases suivantes sont équivalentes :
+\(\liminf\log_2(n_t+1)/t=0\),
+\(\limsup E(t)/t=\beta/\delta\), et
+\(\liminf N^*(k)/k=(\log_2 3)^{-1}\). Ici \(N^*(k)\) compte les indices
+\(j\le k\) où \(T^{(j)}(n_0)\) est impair, donc il égale le nombre de
+pas impairs parmi les \(k+1\) premiers états. La
+preuve est l'identité de B6, la convergence \(R(t)/t\to 0\) de B28, et
+\(\beta+1=\delta\). L'égalité elle-même n'est pas prouvée. (2.31) est
+le sens \(\ge\), déjà contenu dans B6. (2.32) borne un sous-ensemble
+de l'orbite et n'interdit pas une croissance exponentielle d'une suite
+injective (X64). Cette suite n'est pas une orbite. Aucune trajectoire
+divergente n'est exclue. L'antériorité de l'égalité, hors des équations
+lues, est PRIOR ART UNVERIFIED (H16).
+
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
 correction du cycle 017. Le cycle 018 vient ensuite.
