@@ -819,6 +819,12 @@ le plus petit terme strictement supérieur à \(1\). Retourner le
 signe ne réindexe pas le rayon tronqué : \(\{3\}\) n'est pas
 \(3+4k\). B27 est inchangé. Le cycle 021 n'est pas ouvert.
 
+Revue indépendante `6095141976` (PR #27, SHA
+`f95073fa16ac1a2fda8bb76b714f583613f849ab`) : X56, la réindexation et
+B27 confirmés. Aucune correction. Le cycle 021 vient ensuite : Garcia–Tal
+1999, lu, énonce la densité de Banach nulle et non \(R(t)=O(1)\) (X57).
+Cette lecture ne change pas B27.
+
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
 correction du cycle 017. Le cycle 018 vient ensuite.
@@ -832,7 +838,7 @@ Les relectures de l'initialisation n'ont pas trouvé d'erreur, sans vérificatio
 |---|---|---|---|
 | C1 | Orbite non bornée ⇒ $p_N(L)\ge1+\lfloor(L-K)/\beta\rfloor$ ($N+1\le2^K$) | PR [#21](https://github.com/hsirven1/syracuse_search/pull/21) | Pente $1/\beta$ **déjà publiée** : Dubickas 2009, thm 5 |
 | C2 | Pour tout $N$ : $E(t)\ge\log_2t/\log_2\delta-O_N(1)$ ; identité $H(t)=H(0)+\beta t-\delta E(t)+R(t)$ ; gain conditionnel $\liminf(p_N(L)-L/\beta)/\log_2L\ge\delta/(\beta\log_2\delta)$ | PR [#22](https://github.com/hsirven1/syracuse_search/pull/22) | Divisibilité $2^r\mid n+1$ pour un run de $r$ impairs |
-| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | Sommabilité attribuée à Garcia–Tal 1999 via le dépôt externe |
+| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | L'attribution de la sommabilité à Garcia–Tal 1999 est fausse : le PDF lu au cycle 021 énonce la densité de Banach nulle (X57). C3 reste non validé et n'est pas une prémisse |
 | C4 | Mot triangulaire : $p_w(L)=\lfloor(L+1)^2/4\rfloor$ ($L\ge3$) ; congruence (14) ; réalisation 2-adique (B) | PR [#23](https://github.com/hsirven1/syracuse_search/pull/23) | (B) re-dérivée en B1–B2 |
 | C5 | $2S+1=f_{3/2}(2)$ ; exclusion du mot triangulaire **conditionnelle** à VW 1989 | PR [#24](https://github.com/hsirven1/syracuse_search/pull/24) | Condition levée par B2 (énoncé primaire lu) |
 | C6 | Récurrence des runs $r_{i+1}+1=v_2(3^{r_i}a_i+1)$, $M_i+1=2^{r_i}a_i$ ; (V) ⇒ gain log-log | branche `research/padic-successive-runs` (base de #25) | — |

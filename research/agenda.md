@@ -10,28 +10,29 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La correction du cycle 020, après la revue `6095114517`, attend sa
-relecture indépendante. Ne pas ouvrir le cycle 021 avant cette
-relecture. Recompter la fenêtre à ce moment-là. Au début du cycle 020,
-le plus ancien cycle de la fenêtre était le cycle 010, commit
-`462014b`, du 27 novembre 2026 à 02:11:58 UTC.
+Le cycle 021 attend sa relecture indépendante. Ne pas ouvrir le cycle
+022 avant cette relecture. Au début du cycle 021, les cycles 011 à 020
+étaient dans la fenêtre. Le plus ancien est le cycle 011, commit
+`ded6e1c`, du 27 novembre 2026 à 02:40:03 UTC. La fenêtre ne lève pas
+l'attente de relecture.
 
-## 1. [B] Porte sur le reste \(R(t)\) de B6 — PROCHAINE QUESTION (cycle 021), non entamée
-Les cycles 016 à 020 ont produit des identifications publiées ou des
-corollaires immédiats. Ne pas ouvrir une sixième lecture de portée, ni
-un cylindre, ni une progression de raison fixe. Ne pas rouvrir H1, H2,
-H3, \(P(2)\), le signe moins, la famille appariée, B26, ni B27.
+## 1. [A] Ordre de 3 et plus petit exposant de \(5\cdot 3^r+1\) — PROCHAINE QUESTION (cycle 022), non entamée
+Les cycles 016 à 021 sont des identifications ou des lectures de
+portée. Ne pas en ouvrir une septième. Ne pas rouvrir H1, la densité
+de Banach, \(R(t)\), les cylindres, les progressions de raison fixe,
+H3, \(P(2)\), le signe moins, ni B27.
 
-B6 prouve, sur une orbite positive non bornée,
-\(R(t)=O(\log E(t))\) et
-\(\limsup_t E(t)/t\le\beta/\delta\). Le dossier non validé C3 attribue
-une somme des réciproques bornée à Garcia–Tal 1999. Ce texte n'a pas
-été lu. La question est la porte d'antériorité, pas une seconde preuve
-de B6 : le texte primaire donne-t-il \(R(t)=O(1)\), et cette borne
-exclut-elle une orbite que la limite de B6 n'exclut pas ? Si elle ne
-change pas \(\limsup E(t)/t\), ou si le PDF n'est pas obtenu, NO-GO.
-S'arrêter sans lemme de remplacement. Ne pas invoquer C3 comme
-prémisse. Ne pas ouvrir ce cycle avant la fin du blocage ci-dessus.
+Pour \(a=5\) et \(m\ge 2\), soit \(r(m)\) le plus petit entier \(r>0\)
+tel que \(v_2(5\cdot 3^r+1)\ge m\), ou \(+\infty\) s'il n'existe pas.
+Le cycle 002 §5 observe une croissance exponentielle jusqu'à \(m=40\)
+et rappelle que la minoration linéaire ne réfute aucun \(B>1\). L'ordre
+de \(3\) modulo \(2^m\), sur les unités impaires, vaut \(2^{m-2}\). La
+question est la porte, pas une preuve de (H) : cet ordre implique-t-il
+\(r(m)\ge 2^{m/2}\) pour tout \(m\) assez grand ? Si l'on obtient
+seulement l'espacement des solutions une fois qu'une solution existe,
+NO-GO. Ne pas prolonger le calcul au-delà de \(m=40\) et ne pas en
+déduire une réfutation de (H). Ne pas ouvrir ce cycle avant la fin du
+blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -42,6 +43,14 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 021 (28 nov. 2026) : Garcia–Tal 1999, lu, énonce la densité de
+  Banach nulle d'une orbite (corollaire 1). Il n'énonce pas
+  \(R(t)=O(1)\) (X57). Cette borne, même supposée, ne change pas
+  \(\limsup E(t)/t\le\beta/\delta\). NO-GO, sans lemme de remplacement.
+  [cycle-021](cycles/cycle-021.md)
+- Revue `6095141976` (28 nov. 2026, SHA `f95073fa`) : X56, la
+  réindexation et B27 confirmés. Aucune correction. Cycle 021 ensuite.
+  Détail : [reviews.md](reviews.md).
 - Revue `6095114517` (28 nov. 2026, SHA `dd273d56`) : B27, X53, X54,
   X55 et le corollaire d'A3 confirmés. Le témoin de la réciproque est
   \(5+4k\) (X56) : \(\tau_U=1\), et les exposants de \(5\) et de \(9\)
