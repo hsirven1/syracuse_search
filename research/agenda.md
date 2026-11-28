@@ -10,10 +10,12 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La correction du cycle 019, après la revue `6094848516`, est écrite.
-Elle attend sa relecture indépendante. Ne pas ouvrir le cycle 020
-avant cette relecture. Cette correction n'est pas un nouveau cycle.
-Au moment du cycle 019, la fenêtre contenait les cycles 008 à 019.
+La correction du cycle 019, après la revue `6094889764`, est écrite.
+Le sens réciproque de B26 exclut maintenant les préimages entières :
+\(\Phi(0)=0\), et \(\Phi(Q)\) est un rationnel strictement négatif
+pour tout autre entier, avec queue \(-2^D/3^m\) si \(Q<0\). Elle
+attend sa relecture indépendante. Ne pas ouvrir le cycle 020 avant
+cette relecture. Cette correction n'est pas un nouveau cycle.
 Recompter la fenêtre au cycle suivant, après la relecture.
 
 ## 1. [A] Famille à horizon logarithmique non borné — PROCHAINE QUESTION (cycle 020), non entamée
@@ -52,6 +54,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094889764` (28 nov. 2026, SHA `8ec25d7`) : X50, B25, X51 et
+  le résultat de B26 confirmés. Le sens réciproque partait d'un
+  non-entier sans l'avoir déduit. La preuve du théorème 3 de Bernstein
+  1994 commence par cette exclusion. Pour \(Q<0\), la queue vaut
+  \(-2^D/3^m\). L'inclusion séparée n'est pas prouvée. Le cycle 020
+  n'est pas ouvert. Détail : [reviews.md](reviews.md).
 - Revue `6094848516` (28 nov. 2026, SHA `915d6a1`) : B25 confirmé.
   La série de Bernstein 1994 est \(\Phi\), et \(1=\Phi(-1/3)\) par la
   somme géométrique (X50). Les théorèmes 2 et 3 identifient l'inclusion

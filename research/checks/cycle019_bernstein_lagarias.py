@@ -3,7 +3,8 @@
 
 Ils vérifient les formules (1.5) et (1.6) de Bernstein–Lagarias 1996
 sur des représentants 2-adiques, l'identité exacte des sommes partielles
-de Φ(-1/3), les noms Φ(5) et Φ^{-1}(5), les cycles des restes de
+de Φ(-1/3), les noms Φ(5) et Φ^{-1}(5), le signe de Φ sur les entiers,
+l'erreur de la queue des bits 1, les cycles des restes de
 dénominateur 3, et les termes impairs communs de C et de T. Ils ne
 démontrent pas la conjecture de périodicité.
 
@@ -260,7 +261,86 @@ def main() -> None:
         raise SystemExit(f"FAIL C^5(32)={value}")
     print("PASS : huit termes sur les bits de -32/3 valent 32(1-(4/3)^8), et C^5(32)=1")
 
-    print("16 contrôles PASS")
+    def phi_rational(q: int) -> Fraction:
+        """Valeur rationnelle de (2) : somme finie si q≥0, queue -2^D/3^m si q<0."""
+        if q == 0:
+            return Fraction(0)
+        if q > 0:
+            total = Fraction(0)
+            ell = 0
+            for d in range(q.bit_length()):
+                if (q >> d) & 1:
+                    ell += 1
+                    total -= Fraction(1 << d, 3**ell)
+            return total
+        D = (-q - 1).bit_length()
+        prefix = [d for d in range(D) if ((-q - 1) >> d) & 1 == 0]
+        total = Fraction(0)
+        for ell, d in enumerate(prefix, start=1):
+            total -= Fraction(1 << d, 3**ell)
+        total -= Fraction(1 << D, 3 ** len(prefix))
+        return total
+
+    def reduced_denominator_is_power_of_three(value: Fraction) -> bool:
+        d = value.denominator
+        while d % 3 == 0:
+            d //= 3
+        return d == 1
+
+    witnesses = {
+        0: Fraction(0),
+        1: Fraction(-1, 3),
+        6: Fraction(-10, 9),
+        -1: Fraction(-1),
+        -2: Fraction(-2),
+        -3: Fraction(-5, 3),
+        -5: Fraction(-13, 9),
+    }
+    for q, expected in witnesses.items():
+        if phi_rational(q) != expected:
+            raise SystemExit(f"FAIL Φ({q})={phi_rational(q)} != {expected}")
+    for q in range(-500, 501):
+        value = phi_rational(q)
+        if q == 0:
+            if value != 0:
+                raise SystemExit("FAIL Φ(0)")
+            continue
+        if value >= 0:
+            raise SystemExit(f"FAIL signe Φ({q})={value}")
+        if not reduced_denominator_is_power_of_three(value):
+            raise SystemExit(f"FAIL dénominateur Φ({q})={value}")
+    print("PASS : Φ(0)=0, et Φ(Q)<0 pour chaque entier Q de -500 à 500, Q≠0")
+
+    def tail_error(q: int, terms: int) -> tuple[Fraction, Fraction]:
+        D = (-q - 1).bit_length()
+        prefix = [d for d in range(D) if ((-q - 1) >> d) & 1 == 0]
+        partial = Fraction(0)
+        for ell, d in enumerate(prefix, start=1):
+            partial -= Fraction(1 << d, 3**ell)
+        m = len(prefix)
+        for j in range(terms):
+            partial -= Fraction(1 << (D + j), 3 ** (m + 1 + j))
+        closed = phi_rational(q)
+        return closed - partial, -Fraction(1 << (D + terms), 3 ** (m + terms))
+
+    for terms in range(1, 9):
+        geometric = sum(Fraction(2**j, 3**j) for j in range(terms))
+        if geometric != 3 - Fraction(2**terms, 3 ** (terms - 1)):
+            raise SystemExit(f"FAIL somme géométrique J={terms}")
+    for q in (-1, -2, -3, -5, -8, -13, -32, -500):
+        for terms in range(1, 7):
+            got, expected = tail_error(q, terms)
+            if got != expected:
+                raise SystemExit(f"FAIL erreur de queue Q={q}, J={terms}")
+            D = (-q - 1).bit_length()
+            error = -got
+            if error.numerator != 1 << (D + terms):
+                raise SystemExit(f"FAIL numérateur Q={q}, J={terms}")
+            if (error.numerator).bit_length() - 1 != D + terms:
+                raise SystemExit(f"FAIL valuation Q={q}, J={terms}")
+    print("PASS : l'erreur de queue vaut -2^{D+J}/3^{m+J}, de valuation D+J")
+
+    print("18 contrôles PASS")
 
 
 if __name__ == "__main__":

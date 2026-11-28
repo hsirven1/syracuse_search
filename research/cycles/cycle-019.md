@@ -199,6 +199,7 @@ B25 n'est pas réécrit.
 - `abandoned.md` : ne pas prouver H3 depuis ces formules, ni ouvrir \(\Phi_n\).
 - `agenda.md` : arrêt des lectures de portée ; question suivante sur l'axe A.
 - `reviews.md` : revue `6094790973`. La revue `6094848516` est au §8.
+  La revue `6094889764` est au §9.
 
 ## 6. Prochaine question
 
@@ -231,10 +232,12 @@ un nombre de Mersenne, ou \(5\cdot 2^k-1\), NO-GO. Ne pas chercher
 au-delà de ces familles et d'une progression arithmétique simple. Si
 aucun mécanisme clos n'apparaît, s'arrêter sans lemme de remplacement.
 Ne pas relancer H1 par une campagne : un préfixe sans pas pair, comme
-la montée de Mersenne, ne prouve ni ne réfute (C). Ne pas ouvrir ce
-cycle avant la relecture indépendante de la correction du §8. La
-fenêtre devra être recomptée à ce moment-là. La sortie du cycle 008,
-à 01:09:59 UTC le 28 novembre 2026, ne lève pas cette attente.
+la montée de Mersenne, ne prouve ni ne réfute (C). La revue
+`6094889764` confirme X50, B25 et X51. Elle demande l'exclusion des
+entiers au début du sens réciproque. Cette exclusion est le §9. Ne
+pas ouvrir le cycle 020 avant sa relecture indépendante. Cette
+correction n'est pas un nouveau cycle. Recompter la fenêtre au moment
+d'ouvrir le cycle 020.
 
 ## 7. Reproduire
 
@@ -242,7 +245,7 @@ fenêtre devra être recomptée à ce moment-là. La sortie du cycle 008,
 python3 research/checks/cycle019_bernstein_lagarias.py
 ```
 
-Sortie attendue : 16 lignes `PASS`.
+Sortie attendue : 18 lignes `PASS`.
 
 ## 8. Revue `6094848516`
 
@@ -298,18 +301,60 @@ Si \(H(x)\in\tfrac13\mathbb Z\), alors \(x\in\tfrac13\mathbb Z\) : le
 cas pair multiplie par \(2\), le cas impair ajoute \(1\). Le théorème 2
 en déduit le sens « un itéré vaut \(1\) ».
 
-Pour l'autre sens, soit \(Q=c/3\) non entier. Le lemme du §2 place les
-restes tardifs dans \(\{0,1,2,3\}\). La récurrence
-\(t\mapsto(t+3(t\bmod 2))/2\) fixe \(0\) et \(3\), et échange \(1\) et
-\(2\). Les restes \(0\) et \(3\) donnent une queue de bits nuls ou de
-bits égaux à \(1\), donc un entier. Comme \(Q\) n'est pas entier, la
-queue est dans le cycle \(1\leftrightarrow 2\), et les positions des
-bits \(1\) vérifient \(d_{i+1}=d_i+2\) à partir d'un rang \(m\). Sur une
-telle suite, \(H\) diminue de \(1\) la quantité \(d_m+m\) : soustraire
-\(1\) à chaque position si le premier bit est nul, ou effacer ce premier
-bit s'il vaut \(1\). On atteint \((0,2,4,\ldots)\), c'est-à-dire
-\(-1/3\), en exactement \(d_m+m\) pas. Le théorème 1 itéré et l'équation
-(3) donnent alors un itéré de \(C\) égal à \(1\).
+Pour l'autre sens, soit \(N>0\) et \(Q=\Phi^{-1}(N)\in\tfrac13\mathbb Z\).
+La preuve du théorème 3, relue sur le même PDF, commence par exclure
+un entier : « Notice first that \(Q\) cannot be an integer ». La
+première rédaction partait de « \(Q=c/3\) non entier » sans cet
+argument. Le papier dit alors que (2) est un rationnel négatif, ou
+qu'elle converge vers un rationnel négatif, sans écrire la valeur.
+La voici.
+
+Si \(Q=0\), la somme (2) est vide et \(\Phi(Q)=0\).
+
+Si \(Q>0\), la suite \(d\) est finie et non vide. Chaque terme
+\(2^{d_i}/3^{i+1}\) est un rationnel strictement positif, donc
+\(\Phi(Q)\) est un rationnel strictement négatif. Ainsi
+\(\Phi(1)=-1/3\) et \(\Phi(6)=-2/3-4/9=-10/9\).
+
+Si \(Q<0\), les bits valent \(1\) à partir d'un rang \(D\ge 0\). Soient
+\(e_0<\cdots<e_{m-1}<D\) les \(m\ge 0\) positions de bits \(1\) avant
+\(D\), et \(d_{m+j}=D+j\) pour \(j\ge 0\). La contribution du préfixe
+est \(-\sum_{i=0}^{m-1}2^{e_i}/3^{i+1}\le 0\). La queue est
+\[
+-\sum_{j\ge 0}\frac{2^{D+j}}{3^{m+1+j}}
+=-\frac{2^D}{3^{m+1}}\sum_{j\ge 0}\Bigl(\frac23\Bigr)^j.
+\]
+Pour \(J\ge 1\), la somme partielle géométrique d'ordre \(J\) vaut
+\(3-2^J/3^{J-1}\). Elle diffère de \(3\) par \(-2^J/3^{J-1}\), de
+valuation \(J\). Comme \(\lvert 2/3\rvert_2=1/2<1\), la série converge
+dans \(\mathbb Z_2\) vers \(3\). Elle converge aussi dans \(\mathbb R\),
+vers le même rationnel. La queue vaut donc \(-2^D/3^m\), et la somme
+partielle qui en retient \(J\) termes diffère de cette valeur par
+\(-2^{D+J}/3^{m+J}\), de valuation \(D+J\). Le préfixe est non positif
+et la queue est strictement négative, donc \(\Phi(Q)\) est un
+rationnel strictement négatif. Ainsi \(\Phi(-1)=-1\), \(\Phi(-2)=-2\),
+\(\Phi(-3)=-1/3-4/3=-5/3\) et \(\Phi(-5)=-1/3-2/9-8/9=-13/9\).
+
+Dans les trois cas, \(\Phi(Q)\) est un rationnel de dénominateur impair
+après réduction, donc un élément de \(\mathbb Z_2\). L'inclusion
+\(\mathbb Q\cap\mathbb Z_2\hookrightarrow\mathbb Z_2\) est injective :
+si \(a/b=c/d\) dans \(\mathbb Z_2\) avec \(b\) et \(d\) impairs, alors
+\(ad-bc=0\). Un rationnel strictement négatif, ou \(0\), n'y coïncide
+donc pas avec un entier positif. Ainsi \(Q\notin\mathbb Z\). Comme
+\(3Q\in\mathbb Z\), la distance de \(Q\) à \(\mathbb Z\) vaut \(1/3\).
+
+Le lemme du §2 place alors les restes tardifs dans \(\{0,1,2,3\}\).
+La récurrence \(t\mapsto(t+3(t\bmod 2))/2\) fixe \(0\) et \(3\), et
+échange \(1\) et \(2\). Les restes \(0\) et \(3\) donnent une queue de
+bits nuls ou de bits égaux à \(1\), donc un entier. L'exclusion
+ci-dessus dit que \(Q\) n'est pas entier, donc la queue est dans le
+cycle \(1\leftrightarrow 2\), et les positions des bits \(1\) vérifient
+\(d_{i+1}=d_i+2\) à partir d'un rang \(m\). Sur une telle suite, \(H\)
+diminue de \(1\) la quantité \(d_m+m\) : soustraire \(1\) à chaque
+position si le premier bit est nul, ou effacer ce premier bit s'il
+vaut \(1\). On atteint \((0,2,4,\ldots)\), c'est-à-dire \(-1/3\), en
+exactement \(d_m+m\) pas. Le théorème 1 itéré et l'équation (3)
+donnent alors un itéré de \(C\) égal à \(1\).
 
 \(C\) et \(T\) n'ont pas les mêmes termes pairs. Ils ont les mêmes
 termes impairs. Sur un impair \(n\), \(C(n)=3n+1\), puis \(C\) divise
@@ -337,4 +382,25 @@ d'impairs hors de tout cylindre de Terras de longueur bornée est donc
 impossible. Le §6 et l'agenda demandent maintenant une majoration
 \(\tau_U(n)\le C\log_2(n+1)\) et, séparément, un horizon \(\tau_U\) non
 borné sur la famille. Un cylindre d'A3 fixe cet horizon. Le cycle 020
-n'est pas ouvert : cette correction attend sa relecture.
+n'était pas ouvert à l'écriture de ce paragraphe. La relecture est le §9.
+
+## 9. Revue `6094889764`
+
+La revue porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW` et le SHA
+`8ec25d77268aef290359b94894330e15941c5ccd`, tête de la PR #27. Elle
+confirme X50, B25 et X51. Elle confirme aussi le résultat de B26, et
+signale que le sens réciproque appliquait le cycle \(1\leftrightarrow 2\)
+avant d'avoir exclu les entiers. Cette étape est la première de la
+preuve du théorème 3. Elle est maintenant écrite au §8, avec la valeur
+\(-2^D/3^m\) de la queue. B25, X50 et X51 ne sont pas réécrits.
+L'énoncé de B26 ne change pas : l'inclusion séparée reste l'atteinte
+de \(1\), et elle n'est pas prouvée. Aucune orbite divergente n'est
+exclue. Le cycle 020 n'est pas ouvert.
+
+Les pages 1 et 2 du PDF de 1994 ont été relues sur le rendu. L'empreinte
+SHA-256
+`c0b063872fc36411218831742adedecdec0b6e84a047dc083abf0ff68ae6c2f8`
+est inchangée. Le théorème 3 dit : si \(N\in\mathbb Z^+\) et
+\(N\in\Phi(\tfrac13\mathbb Z)\), alors \(C^k(N)=1\) pour un certain
+\(k\), et la preuve pose \(Q=\Phi^{-1}(N)\). Le corollaire 1 et la fin
+de la page 3 ne sont pas rouverts.

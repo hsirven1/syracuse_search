@@ -744,14 +744,28 @@ entier positif est dans \(\Phi(\tfrac13\mathbb Z)\) si et seulement si
 un itéré de \(C\) vaut \(1\), avec \(C(N)=N/2\) ou \(3N+1\). Le
 théorème 1, \(C\circ\Phi=\Phi\circ H\), est lu et ses deux cas suivent
 de (2). La représentation est unique par la valuation du premier
-terme. Pour \(Q=c/3\) non entier, les restes du §2 n'ont que le cycle
-\(1\leftrightarrow 2\) hors des entiers, donc les bits \(1\) sont
-ultimement de pas \(2\). \(H\) atteint alors \(-1/3\) en \(d_m+m\) pas,
-et (3) donne l'itéré \(1\). \(C\) et \(T\) ont les mêmes termes
-impairs, donc la même atteinte de \(1\). L'équation (3),
-\(\Phi(-1/3)=1\), est la limite des sommes partielles
-\(1-(4/3)^N\), de valuation d'erreur \(2N\). L'inclusion elle-même
-reste la conjecture. Aucune orbite divergente n'est exclue.
+terme. Si \(\Phi(Q)=N>0\) et \(Q\in\tfrac13\mathbb Z\), alors
+\(Q\notin\mathbb Z\). En effet \(\Phi(0)=0\), et pour tout autre entier
+\(\Phi(Q)\) est un rationnel strictement négatif : la somme est finie
+si \(Q>0\), et si \(Q<0\) la queue de bits \(1\) à partir du rang \(D\),
+précédée de \(m\) bits \(1\), vaut \(-2^D/3^m\), le préfixe étant non
+positif. Ce rationnel est dans \(\mathbb Z_2\) et n'y vaut pas un entier
+positif. Ensuite seulement, les restes du §2 n'ont que le cycle
+\(1\leftrightarrow 2\), donc les bits \(1\) sont ultimement de pas \(2\).
+\(H\) atteint alors \(-1/3\) en \(d_m+m\) pas, et (3) donne l'itéré
+\(1\). \(C\) et \(T\) ont les mêmes termes impairs, donc la même
+atteinte de \(1\). L'équation (3), \(\Phi(-1/3)=1\), est la limite des
+sommes partielles \(1-(4/3)^N\), de valuation d'erreur \(2N\).
+L'inclusion elle-même reste la conjecture. Aucune orbite divergente
+n'est exclue.
+
+Revue indépendante `6094889764` (PR #27, SHA
+`8ec25d77268aef290359b94894330e15941c5ccd`) : X50, B25, X51 et le
+résultat de B26 confirmés. La première rédaction supposait \(Q\) non
+entier au lieu de le déduire. La preuve du théorème 3 commence par
+cette exclusion. Elle est écrite,
+avec la queue \(-2^D/3^m\). L'inclusion n'est pas prouvée. Le cycle
+020 n'est pas ouvert.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
