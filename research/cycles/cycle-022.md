@@ -14,8 +14,10 @@ un sous-ensemble de l'orbite. Elle n'énonce pas le rapport
 un compte \(O(\log x)\) et satisfait toute majoration \(O(\sqrt x)\)
 (X64) : ce n'est pas une orbite. La comparaison
 \(\log_2(x+1)\le\sqrt x\) est écrite pour un entier \(x\). Une borne
-réelle se ramène à sa partie entière, car \(x+1\le 2^{k+1}\) échoue
-dès que \(x\) ne l'est pas (X65). La même séparation reste disponible
+réelle se ramène à sa partie entière. Dans la tranche
+\(2^k\le y<2^{k+1}\), l'étape \(y+1\le 2^{k+1}\) peut échouer pour un
+seuil réel : elle échoue exactement sur \(2^{k+1}-1<y<2^{k+1}\) (X65,
+X66). La même séparation reste disponible
 sous le plafond \(\beta\), par la suite \(t+\lceil(5/4)^t\rceil\).
 L'égalité elle-même reste ouverte.
 La classification d'antériorité de cette égalité, hors des équations
@@ -32,9 +34,15 @@ Elle ne demande aucune correction. Le cycle 021 n'est pas réécrit.
 La revue `6095335839` porte le même marqueur et le SHA
 `6ab733856e6fff23bc714d1a3afd22a647bff2b1`, tête de la PR #27 au moment
 de ce correctif. Elle confirme B29 et la lecture de (2.30)–(2.32). Elle
-réfute le passage \(x<2^{k+1}\Rightarrow x+1\le 2^{k+1}\) lorsque \(x\)
-est réel. Le correctif est le §9. Ce n'est pas un nouveau cycle. Le
-cycle 023 n'est pas ouvert.
+réfute le passage \(x<2^{k+1}\Rightarrow x+1\le 2^{k+1}\) pour tout réel
+\(x\). Le correctif est le §9. Ce n'est pas un nouveau cycle.
+
+La revue `6095375601` porte le même marqueur et le SHA
+`33f8dc71f352494cefe5285a6652768de49e7ad9`, tête au moment de la
+relecture suivante. Elle confirme X65, le témoin du §9.2 et B29. Elle
+réfute la formule du résumé qui faisait échouer l'étape dès que le
+seuil n'est pas entier. Le correctif est le §10. Le cycle 023 n'est
+pas ouvert.
 
 La fenêtre est recomptée sur les commits de cycle. Ce cycle commence
 le 28 novembre 2026 après 03:01 UTC. Le cycle 012, commit `41cced5`,
@@ -192,8 +200,9 @@ chaîne sur chaque entier \(64\le x\le 4000\). Donc
 Si la borne \(y\ge 64\) est réelle, les termes comptés sont des entiers.
 Leur nombre jusqu'à \(y\) est celui jusqu'à \(\lfloor y\rfloor\), et la
 chaîne précédente s'applique à cet entier. Le compte reste
-\(O(\sqrt y)\). Sans l'hypothèse entière, \(y<2^{k+1}\) n'entraîne pas
-\(y+1\le 2^{k+1}\). C'est X65, détaillé au §9.
+\(O(\sqrt y)\). Dans la tranche \(2^k\le y<2^{k+1}\), l'étape
+\(y+1\le 2^{k+1}\) échoue exactement pour
+\(2^{k+1}-1<y<2^{k+1}\). C'est X65 et X66, détaillés au §9 et au §10.
 
 La suite \(a_t=2^t-1\) est injective, \(\log_2(a_t+1)/t=1\), et pour
 \(x=2^k\) les termes \(\le x\) sont exactement \(t=1,\ldots,k\). Son
@@ -227,11 +236,11 @@ pas reprise. H1 n'est pas entamé. Aucune orbite divergente n'est exclue.
 
 - `prior_art.md` : les équations (2.30)–(2.32) sont lues sur le TeX Organics. Le Monthly 1985 reste non obtenu.
 - `proved.md` : B29, l'équivalence. L'égalité n'y figure pas.
-- `counterexamples.md` : X64, puis X65 après la revue `6095335839`.
+- `counterexamples.md` : X64, puis X65 après la revue `6095335839`, puis X66 après la revue `6095375601`.
 - `hypotheses.md` : H16, l'égalité, ouverte.
-- `abandoned.md` : ne pas lire (2.31) comme une égalité, ni (2.32) comme une annulation du rapport. Ne pas étendre \(x+1\le 2^{k+1}\) à un réel.
-- `agenda.md` : le cycle 023 attend la relecture du §9.
-- `reviews.md` : revues `6095268526` et `6095335839`.
+- `abandoned.md` : ne pas lire (2.31) comme une égalité, ni (2.32) comme une annulation du rapport. Ne pas étendre \(x+1\le 2^{k+1}\) à tout réel, et ne pas dire que l'étape échoue pour tout réel non entier.
+- `agenda.md` : le cycle 023 attend la relecture du §10.
+- `reviews.md` : revues `6095268526`, `6095335839` et `6095375601`.
 
 ## 7. Prochaine question
 
@@ -244,10 +253,11 @@ le statut reste PRIOR ART UNVERIFIED hors de (2.30)–(2.32). Ne pas
 deviner un PDF absent. Ne pas rouvrir le nœud 9, le théorème F, H1, la
 suite synthétique du cycle 021, ni B29 pour en refaire la preuve.
 
-Ne pas ouvrir ce cycle avant la relecture indépendante du §9. La
+Ne pas ouvrir ce cycle avant la relecture indépendante du §10. La
 fenêtre, au début du cycle 022, contient encore le cycle 013. Elle ne
-lève pas cette attente. Les pages citées au §9.3 ne sont pas lues : la
-revue `6095335839` ne clôt pas cette question.
+lève pas cette attente. Les pages citées au §9.3 et à nouveau par la
+revue `6095375601` ne sont pas lues : cette revue ne clôt pas la
+question.
 
 ## 8. Reproduire
 
@@ -255,7 +265,7 @@ revue `6095335839` ne clôt pas cette question.
 python3 research/checks/cycle022_liminf_height.py
 ```
 
-Sortie attendue : 7 lignes `PASS`.
+Sortie attendue : 8 lignes `PASS`.
 
 ## 9. Correction après la revue `6095335839`
 
@@ -263,9 +273,9 @@ La revue `6095335839` porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW`
 et le SHA `6ab733856e6fff23bc714d1a3afd22a647bff2b1`. Elle confirme
 B29, l'identité de B6 sur les rapports de hauteur, le décalage
 \(N^*(k)=O(k+1)\), et le fait que (2.31) et (2.32) n'énoncent pas
-l'égalité. Elle réfute une étape intermédiaire du §4 si la borne n'est
-pas entière. B29 est inchangé. H16 reste ouverte. Le cycle 023 n'est
-pas ouvert.
+l'égalité. Elle réfute l'implication écrite pour tout réel. Le lieu
+exact de l'échec est le §10. B29 est inchangé. H16 reste ouverte. Le
+cycle 023 n'est pas ouvert.
 
 ### 9.1. La chaîne demande un entier (X65)
 
@@ -288,6 +298,8 @@ chaîne du §4 lui donne un compte \(O(\sqrt{\lfloor y\rfloor})\), donc
 \(O(\sqrt y)\). Le résultat asymptotique de X64 reste. La même
 réduction vaut pour les bornes \(y=2^{m+1}-1/2\), \(6\le m\le 40\), où
 l'étape réelle échoue encore et où \(\lfloor y\rfloor+1=2^{m+1}\).
+Cette réfutation porte sur le quantificateur universel. Elle ne place
+pas l'échec sur chaque réel non entier : ce lieu est le §10.
 
 ### 9.2. Une suite sous le plafond \(\beta\)
 
@@ -359,4 +371,40 @@ antériorité hors de (2.30)–(2.32) reste PRIOR ART UNVERIFIED. La
 question du cycle 023 est inchangée : lire ces paragraphes sur le
 texte obtenu, sans deviner un fichier absent.
 
-Le contrôle donne 7 lignes `PASS`.
+## 10. Correction après la revue `6095375601`
+
+La revue `6095375601` porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW`
+et le SHA `33f8dc71f352494cefe5285a6652768de49e7ad9`. Elle confirme le
+témoin \(x=255/2\), la réduction du compte par \(\lfloor y\rfloor\),
+la croissance et le taux de \(t+\lceil(5/4)^t\rceil\), et les trois
+formulations de B29. Elle réfute une généralisation du résumé.
+
+**Énoncé réfuté (X66).** Dans la tranche \(2^k\le y<2^{k+1}\), l'étape
+\(y+1\le 2^{k+1}\) échoue dès que \(y\) n'est pas entier.
+
+**Témoin.** \(y=129/2\). Alors \(2^6=64\le 129/2<128=2^7\), car
+\(128\le 129<256\), donc \(k=6\). Et \(y+1=131/2\le 128\), car
+\(131\le 256\).
+
+**Lieu.** Soit \(y>0\) et \(k=\lfloor\log_2 y\rfloor\). La définition
+du logarithme entier donne \(2^k\le y<2^{k+1}\). Alors
+\(y+1>2^{k+1}\) équivaut à \(y>2^{k+1}-1\). L'échec est donc
+exactement l'intervalle \(2^{k+1}-1<y<2^{k+1}\). Au bord
+\(y=2^{k+1}-1\), on a \(y+1=2^{k+1}\), et l'étape tient. Tout entier
+de la tranche est au plus \(2^{k+1}-1\), donc l'étape du §4 reste
+vraie pour les entiers. Le témoin \(255/2\) de X65 est dans cet
+intervalle : \(127<255/2<128\).
+
+Le compte des valeurs entières \(\le y\) est encore celui des valeurs
+\(\le\lfloor y\rfloor\). Dès que \(y\ge 64\), cet entier est au moins
+\(64\), et le §4 lui donne un compte \(O(\sqrt y)\). L'asymptotique de
+X64 ne dépend pas de l'étape réelle.
+
+La revue dit avoir relu (2.31) et (2.32) sur un fac-similé de 1985, la
+p. 60 du chapitre AMS de Chamberland, et le §2.1 de sa version
+d'auteur, et n'y avoir pas trouvé H16. Ces fichiers ne sont pas
+ouverts ici. Leur contenu n'est pas adopté. H16 reste INCONCLUSIVE, et
+son antériorité hors de (2.30)–(2.32) reste PRIOR ART UNVERIFIED. Le
+cycle 023 n'est pas ouvert : il attend la relecture de ce correctif.
+
+Le contrôle donne 8 lignes `PASS`.

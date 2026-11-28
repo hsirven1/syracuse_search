@@ -4,7 +4,9 @@
 L'identité β + 1 = δ est la relation 2·(3/2) = 3. Pour un entier x ≥ 64,
 la chaîne log2(x+1) ≤ k+1 ≤ 2^{k/2} ≤ sqrt(x), avec k = floor(log2 x),
 repose sur x ≤ 2^{k+1}-1 et sur (k+1)^2 ≤ 2^k. Elle échoue pour le réel
-x = 255/2 : k = 6 mais x+1 = 257/2 > 2^7. Une borne réelle se ramène à
+x = 255/2 : k = 6 mais x+1 = 257/2 > 2^7. Dans la tranche
+2^k <= y < 2^{k+1}, cet échec est exactement 2^{k+1}-1 < y < 2^{k+1}.
+Le réel y = 129/2 satisfait l'étape. Une borne réelle se ramène à
 sa partie entière. La suite a_t = 2^t - 1 vérifie log2(a_t+1)/t = 1.
 La suite a_t = t + ceil((5/4)^t) est strictement croissante, de taux
 log2(5/4) < log2(3/2), et n'est pas une orbite. Sur l'orbite de 27, la
@@ -74,6 +76,40 @@ def passes() -> list[str]:
     else:
         out.append(f"FAIL X65, cas={real_bad}")
 
+    # X66. L'echec dans la tranche est exactement 2^{k+1}-1 < y < 2^{k+1}.
+    # y = 129/2 est non entier et satisfait l'etape. Sur la grille
+    # y = 2^{k+1} - a/16, a = 1..32, l'etape echoue si et seulement si a < 16,
+    # et floor(y) reste dans la chaine entiere.
+    locus_bad = 0
+    witness = Fraction(129, 2)
+    if not (2**6 <= witness < 2**7 and witness + 1 == Fraction(131, 2) <= 2**7):
+        locus_bad += 1
+    for k in range(6, 65):
+        right = 2 ** (k + 1)
+        left = right - 1
+        if left + 1 != right:
+            locus_bad += 1
+        above = left + Fraction(1, 16)
+        below = left - Fraction(1, 16)
+        if not (2**k <= above < right and above + 1 > right):
+            locus_bad += 1
+        if not (2**k <= below < right and below + 1 <= right):
+            locus_bad += 1
+        for a in range(1, 33):
+            y = right - Fraction(a, 16)
+            if (y + 1 > right) != (a < 16):
+                locus_bad += 1
+            floor_y = right - 1 if a <= 16 else right - 2
+            if y != floor_y and int(y) != floor_y:
+                locus_bad += 1
+            kf = floor_y.bit_length() - 1
+            if floor_y + 1 > 2 ** (kf + 1):
+                locus_bad += 1
+    if locus_bad == 0:
+        out.append("PASS echec reel exactement sur 2^{k+1}-1<y<2^{k+1}; 129/2 tient")
+    else:
+        out.append(f"FAIL X66, cas={locus_bad}")
+
     # a_t = 2^t - 1. Alors a_t <= x ssi t <= floor(log2(x+1)).
     count_bad = 0
     for k in range(1, 41):
@@ -97,11 +133,15 @@ def passes() -> list[str]:
     if not (5 * 2 < 3 * 4 and 5 > 4 and 3 < 4):
         seq_bad += 1
     previous = 0
-    for t in range(1, 81):
+    for t in range(1, 129):
         term = t + ceil_div(5**t, 4**t)
+        if term != t + 1 + (5**t - 1) // 4**t:
+            seq_bad += 1
         if term <= previous:
             seq_bad += 1
         if not (5**t <= term * 4**t < 5**t + (t + 1) * 4**t):
+            seq_bad += 1
+        if not (5**t < (term + 1) * 4**t < 5**t + (t + 2) * 4**t):
             seq_bad += 1
         previous = term
     if ceil_div(5, 4) + 1 != 3 or ceil_div(25, 16) + 2 != 4 or T(3) == 4:

@@ -311,13 +311,15 @@ l'inégalité \(\ge\), déjà dans B6. L'équation (2.32) ne l'énonce pas
 (X64). Ce n'est pas H1 : H1 est \(\limsup\log_2(n_t+1)/t<\beta\).
 L'égalité n'est ni prouvée ni réfutée. Une réfutation serait une
 orbite divergente. La comparaison \(\log_2(x+1)\le\sqrt x\) du
-cycle 022 vaut pour un entier \(x\ge 64\). Pour un réel,
-\(x+1\le 2^{k+1}\) est faux (X65) ; le compte des termes entiers passe
-par \(\lfloor x\rfloor\) et reste \(O(\sqrt x)\). Une suite de taux
+cycle 022 vaut pour un entier \(x\ge 64\). Dans la tranche
+\(2^k\le y<2^{k+1}\), l'étape \(y+1\le 2^{k+1}\) échoue exactement
+pour \(2^{k+1}-1<y<2^{k+1}\) (X65, X66). Le seuil \(y=129/2\) la
+satisfait. Le compte des termes entiers passe par \(\lfloor y\rfloor\)
+et reste \(O(\sqrt y)\). Une suite de taux
 \(\log_2(5/4)\in(0,\beta)\) a aussi un compte \(O(\log x)\) et n'est
 pas une orbite. Le PDF du Monthly 1985 et le chapitre de
-Chamberland 2010, pp. 57–78, ne sont pas obtenus. La revue
-`6095335839` cite la p. 60 de ce chapitre et le §2.1 d'une version
-d'auteur ; ces pages ne sont pas relues. Hors de (2.30)–(2.32),
-l'antériorité est PRIOR ART UNVERIFIED. Ne pas la tenir pour un
-théorème nouveau.
+Chamberland 2010, pp. 57–78, ne sont pas obtenus. Les revues
+`6095335839` et `6095375601` citent la p. 60 de ce chapitre et le §2.1
+d'une version d'auteur ; ces pages ne sont pas relues. Hors de
+(2.30)–(2.32), l'antériorité est PRIOR ART UNVERIFIED. Ne pas la
+tenir pour un théorème nouveau.

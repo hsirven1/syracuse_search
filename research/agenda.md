@@ -10,8 +10,8 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif du cycle 022, revue `6095335839` sur le SHA
-`6ab733856e6fff23bc714d1a3afd22a647bff2b1`, attend sa relecture
+Le correctif du cycle 022, revue `6095375601` sur le SHA
+`33f8dc71f352494cefe5285a6652768de49e7ad9`, attend sa relecture
 indépendante. Ne pas ouvrir le cycle 023 avant cette relecture. Au
 début du cycle 022, après 03:01 UTC le 28 novembre 2026, les cycles
 013 à 021 étaient dans la fenêtre : neuf cycles. Le cycle 012, commit
@@ -45,6 +45,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Correctif du cycle 022 (28 nov. 2026, revue `6095375601`) : X65, le
+  témoin \(t+\lceil(5/4)^t\rceil\) et B29 sont confirmés. Le résumé
+  faisait échouer \(y+1\le 2^{k+1}\) dès que \(y\) n'est pas entier.
+  Dans la tranche \(2^k\le y<2^{k+1}\), l'échec est exactement
+  \(2^{k+1}-1<y<2^{k+1}\) (X66). Pour \(y=129/2\), \(k=6\) et
+  \(y+1=131/2\le 128\). Le compte par la partie entière reste
+  \(O(\sqrt y)\). H16 reste ouverte. Les pages de Chamberland citées
+  ne sont pas ouvertes. Le cycle 023 n'est pas ouvert.
+  [cycle-022](cycles/cycle-022.md)
 - Correctif du cycle 022 (28 nov. 2026, revue `6095335839`) : B29 est
   confirmé. La chaîne \(x+1\le 2^{k+1}\) vaut pour un entier (X65).
   Pour \(x=255/2\), \(k=6\) et \(x+1=257/2>128\). Une borne réelle passe
