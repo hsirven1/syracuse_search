@@ -884,9 +884,21 @@ preuve est l'identité de B6, la convergence \(R(t)/t\to 0\) de B28, et
 \(\beta+1=\delta\). L'égalité elle-même n'est pas prouvée. (2.31) est
 le sens \(\ge\), déjà contenu dans B6. (2.32) borne un sous-ensemble
 de l'orbite et n'interdit pas une croissance exponentielle d'une suite
-injective (X64). Cette suite n'est pas une orbite. Aucune trajectoire
-divergente n'est exclue. L'antériorité de l'égalité, hors des équations
+injective (X64). La comparaison \(\log_2(x+1)\le\sqrt x\) vaut pour un
+entier ; une borne réelle se ramène à \(\lfloor x\rfloor\) (X65). La
+suite \(t+\lceil(5/4)^t\rceil\) a le taux \(\log_2(5/4)\in(0,\beta)\) et
+un compte \(O(\log x)\). Aucune de ces suites n'est une orbite. Aucune
+trajectoire divergente n'est exclue. L'antériorité de l'égalité, hors des équations
 lues, est PRIOR ART UNVERIFIED (H16).
+
+Revue indépendante `6095335839` (PR #27, SHA
+`6ab733856e6fff23bc714d1a3afd22a647bff2b1`) : B29 et la portée de
+(2.30)–(2.32) confirmées. Correction : \(x<2^{k+1}\) n'entraîne
+\(x+1\le 2^{k+1}\) que pour \(x\) entier (X65). Le compte
+\(O(\sqrt x)\) reste, par la partie entière si la borne est réelle. La
+suite de taux \(\log_2(5/4)\) reste sous le plafond \(\beta\) donné par
+l'identité et \(E(t)\ge 0\). Elle n'est pas une orbite. H16 reste ouverte. Les pages de Chamberland citées par la
+revue ne sont pas relues. Le cycle 023 n'est pas ouvert.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune

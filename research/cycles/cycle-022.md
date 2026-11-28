@@ -12,7 +12,12 @@ Lagarias, lue sur le TeX, est l'inégalité \(\ge\). Elle redit
 un sous-ensemble de l'orbite. Elle n'énonce pas le rapport
 \(\log_2(n_t+1)/t\). Une suite injective de croissance exponentielle a
 un compte \(O(\log x)\) et satisfait toute majoration \(O(\sqrt x)\)
-(X64) : ce n'est pas une orbite. L'égalité elle-même reste ouverte.
+(X64) : ce n'est pas une orbite. La comparaison
+\(\log_2(x+1)\le\sqrt x\) est écrite pour un entier \(x\). Une borne
+réelle se ramène à sa partie entière, car \(x+1\le 2^{k+1}\) échoue
+dès que \(x\) ne l'est pas (X65). La même séparation reste disponible
+sous le plafond \(\beta\), par la suite \(t+\lceil(5/4)^t\rceil\).
+L'égalité elle-même reste ouverte.
 La classification d'antériorité de cette égalité, hors des équations
 lues, est PRIOR ART UNVERIFIED. Le PDF du Monthly 1985 et le chapitre
 de Chamberland 2010 ne sont pas obtenus.
@@ -23,6 +28,13 @@ La revue `6095268526` porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW`
 et le SHA `0c1b3eb260b40ff88d889e388dc35a770bae2cd9`, tête de la PR #27
 au moment de cette relecture. Elle confirme B28, X59, X61, X62 et X63.
 Elle ne demande aucune correction. Le cycle 021 n'est pas réécrit.
+
+La revue `6095335839` porte le même marqueur et le SHA
+`6ab733856e6fff23bc714d1a3afd22a647bff2b1`, tête de la PR #27 au moment
+de ce correctif. Elle confirme B29 et la lecture de (2.30)–(2.32). Elle
+réfute le passage \(x<2^{k+1}\Rightarrow x+1\le 2^{k+1}\) lorsque \(x\)
+est réel. Le correctif est le §9. Ce n'est pas un nouveau cycle. Le
+cycle 023 n'est pas ouvert.
 
 La fenêtre est recomptée sur les commits de cycle. Ce cycle commence
 le 28 novembre 2026 après 03:01 UTC. Le cycle 012, commit `41cced5`,
@@ -165,8 +177,8 @@ distincts telle que \(a_t+1\ge 2^{\alpha t}\). Si \(a_t\le x\), alors
 \(t\le\log_2(x+1)/\alpha\). Le nombre de termes \(\le x\) est donc au
 plus \(1+\log_2(x+1)/\alpha\).
 
-Pour \(x\ge 64\), soit \(k=\lfloor\log_2 x\rfloor\ge 6\). Alors
-\(2^k\le x<2^{k+1}\), donc \(x+1\le 2^{k+1}\) et
+Pour un entier \(x\ge 64\), soit \(k=\lfloor\log_2 x\rfloor\ge 6\). Alors
+\(2^k\le x\le 2^{k+1}-1\), donc \(x+1\le 2^{k+1}\) et
 \(\log_2(x+1)\le k+1\). L'inégalité \((k+1)^2\le 2^k\) vaut pour \(k=6\), car \(49\le 64\).
 Elle se propage. D'abord \(2k+3\le 2^k\) pour \(k=6\), car \(15\le 64\),
 et si cela vaut alors \(2(k+1)+3=(2k+3)+2\le 2^k+2\le 2^{k+1}\). Ensuite
@@ -175,7 +187,13 @@ et si cela vaut alors \(2(k+1)+3=(2k+3)+2\le 2^k+2\le 2^{k+1}\). Ensuite
 \]
 Le contrôle vérifie \((k+1)^2\le 2^k\) pour \(6\le k\le 80\), et la
 chaîne sur chaque entier \(64\le x\le 4000\). Donc
-\(\log_2(x+1)\le\sqrt x\) pour ces \(x\), et le compte est \(O(\sqrt x)\).
+\(\log_2(x+1)\le\sqrt x\) pour ces entiers, et le compte est \(O(\sqrt x)\).
+
+Si la borne \(y\ge 64\) est réelle, les termes comptés sont des entiers.
+Leur nombre jusqu'à \(y\) est celui jusqu'à \(\lfloor y\rfloor\), et la
+chaîne précédente s'applique à cet entier. Le compte reste
+\(O(\sqrt y)\). Sans l'hypothèse entière, \(y<2^{k+1}\) n'entraîne pas
+\(y+1\le 2^{k+1}\). C'est X65, détaillé au §9.
 
 La suite \(a_t=2^t-1\) est injective, \(\log_2(a_t+1)/t=1\), et pour
 \(x=2^k\) les termes \(\le x\) sont exactement \(t=1,\ldots,k\). Son
@@ -209,11 +227,11 @@ pas reprise. H1 n'est pas entamé. Aucune orbite divergente n'est exclue.
 
 - `prior_art.md` : les équations (2.30)–(2.32) sont lues sur le TeX Organics. Le Monthly 1985 reste non obtenu.
 - `proved.md` : B29, l'équivalence. L'égalité n'y figure pas.
-- `counterexamples.md` : X64.
+- `counterexamples.md` : X64, puis X65 après la revue `6095335839`.
 - `hypotheses.md` : H16, l'égalité, ouverte.
-- `abandoned.md` : ne pas lire (2.31) comme une égalité, ni (2.32) comme une annulation du rapport.
-- `agenda.md` : le cycle 023 attend la relecture.
-- `reviews.md` : revue `6095268526`.
+- `abandoned.md` : ne pas lire (2.31) comme une égalité, ni (2.32) comme une annulation du rapport. Ne pas étendre \(x+1\le 2^{k+1}\) à un réel.
+- `agenda.md` : le cycle 023 attend la relecture du §9.
+- `reviews.md` : revues `6095268526` et `6095335839`.
 
 ## 7. Prochaine question
 
@@ -226,9 +244,10 @@ le statut reste PRIOR ART UNVERIFIED hors de (2.30)–(2.32). Ne pas
 deviner un PDF absent. Ne pas rouvrir le nœud 9, le théorème F, H1, la
 suite synthétique du cycle 021, ni B29 pour en refaire la preuve.
 
-Ne pas ouvrir ce cycle avant la relecture indépendante du présent
-texte. La fenêtre, au début du cycle 022, contient encore le cycle 013.
-Elle ne lève pas cette attente.
+Ne pas ouvrir ce cycle avant la relecture indépendante du §9. La
+fenêtre, au début du cycle 022, contient encore le cycle 013. Elle ne
+lève pas cette attente. Les pages citées au §9.3 ne sont pas lues : la
+revue `6095335839` ne clôt pas cette question.
 
 ## 8. Reproduire
 
@@ -236,4 +255,108 @@ Elle ne lève pas cette attente.
 python3 research/checks/cycle022_liminf_height.py
 ```
 
-Sortie attendue : 5 lignes `PASS`.
+Sortie attendue : 7 lignes `PASS`.
+
+## 9. Correction après la revue `6095335839`
+
+La revue `6095335839` porte le marqueur `SYRACUSE_INDEPENDENT_REVIEW`
+et le SHA `6ab733856e6fff23bc714d1a3afd22a647bff2b1`. Elle confirme
+B29, l'identité de B6 sur les rapports de hauteur, le décalage
+\(N^*(k)=O(k+1)\), et le fait que (2.31) et (2.32) n'énoncent pas
+l'égalité. Elle réfute une étape intermédiaire du §4 si la borne n'est
+pas entière. B29 est inchangé. H16 reste ouverte. Le cycle 023 n'est
+pas ouvert.
+
+### 9.1. La chaîne demande un entier (X65)
+
+**Énoncé réfuté.** Pour tout réel \(x\ge 64\), si
+\(k=\lfloor\log_2 x\rfloor\), alors \(x<2^{k+1}\) implique
+\(x+1\le 2^{k+1}\).
+
+**Témoin.** \(x=255/2\). Alors \(2^6=64\le 255/2<128=2^7\), car
+\(128\le 255<256\), donc \(k=6\). Mais
+\(x+1=257/2>128\), car \(257>256\).
+
+Pour un entier, le pas est vrai : \(2^k\le x<2^{k+1}\) donne
+\(x\le 2^{k+1}-1\). Le §4 est restreint à ce cas. Le contrôle le
+vérifie pour \(64\le x\le 4000\).
+
+Pour une borne réelle \(y\ge 64\), les valeurs comptées sont des
+entiers positifs. Celles qui sont \(\le y\) sont exactement celles qui
+sont \(\le\lfloor y\rfloor\). Cet entier est au moins \(64\), donc la
+chaîne du §4 lui donne un compte \(O(\sqrt{\lfloor y\rfloor})\), donc
+\(O(\sqrt y)\). Le résultat asymptotique de X64 reste. La même
+réduction vaut pour les bornes \(y=2^{m+1}-1/2\), \(6\le m\le 40\), où
+l'étape réelle échoue encore et où \(\lfloor y\rfloor+1=2^{m+1}\).
+
+### 9.2. Une suite sous le plafond \(\beta\)
+
+La suite \(2^t-1\) a pour taux \(1\). Sur une orbite positive non
+bornée, \(E(t)\ge 0\) et \(R(t)=o(t)\), donc l'identité de B6 donne
+\(\limsup\log_2(n_t+1)/t\le\beta\). Comme \(3/2<2\), on a \(\beta<1\).
+Ce taux est donc déjà exclu pour une telle orbite. La suite n'illustre
+que le comptage. La suite
+\[
+a_t=t+\left\lceil\Bigl(\frac54\Bigr)^t\right\rceil,\qquad t\ge 1,
+\]
+reste sous ce plafond et garde un compte logarithmique.
+
+Puisque \((5/4)^{t+1}>(5/4)^t\), la partie entière supérieure ne
+décroît pas. Le terme \(t\) ajoute au moins \(1\), donc \((a_t)\) est
+strictement croissante, et injective. De plus
+\[
+\Bigl(\frac54\Bigr)^t\le a_t<\Bigl(\frac54\Bigr)^t+t+1.
+\]
+La borne inférieure vient de \(\lceil z\rceil\ge z\). La borne
+supérieure vient de \(\lceil z\rceil<z+1\). Ainsi
+\[
+\frac54<a_t^{1/t}<\frac54\Bigl(1+(t+1)\Bigl(\frac45\Bigr)^t\Bigr)^{1/t}.
+\]
+Soit \(v_t=(t+1)(4/5)^t\). Pour \(t\ge 4\),
+\((t+2)/(t+1)\le 6/5\), donc
+\[
+\frac{v_{t+1}}{v_t}=\frac45\cdot\frac{t+2}{t+1}\le\frac{24}{25}.
+\]
+Donc \(v_{4+n}\le (24/25)^n v_4\), et \(v_t\to 0\). Pour tout \(t\) assez
+grand, \(v_t\le 1\), et alors
+\[
+1<(1+v_t)^{1/t}\le 2^{1/t}.
+\]
+Les deux premiers termes de \((1+1/t)^t\) valent \(1\), donc cette
+puissance est au moins \(2\), et \(2^{1/t}\le 1+1/t\). Le membre de
+droite tend vers \(1\), donc \((1+v_t)^{1/t}\to 1\). Le majorant
+\((5/4)(1+v_t)^{1/t}\) tend vers \(5/4\), et \(a_t^{1/t}\to 5/4\). Le
+taux \(\log_2(a_t)/t\) tend vers \(\log_2(5/4)\). Comme \(a_t\ge 2\), on a \(1+1/a_t\le 2\), donc
+\[
+0<\log_2\Bigl(1+\frac1{a_t}\Bigr)\le 1,
+\]
+et \(\log_2(a_t+1)/t\) a la même limite.
+
+Cette limite est strictement positive car \(5/4>1\), et strictement
+inférieure à \(\beta\) car \(5/4<3/2\). Si \(a_t\le x\), alors
+\((5/4)^t\le x\), donc \(t\le\log_2 x/\log_2(5/4)\). Le nombre de
+termes \(\le x\) est \(O(\log x)\), et il satisfait toute majoration
+\(O(\sqrt x)\).
+
+Ce n'est pas une orbite. \(a_1=1+\lceil 5/4\rceil=3\) et
+\(a_2=2+\lceil 25/16\rceil=4\), tandis que \(T(3)=5\neq 4\).
+
+Cette suite ne prouve pas l'égalité de H16, et elle ne la réfute pas.
+Elle montre seulement qu'une majoration du type (2.32), même jointe au
+plafond \(\limsup\log_2(n_t+1)/t\le\beta\) de B6, n'interdit pas une
+limite inférieure strictement positive pour une suite qui n'est pas
+une orbite.
+
+### 9.3. Ce que la revue cite et qui n'est pas relu
+
+La revue dit avoir lu le fac-similé du Monthly 1985, pp. 12 et 15–16,
+et y avoir retrouvé le symbole \(\ge\) de (2.31). Elle cite aussi la
+p. 60 du chapitre de Chamberland dans le volume AMS, et le §2.1 de la
+version d'auteur, comme ne donnant pas
+\(\liminf\log|T^{(k)}(n)|/k=0\). Ces fichiers ne sont pas ouverts ici.
+Leur contenu n'est pas adopté. H16 reste INCONCLUSIVE, et son
+antériorité hors de (2.30)–(2.32) reste PRIOR ART UNVERIFIED. La
+question du cycle 023 est inchangée : lire ces paragraphes sur le
+texte obtenu, sans deviner un fichier absent.
+
+Le contrôle donne 7 lignes `PASS`.

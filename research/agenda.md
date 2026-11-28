@@ -10,14 +10,15 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le cycle 022, revue à venir sur son commit, attend sa relecture
+Le correctif du cycle 022, revue `6095335839` sur le SHA
+`6ab733856e6fff23bc714d1a3afd22a647bff2b1`, attend sa relecture
 indépendante. Ne pas ouvrir le cycle 023 avant cette relecture. Au
 début du cycle 022, après 03:01 UTC le 28 novembre 2026, les cycles
 013 à 021 étaient dans la fenêtre : neuf cycles. Le cycle 012, commit
 `41cced5`, du 27 novembre 2026 à 02:59:54 UTC, était sorti. Le plus
 ancien encore dans la fenêtre est le cycle 013, commit `9e26d12`, du
-27 novembre 2026 à 20:16:39 UTC. La fenêtre ne lève pas l'attente de
-relecture.
+27 novembre 2026 à 20:16:39 UTC. Ce correctif n'est pas un cycle. La
+fenêtre ne lève pas l'attente de relecture.
 
 ## 1. [C] Chamberland 2010, trajectoires divergentes — PROCHAINE QUESTION (cycle 023), non entamée
 Obtenir Marc Chamberland, « A \(3x+1\) survey: number theory and
@@ -44,6 +45,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Correctif du cycle 022 (28 nov. 2026, revue `6095335839`) : B29 est
+  confirmé. La chaîne \(x+1\le 2^{k+1}\) vaut pour un entier (X65).
+  Pour \(x=255/2\), \(k=6\) et \(x+1=257/2>128\). Une borne réelle passe
+  par sa partie entière, et le compte reste \(O(\sqrt x)\). La suite
+  \(t+\lceil(5/4)^t\rceil\) a le taux \(\log_2(5/4)\in(0,\beta)\) et un
+  compte \(O(\log x)\). \(T(3)=5\neq 4\). H16 reste ouverte. Les pages
+  de Chamberland citées ne sont pas relues. Le cycle 023 n'est pas
+  ouvert.
+  [cycle-022](cycles/cycle-022.md)
 - Cycle 022 (28 nov. 2026) : la revue `6095268526` confirme B28, X59,
   X61, X62 et X63. Aucune correction. B29 est l'équivalence entre
   \(\liminf\log_2(n_t+1)/t=0\), \(\limsup E(t)/t=\beta/\delta\) et
