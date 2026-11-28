@@ -9,9 +9,13 @@ $\forall N>0$ : orbite non bornée ⇒ $\eta_N:=\liminf_tE(t)/t>0$.
 - Équivaut à $\limsup_tH(t)/t<\beta$ (C3, non validé : $\limsup H/t=\beta-\delta\eta_N$).
 - Améliorer la pente $1/\beta$ de la complexité conditionnelle ⇔ (C) (même source).
 - Toujours $\eta_N\le\beta/\delta$ pour une orbite non bornée (B6 : $H\ge0$ et $R=o(E)$).
-- Garcia–Tal 1999, lu au cycle 021, donne la densité de Banach nulle de
-  l'ensemble des valeurs, pas $R(t)=O(1)$. Cette lecture ne resserre pas
-  la limite de B6 (X57). Ne pas la reprendre pour un gain logarithmique.
+- Garcia–Tal 1999, lu au cycle 021, donne la densité de Banach nulle.
+  L'inégalité (6) implique la sommabilité des réciproques, et B28 la
+  prouve pour \(T\) sans Heppner : \(R(t)\) converge. La constante
+  \(61344/65\) reste non validée (X57, X58). Même alors,
+  \(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
+  Cela ne donne pas H1. Ne pas reprendre cette lecture pour un gain
+  logarithmique, ni pour calculer la constante de C3.
 - Obstacle : les bornes archimédiennes seules ne suffisent pas (X15) ; il faut l'intégralité.
 - Non attaqué directement tant qu'aucun mécanisme nouveau n'est identifié.
 

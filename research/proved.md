@@ -821,9 +821,35 @@ signe ne réindexe pas le rayon tronqué : \(\{3\}\) n'est pas
 
 Revue indépendante `6095141976` (PR #27, SHA
 `f95073fa16ac1a2fda8bb76b714f583613f849ab`) : X56, la réindexation et
-B27 confirmés. Aucune correction. Le cycle 021 vient ensuite : Garcia–Tal
-1999, lu, énonce la densité de Banach nulle et non \(R(t)=O(1)\) (X57).
+B27 confirmés. Aucune correction. Le cycle 021 vient ensuite. La
+première rédaction lisait Garcia–Tal comme une densité sans
+\(R(t)=O(1)\). La revue `6095181058` retire cette négation (X58, B28).
 Cette lecture ne change pas B27.
+
+**B28 — Somme des réciproques et convergence de \(R\)** (PROUVÉ pour
+\(T\), cycle 021 §8). Pour toute orbite positive non bornée de \(T\),
+les valeurs sont distinctes et \(\sum 1/n<\infty\), uniformément en
+l'orbite. Le reste \(R(t)\) de B6 converge vers une limite finie. Preuve
+autonome : les \(2^k\) mots de longueur \(k\) sur \(\{1,\ldots,2^k\}\)
+sont distincts, \(T^k(n)<2\cdot 3^s\), et le partage \(3k/5\) donne
+\(A(2^k)=O(\lambda^k)\) avec \(\lambda<2\), car \(27<32\) et
+\(3125<3456\). Les blocs dyadiques sont géométriques. Pour l'application
+de Hasse du texte, la même somme suit de (6) dès que
+\(\delta_1,\delta_2\in(0,1)\), sans valeur numérique ; la preuve de
+Heppner n'est pas lue. Ce n'est pas \(61344/65\). La limite de B6 est
+inchangée :
+\(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
+Aucune orbite divergente n'est exclue. Pour \(T\),
+\(\limsup n_t/t=\infty\).
+
+Revue indépendante `6095181058` (PR #27, SHA
+`ede0b2d054bbf802eb4a1b6fdc2f05779304169d`) : les hypothèses classiques,
+le corollaire 1 et la formule de limite confirmés. Correction : (6)
+implique la sommabilité (X58), et B28 la prouve pour \(T\). La constante
+de C3 reste non validée. L'inégalité numérique du cycle 021 §3 suppose
+\(t\ge 24\). La suite synthétique n'a qu'un liminf nul (X59). L'ordre
+modulo \(4\) vaut \(2\) (X60) et n'implique pas \(r(m)\ge 2^{m/2}\).
+Le cycle 022 n'est pas ouvert.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
@@ -838,7 +864,7 @@ Les relectures de l'initialisation n'ont pas trouvé d'erreur, sans vérificatio
 |---|---|---|---|
 | C1 | Orbite non bornée ⇒ $p_N(L)\ge1+\lfloor(L-K)/\beta\rfloor$ ($N+1\le2^K$) | PR [#21](https://github.com/hsirven1/syracuse_search/pull/21) | Pente $1/\beta$ **déjà publiée** : Dubickas 2009, thm 5 |
 | C2 | Pour tout $N$ : $E(t)\ge\log_2t/\log_2\delta-O_N(1)$ ; identité $H(t)=H(0)+\beta t-\delta E(t)+R(t)$ ; gain conditionnel $\liminf(p_N(L)-L/\beta)/\log_2L\ge\delta/(\beta\log_2\delta)$ | PR [#22](https://github.com/hsirven1/syracuse_search/pull/22) | Divisibilité $2^r\mid n+1$ pour un run de $r$ impairs |
-| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | L'attribution de la sommabilité à Garcia–Tal 1999 est fausse : le PDF lu au cycle 021 énonce la densité de Banach nulle (X57). C3 reste non validé et n'est pas une prémisse |
+| C3 | Orbite non bornée ⇒ $\sum_t1/n_t\le61344/65$, $R=O(1)$, $p_N(L)\ge L/\beta+c_*\log_2L-C_N$ ; $\limsup H/t=\beta-\delta\eta_N$ ; exclusion d'un mot à runs presque maximaux ; modèle réel montrant l'insuffisance des seules bornes archimédiennes | branche `research/even-density-structural-audit` (sans PR ; base de #23) | Le PDF n'écrit pas la somme (X57). (6) l'implique dès que les exposants sont dans $(0,1)$, et B28 prouve la somme et la convergence de $R$ pour $T$ sans la constante $61344/65$. Le reste de C3 n'est pas validé et n'est pas une prémisse |
 | C4 | Mot triangulaire : $p_w(L)=\lfloor(L+1)^2/4\rfloor$ ($L\ge3$) ; congruence (14) ; réalisation 2-adique (B) | PR [#23](https://github.com/hsirven1/syracuse_search/pull/23) | (B) re-dérivée en B1–B2 |
 | C5 | $2S+1=f_{3/2}(2)$ ; exclusion du mot triangulaire **conditionnelle** à VW 1989 | PR [#24](https://github.com/hsirven1/syracuse_search/pull/24) | Condition levée par B2 (énoncé primaire lu) |
 | C6 | Récurrence des runs $r_{i+1}+1=v_2(3^{r_i}a_i+1)$, $M_i+1=2^{r_i}a_i$ ; (V) ⇒ gain log-log | branche `research/padic-successive-runs` (base de #25) | — |

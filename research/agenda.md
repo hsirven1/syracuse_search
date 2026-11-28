@@ -10,29 +10,33 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le cycle 021 attend sa relecture indépendante. Ne pas ouvrir le cycle
-022 avant cette relecture. Au début du cycle 021, les cycles 011 à 020
-étaient dans la fenêtre. Le plus ancien est le cycle 011, commit
-`ded6e1c`, du 27 novembre 2026 à 02:40:03 UTC. La fenêtre ne lève pas
-l'attente de relecture.
+Le correctif du cycle 021 attend sa relecture indépendante. Ne pas
+ouvrir le cycle 022 avant cette relecture. Au début du cycle 021, les
+cycles 011 à 020 étaient dans la fenêtre. Le plus ancien est le cycle
+011, commit `ded6e1c`, du 27 novembre 2026 à 02:40:03 UTC. Le correctif
+n'est pas un nouveau cycle. La fenêtre ne lève pas l'attente de
+relecture.
 
-## 1. [A] Ordre de 3 et plus petit exposant de \(5\cdot 3^r+1\) — PROCHAINE QUESTION (cycle 022), non entamée
+## 1. [B] Limite inférieure de la hauteur sur une orbite non bornée — PROCHAINE QUESTION (cycle 022), non entamée
 Les cycles 016 à 021 sont des identifications ou des lectures de
-portée. Ne pas en ouvrir une septième. Ne pas rouvrir H1, la densité
-de Banach, \(R(t)\), les cylindres, les progressions de raison fixe,
-H3, \(P(2)\), le signe moins, ni B27.
+portée, et B28 est la correction de la sommabilité, pas une septième
+lecture. Ne pas rouvrir H1 comme petit lemme, la densité de Banach,
+Heppner, la constante \(61344/65\), l'ordre de \(3\), les cylindres,
+les progressions de raison fixe, H3, \(P(2)\), le signe moins, ni B27.
 
-Pour \(a=5\) et \(m\ge 2\), soit \(r(m)\) le plus petit entier \(r>0\)
-tel que \(v_2(5\cdot 3^r+1)\ge m\), ou \(+\infty\) s'il n'existe pas.
-Le cycle 002 §5 observe une croissance exponentielle jusqu'à \(m=40\)
-et rappelle que la minoration linéaire ne réfute aucun \(B>1\). L'ordre
-de \(3\) modulo \(2^m\), sur les unités impaires, vaut \(2^{m-2}\). La
-question est la porte, pas une preuve de (H) : cet ordre implique-t-il
-\(r(m)\ge 2^{m/2}\) pour tout \(m\) assez grand ? Si l'on obtient
-seulement l'espacement des solutions une fois qu'une solution existe,
-NO-GO. Ne pas prolonger le calcul au-delà de \(m=40\) et ne pas en
-déduire une réfutation de (H). Ne pas ouvrir ce cycle avant la fin du
-blocage ci-dessus.
+Pour une orbite positive non bornée de \(T\), B28 et l'identité de B6
+donnent
+\(\limsup E(t)/t=\beta/\delta-(1/\delta)\liminf\log_2(n_t+1)/t\).
+La question est la porte : cette limite inférieure est-elle nulle pour
+toute orbite positive non bornée ? Si un théorème publié le donne
+déjà, ou si l'on ne produit que la suite du cycle 021 §3, NO-GO. Cette
+suite n'est pas une orbite. H1 est l'autre bout de l'identité,
+\(\limsup\log_2(n_t+1)/t<\beta\). Ne pas l'attaquer ici. Ne pas ouvrir
+ce cycle avant la fin du blocage ci-dessus.
+
+L'ordre de \(3\) modulo \(2^m\) vaut \(2^{m-2}\) seulement pour
+\(m\ge 3\). Modulo \(4\), il vaut \(2\) (X60). Il espace les solutions
+et ne minore pas le plus petit \(r\). Cette question est fermée.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -43,10 +47,17 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Correctif du cycle 021 (28 nov. 2026, revue `6095181058`) : (6)
+  implique la sommabilité dès que \(\delta_1,\delta_2\in(0,1)\) (X58).
+  Pour \(T\), B28 prouve la somme et la convergence de \(R\) sans
+  Heppner. La constante \(61344/65\) reste non validée. La limite de
+  B6 ne change pas. L'ordre modulo \(4\) vaut \(2\) (X60) et n'implique
+  pas \(r(m)\ge 2^{m/2}\). Le cycle 022 n'est pas ouvert.
+  [cycle-021](cycles/cycle-021.md)
 - Cycle 021 (28 nov. 2026) : Garcia–Tal 1999, lu, énonce la densité de
-  Banach nulle d'une orbite (corollaire 1). Il n'énonce pas
-  \(R(t)=O(1)\) (X57). Cette borne, même supposée, ne change pas
-  \(\limsup E(t)/t\le\beta/\delta\). NO-GO, sans lemme de remplacement.
+  Banach nulle d'une orbite (corollaire 1). La première rédaction
+  refusait \(R(t)=O(1)\). Cette phrase est retirée par le correctif
+  ci-dessus. La limite de B6 ne change pas.
   [cycle-021](cycles/cycle-021.md)
 - Revue `6095141976` (28 nov. 2026, SHA `f95073fa`) : X56, la
   réindexation et B27 confirmés. Aucune correction. Cycle 021 ensuite.
