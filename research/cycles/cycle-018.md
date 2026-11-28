@@ -176,7 +176,11 @@ de gauche est entier et \(3^{a_j}\) est impair, donc \(2^j\) divise
 
 Ainsi \(T^{s+p}(n)=T^s(n)\). La queue des valeurs est périodique,
 l'orbite est finie, et \(T^s(n)\) appartient à un cycle. Pour \(5\),
-la période commence au rang \(4\) : \(T^4(5)=T^6(5)=1\).
+la suite commence par \(5,8,4,2,1,2,1\). Le premier rang d'une
+période \(2\) est \(s=3\), car \(T^3(5)=T^5(5)=2\). On peut aussi
+prendre \(s=4\) : \(T^4(5)=T^6(5)=1\). La parité du rang \(2\) est
+paire et celle du rang \(4\) est impaire, donc aucune période \(2\)
+ne commence à un rang \(s\le 2\) (X49).
 
 La phrase « une suite ultimement périodique d'entiers positifs ne
 prend qu'un nombre fini de valeurs » porte sur la suite des valeurs.
@@ -271,7 +275,7 @@ indépendante du correctif du §8.
 python3 research/checks/cycle018_eliahou_scope.py
 ```
 
-Sortie attendue : 11 lignes `PASS`.
+Sortie attendue : 12 lignes `PASS`.
 
 ## 8. Revue `6094741450`
 
@@ -293,8 +297,9 @@ manquant est ajouté au §2. Pour \(i\ge s\), les parités de période
 \(0\). Le cycle 015 §10 donne alors \(x=y\). L'identité affichée par
 la revue est la même descente de valuation : après \(j\) branches
 communes, la différence vaut \(3^{a_j}(x-y)/2^j\). Le témoin
-\(5\to 8\to 4\to 2\to 1\to 2\to 1\) a sa période au rang \(4\). Les
-mots de longueur \(1\le j\le 10\) sont injectifs sur \(1,\ldots,2^j\).
+\(5\to 8\to 4\to 2\to 1\to 2\to 1\) admet le choix \(s=4\), car
+\(T^4(5)=T^6(5)=1\). Le premier rang est \(s=3\) (X49). Les mots de
+longueur \(1\le j\le 10\) sont injectifs sur \(1,\ldots,2^j\).
 Bernstein–Lagarias, §1, (1.3) et (1.5), restent non ouverts.
 
 **Accès au corps de 1993.** Le fac-similé n'est pas obtenu.
@@ -345,3 +350,31 @@ Ce calcul ne vérifie aucun entier inférieur à \(2^{40}\). Il ne
 transporte pas la forme linéaire à tout cycle non trivial. La forme
 n'est pas adoptée. B24 n'en dépend pas. Aucune orbite divergente
 n'est exclue.
+
+## 9. Revue `6094774532`
+
+Revue indépendante sur le SHA
+`0c4a251b62e376d1a63d20620e13642132f0828f` (PR #27), soumise le
+28 novembre 2026 à 00:57 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 019 n'est pas ouvert.
+
+B24, X48 et le certificat \(k(2^{40})=17087915\) sont confirmés.
+L'identité de différence et l'injectivité du codage restent celles
+du §2. La portée au-dessus de \(2^{40}\) reste celle du §8 : les
+calculs historiques ne sont pas audités, et la forme linéaire n'est
+pas adoptée. Bernstein–Lagarias, §1, (1.3) et (1.5), restent non
+ouverts. Halbeisen–Hungerbühler, proposition 1 et §4.2, étaient déjà
+lus ; ce PDF n'est pas rouvert.
+
+**X49.** Les §§2 et 8 disaient que la période de \(5\) commence au
+rang \(4\). La suite est \(5,8,4,2,1,2,1,\ldots\). Le premier rang
+d'une période \(2\) est \(s=3\), car \(T^3(5)=T^5(5)=2\), et la
+queue à partir de ce rang est \(2,1,2,1,\ldots\). La parité du rang
+\(2\) est paire et celle du rang \(4\) est impaire. Une période \(2\)
+commençant à un rang \(s\le 2\) identifierait ces deux parités, car
+les rangs \(2\) et \(4\) seraient tous deux dans la queue et distants
+de \(2\). On peut prendre \(s=4\) : \(T^4(5)=T^6(5)=1\), et la queue
+est \(1,2,1,2,\ldots\). Ce choix illustre le retour ; il n'est pas le
+premier rang. B24 ne dépend pas de cet exemple.
+
+Le script donne 12 lignes `PASS`.

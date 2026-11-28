@@ -10,14 +10,14 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-Le correctif du cycle 018, revue `6094741450`, est écrit. Il attend
+Le correctif du cycle 018, revue `6094774532`, est écrit. Il attend
 sa relecture indépendante. Ne pas ouvrir le cycle 019 avant cette
-relecture. La fenêtre de douze cycles, au 28 novembre 2026,
-contient les cycles 008 à 018, soit onze. Le plus ancien est le
-cycle 008, premier commit `ff58fed`, du 27 novembre 2026 à
+relecture. La fenêtre de douze cycles, au 28 novembre 2026 à
+00:59 UTC, contient les cycles 008 à 018, soit onze. Le plus ancien
+est le cycle 008, premier commit `ff58fed`, du 27 novembre 2026 à
 01:09:59 UTC. Le cycle 007, `a60a1a6`, du 27 novembre à 00:45:58 UTC,
 est sorti. La fenêtre ne bloque pas un cycle 019 et ne lève pas
-l'attente de la relecture.
+l'attente de la relecture. Ce correctif n'est pas un nouveau cycle.
 
 ## 1. [B] Bernstein–Lagarias 1996, §1, (1.5)–(1.6) — PROCHAINE QUESTION (cycle 019), non entamée
 Ne pas rouvrir les densités, les bornes de longueur de cycle,
@@ -46,6 +46,12 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094774532` (28 nov. 2026, SHA `0c4a251`) : B24, X48 et
+  \(k(2^{40})\) confirmés. L'exemple de \(5\) a son premier rang de
+  période \(2\) en \(s=3\), pas en \(4\) (X49). Le choix \(s=4\)
+  reste valide. B24 est inchangé. La forme linéaire n'est pas
+  adoptée. Le cycle 019 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6094741450` (28 nov. 2026, SHA `8e1574c1`) : B24 confirmé.
   Le retour depuis une suite de parités ultimement périodique manquait
   (X48). Il est le cycle 015 §10 appliqué à la queue. Pour le critère

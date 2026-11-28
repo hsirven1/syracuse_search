@@ -696,6 +696,13 @@ depuis les parités est ajouté (X48). Le critère \(k(2^{40})\) est
 vérifié. La forme linéaire reste non adoptée. Le cycle 019 n'est pas
 ouvert.
 
+Revue indépendante `6094774532` (PR #27, SHA
+`0c4a251b62e376d1a63d20620e13642132f0828f`) : B24, X48 et le
+certificat \(k(2^{40})\) confirmés. L'exemple de \(5\) n'a pas son
+premier rang de période \(2\) au rang \(4\) (X49). Ce rang est \(3\),
+car \(T^3(5)=T^5(5)=2\), et \(s=4\) reste un choix. B24 est inchangé.
+La forme linéaire reste non adoptée. Le cycle 019 n'est pas ouvert.
+
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
 correction du cycle 017. Le cycle 018 vient ensuite.

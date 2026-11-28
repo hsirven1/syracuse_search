@@ -144,14 +144,20 @@ def main() -> None:
             assert parity_word(n, length) == parity_word(n + (1 << length), length)
     print("PASS mots de longueur 1..10 injectifs sur 1..2^j")
 
-    # Queue de 5 : période 2 des parités à partir du rang 4, donc x = y.
+    # Queue de 5. Le premier rang de période 2 est 3. Le rang 4 est un choix.
     tail = [5]
     point = 5
     for _ in range(6):
         point = T(point)
         tail.append(point)
     assert tail == [5, 8, 4, 2, 1, 2, 1]
+    assert tail[3] == tail[5] == 2
     assert tail[4] == tail[6] == 1
+    assert tail[2] % 2 == 0 and tail[4] % 2 == 1
+    for start in range(3):
+        assert tail[start] != tail[start + 2]
+    assert all(tail[3 + k] == tail[3 + (k % 2)] for k in range(4))
+    print("PASS premier rang de période 2 de 5 est s=3")
     print("PASS T^4(5) = T^6(5) = 1")
 
     # Identité T^j(x) - T^j(y) = 3^{a_j}(x-y)/2^j sur un préfixe commun.
