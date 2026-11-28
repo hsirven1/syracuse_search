@@ -239,3 +239,17 @@ abaisser l'exposant, ni réécrire la preuve pour remplacer (4), ni
 relire Tao, Terras ou Everett pour en tirer une classe qui atteint
 \(1\). Inselmann (2024) reste non audité et
 n'est pas la prochaine question.
+
+## H14 — Eliahou 1993 et les trajectoires non périodiques — FERMÉ POUR LA PORTÉE (B24)
+Le résumé, lu, borne une orbite cyclique non triviale. Le corps du
+PDF n'a pas été obtenu. Le compte rendu zbMATH met la forme linéaire
+sous \(\min\Omega>2^{40}\). Lagarias, entrée 53, l'énonce pour tout
+cycle non trivial et invoque la vérification jusqu'à \(2^{40}\). Ces
+deux phrases ne sont pas adoptées. Halbeisen–Hungerbühler, théorème 2,
+attribuent à Eliahou la borne \(|C|\ge k(\min C)\). Le cycle trivial
+réalise \(k(1)=2\). Une orbite positive non bornée n'est pas un cycle
+(B24). Le §5 lu dit que ces bornes ne prouvent pas l'unicité du cycle.
+Elles ne prouvent pas non plus que toute suite est bornée. Ne pas
+redémontrer l'estimation, ne pas calculer \(k(2^{40})\), et ne pas
+importer une vérification machine. Ne pas rouvrir Crandall ni les
+théorèmes 3 et 4.

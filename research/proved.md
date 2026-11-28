@@ -673,6 +673,21 @@ deux seuils restent sous \(\tfrac12\). Le théorème 1 n'est pas
 redémontré. B23 ne dépend pas de cette équivalence. Le cycle 018
 n'est pas ouvert.
 
+**B24 — Orbite bornée et itinéraire ultimement périodique** (PROUVÉ,
+cycle 018 §2). Pour \(T\) et \(n\ge 1\), l'orbite positive est finie si
+et seulement si l'itinéraire est ultimement périodique, si et seulement
+si un itéré entre dans un cycle. Une orbite non bornée n'est donc pas
+un cycle. Le résumé d'Eliahou, le compte rendu zbMATH 0786.11012,
+l'entrée 53 de Lagarias et le théorème 2 de Halbeisen–Hungerbühler
+bornent le cardinal d'un cycle. Ils ne s'appliquent pas à une orbite
+non bornée. Le PDF de 1993 n'est pas obtenu. La forme linéaire n'est
+pas adoptée. \(k(2^{40})\) n'est pas recalculé. Aucune orbite
+divergente n'est exclue.
+
+Revue indépendante `6094661090` (PR #27, SHA
+`2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
+correction du cycle 017. Le cycle 018 vient ensuite.
+
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 
 Preuves écrites, relues par leurs auteurs successifs, **non revues ni fusionnées**.

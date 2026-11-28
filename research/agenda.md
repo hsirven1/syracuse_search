@@ -10,30 +10,29 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6094610766`, sur le SHA `330165a3`, confirme B23, X45 et
-X46, et réfute l'équivalence annoncée entre l'inégalité de puissances
-et l'équation (4) (X47). Ce correctif n'est pas encore relu. Ne pas
-ouvrir le cycle 018 avant cette relecture. Le correctif n'est pas un
-nouveau cycle. La fenêtre de douze cycles, dont le plus ancien est le
-cycle 006, a pour premier commit `fcd6a00`, du 27 novembre 2026 à
-00:25:31 UTC. Elle est ouverte depuis le 28 novembre 2026 à 00:26 UTC,
-sans lever l'attente de la relecture.
+Le cycle 018 est écrit. Il attend sa relecture indépendante. Ne pas
+ouvrir le cycle 019 avant cette relecture. La fenêtre de douze cycles, au 28 novembre 2026 à 00:46 UTC,
+contient les cycles 008 à 018, soit onze. Le plus ancien est le
+cycle 008, premier commit `ff58fed`, du 27 novembre 2026 à
+01:09:59 UTC. Le cycle 007, `a60a1a6`, du 27 novembre à 00:45:58 UTC,
+est sorti. La fenêtre ne bloque pas le cycle 018 et ne lève pas
+l'attente de la relecture.
 
-## 1. [A] La borne d'Eliahou et les trajectoires non périodiques — PROCHAINE QUESTION (cycle 018), non entamée
-Ne pas rouvrir Korec, Tao, Terras, Everett, Inselmann, la remarque
-1.4, \(P(2)\), les conjectures 4.11 à 4.14, Steiner, ni les
-\(m\)-cycles. Ne pas redémontrer une densité.
+## 1. [B] Bernstein–Lagarias 1996, §1, (1.5)–(1.6) — PROCHAINE QUESTION (cycle 019), non entamée
+Ne pas rouvrir les densités, les bornes de longueur de cycle,
+Crandall, le reste de Halbeisen–Hungerbühler, Simons–de Weger,
+Hercher, \(P(2)\), les conjectures 4.11 à 4.14, le signe moins, ni
+la famille appariée. Ne pas réécrire B24.
 
-Eliahou, *Discrete Math.* 118 (1993), est une source secondaire :
-une borne de longueur d'un cycle non trivial, par les fractions
-continues de \(\log_2 3\). Lire l'énoncé primaire. Décider seulement
-s'il exclut une trajectoire non périodique, ou seulement un cycle
-dont le minimum est dans une plage écrite. S'il ne borne que le
-nombre d'éléments d'un cycle, le classer hors des trajectoires
-divergentes et ne pas redémontrer l'estimation. Ne pas importer une
-vérification machine. Le paramètre \(m\) de Simons–de Weger et de
-Hercher compte des minima, pas cette longueur. Ne pas ouvrir ce
-cycle avant la fin du blocage ci-dessus.
+Bernstein–Lagarias, *Canad. J. Math.* 48 (1996), est cité par les
+revues `6082358798` et `6082438456` pour le §1, (1.5)–(1.6). Le PDF
+n'a pas été ouvert. Le lire seulement pour ces deux affichages.
+Décider s'ils prouvent que tout rationnel de \(\mathbb Z_2\) a un
+itinéraire ultimement périodique, ou s'ils laissent cette direction
+comme conjecture. Si ce n'est que H3, NO-GO, et ne pas redémontrer
+la conjugaison. B24 dit déjà qu'un entier positif a un itinéraire
+ultimement périodique si et seulement si son orbite est bornée. Ne
+pas ouvrir ce cycle avant la fin du blocage ci-dessus.
 
 ## 2. [B, long terme] (C) densité orbitale positive (H1)
 Pas d'attaque directe sans mécanisme nouveau. Réductions connues : pente $>1/\beta$ ⇔ (C) ;
@@ -44,6 +43,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Cycle 018 (28 nov. 2026) : le résumé d'Eliahou et les paraphrases
+  lues bornent un cycle. Une orbite positive non bornée n'est pas un
+  cycle (B24). Le PDF de 1993 n'est pas obtenu : la forme linéaire
+  n'est pas adoptée, et \(k(2^{40})\) n'est pas recalculé. Pas une
+  contrainte sur une orbite divergente.
+  [cycle-018](cycles/cycle-018.md)
+- Revue `6094661090` (28 nov. 2026, SHA `2a62373`) : X47 confirmé.
+  Aucune correction. Cycle 018 ensuite : Eliahou borne un cycle, pas
+  une trajectoire divergente (B24). Détail : [reviews.md](reviews.md).
 - Revue `6094610766` (28 nov. 2026, SHA `330165a3`) : B23, X44, X45
   et X46 confirmés. L'équation (4) n'est pas la transformée
   logarithmique : le terme soustrait imprimé est \(A_m\), et le
