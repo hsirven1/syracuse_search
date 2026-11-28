@@ -96,13 +96,15 @@ DÉJÀ CONNU comme borne de longueur de cycle, au niveau du résumé et
 des sources secondaires. Pas une nouveauté.
 
 **Décision.** NO-GO pour redémontrer l'estimation de fractions
-continues, pour calculer \(k(2^{40})\), et pour importer la
-vérification machine jusqu'à \(2^{40}\) ou au-delà. Le seul travail
-est la portée sur les trajectoires non périodiques, plus l'équivalence
-élémentaire B24 qui rend cette portée précise. Les théorèmes 3 et 4
-de Halbeisen–Hungerbühler ne sont pas ouverts : ce sont encore des
-bornes de longueur de cycle. Leur \(m\) n'est pas celui de
-Simons–de Weger.
+continues, pour calculer \(k(2^{40})\) comme question du cycle, et
+pour importer la vérification machine jusqu'à \(2^{40}\) ou au-delà.
+Le seul travail de ce cycle est la portée sur les trajectoires non
+périodiques, plus l'équivalence élémentaire B24 qui rend cette portée
+précise. La revue `6094741450` a ensuite contrôlé ce \(k\). Le §8 le
+vérifie pour le critère imprimé et ne reprend pas l'estimation. Les
+théorèmes 3 et 4 de Halbeisen–Hungerbühler ne sont pas ouverts : ce
+sont encore des bornes de longueur de cycle. Leur \(m\) n'est pas
+celui de Simons–de Weger.
 
 ## 1. Énoncés lus
 
@@ -125,7 +127,8 @@ ainsi. Si \(k(m)\) est le plus petit entier \(k\) tel que
 alors tout cycle de Collatz \(C\) dans \(\mathbb N\) vérifie
 \(|C|\ge k(\min C)\). Ils ajoutent que les fractions continues donnent
 \(k(2^{40})=17087915\), et que cette valeur se relit sur la définition.
-Cette valeur n'est pas recalculée ici. La fonction \(n(l)\) de leur
+Cette valeur est établie au §8 pour ce critère imprimé. Ce calcul ne
+vérifie pas les entiers inférieurs à \(2^{40}\). La fonction \(n(l)\) de leur
 proposition 1 est le plancher de \(l\log_3 2\) : l'extracteur remplace
 le symbole de plancher, et le lemme 6 écrit
 \(l\log_3 2-1\le n\le l\log_3 2\). Le contrôle utilise
@@ -145,15 +148,49 @@ propriétés suivantes sont équivalentes :
 2. la suite des parités est ultimement périodique ;
 3. un itéré appartient à un cycle.
 
-Si l'orbite est finie, la suite infinie des itérés répète une valeur.
-Comme \(T\) est une fonction, la queue à partir de cette valeur est
-périodique. Un cycle ne prend qu'un nombre fini de valeurs, et un
-préfixe fini suivi d'un cycle reste fini. Une suite ultimement
-périodique d'entiers positifs ne prend qu'un nombre fini de valeurs.
+Si l'orbite est finie, la suite infinie des valeurs répète une valeur.
+Comme \(T\) est une fonction, la queue à partir de la première
+répétition est périodique. Cette valeur appartient à un cycle, et la
+suite des parités est ultimement périodique. Un cycle ne prend qu'un
+nombre fini de valeurs, et un préfixe fini suivi d'un cycle reste
+fini.
+
+Le sens restant part de la suite des parités. Soient \(s\ge 0\) le
+début de sa périodicité et \(p\ge 1\) une période. Posons
+\(x=T^s(n)\) et \(y=T^{s+p}(n)\). Les parités de \(x\) et de \(y\)
+coïncident à tout rang. Le cycle 015 §10 traite ce cas pour un entier
+positif quelconque : \(k\) parités communes donnent une congruence
+modulo \(2^k\). Un pas pair envoie la différence sur sa moitié. Un pas
+impair la multiplie par \(3\) puis la divise par \(2\), et \(3\) est
+impair. Une période dès le rang \(0\) donne donc la congruence modulo
+toute puissance de \(2\), et \(x=y\).
+
+La même identité s'écrit
+\[
+T^j(x)-T^j(y)=\frac{3^{a_j}(x-y)}{2^j},
+\]
+où \(a_j\) compte les pas impairs parmi les \(j\) premiers. Les
+branches coïncident, donc les termes inhomogènes s'annulent. Le membre
+de gauche est entier et \(3^{a_j}\) est impair, donc \(2^j\) divise
+\(x-y\).
+
+Ainsi \(T^{s+p}(n)=T^s(n)\). La queue des valeurs est périodique,
+l'orbite est finie, et \(T^s(n)\) appartient à un cycle. Pour \(5\),
+la période commence au rang \(4\) : \(T^4(5)=T^6(5)=1\).
+
+La phrase « une suite ultimement périodique d'entiers positifs ne
+prend qu'un nombre fini de valeurs » porte sur la suite des valeurs.
+Elle ne ferme pas le sens qui part des parités (X48). Ce sens est le
+cycle 015 §10 appliqué à \(x\), pas un théorème nouveau. Terras,
+théorème 1.2, déjà lu au cycle 015, énonce l'équivalence entre
+vecteurs d'encodage et congruences. Il n'est pas relu.
+Bernstein–Lagarias, §1, (1.3) et (1.5), sont cités par la revue
+`6094741450` pour la même injectivité. Ce PDF n'est pas ouvert ici et
+n'est pas une prémisse.
 
 Donc une orbite positive non bornée n'est pas un cycle, et son
-itinéraire n'est pas ultimement périodique. Le résumé, le compte rendu
-zbMATH, l'entrée 53 de Lagarias et le théorème 2 lu chez
+itinéraire de parité n'est pas ultimement périodique. Le résumé, le
+compte rendu zbMATH, l'entrée 53 de Lagarias et le théorème 2 lu chez
 Halbeisen–Hungerbühler concluent tous une borne sur le cardinal d'un
 cycle. Aucun ne s'applique à cette orbite.
 
@@ -183,10 +220,14 @@ théorème.
 
 ## 4. Statut
 
-B24 est prouvé, et il est élémentaire. Le résumé d'Eliahou est lu.
-Le corps de 1993 reste non obtenu. La forme linéaire reste non
-adoptée. Le nombre \(17087915\) n'est pas recalculé. La vérification
-machine n'est pas une prémisse. Les théorèmes 3 et 4 de
+B24 est prouvé, et il est élémentaire. Le chaînon des parités est
+celui du cycle 015 §10, appliqué à la queue (X48, §8). Le résumé
+d'Eliahou est lu. Le fac-similé de 1993 reste non obtenu. La
+transcription OCR citée par la revue n'est pas ce fac-similé, et elle
+n'est pas lue ici. La forme linéaire reste non adoptée. Le nombre
+\(k(2^{40})=17087915\) est celui du critère de Halbeisen–Hungerbühler,
+pas une borne sur tout cycle non trivial. La vérification machine
+n'est pas une prémisse. Les théorèmes 3 et 4 de
 Halbeisen–Hungerbühler ne sont pas adoptés. La note ajoutée à la
 page 239, qui invoque une vérification jusqu'à \(3\cdot 2^{50}\), n'est
 pas une prémisse. Simons–de Weger et
@@ -204,7 +245,7 @@ densités et sur les bornes de longueur de cycle.
 - `abandoned.md` : ne pas redémontrer la borne, ni en tirer une
   orbite divergente.
 - `agenda.md` : question suivante, axe B, hors de cette série.
-- `reviews.md` : revue `6094661090`.
+- `reviews.md` : revues `6094661090` et `6094741450`.
 
 ## 6. Prochaine question
 
@@ -222,7 +263,7 @@ direction comme conjecture. Si ce n'est que H3, NO-GO, et ne pas
 redémontrer la conjugaison. B24 dit déjà qu'un entier positif a un
 itinéraire ultimement périodique si et seulement si son orbite est
 bornée : ne pas le réécrire. Ne pas ouvrir ce cycle avant la relecture
-indépendante du présent cycle.
+indépendante du correctif du §8.
 
 ## 7. Reproduire
 
@@ -230,4 +271,77 @@ indépendante du présent cycle.
 python3 research/checks/cycle018_eliahou_scope.py
 ```
 
-Sortie attendue : 6 lignes `PASS`.
+Sortie attendue : 11 lignes `PASS`.
+
+## 8. Revue `6094741450`
+
+Revue indépendante sur le SHA
+`8e1574c1f16b9969e2fdf71bc1b4ff212568f55e` (PR #27), soumise le
+28 novembre 2026 à 00:48 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 019 n'est pas ouvert.
+
+B24 et la portée sur les cycles sont confirmés. Le §2, dans sa
+première rédaction, n'établissait pas le retour depuis une suite de
+parités ultimement périodique.
+
+**X48.** La phrase « une suite ultimement périodique d'entiers
+positifs ne prend qu'un nombre fini de valeurs » est vraie pour la
+suite des valeurs. Elle ne dit rien d'une suite de parités. Le sens
+manquant est ajouté au §2. Pour \(i\ge s\), les parités de période
+\(p\) donnent deux entiers positifs \(x=T^s(n)\) et
+\(y=T^{s+p}(n)\) dont les suites de parités coïncident dès le rang
+\(0\). Le cycle 015 §10 donne alors \(x=y\). L'identité affichée par
+la revue est la même descente de valuation : après \(j\) branches
+communes, la différence vaut \(3^{a_j}(x-y)/2^j\). Le témoin
+\(5\to 8\to 4\to 2\to 1\to 2\to 1\) a sa période au rang \(4\). Les
+mots de longueur \(1\le j\le 10\) sont injectifs sur \(1,\ldots,2^j\).
+Bernstein–Lagarias, §1, (1.3) et (1.5), restent non ouverts.
+
+**Accès au corps de 1993.** Le fac-similé n'est pas obtenu.
+ScienceDirect sert le PDF à l'adresse payante, et l'archive UNIGE
+`unige:12087` n'a toujours pas de fichier. La revue cite une
+transcription OCR,
+`https://www.scribd.com/document/1037372410/1-s2-0-0012365X9390052U-main`.
+La page obtenue ici est un défi JavaScript de 3036 octets, intitulé
+« Client Challenge ». Elle ne contient pas l'article. Cette
+transcription n'est pas le fac-similé, et elle n'est pas lue. Les
+calculs historiques jusqu'à \(2^{40}\) ne sont pas audités. Le
+théorème 1.1 et la §4, tels que la revue les lit sur cette
+transcription, ne sont donc pas adoptés. La phrase conditionnelle
+\(\min\Omega>2^{40}\) reste celle du compte rendu zbMATH. La phrase
+pour tout cycle non trivial reste celle de l'entrée 53 de Lagarias.
+Les deux quantificateurs ne sont pas identifiés sur le corps.
+
+**Critère imprimé.** Pour le théorème 2 de Halbeisen–Hungerbühler,
+\(n(\ell)=\lfloor\ell\log_3 2\rfloor\), et \(k(m)\) est le plus petit
+entier \(k\ge 1\) tel que \(n(k)\ge 1\) et
+\(k/n(k)\le\log_2(3+1/m)\). Pour \(m=2^{40}\), ce \(k\) vaut
+\(17087915\), et \(n(k)=10781274\).
+
+Soient
+\[
+B=\frac{16785921}{10590737},\quad
+M=\frac{17087915}{10781274},\quad
+A=\frac{301994}{190537}.
+\]
+\(M\) est le médian de \(B\) et de \(A\), et
+\(301994\cdot 10590737-16785921\cdot 190537=1\). Toute fraction
+strictement comprise entre ces voisins a un numérateur au moins égal
+à \(17087915\). Les séries de \(\log 2\) et de \(\log(3/2)\), coupées
+au rang \(100\), et la série de \(\log(1+1/(3\cdot 2^{40}))\), bornée
+après deux termes par en dessous et après trois termes par au-dessus,
+donnent le placement des quatre nombres. Le reste de \(\log 2\) est
+strictement inférieur à \(1/(101\cdot 2^{100})\). Le reste de la série
+alternée de \(\log(3/2)\) est strictement plus petit que son terme
+suivant, et de même signe. Ces bornes donnent
+\[
+B<\log_2 3<M<\log_2(3+2^{-40})<A.
+\]
+L'intervalle cible est donc contenu entre les voisins, et \(M\) y
+appartient. De plus \(10781274<k/\log_2 3<10781275\), donc
+\(n(k)\) est ce dénominateur et la fraction du critère est \(M\).
+
+Ce calcul ne vérifie aucun entier inférieur à \(2^{40}\). Il ne
+transporte pas la forme linéaire à tout cycle non trivial. La forme
+n'est pas adoptée. B24 n'en dépend pas. Aucune orbite divergente
+n'est exclue.

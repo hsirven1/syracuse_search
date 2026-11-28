@@ -674,15 +674,27 @@ redémontré. B23 ne dépend pas de cette équivalence. Le cycle 018
 n'est pas ouvert.
 
 **B24 — Orbite bornée et itinéraire ultimement périodique** (PROUVÉ,
-cycle 018 §2). Pour \(T\) et \(n\ge 1\), l'orbite positive est finie si
-et seulement si l'itinéraire est ultimement périodique, si et seulement
-si un itéré entre dans un cycle. Une orbite non bornée n'est donc pas
-un cycle. Le résumé d'Eliahou, le compte rendu zbMATH 0786.11012,
-l'entrée 53 de Lagarias et le théorème 2 de Halbeisen–Hungerbühler
-bornent le cardinal d'un cycle. Ils ne s'appliquent pas à une orbite
-non bornée. Le PDF de 1993 n'est pas obtenu. La forme linéaire n'est
-pas adoptée. \(k(2^{40})\) n'est pas recalculé. Aucune orbite
-divergente n'est exclue.
+cycle 018 §2 et §8). Pour \(T\) et \(n\ge 1\), l'orbite positive est
+finie si et seulement si l'itinéraire de parité est ultimement
+périodique, si et seulement si un itéré entre dans un cycle. Le sens
+qui part des parités est le cycle 015 §10 appliqué à la queue : \(k\)
+parités communes donnent la congruence modulo \(2^k\), donc une
+période force l'égalité des deux entiers positifs (X48). Une orbite
+non bornée n'est donc pas un cycle. Le résumé d'Eliahou, le compte
+rendu zbMATH 0786.11012, l'entrée 53 de Lagarias et le théorème 2 de
+Halbeisen–Hungerbühler bornent le cardinal d'un cycle. Ils ne
+s'appliquent pas à une orbite non bornée. Le fac-similé de 1993 n'est
+pas obtenu. La transcription OCR citée par la revue `6094741450` n'est
+pas lue. La forme linéaire n'est pas adoptée. Pour le critère imprimé
+par Halbeisen–Hungerbühler, \(k(2^{40})=17087915\) et
+\(n(k)=10781274\). Ce calcul ne vérifie pas les entiers sous \(2^{40}\).
+Aucune orbite divergente n'est exclue.
+
+Revue indépendante `6094741450` (PR #27, SHA
+`8e1574c1f16b9969e2fdf71bc1b4ff212568f55e`) : B24 confirmé. Le retour
+depuis les parités est ajouté (X48). Le critère \(k(2^{40})\) est
+vérifié. La forme linéaire reste non adoptée. Le cycle 019 n'est pas
+ouvert.
 
 Revue indépendante `6094661090` (PR #27, SHA
 `2a62373e03faa22836505a759d7eebfc06f5be10`) : X47 confirmé. Aucune
