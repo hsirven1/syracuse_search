@@ -659,7 +659,19 @@ n'est exclue.
 Revue indépendante `6094566180` (PR #27, SHA
 `5d4ba1bfd01c908a375345ad2c7caec0a5db305b`) : B23, l'égalité des
 minima sur les positifs, X43 et X44 confirmés. X45 et X46 sont les
-corrections ci-dessus. Le cycle 018 n'est pas ouvert.
+corrections ci-dessus.
+
+Revue indépendante `6094610766` (PR #27, SHA
+`330165a3d23d2713827535c7ddae051c0980f899`) : B23, X44, X45 et X46
+confirmés. L'équation (4) de la page 87 n'est pas équivalente à
+l'inégalité de puissances qui la précède (X47). Avec
+\(A_m=(1+2(1-c)\log_2 m)/m\) et \(L=\log_2 3\), le logarithme donne
+\(k/m\le c/L-A_m/L\). Pour \(c<1\) et \(m\ge 2\), (4) est une
+condition suffisante strictement plus forte. Le témoin
+\(c=\tfrac45\), \(m=16\), \(k=6\) sépare les deux. Pour \(k=8\), les
+deux seuils restent sous \(\tfrac12\). Le théorème 1 n'est pas
+redémontré. B23 ne dépend pas de cette équivalence. Le cycle 018
+n'est pas ouvert.
 
 ## C. Résultats de PR non fusionnées — NON VALIDÉS
 

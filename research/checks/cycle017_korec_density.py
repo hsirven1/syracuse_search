@@ -5,7 +5,8 @@ Ils vérifient les constantes affichées, l'orbite de 1, l'égalité des
 minima de T et de l'application classique, la classe y ≡ -1 (mod 2^m),
 la formule de cette classe jusqu'au rang m, le comptage de X34,
 l'identité de la formule imprimée de d, l'échec de l'implication (4)
-pour cette formule, et la première descente de 27.
+pour cette formule, l'écart entre (4) et sa forme logarithmique, et
+la première descente de 27.
 Ils ne redémontrent pas le théorème 1 de Korec.
 
 Usage : python3 research/checks/cycle017_korec_density.py
@@ -176,6 +177,52 @@ def check_implication_failure() -> None:
     print("PASS implication (4)")
 
 
+def check_equation_gap() -> None:
+    # c = 4/5, m = 16, log2(m) = 4, donc A_m = 13/80.
+    # Le logarithme soustrait A_m/log2(3). La ligne (4) soustrait A_m.
+    c = Fraction(4, 5)
+    subtracted = (1 + 2 * (1 - c) * 4) / 16
+    if subtracted != Fraction(13, 80):
+        raise AssertionError(subtracted)
+    if 16**2 * 2**16 != 2**24:
+        raise AssertionError(16**2 * 2**16)
+    # k = 6, k/m = 3/8. (4) échoue car log2(3) > 64/43.
+    if Fraction(3, 8) + subtracted != Fraction(43, 80):
+        raise AssertionError(Fraction(3, 8) + subtracted)
+    if c / Fraction(43, 80) != Fraction(64, 43):
+        raise AssertionError(c / Fraction(43, 80))
+    if not (3**43 > 2**64):
+        raise AssertionError((3**43, 2**64))
+    # L'inégalité de puissances tient : 3**30 <= 2**51.
+    # Elle équivaut à log2(3) <= 17/10, car 3**30 = (3**10)**3.
+    if c - subtracted != Fraction(51, 80):
+        raise AssertionError(c - subtracted)
+    if Fraction(51, 80) / Fraction(3, 8) != Fraction(17, 10):
+        raise AssertionError(Fraction(51, 80) / Fraction(3, 8))
+    if (3**10) ** 3 != 3**30 or (2**17) ** 3 != 2**51:
+        raise AssertionError((3**30, 2**51))
+    if not (3**10 <= 2**17 and 3**30 <= 2**51):
+        raise AssertionError((3**30, 2**51))
+    if 729**5 != 3**30:
+        raise AssertionError(729**5)
+    # k = 8 : le seuil logarithmique est aussi sous 1/2.
+    if Fraction(51, 80) / Fraction(1, 2) != Fraction(51, 40):
+        raise AssertionError(Fraction(51, 40))
+    if not (3**40 > 2**51):
+        raise AssertionError((3**40, 2**51))
+    getcontext().prec = 40
+    log2_3 = Decimal(3).ln() / Decimal(2).ln()
+    printed = Decimal(4) / Decimal(5) / log2_3 - Decimal(13) / Decimal(80)
+    exact = (Decimal(51) / Decimal(80)) / log2_3
+    if not format(printed, "f").startswith("0.34224380"):
+        raise AssertionError(printed)
+    if not format(exact, "f").startswith("0.40221771"):
+        raise AssertionError(exact)
+    if not (printed < Decimal("0.375") < exact < Decimal("0.5")):
+        raise AssertionError((printed, exact))
+    print("PASS écart (4)")
+
+
 def check_twenty_seven() -> None:
     if not (2**4 < 27 < 2**5):
         raise AssertionError(27)
@@ -211,5 +258,6 @@ if __name__ == "__main__":
     check_x34(24, 1)
     check_printed_d()
     check_implication_failure()
+    check_equation_gap()
     check_twenty_seven()
     check_zero()

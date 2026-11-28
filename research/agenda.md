@@ -10,14 +10,14 @@ analyse complexe, spectral. Mémoire : [proved](proved.md) · [hypotheses](hypot
 [counterexamples](counterexamples.md) · [prior_art](prior_art.md) · [abandoned](abandoned.md) · [cycles](cycles/).
 
 ## Blocage
-La revue `6094566180`, sur le SHA `5d4ba1b`, confirme B23 et corrige
-la comparaison imprimée sur \(d\) (X45) ainsi que la lecture de la
-parenthèse en \(\log_2 y\) (X46). Ce correctif n'est pas encore relu.
-Ne pas ouvrir le cycle 018 avant cette relecture. Le correctif n'est
-pas un nouveau cycle. La fenêtre de douze cycles, dont le plus ancien
-est le cycle 006, a pour premier commit `fcd6a00`, du 27 novembre 2026
-à 00:25:31 UTC. Elle s'ouvre le 28 novembre 2026 à 00:26 UTC, sans
-lever l'attente de la relecture.
+La revue `6094610766`, sur le SHA `330165a3`, confirme B23, X45 et
+X46, et réfute l'équivalence annoncée entre l'inégalité de puissances
+et l'équation (4) (X47). Ce correctif n'est pas encore relu. Ne pas
+ouvrir le cycle 018 avant cette relecture. Le correctif n'est pas un
+nouveau cycle. La fenêtre de douze cycles, dont le plus ancien est le
+cycle 006, a pour premier commit `fcd6a00`, du 27 novembre 2026 à
+00:25:31 UTC. Elle est ouverte depuis le 28 novembre 2026 à 00:26 UTC,
+sans lever l'attente de la relecture.
 
 ## 1. [A] La borne d'Eliahou et les trajectoires non périodiques — PROCHAINE QUESTION (cycle 018), non entamée
 Ne pas rouvrir Korec, Tao, Terras, Everett, Inselmann, la remarque
@@ -44,6 +44,15 @@ conjecture majeure H2 : ne pas la reprendre comme petit lemme.
 Confirmer la transcription de `prior_art.md` (ambiguïté typographique `l`/`1`). Faible coût ; consolide B2.
 
 ## Historique
+- Revue `6094610766` (28 nov. 2026, SHA `330165a3`) : B23, X44, X45
+  et X46 confirmés. L'équation (4) n'est pas la transformée
+  logarithmique : le terme soustrait imprimé est \(A_m\), et le
+  logarithme soustrait \(A_m/\log_2 3\) (X47). Pour \(c=\tfrac45\),
+  \(m=16\) et \(k=6\), (4) échoue et l'inégalité de puissances tient.
+  Pour \(k=8\), les deux seuils restent sous \(\tfrac12\). Le choix
+  \(\tfrac12<d<c/\log_2 3\) force les deux pour \(m\) assez grand.
+  B23 inchangé. Le cycle 018 n'est pas ouvert.
+  Détail : [reviews.md](reviews.md).
 - Revue `6094566180` (28 nov. 2026, SHA `5d4ba1b`) : B23, l'égalité
   des minima sur les positifs, X43 et X44 confirmés. La formule
   imprimée de \(d\) vaut \(c/\log_2 3+\tfrac14\), donc

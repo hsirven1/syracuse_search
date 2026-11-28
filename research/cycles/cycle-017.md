@@ -11,8 +11,10 @@ l'inclusion de la classe, ni l'atteinte de \(1\). Le théorème n'est
 pas redémontré. Aucune preuve de la conjecture, et aucune orbite
 divergente n'est exclue. La revue `6094566180` confirme B23. Elle
 corrige la comparaison imprimée sur \(d\) (X45) et la lecture de la
-parenthèse en \(\log_2 y\) (X46). Ces deux portées ne changent pas
-l'argument de densité relative.
+parenthèse en \(\log_2 y\) (X46). La revue `6094610766` confirme ces
+deux portées. Elle réfute l'équivalence annoncée entre l'inégalité de
+puissances et l'équation (4) (X47). Aucune de ces trois portées ne
+change l'argument de densité relative.
 
 ## 0. Revue traitée, question, porte d'antériorité
 
@@ -261,8 +263,11 @@ B23 est prouvé à partir du théorème 1 lu et du comptage d'une classe.
 Le théorème 1 reste un théorème publié. X43 et X44 sont des portées,
 pas des contre-exemples au théorème. X45 réfute la comparaison
 imprimée sur \(d\). X46 réfute la lecture universelle de la parenthèse
-en \(\log_2 y\). Ni l'un ni l'autre ne change B23, et le théorème 1
-n'est pas redémontré. Aucune orbite positive n'est exclue. La ligne
+en \(\log_2 y\). X47 réfute l'équivalence annoncée à la page 87 entre
+l'inégalité de puissances et l'équation (4) : (4) reste une condition
+suffisante plus forte, pas la transformée logarithmique. Aucune de
+ces trois portées ne change B23, et le théorème 1 n'est pas
+redémontré. Aucune orbite positive n'est exclue. La ligne
 de densité, ouverte au cycle 014, s'arrête ici : un raffinement
 d'exposant ou une nouvelle densité presque sûre ne force pas davantage
 une classe à atteindre \(1\).
@@ -271,12 +276,12 @@ une classe à atteindre \(1\).
 
 - `proved.md` : B23, corollaire seulement.
 - `hypotheses.md` : H13, fermé.
-- `counterexamples.md` : X43, X44, X45 et X46.
+- `counterexamples.md` : X43, X44, X45, X46 et X47.
 - `prior_art.md` : Korec, théorème 1 lu.
 - `abandoned.md` : ne pas redémontrer cette densité, ni en tirer une
   classe qui atteint \(1\).
 - `agenda.md` : question suivante, axe A, hors densité.
-- `reviews.md` : revues `6094283257` et `6094566180`.
+- `reviews.md` : revues `6094283257`, `6094566180` et `6094610766`.
 
 ## 7. Prochaine question
 
@@ -297,9 +302,9 @@ leur paramètre \(m\), qui compte des minima et non cette longueur.
 Ce cycle est le douzième de la fenêtre dont le plus ancien est le
 cycle 006. Le premier commit de ce cycle est `fcd6a00`, du 27 novembre
 2026 à 00:25:31 UTC. La fenêtre s'ouvre le 28 novembre 2026 à
-00:26 UTC. Le correctif de la revue `6094566180` n'est pas un nouveau
-cycle. Ne pas ouvrir le cycle 018 avant que ce correctif ait été relu
-indépendamment.
+00:26 UTC. Elle est ouverte. Le correctif de la revue `6094610766`
+n'est pas un nouveau cycle. Ne pas ouvrir le cycle 018 avant que ce
+correctif ait été relu indépendamment.
 
 ## 8. Reproduire
 
@@ -307,7 +312,7 @@ indépendamment.
 python3 research/checks/cycle017_korec_density.py
 ```
 
-Sortie attendue : 10 lignes `PASS`.
+Sortie attendue : 11 lignes `PASS`.
 
 ## 9. Revue `6094566180`
 
@@ -346,7 +351,12 @@ L'équation (4), page 87, s'écrit
 \[
 \frac{k}{m}\le\frac{c}{\log_2 3}-\frac{1+2(1-c)\log_2 m}{m}.
 \]
-Sa dérivation ne dépend pas de la valeur de \(d\). Pour \(c=\tfrac45\) et
+C'est la ligne imprimée. Le texte la déclare équivalente à
+\((m^2\cdot 2^m)^{1-c}\cdot 3^k\le 2^{m-1}\). Cette équivalence est
+fausse : le logarithme soustrait le même numérateur divisé par
+\(\log_2 3\) (X47, §10). La comparaison ci-dessous utilise le membre
+de droite imprimé, pas la forme logarithmique. Elle ne dépend pas de
+la valeur de \(d\). Pour \(c=\tfrac45\) et
 \(m=16\), \(\log_2 m=4\), et le terme soustrait vaut
 \[
 \frac{1+2\cdot\tfrac15\cdot 4}{16}=\frac{13}{80}.
@@ -399,3 +409,96 @@ est strictement inférieur à \(y^c\), donc \(y\in M_c\). Pour \(y=1\),
 phrase qui comparait les deux prédicats. Le point \(0\) reste hors
 de \(M_c\), et l'égalité des minima reste restreinte aux positifs.
 B23 ne dépend ni de \(d\), ni de cette parenthèse.
+
+## 10. Revue `6094610766`
+
+Revue indépendante sur le SHA
+`330165a3d23d2713827535c7ddae051c0980f899` (PR #27), soumise le
+28 novembre 2026 à 00:28 UTC. Ce n'est pas un nouveau cycle. Le
+cycle 018 n'est pas ouvert.
+
+B23, X44, X45 et X46 sont confirmés. Les pages 87 et 88 du PDF de
+Korec ont été relues. L'empreinte SHA-256 est inchangée. Le théorème
+1 n'est pas redémontré. La chaîne d'inégalités qui précède (4) sur
+la page 87 n'est pas adoptée.
+
+**X47.** La page 87 énonce que la dernière inégalité,
+\[
+(m^2\cdot 2^m)^{1-c}\cdot 3^k\le 2^{m-1},
+\]
+est équivalente à (4). Les deux lignes imprimées portent le signe
+\(\le\). Posons \(L=\log_2 3\) et
+\[
+A_m=\frac{1+2(1-c)\log_2 m}{m}.
+\]
+Le logarithme en base \(2\) est strictement croissant, donc cette
+inégalité de puissances équivaut à
+\[
+(1-c)\log_2(m^2\cdot 2^m)+k L\le m-1.
+\]
+Or \(\log_2(m^2\cdot 2^m)=m+2\log_2 m\), d'où
+\[
+(1-c)(m+2\log_2 m)+k L\le m-1,
+\]
+puis
+\[
+k L\le m-1-(1-c)m-2(1-c)\log_2 m
+=cm-\bigl(1+2(1-c)\log_2 m\bigr),
+\]
+et
+\[
+\frac{k}{m}\le\frac{c-A_m}{L}=\frac{c}{L}-\frac{A_m}{L}.
+\]
+Le membre de droite de (4) soustrait \(A_m\), pas \(A_m/L\). L'écart
+entre le membre logarithmique et le membre imprimé est
+\[
+A_m\Bigl(1-\frac{1}{L}\Bigr)=A_m\frac{L-1}{L}.
+\]
+Comme \(3>2\), on a \(L>1\). Pour \(c<1\) et \(m\ge 2\),
+\(\log_2 m\ge 1\) et \(1-c>0\), donc \(A_m>0\). Le membre imprimé est
+alors strictement plus petit. L'équation (4) implique l'inégalité de
+puissances, et la réciproque est fausse. Ce n'est pas une réfutation
+du théorème 1 : la preuve n'a besoin que de la suffisance, et (4)
+reste suffisante sous ces hypothèses. On ne réécrit pas cette preuve.
+
+Le témoin de la réciproque est \(c=\tfrac45\), \(m=16\) et \(k=6\).
+Ici \(\log_2 m=4\) et \(A_m=\tfrac{13}{80}\). Le rapport vaut
+\(k/m=\tfrac38\). L'équation (4) échoue, car
+\[
+\frac{k}{m}+A_m=\frac{43}{80},\qquad
+\frac{c}{43/80}=\frac{64}{43},
+\]
+et \(L>\tfrac{64}{43}\) équivaut à \(3^{43}>2^{64}\). L'inégalité de
+puissances tient. En effet \(m^2\cdot 2^m=2^{24}\), et
+\((2^{24})^{1/5}\cdot 3^6\le 2^{15}\) équivaut à \(3^{30}\le 2^{51}\).
+Le même seuil logarithmique s'écrit \(L\le\tfrac{17}{10}\), car
+\[
+c-A_m=\frac{51}{80},\qquad
+\frac{51/80}{3/8}=\frac{17}{10},
+\]
+et \(3^{10}\le 2^{17}\) équivaut à \(3^{30}\le 2^{51}\) en élevant
+au cube. Explicitement,
+\(3^{30}=205891132094649<2251799813685248=2^{51}\).
+
+Pour le témoin de X45, \(k=8\) et \(k/m=\tfrac12\), les deux seuils
+sont dépassés. Le seuil imprimé l'est par \(2^{64}<3^{53}\), déjà au
+§9. Le seuil logarithmique l'est parce que
+\(\tfrac12>(51/80)/L\) équivaut à \(L>\tfrac{51}{40}\), donc à
+\(3^{40}>2^{51}\). Ainsi \(k/m<d\) pour le \(d\) imprimé n'entraîne
+ni (4), ni la forme logarithmique. X45 reste.
+
+Les deux membres de droite tendent vers \(c/L\), puisque \(A_m\to 0\).
+Si \(\tfrac12<d<c/L\), les deux dépassent \(d\) pour tout \(m\) assez
+grand, et \(k/m<d\) force alors (4) ainsi que la forme logarithmique.
+Le choix
+\[
+d=\frac12\Bigl(\frac{c}{\log_2 3}+\frac12\Bigr)
+\]
+du §9 est dans cet intervalle dès que \(\log_4 3<c<1\). On ne calcule
+pas le rang \(n_1\), et le lemme 2 n'est pas repris.
+
+Les préfixes décimaux ne sont qu'un contrôle. Pour ce couple
+\((c,m)\), le seuil imprimé commence par \(0{,}34224380\ldots\) et le
+seuil logarithmique par \(0{,}40221771\ldots\). Les deux sont
+inférieurs à \(\tfrac12\), et \(\tfrac38\) est entre eux. B23 ne
+dépend pas de cette équivalence.
